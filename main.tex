@@ -1,0 +1,45 @@
+\documentclass[11pt, twocolumn]{scrreprt}
+
+% Gib die Versuschsnummer an, um den entsprechenden Versuchsprotokoll zu laden
+\newcommand{\versuchsnummer}{233}
+
+% \usepackage{Protokolle/\versuchsnummer/Chapter/Messergebnisse}
+
+\usepackage{Versuchsinformationen_PAP2_Gruppe-20}
+\usepackage{style}
+
+\usepackage{pdfpages} % notwendig zum Einbinden von PDF-Seiten
+\usepackage{hyperref} 
+
+\usepackage{pdflscape}
+
+\begin{document}
+\include{title.tex} 
+
+% if tut is english:
+% \include{title_eng.tex} 
+
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\tableofcontents
+
+% Lade die Versuchsnummer-spezifischen Informationen
+\include{Protokolle/\versuchsnummer/Chapter/1_Einleitung}
+\include{Protokolle/\versuchsnummer/Chapter/0_Messdaten}
+\include{Protokolle/\versuchsnummer/Chapter/2_Durchfuehrung}
+\include{Protokolle/\versuchsnummer/Chapter/3_Auswertung}
+\include{Protokolle/\versuchsnummer/Chapter/4_Disskusion}
+\include{Protokolle/\versuchsnummer/Chapter/5_Versuchsprotokoll}
+
+\listoffigures
+\cleardoublepage
+
+\listoftables
+\cleardoublepage
+
+% Beispielhafte Zitierung, damit keine Fehlermeldeung entsteht lol
+% \cite{demtroeder17}
+
+\bibliographystyle{alpha}
+\bibliography{Literaturverzeichnis}
+
+\end{document}

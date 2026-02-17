@@ -1,0 +1,30 @@
+\begin{titlepage}
+\vspace*{2cm} 
+  
+  \centering
+    
+  % Versuchs-Titel
+  {\LARGE\bfseries Protokoll zum Versuch \\[0.2cm]
+  \textit{\versuchsname{\versuchsnummer}} \\[0.5cm] % Vielleicht wieder Anführungszeichen hinzufügen, leider Problem, da ein Leerzeichen falsch hinzugefügt wird.
+  {\large (Versuch {\versuchsnummer})}
+  \vspace{1cm}}
+
+  % Tabelle mit Metadaten
+  {\large
+  \begin{tabular}{@{}rl@{}}
+    Autor:                  & Finn Zeumer (hz334)\\
+    Versuchspatnerin:        & Annika Künstle\\[0.5em]
+    Versuchsbegleiter:      & {\begleiter{\versuchsnummer}}\\[0.5em]
+    Datum der Ausführung:   & {\durchfuehrungsdatum{\versuchsnummer}}\\
+    \small{Abgabedatum:}    & \small{\abgabedatum{\versuchsnummer}}\\
+  \end{tabular}
+  }
+  \vfill
+
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[opacity=1,inner sep=0] at (current page.center)
+      {\includegraphics[width=\paperwidth,height=\paperheight]{BG_Titelseite.pdf}};
+  \end{tikzpicture}
+  
+\end{titlepage}
