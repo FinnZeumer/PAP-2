@@ -25,20 +25,20 @@
 \definecolor{GreenSec}{RGB}{27, 114, 47} % Dark
 \definecolor{GreenTri}{RGB}{103, 218, 184} % Light
 
-\newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
+% \newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
 
 % Font
 \RequirePackage{lmodern}
 
 \RequirePackage[
-  a4paper,             % Papierformat
-  left=1.5cm,            % linker Rand
-  right=1.5cm,           % rechter Rand
-  top=2.5cm,           % oberer Rand
-  bottom=2.5cm,        % unterer Rand
-  includehead,         % Kopfzeile in Randberechnung
-  includefoot,          % Fußzeile in Randberechnung
-  headheight=24pt % Höhe der Kopfzeile
+  a4paper, % Papierformat
+  top=1.5cm,
+  bottom=1.5cm,
+  left= 1.5cm,
+  right= 1.5cm,
+  includehead, % Kopfzeile in Randberechnung
+  includefoot, % Fußzeile in Randberechnung
+  headheight=13.75pt % Höhe der Kopfzeile
 ]{geometry}
 
 
@@ -52,12 +52,13 @@
 % \graphicspath{{img/plots/}{img/versuchsaufbau/}}
 
 % Überschriften
-\renewcommand\thechapter{\Roman{chapter}}
+% \renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thechapter{\arabic{chapter}.}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
 \addtokomafont{chapter}{\color{GreenPrime}}
 \addtokomafont{section}{\color{GreenPrime}}
 
-% % Formeln
+% Formeln
 \renewcommand\theequation{\arabic{equation}}
 
 % KOMA-Paket für Kopf-/Fußzeilen
@@ -69,15 +70,13 @@
 \automark[chapter]{chapter}
 
 
-
-
 % Kopfzeile
-\ihead{Finn Zeumer (hz334)}
-\chead{\versuchsname{\versuchsnummer}}
-\ohead{\headmark}
+\ihead{\raisebox{0.1cm}[0pt][0pt]{Finn Zeumer (hz334)}}
+\chead{\raisebox{0.1cm}[0pt][0pt]{\versuchsname{\versuchsnummer}}}
+\ohead{\raisebox{0.1cm}[0pt][0pt]{\headmark}}
 
 % Fußzeile
-\cfoot{Seite \pagemark}
+\cfoot{\raisebox{-0.25cm}[0pt][0pt]{Seite \pagemark}}
 
 % Auf allen Seiten anwenden
 \pagestyle{scrheadings}
@@ -95,15 +94,13 @@
     urlcolor=GreenPrime
 }
 
-\setlength{\columnsep}{1em}     % Abstand zwischen den Spalten
+\setlength{\columnsep}{0.5em}     % Abstand zwischen den Spalten
 \setlength{\columnseprule}{0pt} % Stärke der Trennlinie (0pt = keine Linie)
 
 % Tabellen design
 \RequirePackage{booktabs}
 \RequirePackage{siunitx}
 \RequirePackage{longtable}
-\RequirePackage{geometry}
-\geometry{margin=2.5cm}
 
 \RequirePackage[table]{xcolor}
 
