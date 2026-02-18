@@ -3,10 +3,207 @@
 
 \section{Aufgabe und Motivation}
 \label{sec:AuM}
+\cite{skriptPAP21}
+Im Rahmen des Praktikums \textit{Fourier-Optik} sollen die Beugungsphänomene eines
+einfachen und eines doppelten Spalts experimentell untersucht werden.
+Ziel ist es, die gemessenen Beugungsbilder mit den theoretischen Vorhersagen
+der Fraunhofer-Beugung zu vergleichen und dabei explizit die
+Zusammenhänge zwischen dem Spaltbild und seiner Fourier-Transformation
+herauszuarbeiten.  Durch die Variation der Spaltbreite und das gezielte
+Ausblenden einzelner Beugungsordnungen wird zudem demonstriert, wie
+Modenfilter die räumliche Frequenzverteilung beeinflussen können.
+Die gewonnenen Erkenntnisse bilden eine wichtige Grundlage für Anwendungen
+wie optische Bildverarbeitung, Spektroskopie und die Entwicklung von
+hochauflösenden Mikroskopen.
 
-\section{Physikalische Grundlage}
+\section{Physikalische Grundlagen}
 \label{sec:PhyBasics}
+Die theoretische Beschreibung beruht auf der Fraunhofer-Beugung, bei der
+die einfallenden Lichtstrahlen als ebenwellig angenommen werden.  Für einen
+einfachen Spalt ergibt sich das komplexe Feld im Fernfeld zu
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+\begin{equation}
+E(\alpha)=E_{0}\,e^{i\omega t}\int_{-d/2}^{d/2}
+e^{-ik\,y\sin\alpha}\,\mathrm{d}y
+\label{eq:integral_spalt}
+\end{equation}
 
+wobei $d$ die Spaltbreite, $k=2\pi/\lambda$ die Wellenzahl und $\alpha$
+der Beobachtungswinkel ist.  Die Auswertung des Integrals liefert
+
+\begin{equation}
+E(\alpha)=E_{0}\,e^{i\omega t}\,d\,\operatorname{sinc}\!\left(
+\frac{\pi d\sin\alpha}{\lambda}\right) .
+\label{eq:sinc_spalt}
+\end{equation}
+
+Die Intensität ist das Quadrat des Betrags des Feldes:
+
+\begin{equation}
+I(\alpha)=I_{0}\,\operatorname{sinc}^{2}\!\left(
+\frac{\pi d\sin\alpha}{\lambda}\right) .
+\label{eq:intensitaet_spalt}
+\end{equation}
+
+Für den Doppelspalt mit Spaltbreite $d$ und Spaltabstand $g$ ergibt sich das
+Feld als Superposition zweier einzelner Spalte:
+
+\begin{equation}
+E_{\text{Doppel}}(\alpha)=2E_{0}\,e^{i\omega t}\,
+\cos\!\left(\frac{\pi g\sin\alpha}{\lambda}\right)\,
+d\,\operatorname{sinc}\!\left(
+\frac{\pi d\sin\alpha}{\lambda}\right) .
+\label{eq:doppel_feld}
+\end{equation}
+
+Damit lautet die Intensitätsverteilung
+
+\begin{equation}
+I_{\text{Doppel}}(\alpha)=I_{0}\,
+\cos^{2}\!\left(\frac{\pi g\sin\alpha}{\lambda}\right)\,
+\operatorname{sinc}^{2}\!\left(
+\frac{\pi d\sin\alpha}{\lambda}\right) .
+\label{eq:doppel_intensitaet}
+\end{equation}
+
+Die Gleichungen~\ref{eq:sinc_spalt} bzw. \ref{eq:doppel_intensitaet}
+zeigen deutlich, dass das Beugungsbild die Fourier-Transformation der jeweiligen
+Spaltfunktion ist.  Durch das Einführen einer Modenblende in der Fourier-Ebene
+können einzelne Nullstellen der \ref{eq:sinc_spalt} bzw. \ref{eq:doppel_intensitaet}
+ausgespart und damit gezielt bestimmte Ordnungen unterdrückt werden.
+
+\section{Versuchsaufbau}
+\label{sec:Versuchsaufbau}
+Der Versuchsaufbau ist im MEssprotokoll, sowie in
+Abbildung~\ref{fig:aufbau} skizziert. Er besteht aus den folgenden Komponenten:
+
+\begin{itemize}
+  \item \textbf{Laser}: Single-Mode-Diodenlaser, Wellenlänge $\lambda\approx635\,$nm,
+        mit einstellbarer Stromversorgung.
+  \item \textbf{Variable Spalte}: ein verstellbarer Einfachspalt bzw. ein Doppelspalthalter,
+        die als Objekt dienen.
+  \item \textbf{Linse $L_{1}$} (Brennweite $f_{1}=80\,$mm):
+        erzeugt die Fourier-Ebene im Abstand $f_{1}$ hinter dem Spalt.
+  \item \textbf{Analysierspalt / Modenblende} in der Fourier-Ebene,
+        über den einzelne Beugungsordnungen selektiv blockiert werden können.
+  \item \textbf{Linse $L_{2}$} (Brennweite $f_{2}$, im Praktikum $f_{2}=100\,$mm):
+        bildet das Beugungsbild auf den Detektor.
+  \item \textbf{Kamera (ThorCam)}: Sensorgröße $4{,}968\,\text{mm}\times3{,}726\,\text{mm}$,
+        Auflösung $1440\times1080$ Pixel, Pixelgröße $3{,}45\,\mu\text{m}$.
+  \item \textbf{Strahlteiler} und \textbf{Umlenkspiegel} zur Führung des Strahls zum Detektor.
+  \item \textbf{Graufilter} zur Intensitätskontrolle.
+\end{itemize}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.85\linewidth]{Versuche/233/img/Versuchsaufbau-Skript.png}
+  \caption{Schematischer Versuchsaufbau für die Fourier-Optik-Messungen.}
+  \label{fig:aufbau}
+\end{figure}
+
+\section{Messmethodik und Datenanalyse}
+\label{sec:Messmethodik}
+Zur Quantifizierung der Beugungsbilder werden zunächst die Pixel-Positionen
+der Minima und Maxima im Kamerabild ermittelt.  Anschließend wird eine
+lineare Eichung zwischen Pixel- und Millimetereinheiten durchgeführt
+($m = 0.0041\;\text{mm/px}$). Mit dieser Skalierung lässt sich der Abstand
+ $d$ zwischen den Beugungsordnungen in physikalische Längen umrechnen,
+woraus über die bekannten Formeln \eqref{eq:intensitaet_spalt} und
+\eqref{eq:doppel_intensitaet} die Spaltbreite  $b$ bzw. der Spaltabstand
+ $g$ bestimmt werden.
+
+
+\section{Beugungsbild des Spalts als Fourier-Transformation der Spaltfunktion}
+\subsection*{Einzelspalt}
+Der Einzelspalt lässt sich durch eine rechteckige Spaltfunktion $f(y)$ beschreiben, die von der transversalen Koordinate $y$ abhängt (vgl.~Abb.~\ref{fig:eins-spalt-funktion}).  
+
+\begin{figure}[h]
+    \includegraphics[width=0.45\textwidth]{Versuche/233/img/Einfachspalt_Rechtecksfunktion.png}
+    \caption{Spaltfunktion des Einfachspalts}
+    \label{fig:eins-spalt-funktion}
+\end{figure}
+
+Die Fourier-Transformierte $F(k_y)$ lautet dann
+
+\begin{equation}
+    F(k_y)= A\,\operatorname{sinc}\!\left(\frac{k_y d}{2}\right),
+    \label{eq:einzelspalt-ft}
+\end{equation}
+wobei die Nullstellen bei
+
+\begin{equation}
+    k_{y,n}= \frac{2\pi n}{d}
+    \label{eq:einzelspalt-nullstellen}
+\end{equation}
+liegen.
+
+Um die ursprüngliche Spaltfunktion zurückzugewinnen, muss das Inverse-Fourier-Integral ausgewertet werden. Da dieses Integral analytisch nicht lösbar ist, wird es numerisch über die symmetrische Beziehung $F(k_y)=F(-k_y)$ berechnet:
+
+\begin{equation}
+    f(y)=\frac{d}{\pi}\int_{0}^{\infty}
+        \operatorname{sinc}\!\left(\frac{k_y d}{2}\right)
+        \cos(k_y y)\, \mathrm{d}k_y .
+    \label{eq:einzelspalt-inv}
+\end{equation}
+
+Durch Beschränkung des Integrationsbereichs bis zur $n$-ten Nullstelle $k_{y,n}$ erhalten wir ein modifiziertes Bild, das nur einen Teil des Spektrums berücksichtigt:
+
+\begin{equation}
+    f_{\text{mod}}(y)=\frac{d}{\pi}\int_{0}^{k_{y,n}}
+        \operatorname{sinc}\!\left(\frac{k_y d}{2}\right)
+        \cos(k_y y)\, \mathrm{d}k_y .
+    \label{eq:einzelspalt-mod}
+\end{equation}
+
+Das Ergebnis wird anschließend quadriert, um die Intensitätsverteilung zu erhalten.
+
+\subsection*{Doppelspalt}
+Für den Doppelspalt wird die Spaltfunktion als Überlagerung zweier um den Abstand $g$ verschobener Einzelspalte modelliert (vgl.~Abb.~\ref{fig:doppelspalt-funktion}).  
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Versuche/233/img/Doppelspalt_Spaltfunktion.png}
+    \caption{Spaltfunktion des Doppelspalts}
+    \label{fig:doppelspalt-funktion}
+\end{figure}
+
+Die Fourier-Transformierte ergibt sich zu
+
+\begin{equation}
+    F(k_y)=2\,d\,\cos\!\left(\frac{k_y g}{2}\right)
+           \operatorname{sinc}\!\left(\frac{k_y d}{2}\right) .
+    \label{eq:doppelspalt-ft}
+\end{equation}
+
+Nach Quadrieren und geeigneter Substitution $k_y = 2\pi \sin\alpha/\lambda$ erhält man die bekannte Intensitätsverteilung des Doppelspalts:
+
+\begin{equation}
+    I(\alpha)=4d^{2}\cos^{2}\!\bigl(\pi g \sin\alpha / \lambda\bigr)\;
+               \operatorname{sinc}^{2}\!\bigl(\pi d \sin\alpha / \lambda\bigr) .
+    \label{eq:doppelspalt-intensitaet}
+\end{equation}
+
+Analog zum Einzelspalt wird das modifizierte Bild durch Beschränkung des Integrals bis zur $n$-ten Nullstelle bestimmt:
+
+\begin{equation}
+    f_{\text{mod}}(y)=\frac{2d}{\pi}\int_{0}^{k_{y,n}}
+        \cos\!\left(\frac{k_y g}{2}\right)
+        \operatorname{sinc}\!\left(\frac{k_y d}{2}\right)
+        \cos(k_y y)\,\mathrm{d}k_y .
+    \label{eq:doppelspalt-mod}
+\end{equation}
+
+\subsection*{Beugungsbilder}
+
+\section{Zusammenfassung des theoretischen Hintergrundes}
+\label{sec:Zusammenfassung}
+Die zentrale Aussage des Versuchs lautet, dass das im Fernfeld beobachtete
+Beugungsbild exakt die Fourier-Transformation der räumlichen
+Spaltfunktion ist.  Für einen rechteckigen Einzelspalt führt dies zu einer
+ $\operatorname{sinc} $-Funktion, während beim Doppelspalt zusätzlich eine
+ $\cos^{2} $-Modulation entsteht, die das Interferenzmuster zwischen den
+beiden Spalten beschreibt. Durch das gezielte Blockieren einzelner
+Fourier-Komponenten (Modenblende) lässt sich das Bild manipulieren und
+so die Wirkung einzelner Frequenzanteile auf die Gesamtdarstellung
+veranschaulichen - ein wichtiges Prinzip für moderne Techniken der
+optischen Bildverarbeitung und spektralen Analyse.

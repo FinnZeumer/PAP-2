@@ -3,4 +3,85 @@
 
 \section{Messverfahren}
 \label{sec:Messverfahren}
+Für die Aufnahme und Auswertung der Beugungsbilder wurde das folgende
+Messprotokoll verwendet. Alle Schritte wurden gemäß den Anweisungen des
+Praktikumsskripts durchgeführt und dokumentiert.
 
+\subsection{Vorbereitung des Aufbaus}
+\begin{enumerate}
+  \item Der Diodenlaser wurde eingeschaltet und auf stabile Ausgangsleistung
+        eingestellt. Der Graufilter wurde zunächst aus dem Strahlengang genommen,
+        um eine ausreichende Intensität für die Justage zu gewährleisten.
+  \item Der variable Einzelspalt (bzw. später der Doppelspalthalter) wurde als
+        Objekt vor dem Laser positioniert. Die Spaltbreite wurde zunächst so gewählt,
+        dass mindestens das Hauptmaximum und fünf Nebenmaxima im Bildsensor erfasst
+        werden konnten (vgl. Abschnitt \ref{sec:PhyBasics}).
+  \item Die Linse $L_{1}$ wurde so platziert, dass ihr Abstand zum Analysierspalt
+        exakt $f_{1}=80\,$mm betrug (vgl. Abb.~\ref{fig:aufbau}).  Dieser Abstand
+        definiert die Fourier-Ebene.
+  \item Der Analysierspalt bzw. die Modenblende wurde in die Fourier-Ebene eingesetzt.
+        Durch schrittweises Schließen des Spalts konnten die gewünschten
+        Beugungsordnungen selektiv abgeschaltet werden.
+  \item Die zweite Linse $L_{2}$ wurde so justiert, dass das Beugungsbild auf dem
+        Detektor scharf abgebildet wird.  Der Strahlteiler und der Umlenkspiegel
+        leiteten das Bild zur ThorCam-Kamera.
+\end{enumerate}
+
+\subsection{Aufnahme von Bildern}
+\begin{enumerate}
+  \item Die Kamera wurde über die Software \texttt{ThorCam} konfiguriert:
+        \begin{itemize}
+          \item Bildformat: \texttt{16-bit TIFF without Annotations}.
+          \item Belichtungszeit so eingestellt, dass weder das Hauptmaximum noch
+                die ersten Nebenmaxima gesättigt waren (vgl. \eqref{eq:intensitaet_spalt}).
+          \item \texttt{Gain}=0.
+        \end{itemize}
+  \item Für jede Spaltbreite bzw. jeden Spaltabstand wurden mindestens drei
+        Bilder aufgenommen:
+        \begin{enumerate}
+          \item Bild mit voller Beugungsordnung (keine Abschattung).
+          \item Bild mit abgeschalteter Nullordnung (Modenblende blockiert $k_y=0$).
+          \item Bild mit abgeschalteten höheren Ordnungen (z.\,B. $\pm1$, $\pm2$).
+        \end{enumerate}
+  \item Zusätzlich wurden für den Doppelspalt Bilder bei verschiedenen
+        Spaltabständen $g$ aufgenommen, um die Interferenzterm
+        $\cos^{2}\!\bigl(\pi g\sin\theta/\lambda\bigr)$ aus
+        \eqref{eq:doppel_intensitaet} zu untersuchen.
+\end{enumerate}
+
+\subsection{Auswertung der Aufnahmen}
+\begin{enumerate}
+  \item Die aufgenommenen TIFF-Dateien wurden in das Analyseprogramm
+        \texttt{Gwyddion} importiert. Dort wurde für jedes Bild ein
+        Intensitätsprofil entlang einer horizontalen Linie durch das
+        Hauptmaximum erzeugt (Menü \texttt{Intensity Profile}).
+  \item Das Profil wurde als Textdatei exportiert, sodass die Intensität
+        $I(x)$ in Abhängigkeit von der Pixelposition $x$ vorliegt.
+  \item Die Pixelpositionen wurden mit der bekannten Pixelgröße
+        $p=3{,}45\,\mu\text{m}$ in physikalische Koordinaten umgerechnet:
+        $$
+          X = p\cdot x .
+        $$
+  \item Zur Kalibrierung der Abszisse wurden die Positionen mehrerer
+        Beugungsminima (mindestens fünf gut sichtbare Minima) gemessen.
+        Aus den bekannten theoretischen Minima-Positionen
+        $x_n = n\lambda f/(d)$ (Einzelspalt) bzw.
+        $x_n = n\lambda f/g$ (Doppelspalt) wurde der Skalierungsfaktor
+        bestimmt und die Bildweite $b$ sowie die Vergrößerung $M=f/b$ berechnet.
+  \item Die gemessenen Intensitätsprofile wurden mit den theoretischen
+        Funktionen \eqref{eq:intensitaet_spalt} bzw. \eqref{eq:doppel_intensitaet}
+        verglichen.  Für die Anpassung wurden die Parameter $d$ (Spaltbreite)
+        und $g$ (Spaltabstand) als freie Variablen in einem nichtlinearen
+        Fit (Levenberg-Marquardt) verwendet.
+\end{enumerate}
+
+\subsection{Dokumentation}
+Alle relevanten Daten wurden archiviert:
+\begin{itemize}
+  \item Rohbilder (TIFF) für Einzel- und Doppelspalt.
+  \item Exportierte Intensitätsprofile (Textdateien).
+  \item Tabellen mit gemessenen Pixel- und Real-Koordinaten der Minima.
+  \item Fit-Ergebnisse inklusive Unsicherheiten für $d$, $g$, $M$ und $b$.
+\end{itemize}
+Diese Unterlagen bilden die Basis für die nachfolgenden Auswertungen und
+Diskussionen im Protokoll.

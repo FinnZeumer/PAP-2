@@ -1,0 +1,47 @@
+\usepackage{amsmath}
+\usepackage{tcolorbox}   
+\usepackage{ifthen}
+\usepackage{graphicx}    
+\usepackage{caption}     
+
+% Results \res[Exponent der 10er Potenz]{Ergebniswert}{Fehler des Ergebnisses}{Einheit}
+\newcommand{\res}[4][0]{
+  \begin{equation}
+      \boxed{{(#2 \pm #3)}
+        \ifthenelse{#1=0}{
+            \,
+          }{
+          \cdot 10^{#1} \,
+        }
+        \mathrm{#4}
+      }
+  \end{equation}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Elements and units %
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\m}[1][\mathrm{}]{\mathrm{\,#1m}} 
+\newcommand{\g}[1][\mathrm{}]{\mathrm{\,#1g}} 
+\newcommand{\s}[1][\mathrm{}]{\mathrm{\,#1s}} 
+\newcommand{\Hz}[1][\mathrm{}]{\mathrm{\,#1Hz}} 
+\newcommand{\J}[1][\mathrm{}]{\mathrm{\,#1J}} 
+\newcommand{\eV}[1][\mathrm{}]{\mathrm{\,#1eV}} 
+\newcommand{\Newt}[1][\mathrm{}]{\mathrm{\,#1N}} 
+\newcommand{\rad}[0]{\mathrm{\,rad}}
+\newcommand{\barp}[1][\mathrm{}]{\mathrm{\,#1bar}} 
+\newcommand{\Pa}[1][\mathrm{}]{\mathrm{\,#1Pa}} 
+\newcommand{\K}[1][\mathrm{}]{\mathrm{\,#1K}} 
+\renewcommand{\l}[1][\mathrm{}]{\mathrm{\,#1l}}
+\newcommand{\mol}[1][\mathrm{}]{\mathrm{\,#1mol}}
+\newcommand{\V}[1][\mathrm{}]{\mathrm{\,#1V}} 
+\newcommand{\A}[1][\mathrm{}]{\mathrm{\,#1A}} 
+\newcommand{\C}[1][\mathrm{}]{\mathrm{\,#1C}} 
+\newcommand{\W}[1][\mathrm{}]{\mathrm{\,#1W}} 
+\newcommand{\T}[1][\mathrm{}]{\mathrm{\,#1T}}
+\renewcommand{\H}[1][\mathrm{}]{\mathrm{\,#1H}}
+\newcommand{\F}[1][\mathrm{}]{\mathrm{\,#1F}}
+\newcommand{\Ohm}[1][\mathrm{}]{\mathrm{\,#1}\Omega} 
+\newcommand{\Celsius}[0]{\mathrm{\,$^\circ$C}}
+\newcommand{\const}[0]{\mathrm{\,const.}}
