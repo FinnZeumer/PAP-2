@@ -1,8 +1,6 @@
-\usepackage{amsmath}
-\usepackage{tcolorbox}   
-\usepackage{ifthen}
-\usepackage{graphicx}    
-\usepackage{caption}     
+%%%%%%%%%%%%%%%
+% newcommands %
+%%%%%%%%%%%%%%%
 
 % Results \res[Exponent der 10er Potenz]{Ergebniswert}{Fehler des Ergebnisses}{Einheit}
 \newcommand{\res}[4][0]{
@@ -17,6 +15,35 @@
       }
   \end{equation}
 }
+
+
+% ----------------------------------------------------------------
+% Angepasste commands, um schneller Grafiken zu importieren
+% Alle Grafiken sollten im Dateinamen keine Leerzeichen haben, 
+% damit die Label vernünftig funktionieren.
+% ----------------------------------------------------------------
+
+% \img[Width]{Path}{Caption}{Label}
+\newcommand{\img}[3][0.85]{
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width = #1 \linewidth]{Versuche/\versuchsnummer/img/#2} % Automatisch im Verzecihnis der Versuchsnummer
+    \caption{#3}
+    \label{fig:#2}
+  \end{figure}
+}
+
+% \dia[Width]{Path}{Caption}{Label}
+\newcommand{\dia}[3][0.95]{
+  \begin{diagramm}[h]
+    \centering
+    \includegraphics[width = #1 \linewidth]{Versuche/\versuchsnummer/img/#2} % Automatisch im Verzecihnis der Versuchsnummer
+    \caption{#3}
+    \label{dia:#2}
+  \end{diagramm}
+}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%
 % Elements and units %

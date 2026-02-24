@@ -10,7 +10,7 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Variation}} \label{eq:variation} \\
     \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
     \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
-    \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
+    \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß'sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
     \Delta f &= \sqrt{(\Delta x)^2 + (\Delta y)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = x + y$}} \label{eq:fehler_summe} \\
     \Delta f &= |a| \Delta x \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = ax$}} \label{eq:fehler_proportional} \\
     \frac{\Delta f}{|f|} &= \sqrt{\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{relativer Fehler für $f = xy$ oder $f = x/y$}} \label{eq:relativer_fehler} \\
@@ -19,17 +19,21 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \twocolumn
 
-\section{Aufgabe 1: }
+Im Folgenden werden nun die Auswertungen zu den einzelnen Aufgaben durchgeführt. Die \hyperref[ch:Auswertung]{Formeln zur Auswertung} sind oben gelistet. Der \hyperref[ch:Python]{Python code} ist am Dokumentende zu finden.
+
+\section{Aufgabe 1: Quantitative Beobachtungen am Einfachspalt}
 \label{sec:A1}
 
-\section{Aufgabe 2: }
+\section{Aufgabe 2: Vermessen der Beugungsstruktur des Einfachspaltes}
 \label{sec:A2}
 
-\section{Aufgabe 3: }
+\section{Aufgabe 3: Vermessen der Beugungsstruktur des Doppelspaltes}
 \label{sec:A3}
 
-\section{Aufgabe 4: }
+\section{Aufgabe 4: Das Objektbild als Fouriersynthese des Beugungsbildes
+am Beispiel des Einfachspaltes}
 \label{sec:A4}
 
-\section{Aufgabe 5: }
+\section{Aufgabe 5: Das Objektbild als Fouriersynthese des Beugungsbildes
+am Beispiel des Doppelspaltes}
 \label{sec:A5}
