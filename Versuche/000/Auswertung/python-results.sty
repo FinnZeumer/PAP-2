@@ -9,19 +9,19 @@
 % |______\___|\__| |___/    |_|\___/_/\_\ 
 
 
-
-Parabel
-newcommand{\par}{y^{2}}
-
-
-beispielFunktion
-newcommand{\bspFunc}{a b^{5} \sqrt{c} - d}
-
-
-errAbs-beispielFunktion
-newcommand{\errAbsbspFunc}{\frac{1}{2} \sqrt{\frac{1}{c} \left(a^{2} b^{10} dc^{2} + 4 c \left(25 a^{2} b^{8} c db^{2} + b^{10} c da^{2} + dd^{2}\right)\right)}}
-
-
-errRel-beispielFunktion
-newcommand{\errRelbspFunc}{\frac{1}{2} \sqrt{\frac{1}{c \left(a b^{5} \sqrt{c} - d\right)^{2}} \left(a^{2} b^{10} dc^{2} + 4 c \left(25 a^{2} b^{8} c db^{2} + b^{10} c da^{2} + dd^{2}\right)\right)}}
-
+% Beispielhafet Tabelle
+\newcommand{\bspTab}{\begin{table}[h]
+\caption{Dies ist die Caption der Tabelle}
+\label{bspTab}
+\begin{tabular}{lll}
+\toprule
+Value [$\mathrm{m}$] & Wert [$\mathrm{V} \cdot 10^{12}$] & $\overline{t} [\mathrm{s}]$ \\
+\midrule
+$5.0 \pm 0.7$ & $0.378 \pm 0.0056894$ & $160.667 \pm 73.334$ \\
+$7.0 \pm 0.6$ & $0.8564 \pm 0.0056894$ & $596.667 \pm 29.68$ \\
+$6.0 \pm 0.7$ & $0.68 \pm 0.0056894$ & $3003.0 \pm 2436.0$ \\
+$7.0 \pm 0.14$ & $0.6894 \pm 0.0056894$ & $567.0 \pm 0.5$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+}

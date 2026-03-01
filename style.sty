@@ -8,7 +8,11 @@
 \usepackage{hyperref} 
 \usepackage{pdflscape}
 
-\usepackage{booktabs} % Wichtig für Pandas zum Importieren von 
+% Wichtig für Pandas zum Importieren von pandas Latex Tables
+\usepackage{booktabs} 
+\usepackage{amstext} % for \text macro
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
 
 % Kodierung und Sprache
 \RequirePackage[utf8]{inputenc}
