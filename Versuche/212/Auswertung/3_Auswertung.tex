@@ -19,17 +19,55 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \twocolumn
 
-\section{Aufgabe 1: }
+\section{Bestimmung der Viskosität nach Stokes mit einem Kugelfallviskosimeter}
 \label{sec:A1}
 
-\section{Aufgabe 2: }
+Es soll zunächst die Viskosität \(\eta\) von Polyethylenglykol (PEG) mit einem Kugelfallviskosimeter nach Stokes bestimmt werden. Dazu werden die Fallzeiten \(t\) von Kugeln mit verschiedenen Durchmessern \(d\) über eine definierte Strecke \(s\) gemessen, um die mittlere Sinkgeschwindigkeit \(v = s/\bar{t}\) zu berechnen. Die Ladenburgsche Korrektur \(\lambda\) wird angewendet, um die Endgeschwindigkeit \(v_s\) zu korrigieren, und die Viskosität \(\eta\) wird aus der umgestellten Stokes'schen Formel \ceq{terminal_velocity} bestimmt. Es wird auch der Übergang von laminarer zu turbulenter Umströmung untersucht, indem die Strömungsregime um die Kugel analysiert werden.
+Dabei wird die mittlere Sinkzeit über das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} bestimmt:
+
+\eq{avg_t}{
+    \overline{t} = \frac{1}{5} \sum_{i=1}^{5} t_i
+}
+
+Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt, dabei wird die Standardabweichung der Messwerte über die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} berechnet und durch die Wurzel der Anzahl der Messwerte geteilt, um den Fehler des Mittelwerts zu erhalten:
+\eq{delta_avg_t}{
+    \Delta \overline{t} = \frac{\sqrt{(\Delta t)^2 + \sigma^2}}{\sqrt{5}}
+}
+
+Dabei ist \(\Delta t\) die Ungenauigkeit der Zeitmessung, welche durch die Reaktionszeit des Experimentators bestimmt wird, wobei die Genauigkeit der Stoppuhr dagegen vernachlässigt werden kann.
+Aus der gemessenen Fallzeit \(t\) wird die mittlere Sinkgeschwindigkeit \(v\) über die Formel \(v = s/\bar{t}\) berechnet, wobei \(s\) die definierte Strecke ist. Die Ungenauigkeit der Geschwindigkeit \(\Delta v\) wird ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt, wobei die Unsicherheiten von \(s\) und \(\bar{t}\) berücksichtigt werden:
+\eq{delta_v}{
+    \Delta v = \sqrt{\left(\frac{1}{\bar{t}} \Delta s\right)^2 + \left(\frac{s}{\bar{t}^2} \Delta \bar{t}\right)^2}.
+}
+
+Damit sind die wichtigen Parameter zur Berechnung der Viskosität \(\eta\) über die umgestellte Stokes'sche Formel gegeben. Über die \ceq{eta_Fallrohr} kann die Viskosität berechnet werden. Dazu wird zunächst die Sinkgeschwindigkeit \(v\) gegen den Quadratradius der Kugeln geplottet. Der Quadratradius ist definiert als:
+\eq{quadratradius}{
+    r^2 = \left(\frac{d}{2}\right)^2.
+}
+
+Seine Ungenauigkeit wird über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt, wobei die Unsicherheit des Durchmessers \(d\) berücksichtigt wird:
+\eq{delta_quadratradius}{
+    \Delta r^2 = \frac{d}{2} \Delta d.
+}
+
+Die Ungenauigkeiten für die Messzeiten (\(\Delta t = \s{0,3}\)) und die Durchmesser (\(\Delta d = \m{0,0025}\)) sind dem Messprotokoll csec{messprotokoll} zu entnehmen. Die Unsicherheit der Strecke (\(s = \m{0,002}\)) wird ebenfalls berücksichtigt, wobei sie durch die Genauigkeit der Skala geschätzt wird.
+
+Darüber hinaus muss noch die Ladenburgsche Korrektur \(\lambda\) (\ceq{ladenburg}) berechnet werden. Seine Unsicherheit \(\Delta \lambda\) wird ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt, wobei die Unsicherheiten der Durchmesser \(d\) und des Fallrohrs \(D\) \footnote{Urspünglich $d_k$ genannt, für bessere Übersicht in $D$ unbenannt.} berücksichtigt werden, welcher in diesem Versuch als exakt angenommen wird:
+
+\eq{delta_lambda}{
+    \Delta \lambda = \frac{2,1}{D} \Delta d
+}
+
+Damit lässt sich die tatsächliche Endgeschwindigkeit \(v_s\) über die Formel \(v_s = v \cdot \lambda\) berechnen, wobei die Unsicherheit \(\Delta v_s\) ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt wird, wobei die Unsicherheiten von \(v\) und \(\lambda\) berücksichtigt werden:
+\eq{delta_v_s}{
+    \Delta v_s = \sqrt{\left(\lambda \Delta v\right)^2 + \left(v \Delta\lambda\right)^2}.
+}
+
+Diese Werte werden nun geplottet. 
+
+\messwerteTab
+
+% \dia{path}{Sinkggeschwindigkeiten der Kugeln gegen den Quadratradius. Es sind sowohl die unkorrierten gemessenen Werte \(v\) als auch die korrigierten Werte \(v_s\) dargestellt. Es ist die lineare Regression durch die korrigierten Werte \(v_s\) für die 5 kleinsten Kugeln eingezeichnet, welche die Stokes'sche Formel \ceq{eta_Fallrohr} widerspiegelt.}
+
+\section{Bestimmung der Viskosität nach Hagen-Poiseuille mit einem Kapillarviskosimeter}
 \label{sec:A2}
-
-\section{Aufgabe 3: }
-\label{sec:A3}
-
-\section{Aufgabe 4: }
-\label{sec:A4}
-
-\section{Aufgabe 5: }
-\label{sec:A5}

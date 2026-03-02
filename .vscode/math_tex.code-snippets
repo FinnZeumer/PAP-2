@@ -1,0 +1,334 @@
+{
+	// Place your Tex workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"Leftrightarrow": {
+		"scope": "latex",
+		"prefix": "\\Lra",
+		"body": "\\Leftrightarrow",
+		"description": "Expands to \\Leftrightarrow"
+	},
+	"Rightarrow": {
+		"scope": "latex",
+		"prefix": "\\Ra",
+		"body": "\\Rightarrow",
+		"description": "Expands to \\Rightarrow"
+	},
+	"Leftarrow": {
+		"scope": "latex",
+		"prefix": "\\La",
+		"body": "\\Leftarrow",
+		"description": "Expands to \\Leftarrow"
+	},
+	"implies": {
+		"scope": "latex",
+		"prefix": "\\im",
+		"body": "\\implies",
+		"description": "Expands to \\implies"
+	},
+	"supset": {
+		"scope": "latex",
+		"prefix": "\\sup",
+		"body": "\\supset",
+		"description": "Expands to \\supset"
+	},
+	"notin": {
+		"scope": "latex",
+		"prefix": "\\nin",
+		"body": "\\notin",
+		"description": "Expands to \\notin"
+	},
+	"equation": {
+		"scope": "latex",
+		"prefix": "\\beq",
+		"body": [
+			"\\begin{equation}",
+			"$1",
+			"\\end{equation}"
+		],
+		"description": "Insert an equation environment"
+	},
+	"align": {
+		"scope": "latex",
+		"prefix": "\\bal",
+		"body": [
+			"\\begin{align}",
+			"$1",
+			"\\end{align}"
+		],
+		"description": "Insert an align environment"
+	},
+	"itemize": {
+		"scope": "latex",
+		"prefix": "\\bit",
+		"body": [
+			"\\begin{itemize}",
+			"\\item $1",
+			"\\end{itemize}"
+		],
+		"description": "Insert an itemize environment"
+	},
+	"enumerate": {
+		"scope": "latex",
+		"prefix": "\\ben",
+		"body": [
+			"\\begin{enumerate}",
+			"\\item $1",
+			"\\end{enumerate}"
+		],
+		"description": "Insert an enumerate environment"
+	},
+	"cases": {
+		"scope": "latex",
+		"prefix": "\\bca",
+		"body": [
+			"\\begin{cases}",
+			"$1",
+			"\\end{cases}"
+		],
+		"description": "Insert a cases environment"
+	},
+	"matrix": {
+		"scope": "latex",
+		"prefix": "\\bma",
+		"body": [
+			"\\begin{matrix}",
+			"$1",
+			"\\end{matrix}"
+		],
+		"description": "Insert a matrix environment"
+	},
+	"NaturalNumbers": {
+		"prefix": "\\N",
+		"body": "\\mathbb{N}",
+		"description": "Expands to \\mathbb{N} (Natural numbers)"
+	},
+	"Integers": {
+		"prefix": "\\Z",
+		"body": "\\mathbb{Z}",
+		"description": "Expands to \\mathbb{Z} (Integers)"
+	},
+	"Rationals": {
+		"prefix": "\\Q",
+		"body": "\\mathbb{Q}",
+		"description": "Expands to \\mathbb{Q} (Rational numbers)"
+	},
+	"Reals": {
+		"prefix": "\\R",
+		"body": "\\mathbb{R}",
+		"description": "Expands to \\mathbb{R} (Real numbers)"
+	},
+	"Complex": {
+		"prefix": "\\C",
+		"body": "\\mathbb{C}",
+		"description": "Expands to \\mathbb{C} (Complex numbers)"
+	},
+	"overline": {
+		"scope": "latex",
+		"prefix": "\\ol",
+		"body": "\\overline{$1}",
+		"description": "Overline"
+	},
+	"underline": {
+		"scope": "latex",
+		"prefix": "\\ul",
+		"body": "\\underline{$1}",
+		"description": "Underline"
+	},
+	"abs": {
+		"scope": "latex",
+		"prefix": "\\abs",
+		"body": "\\left| $1 \\right|",
+		"description": "Absolute value"
+	},
+	"norm": {
+		"scope": "latex",
+		"prefix": "\\norm",
+		"body": "\\left\\lVert $1 \\right\\rVert",
+		"description": "Norm"
+	},
+	"partialfrac": {
+		"scope": "latex",
+		"prefix": "\\par",
+		"body": "\\frac{\\partial ${1:f}}{\\partial ${2:x}}",
+		"description": "Partial derivative fraction"
+	},
+	"partialdiff": {
+		"scope": "latex",
+		"prefix": "\\pdt",
+		"body": "\\frac{\\partial}{\\partial ${1:x}}",
+		"description": "Partial derivative"
+	},
+	"diff": {
+		"scope": "latex",
+		"prefix": "\\dt",
+		"body": "\\frac{d}{dx}",
+		"description": "Differential operator"
+	},
+	"int": {
+		"scope": "latex",
+		"prefix": "\\int",
+		"body": "\\int_{${1:a}}^{${2:b}} ${3:f} \\, dx",
+		"description": "Integral with limits"
+	},
+	"sum": {
+		"scope": "latex",
+		"prefix": "\\sum",
+		"body": "\\sum_{${1:i}=${2:a}}^{${3:b}} ${4:f}",
+		"description": "Summation with limits"
+	},
+	"lim": {
+		"scope": "latex",
+		"prefix": "\\lim",
+		"body": "\\lim_{${1:n \\to \\infty}} ${2:f(n)}",
+		"description": "Limit"
+	},
+	"max": {
+		"scope": "latex",
+		"prefix": "\\max",
+		"body": "\\max_{${1:x \\in X}} ${2:f(x)}",
+		"description": "Maximum"
+	},
+	"min": {
+		"scope": "latex",
+		"prefix": "\\min",
+		"body": "\\min_{${1:x \\in X}} ${2:f(x)}",
+		"description": "Minimum"
+	},
+// The following commads make only sense if info-boxen.sty is used.
+	"definitionBox": {
+		"scope": "latex",
+		"prefix": "\\defb",
+		"body": [
+			"\\begin{definition}{$2}",
+			"    $0",
+			"\\end{definition}"
+		],
+		"description": "Insert a styled definition box"
+	},
+	"satzBox": {
+		"scope": "latex",
+		"prefix": "\\satzb",
+		"body": [
+			"\\begin{satz}{$2:Heading-name}",
+			"    $0",
+			"\\end{satz}"
+		],
+		"description": "Insert a styled Satz box"
+	},
+	"theoremBox": {
+		"scope": "latex",
+		"prefix": "\\thmb",
+		"body": [
+			"\\begin{theorem}",
+			"    $0",
+			"\\end{theorem}"
+		],
+		"description": "Insert a styled theorem box"
+	},
+	"lemmaBox": {
+		"scope": "latex",
+		"prefix": "\\lemb",
+		"body": [
+			"\\begin{lemma}[${}]{$2}",
+			"    $0",
+			"\\end{lemma}"
+		],
+		"description": "Insert a styled lemma box"
+	},
+	"korollarBox": {
+		"scope": "latex",
+		"prefix": "\\korb",
+		"body": [
+			"\\begin{korollar}",
+			"    $0",
+			"\\end{korollar}"
+		],
+		"description": "Insert a styled korollar box"
+	},
+	"beispielBox": {
+		"scope": "latex",
+		"prefix": "\\bspb",
+		"body": [
+			"\\begin{beispielbox}",
+			"    $0",
+			"\\end{beispielbox}"
+		],
+		"description": "Insert a styled example box"
+	},
+	"beweisBox": {
+		"scope": "latex",
+		"prefix": "\\bewb",
+		"body": [
+			"\\begin{beweisbox}",
+			"    $0",
+			"\\end{beweisbox}"
+		],
+		"description": "Insert a styled proof box"
+	},
+	"bemerkungBox": {
+		"scope": "latex",
+		"prefix": "\\bemb",
+		"body": [
+			"\\begin{bemerkungbox}",
+			"    $0",
+			"\\end{bemerkungbox}"
+		],
+		"description": "Insert a styled remark box"
+	},
+	"motivationBox": {
+		"scope": "latex",
+		"prefix": "\\motb",
+		"body": [
+			"\\begin{motivationbox}",
+			"    $0",
+			"\\end{motivationbox}"
+		],
+		"description": "Insert a styled motivation box"
+	},
+	"explanationBox": {
+		"scope": "latex",
+		"prefix": "\\expb",
+		"body": [
+			"\\begin{explanation}",
+			"    $0",
+			"\\end{explanation}"
+		],
+		"description": "Insert a styled explanation box"
+	},
+
+// Here are just styling elements for text, for easier writing.
+	"boldText": {
+		"scope": "latex",
+		"prefix": "\\bl",
+		"body": "\\textbf{${1:Important text}}",
+		"description": "Bold important text"
+	},
+	"emphasizeText": {
+		"scope": "latex",
+		"prefix": "\\emph",
+		"body": "\\emph{${1:Emphasized text}}",
+		"description": "Emphasized text"
+	},
+	"italicText": {
+		"scope": "latex",
+		"prefix": "\\it",
+		"body": "\\textit{${1:Italic text}}",
+		"description": "Italic text"
+	},
+	"underlineText": {
+		"scope": "latex",
+		"prefix": "\\ul",
+		"body": "\\underline{${1:Underlined text}}",
+		"description": "Underlined text"
+	},
+	"redText": { //Mostly used for higligting ToDos!
+		"scope": "latex",
+		"prefix": "\\rtxt",
+		"body": "\\textcolor{red}{${1:Red text}}",
+		"description": "Red colored text"
+	},
+}

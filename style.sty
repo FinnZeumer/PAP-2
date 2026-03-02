@@ -66,13 +66,14 @@
 
 % Überschriften
 % \renewcommand\thechapter{\Roman{chapter}}
-\renewcommand\thechapter{\arabic{chapter}.}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thechapter}{\arabic{chapter}.}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \addtokomafont{chapter}{\color{GreenPrime}}
 \addtokomafont{section}{\color{GreenPrime}}
 
 % Grafiken
-\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thefigure}{\thechapter.\Roman{figure}}
+
 \usepackage[
   labelfont=bf,                
   textfont=it,                 
@@ -81,13 +82,13 @@
   singlelinecheck=false        
 ]{caption}
 
-\renewcommand{\thetable}{T-\Roman{table}}
+\renewcommand{\thetable}{\thechapter\Roman{table}}
 
 
 
 
 % Formeln
-\renewcommand\theequation{\arabic{equation}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 
 % KOMA-Paket für Kopf-/Fußzeilen
 \RequirePackage[automark,headsepline,footsepline]{scrlayer-scrpage}
