@@ -63,11 +63,28 @@ Damit lässt sich die tatsächliche Endgeschwindigkeit \(v_s\) über die Formel 
     \Delta v_s = \sqrt{\left(\lambda \Delta v\right)^2 + \left(v \Delta\lambda\right)^2}.
 }
 
-Diese Werte werden nun geplottet. 
+Aus den in \ctab{messwerteTab} zusammengefassten Messwerten können nun die Werte für den Plot von \(v\) gegen \(r^2\) berechnet werden.
 
 \messwerteTab
 
 % \dia{path}{Sinkggeschwindigkeiten der Kugeln gegen den Quadratradius. Es sind sowohl die unkorrierten gemessenen Werte \(v\) als auch die korrigierten Werte \(v_s\) dargestellt. Es ist die lineare Regression durch die korrigierten Werte \(v_s\) für die 5 kleinsten Kugeln eingezeichnet, welche die Stokes'sche Formel \ceq{eta_Fallrohr} widerspiegelt.}
+
+Es lässt sich beobachten, dass für kleine Kugelradien  die gemessenen Werte \(v\) und die korrigierten Werte \(v_s\) nahezu identisch sind, was darauf hindeutet, dass die Ladenburgsche Korrektur in diesem Bereich vernachlässigbar ist. Für größere Kugelradien hingegen weichen die unkorrierten Werte \(v\) deutlich von den korrigierten Werten \(v_s\) ab, was die zunehmende Bedeutung der Ladenburgschen Korrektur bei größeren Kugeln verdeutlicht. 
+Jedoch ist auch zu beobachten, dass selbst die korrigierten Werte \(v_s\) für die größten Kugeln nicht mehr der linearen Beziehung entsprechen, die durch die Stokes'sche Formel \ceq{eta_Fallrohr} beschrieben wird. Dies deutet darauf hin, dass bei größeren Kugeln der Übergang von laminarer zu turbulenter Umströmung stattfindet, wodurch die Stokes'sche Formel nicht mehr gültig ist.
+Die Steigung $m$ der linearen Regression berechnet sich zu
+
+\eq{steigungA1}{
+   k (x \pm errx) \frac{1}{ms}
+}
+
+Smoit ist die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq{eta_Fallrohr} berechnet werden, wobei die Unsicherheit \(\Delta \eta\) ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt wird, wobei die Unsicherheiten der Steigung \(m\) und der Dichteunterschiede \(\rho_k - \rho_f\) berücksichtigt werden:
+
+\eq{delta_eta}{
+    \Delta \eta = \sqrt{\left(\frac{2}{9} g r^2 \frac{1}{m} \Delta (\rho_k - \rho_f)\right)^2 + \left(\frac{2}{9} g r^2 \frac{\rho_k - \rho_f}{m^2} \Delta m\right)^2}.
+}
+\eq{delta_eta2}{
+    \Delta \eta = \frac{2gr^2}{9}\sqrt{\left(\frac{1}{m} \Delta (\rho_k - \rho_f)\right)^2 + \left(\frac{\rho_k - \rho_f}{m^2} \Delta m\right)^2}.
+}
 
 \section{Bestimmung der Viskosität nach Hagen-Poiseuille mit einem Kapillarviskosimeter}
 \label{sec:A2}
