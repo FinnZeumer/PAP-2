@@ -48,6 +48,32 @@
   \glqq #1\grqq
 }
 
+% ----------------------------------------------------------------
+% Comands spezifisch für ein schöneres und schnelleres citen von, 
+% z.B. Literatur oder Abbildungen
+% ----------------------------------------------------------------
+
+% Die Eingabe ist das vergebene Label, z.B. \cabb{label} für eine Abbildung, \ctab{label} für eine Tabelle, \cdig{label} für ein Diagramm und \ceq{label} für eine Gleichung
+\newcommand{\cabb}[1]{\hyperref[fig:#1]{Abbildung \ref{fig:#1}}} % Abbildung zitieren
+\newcommand{\ctab}[1]{\hyperref[tab:#1]{Tabelle \ref{tab:#1}}} % Tabelle zitieren
+\newcommand{\cdig}[1]{\hyperref[dia:#1]{Diagramm \ref{dia:#1}}} % Diagramm zitieren
+\newcommand{\ceq}[1]{\hyperref[eq:#1]{Gleichung \ref{eq:#1}}} % Gleichung zitieren
+\newcommand{\cch}[1]{\hyperref[ch:#1]{Kapitel \ref{ch:#1}}} % Kaapitel zitieren
+\newcommand{\csec}[1]{\hyperref[sec:#1]{Sektion \ref{sec:#1}}} % Sektion zitieren
+
+
+% ----------------------------------------------------------------
+% Comands spezifisch für schnelles schreiben von Formeln
+% ----------------------------------------------------------------
+
+\newcommand{\eq}[2]{
+   \begin{equation}
+    \label{eq:#1}
+    #2
+  \end{equation}
+}
+
+
 %%%%%%%%%%%%%%%%%%%%%%
 % Elements and units %
 %%%%%%%%%%%%%%%%%%%%%%

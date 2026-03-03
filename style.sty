@@ -8,6 +8,12 @@
 \usepackage{hyperref} 
 \usepackage{pdflscape}
 
+% Wichtig für Pandas zum Importieren von pandas Latex Tables
+\usepackage{booktabs} 
+\usepackage{amstext} % for \text macro
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+
 % Kodierung und Sprache
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
@@ -30,7 +36,7 @@
 \definecolor{BlueSec}{RGB}{102, 153, 255}
 \definecolor{BlueTri}{RGB}{0, 51, 153}
 
-%Colors for PAP2
+% Colors for PAP2
 \definecolor{GreenPrime}{RGB}{27, 169, 127} % Title
 \definecolor{GreenSec}{RGB}{27, 114, 47} % Dark
 \definecolor{GreenTri}{RGB}{103, 218, 184} % Light
@@ -60,13 +66,14 @@
 
 % Überschriften
 % \renewcommand\thechapter{\Roman{chapter}}
-\renewcommand\thechapter{\arabic{chapter}.}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thechapter}{\arabic{chapter}.}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \addtokomafont{chapter}{\color{GreenPrime}}
 \addtokomafont{section}{\color{GreenPrime}}
 
 % Grafiken
-\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thefigure}{\thechapter.\Roman{figure}}
+
 \usepackage[
   labelfont=bf,                
   textfont=it,                 
@@ -75,9 +82,13 @@
   singlelinecheck=false        
 ]{caption}
 
+\renewcommand{\thetable}{\thechapter\Roman{table}}
+
+
+
 
 % Formeln
-\renewcommand\theequation{\arabic{equation}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 
 % KOMA-Paket für Kopf-/Fußzeilen
 \RequirePackage[automark,headsepline,footsepline]{scrlayer-scrpage}

@@ -2,5 +2,20 @@
 \label{ch:Durchfuehrung}
 
 \section{Messverfahren}
-\label{sec:Messverfahren}
+\label{sec:Messverfahren}\cite{skriptPAP21}
 
+Vor Beginn der Messungen ist sicherzustellen, dass das Messgefäß sauber ist und keine Luftblasen an den Kugeln haften. Zur Vermeidung von anhaftenden Luftblasen werden die Kugeln vor dem Einsetzen in ein Becherglas mit etwas Polyethylenglykol benetzt und vorsichtig geschwenkt; anschließend werden sie mit einer Pinzette in das Fallgefäß eingebracht. Die Temperatur der Flüssigkeit ist während der Messungen zu protokollieren, da Dichte und Viskosität temperaturabhängig sind.
+
+\img{Versuchsaufbau-Skript}{Bild des Versuchsaufbaus gemäß Skript.}
+
+Beim Kugelfallversuch wird für jeden Kugeldurchmesser über eine festgelegte Strecke \(s\) die Fallzeit \(t\) gemessen; pro Durchmesser werden mehrere Messungen (typischerweise fünf) durchgeführt, um Mittelwert und Standardfehler zu bestimmen. Die Messstrecke ist so zu wählen, dass die Kugel beim Passieren der oberen Markierung bereits die stationäre Sinkgeschwindigkeit erreicht hat; die mittlere Sinkgeschwindigkeit ergibt sich dann aus \(v=s/\bar{t}\). Zur Korrektur des endlichen Rohrdurchmessers wird die Ladenburgsche Korrektur \(\lambda\) nach \ceq{ladenburg} angewendet und die korrigierten Geschwindigkeiten gegen \(r^2\) aufgetragen. Aus der Steigung der linearen Ausgleichsgeraden im Bereich gültiger laminarer Strömung folgt die Viskosität \(\eta\) über Umstellen von \ceq{terminal_velocity}. Während der Messung ist auf zentrischen Einwurf, das Vermeiden von seitlichem Abdriften und auf das vollständige Benetzen der Kugeln zu achten, da diese Effekte systematische Fehler verursachen können.
+
+\img[.5]{Viskositqet_durch_zylinder}{Schematische Darstellung für den ersten Veruchsteil: Eine Kugel fällt durch eine Flüssigkeitssäule, die von einem Zylinder begrenzt wird.}
+
+Beim Kapillarversuch wird die Präzisionskapillare verwendet, um den Volumenstrom \(\dot{V}\) bei gegebener hydrostatischer Druckdifferenz zu messen. Nach Öffnen des Hahns wird gewartet, bis sich ein stabiler Tropfenstrom einstellt; anschließend werden die Zeiten für definierte Volumina (z.\,B. Zwischenwerte bei 5, 10, 15, 20, 25\,cm\(^3\)) notiert und die Anfangs‑ und Endhöhe \(h_A\), \(h_E\) der Flüssigkeitssäule abgelesen. Für die Berechnung der mittleren Druckdifferenz wird der Mittelwert \(\Delta p = \rho_f g \tfrac{h_A+h_E}{2}\) verwendet; der Volumenstrom \(\dot{V}\) ergibt sich als Steigung der \(V(t)\)-Kurve. Mit \ceq{poiseuille_Q} lässt sich daraus die Viskosität \(\eta\) bestimmen. Zwischenwerte dienen der Kontrolle auf zeitliche Drift des Volumenstroms und reduzieren das Risiko systematischer Fehler durch einmalige Ausreißer.
+
+\img{Geschwindigketisprofil_roht}{Schematische Darstellung für den zweiten Versuchsteil: Eine Flüssigkeit fließt durch ein Rohr, wobei die Geschwindigkeitsverteilung parabolisch ist.}
+
+Bei der Datenverarbeitung werden für alle Messgrößen die Messunsicherheiten mittels Gaußscher Fehlerfortpflanzung berücksichtigt. Für die Kugelfallmessungen werden Mittelwerte und Standardfehler der Zeiten berechnet, die Unsicherheit der Geschwindigkeit aus den Unsicherheiten von \(s\) und \(\bar{t}\) bestimmt und die Ladenburg‑Korrektur mit ihrem Fehler berücksichtigt. Für die Kapillarwerte werden die Unsicherheiten von \(L\), \(R\), \(\Delta p\) und \(\dot{V}\) in die Fehlerrechnung der Viskosität nach \ceq{poiseuille_Q} einbezogen. Abschließend werden die beiden bestimmten Werte \(\eta_{\mathrm{Stokes}}\) und \(\eta_{\mathrm{HP}}\) unter Berücksichtigung der jeweiligen Unsicherheiten verglichen und Abweichungen in Einheiten der kombinierten Unsicherheit bewertet.
+
+Mehrfachmessungen reduzieren zufällige Fehler; bei sichtbaren Luftblasen oder deutlich abweichenden Einzelmessungen sind die betroffenen Messreihen zu verwerfen. Die Einschwingzeit \(\tau\) aus \ceq{tau} kann zur Abschätzung verwendet werden, ob die gewählte Messstrecke \(s\) groß genug ist, damit die Kugel die stationäre Geschwindigkeit erreicht hat.

@@ -4,9 +4,80 @@
 \section{Aufgabe und Motivation}
 \label{sec:AuM}
 
+Ziel des Versuchs ist die Bestimmung der dynamischen Viskosität \(\eta\) von Polyethylenglykol (PEG) mit zwei komplementären Messverfahren: dem Kugelfallviskosimeter nach Stokes und dem Kapillarviskosimeter nach Hagen‑Poiseuille. Beim Kugelfallversuch wird zusätzlich der Übergang von laminarer zu turbulenter Umströmung der Kugel untersucht, um die Gültigkeitsgrenze des Stokes'schen Gesetzes zu bestimmen. Die mit beiden Methoden erhaltenen Werte werden abschließend verglichen und auf Konsistenz unter Berücksichtigung der Messunsicherheiten geprüft.
+
 \section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+\label{sec:PhyBasics} \cite{skriptPAP21}
+
+Die innere Reibung einer Newtonschen Flüssigkeit lässt sich durch das Verhältnis der tangentialen Scherkraft \(F\) zur Fläche \(A\) und zum Geschwindigkeitsgradienten \(\mathrm{d}v/\mathrm{d}z\) beschreiben. Diese Beziehung definiert die dynamische Viskosität \(\eta\):
+\eq{newton_shear}{
+  F \;=\; \eta\,A\,\frac{\mathrm{d}v}{\mathrm{d}z}.
+}
+Die Einheit von \(\eta\) ist \(\mathrm{Pa\cdot s}\). Auf diese Grundgleichung wird in der Herleitung der folgenden Formeln zurückgegriffen; Verweise erfolgen mit \ceq{newton_shear}.
+
+Für eine Kugel mit Radius \(r\), die sich mit konstanter Geschwindigkeit \(v\) durch eine viskose Flüssigkeit bewegt, gilt das Stokes'sche Gesetz für die Reibungskraft:
+\eq{stokes}{
+  F_{\mathrm{R}} \;=\; 6\pi\,\eta\,r\,v.
+}
+
+
+Da in einem realen Fallrohr der Raum nicht unendlich ist, wird die Reibung mit einem Korrekturfaktor \(\lambda\) (Ladenburgsche Korrektur) angepasst; eine gebräuchliche Näherung lautet
+\eq{ladenburg}{
+  \lambda \;=\; 1 + \alpha\,\frac{r}{R},
+}
+wobei \(R\) der Radius des Fallrohres ist und \(\alpha\) in diesem Versuch \(2{,}1\) beträgt. Die korrigierte Reibung ist dann \(F_{\mathrm{R}}=6\pi\eta r v\,\lambda\); siehe \ceq{stokes} und \ceq{ladenburg}.
+
+\img[0.9]{Definition_Viskositaet}{Gedankliche Darstellung der Viskosität als Proportionalitätsfaktor zwischen Scherkraft und Geschwindigkeitsgradient.}
+
+Für eine fallende Kugel mit Kugeldichte \(\rho_k\), Flüssigkeitsdichte \(\rho_f\) und Kugelvolumen \(V_k=\tfrac{4}{3}\pi r^3\) stellt sich im stationären Zustand ein Kräftegleichgewicht zwischen Gewichtskraft, Auftrieb und Reibung ein:
+\eq{force_balance}{
+  m\,g - \rho_f V_k g - 6\pi\eta r\,\lambda\,v_s \;=\; 0.
+}
+Aus \ceq{force_balance} folgt die für das Kugelfallviskosimeter relevante Beziehung für die Endgeschwindigkeit \(v_s\):
+\eq{terminal_velocity}{
+  v_s \;=\; \frac{2}{9}\,\frac{(\rho_k-\rho_f)\,g\,r^2}{\eta}\,\frac{1}{\lambda}.
+}
+Diese Gleichung wird zur Bestimmung von \(\eta\) aus gemessenen Sinkgeschwindigkeiten verwendet; Verweise erfolgen mit \ceq{terminal_velocity}.
+
+Die zeitliche Entwicklung der Geschwindigkeit \(v(t)\) einer Kugel ergibt sich aus der Bewegungsgleichung mit linearer Reibung und lässt sich schreiben als
+\eq{dvdt}{
+  m\,\frac{\mathrm{d}v}{\mathrm{d}t} \;=\; m g - \rho_f V_k g - 6\pi\eta r\,\lambda\,v(t).
+}
+Mit der Anfangsbedingung \(v(0)=0\) ist die Lösung
+\eq{tau}{
+  v(t) \;=\; v_s\Bigl(1 - \exp\!\bigl(-t/\tau\bigr)\Bigr), \qquad
+  \tau \;=\; \frac{m}{6\pi\eta r\,\lambda},
+}
+wobei \(\tau\) die charakteristische Einschwingzeit angibt; auf diese Weise lässt sich abschätzen, nach welcher Zeit die Kugel praktisch die Endgeschwindigkeit erreicht.
+
+\img[0.9]{Laminar_vs_Turbulent-Ball}{Schematische Darstellung der Strömungsregime um eine Kugel: Laminar (links) mit symmetrischem Stromlinienmuster, (rechts) mit unregelmäßigen Wirbeln.}
+
+Für die laminare Rohrströmung liefert die Integration des Scherungsfeldes das parabolische Geschwindigkeitsprofil
+\eq{poiseuille_vr}{
+  v(r) \;=\; \frac{\Delta p}{4\eta L}\,\bigl(R^2 - r^2\bigr),
+}
+wobei \(\Delta p = p_1 - p_2\) die Druckdifferenz über die Rohrlänge \(L\) ist. Das daraus resultierende Volumenstromgesetz lautet
+\eq{poiseuille_Q}{
+  \dot{V} \;=\; \frac{\pi\,\Delta p\,R^4}{8\,\eta\,L}.
+}
+Mit \ceq{poiseuille_Q} lässt sich \(\eta\) aus gemessenen Volumenströmen, Rohrgeometrie und Druckdifferenz bestimmen.
+
+Die dimensionslose Reynoldszahl charakterisiert das Verhältnis von Trägheits- zu Reibungskräften und ist definiert durch
+\eq{reynolds}{
+  \mathrm{Re} \;=\; \frac{\rho\,v\,L}{\eta},
+}
+wobei \(L\) eine charakteristische Länge ist (für die Kugelbewegung \(L=2r\), für Rohrströmung \(L=2R\)). Für Rohrströmungen liegt der Übergang zu Turbulenz typischerweise bei \(\mathrm{Re}\approx 2300\); für die Umströmung einer Kugel ist der kritische Bereich deutlich kleiner (experimentell \(\mathrm{Re}_{\mathrm{krit}}\sim 1\)). Verweise auf diese Größe erfolgen mit \ceq{reynolds}.
+
+\subsection*{Kugelfallviskosimeter nach Stoke}
+\label{ssec:Kugelfallviskosimeter}
+Wird eine Kugel der Dichte $\rho_k$ und des Volumens $V_k$ in ein senkrechtes, mit einer Flüssigkeit der Dichte $\rho_f$ gefülltes Rohr fallen gelassen, so wirken drei Kräfte auf sie. Die Gewichtskraft beträgt $F_g = \rho_k V_k g$, während die Auftriebskraft durch die verdrängte Flüssigkeit als $F_a = -\,\rho_f V_k g$ wirkt. Zusätzlich tritt eine Reibungskraft $F_r = -6\pi \eta r\, v$ auf, die proportional zur Geschwindigkeit $v$ der fallenden Kugel ist. Da diese Reibungskraft mit zunehmender Geschwindigkeit anwächst, stellt sich nach kurzer Zeit ein stationärer Zustand ein, in dem sich Gewichtskraft, Auftrieb und Reibungskraft genau ausgleichen. Aus diesem Kräftegleichgewicht ergibt sich für die dynamische Viskosität der Flüssigkeit der Ausdruck
+
+\eq{eta_Fallrohr}{
+  \eta = \frac{2}{9}\, g\, \frac{\rho_k - \rho_f}{v}\, r^2,
+}
+
+der es ermöglicht, die Viskosität aus der gemessenen Fallgeschwindigkeit der Kugel zu bestimmen.
 
 \subsubsection*{Skizze des Versuchsaufbaus}
 \label{sec:Skizze}
-
+Der Versuchsaufbau besteht aus einem zylindrischen Messgefäß mit Präzisionskapillare (Länge \(L\), Innendurchmesser \(2R\)), mehreren POM‑Kugeln verschiedener Durchmesser, Thermometern zur Bestimmung der Flüssigkeitstemperatur sowie Stoppuhren und Messzylindern zur Volumenstrommessung. Grafiken und Abbildungen werden separat eingefügt; hier genügt die textliche Beschreibung der relevanten Größen und Messgrößen.
