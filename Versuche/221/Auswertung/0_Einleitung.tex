@@ -1,12 +1,143 @@
-\chapter{Einleitung}
-\label{ch:Einleitung}
+\chapter{Einleitung} \label{ch:Einleitung}
+\cite{skriptPAP21}
 
-\section{Aufgabe und Motivation}
-\label{sec:AuM}
+\section{Aufgabe und Motivation} \label{sec:AuM}
+Adiabatische Zustandsänderungen spielen in vielen physikalischen und technischen Prozessen eine zentrale Rolle, insbesondere immer dann, wenn Vorgänge so schnell ablaufen, dass praktisch kein Wärmeaustausch mit der Umgebung stattfindet. Beispiele sind Schallausbreitung in Gasen, schnelle Kompressions- und Expansionsprozesse in Kolbenmaschinen oder Strömungsvorgänge in Düsen. Das Verhalten eines idealen Gases bei solchen Prozessen wird im Wesentlichen durch den Adiabatenkoeffizienten \(\kappa\) beschrieben, der das Verhältnis der spezifischen Wärmekapazitäten bei konstantem Druck und konstantem Volumen charakterisiert.
 
-\section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+Ziel dieses Versuchs ist es, den Adiabatenkoeffizienten \(\kappa\) für Luft mit zwei unterschiedlichen Methoden zu bestimmen und die Ergebnisse miteinander zu vergleichen. Zusätzlich wird \(\kappa\) für Argon mit der Methode nach Rüchardt bestimmt und mit theoretisch erwarteten Literaturwerten verglichen. Die beiden verwendeten Verfahren sind die Methode nach Clément und Desormes, bei der Druckänderungen in einem Gasbehälter ausgewertet werden, sowie die Methode nach Rüchardt, bei der die Schwingung eines Körpers auf einer Gassäule untersucht wird. Durch den Vergleich der experimentell bestimmten Werte mit den theoretischen Erwartungen und untereinander lassen sich sowohl die Aussagekraft der zugrunde liegenden Modelle als auch die Genauigkeit und systematischen Unsicherheiten der Messmethoden diskutieren.
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+\section{Physikalische Grundlage} \label{sec:PhyBasics}
+Die Zustandsgrößen eines idealen Gases sind durch die Zustandsgleichung
+\eq{ideal_gas}{
+pV = Nk_\mathrm{B} T
+}
+verknüpft, wobei \(p\) der Druck, \(V\) das Volumen, \(T\) die Temperatur, \(N\) die Teilchenzahl und \(k_\mathrm{B}\) die Boltzmann-Konstante ist. Für quasistatische adiabatische Zustandsänderungen eines idealen Gases gilt die Poisson-Gleichung
+\eq{poisson}{
+p V^{\kappa} = \text{const.}
+}
+Der dimensionslose Adiabatenkoeffizient \(\kappa\) ist definiert als Verhältnis der molaren Wärmekapazitäten bei konstantem Druck \(C_p\) und konstantem Volumen \(C_V\):
+\eq{k_def}{
+\kappa = \frac{C_p}{C_V} \, .
+}
+Für ideale Gase gilt zudem die Beziehung
+\eq{cp_cv_R}{
+C_p - C_V = R \, ,
+}
+wobei \(R\) die universelle Gaskonstante ist. Unter Verwendung des Gleichverteilungssatzes lässt sich \(C_V\) über die Anzahl der Freiheitsgrade \(f\) eines Gasmoleküls ausdrücken. Für ein ideales Gas mit \(f\) Freiheitsgraden gilt
+\eq{cv_f}{
+C_V = \frac{f}{2} R \, , \qquad C_p = C_V + R = \frac{f+2}{2} R \, ,
+}
+sodass sich \(\kappa\) in Abhängigkeit von \(f\) schreiben lässt:
+\eq{k_f}{
+\kappa = \frac{C_p}{C_V} = \frac{f+2}{f} \, .
+}
+Für einatomige Gase (z.\,B. Argon) mit \(f \approx 3\) ergibt sich \(\kappa = 5/3\), für zweiatomige Gase (z.\,B. Stickstoff, Sauerstoff als Hauptbestandteile der Luft) mit \(f \approx 5\) folgt \(\kappa = 7/5\). In realen Gasen können zusätzliche Rotations- und Schwingungsfreiheitsgrade angeregt sein, sodass die effektive Zahl der Freiheitsgrade größer wird und der experimentell bestimmte Adiabatenkoeffizient von diesen einfachen theoretischen Werten abweichen kann.
 
+\subsection*{Clément und Desormes}
+\img{CuD-Veruschsaufbau}{Schematischer Aufbau des Versuchs nach Clément und Desormes.}
+
+Die Methode nach Clément und Desormes beruht auf der Analyse eines Kreisprozesses in einem luftgefüllten Gasbehälter, dessen Druck über einen Luftbalg erhöht und über ein Manometer beobachtet wird. Zunächst wird durch Pumpen mit dem Luftbalg ein Überdruck erzeugt. Nach ausreichender Wartezeit stellt sich wieder Raumtemperatur ein, und das Gas befindet sich im Zustand
+
+\emph{Zustand 1:}
+\eq{CD_state1}{
+ V_1,\quad p_1 = b + h_1,\quad T_1 \, ,
+}
+wobei \(b\) der äußere Luftdruck, \(h_1\) die am Manometer abgelesene Höhendifferenz und \(V_1\) das Volumen des Gases im Behälter sind.
+
+Anschließend wird der Gasauslass kurz geöffnet, sodass sich der Druck im Behälter schnell an den Außendruck \(b\) angleicht. Aufgrund der kurzen Dauer kann der Prozess als adiabatisch betrachtet werden. Es entweicht Gas, das Volumen des verbleibenden Gases vergrößert sich effektiv um \(\Delta V\), und die Temperatur sinkt auf \(T_2 = T_1 - \Delta T\). Der Zustand nach dem Druckausgleich ist
+
+\emph{Zustand 2:}
+\eq{CD_state2}{
+V_2 = V_1 + \Delta V,\quad p_2 = b,\quad T_2 = T_1 - \Delta T \, .
+}
+Nach erneutem Temperaturausgleich mit der Umgebung (isochore Erwärmung) erreicht das Gas wieder Raumtemperatur, der Druck steigt auf \(p_3 = b + h_3\), und das Volumen bleibt \(V_3 = V_2\):
+
+\emph{Zustand 3:}
+\eq{CD_state3}{
+V_3 = V_2 = V_1 + \Delta V,\quad p_3 = b + h_3,\quad T_3 = T_1 \, .
+}
+
+Die Zustände 1 und 2 sind durch die Poisson-Gleichung \ceq{poisson} verknüpft:
+\eq{CD_poisson}{
+p_1 V_1^{\kappa} = p_2 V_2^{\kappa} \, .
+}
+Einsetzen von \ceq{CD_state1} und \ceq{CD_state2} liefert
+\eq{CD_poisson_explicit}{
+(b + h_1) V_1^{\kappa} = b (V_1 + \Delta V)^{\kappa} \, .
+}
+Unter der Annahme \(\Delta V \ll V_1\) kann man \((V_1 + \Delta V)^{\kappa}\) linear approximieren:
+\eq{CD_V_expansion}{
+(V_1 + \Delta V)^{\kappa} \approx V_1^{\kappa} \left( 1 + \kappa \frac{\Delta V}{V_1} \right) \, .
+}
+Eingesetzt in \ceq{CD_poisson_explicit} ergibt sich
+\eq{CD_k_intermediate}{
+\frac{b + h_1}{b} \approx 1 + \kappa \frac{\Delta V}{V_1} \, .
+}
+
+Die Zustände 1 und 3 sind isotherm miteinander verknüpft, sodass nach dem Boyle-Mariotte-Gesetz
+\eq{CD_boyle}{
+p_1 V_1 = p_3 V_3
+}
+gilt. Mit \ceq{CD_state1} und \ceq{CD_state3} folgt
+\eq{CD_boyle_explicit}{
+(b + h_1) V_1 = (b + h_3) (V_1 + \Delta V) \, .
+}
+Unter Vernachlässigung des kleinen Terms \(h_3 \Delta V\) und mit \(\Delta V \ll V_1\) erhält man
+\eq{CD_dV}{
+\frac{\Delta V}{V_1} \approx \frac{h_1 - h_3}{b} \, .
+}
+Einsetzen von \ceq{CD_dV} in \ceq{CD_k_intermediate} führt schließlich auf
+\eq{CD_k_final}{
+\kappa = \frac{h_1}{h_1 - h_3} \, .
+}
+Damit lässt sich der Adiabatenkoeffizient von Luft allein aus den am Manometer abgelesenen Höhen \(h_1\) und \(h_3\) bestimmen.
+
+\img{CuD-pV}{pV-Diagramm des Kreisprozesses nach Clément und Desormes.}
+
+\subsection*{Rüchardt}
+Die Methode nach Rüchardt bestimmt den Adiabatenkoeffizienten aus der Schwingung eines Körpers in einem vertikalen Glasrohr, das mit einem Gasbehälter verbunden ist. Der Schwingkörper besitzt nahezu den gleichen Durchmesser wie das Rohr und schwingt auf der Gassäule. Durch die Bewegung wird das Gas periodisch adiabatisch komprimiert und expandiert. Ein kontinuierlicher Gasstrom durch eine kleine Öffnung im Rohr kompensiert Reibungsverluste, ohne die grundlegende adiabatische Dynamik zu verändern.
+
+\img{Ruechardt-Shematisch}{Schematischer Aufbau des Versuchs nach Rüchardt.}
+
+Im statischen Gleichgewicht wirkt auf den Schwingkörper der Gasdruck \(p\) im Behälter, der sich aus dem äußeren Luftdruck \(p_0\) und dem „Schweredruck“ des Schwingkörpers ergibt:
+\eq{R_p}{
+p = p_0 + \frac{m g}{A} \, ,
+}
+wobei \(m\) die Masse des Schwingkörpers, \(g\) die Erdbeschleunigung und \(A = \pi r^2\) die Querschnittsfläche des Schwingkörpers bzw. des Glasrohrs mit Radius \(r\) ist.
+
+Wird der Schwingkörper um eine kleine Strecke \(x\) aus der Gleichgewichtslage ausgelenkt, so ändert sich der Druck im Gasbehälter um \(dp\), und nach dem zweiten Newtonschen Gesetz gilt
+\eq{R_newton}{
+m \frac{\mathrm{d}^2 x}{\mathrm{d} t^2} = A \, dp \, .
+}
+Für den adiabatischen Prozess im Gasbehälter gilt die Poisson-Gleichung \ceq{poisson}. Durch Differentiation erhält man
+\eq{R_dp}{
+dp = - \kappa \frac{p}{V} \, dV \, ,
+}
+wobei \(V\) das Volumen des Gases im Behälter ist. Eine kleine Verschiebung \(x\) des Schwingkörpers ändert das Volumen um
+\eq{R_dV}{
+dV = A \, x = \pi r^2 x \, .
+}
+Einsetzen von \ceq{R_dp} und \ceq{R_dV} in \ceq{R_newton} liefert
+\eq{R_motion}{
+m \frac{\mathrm{d}^2 x}{\mathrm{d} t^2} = - A \kappa \frac{p}{V} A x = - \kappa \frac{p A^2}{V} x \, .
+}
+Mit \(A = \pi r^2\) ergibt sich
+\eq{R_oscillator}{
+\frac{\mathrm{d}^2 x}{\mathrm{d} t^2} + \kappa \frac{p \pi^2 r^4}{m V} x = 0 \, .
+}
+Dies ist die Bewegungsgleichung eines harmonischen Oszillators mit Kreisfrequenz
+\eq{R_omega}{
+\omega^2 = \kappa \frac{p \pi^2 r^4}{m V} \, .
+}
+Über die Periodendauer \(T = 2\pi / \omega\) folgt
+\eq{R_T}{
+T^2 = \frac{4 \pi^2 m V}{\kappa p \pi^2 r^4} = \frac{4 m V}{\kappa p r^4} \, ,
+}
+sodass sich der Adiabatenkoeffizient zu
+\eq{R_k_final}{
+\kappa = \frac{4 m V}{r^4 T^2 p}
+}
+ergibt. Die Größen \(m\), \(V\) und \(r\) sind am Versuchsaufbau bekannt, der Druck \(p\) wird mit \ceq{R_p} aus dem Atmosphärendruck und der Masse des Schwingkörpers bestimmt. Damit kann \(\kappa\) allein aus der gemessenen Periodendauer \(T\) berechnet werden.
+
+\subsection*{Tipische Adiabatenkoeffizienten}
+\img{Tabelle-Wichtige-Kappa}{Typische Werte für den Adiabatenkoeffizienten \(\kappa\) verschiedener Gase.}

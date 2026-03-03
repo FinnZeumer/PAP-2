@@ -19,17 +19,24 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \twocolumn
 
-\section{Aufgabe 1: }
+\section{Adiabatenkoeffizient nach Clément-Desormes}
 \label{sec:A1}
 
-\section{Aufgabe 2: }
+Fehler des Adiabatenkoeffizienten \(\kappa\) werden via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} berechnet. Die Formel für \(\kappa\) (\ceq{CD_k_final}) lautet:
+
+\eq{errCD_k}{
+    \Delta \kappa_{\text{CD, Luft}} = \sqrt{\frac{\Delta {h_1}^2 \, {h_3}^2 + \Delta{h_3}^2 \, {h_1}^2}{(h_1 - h_3)^4}} \, .
+}
+
+% Tabelle aller K_Luft Werte
+
+Da wir mehrere Messwerte haben, berechnen wir den Mittelwert \(\bar{\kappa}_{\text{CD, Luft}}\) und den Fehler des Mittelwerts \(\Delta \bar{\kappa}_{\text{CD, Luft}}\) mit \hyperref[eq:arithmetisches_mittel]{Arithmetisches Mittel (\ref*{eq:arithmetisches_mittel})} und \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwerts (\ref*{eq:fehler_mittelwert})}:
+
+\eq{errCD_k_mittelwert}{
+    \Delta {\overline{\kappa}_{\text{CD, Luft}}} = \frac{1}{5} \sqrt{\sum (\Delta \kappa_{\text{CD, Luft}})^2} \, .
+}
+
+% Ergebnis mit Fehler angeben
+
+\section{Adiabatenkoeffizient nach Rüchardt}
 \label{sec:A2}
-
-\section{Aufgabe 3: }
-\label{sec:A3}
-
-\section{Aufgabe 4: }
-\label{sec:A4}
-
-\section{Aufgabe 5: }
-\label{sec:A5}
