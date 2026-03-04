@@ -14,6 +14,14 @@
     "description": "Hyperlink zur Gleichung der Gauß'schen Fehlerfortpflanzung"
   },
 
+    "MEssprotokoll ref": {
+    "prefix": "messp",
+    "body": [
+      "\\hyperref[ch:protokoll]{Messprotokoll (\\ref*{ch:protokoll})}"
+    ],
+    "description": "Hyperlink zum Messprotokoll"
+  },
+
   "Arithmetisches Mittel": {
     "prefix": "arim",
     "body": [

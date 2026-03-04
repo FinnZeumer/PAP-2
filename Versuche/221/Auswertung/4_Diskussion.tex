@@ -1,11 +1,67 @@
 \chapter{Diskussion}
 \label{ch:Diskussion}
 
-\section{Zusammenfassung}
-\label{sec:Zusammenfassung}
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
+Im Folgenden sollen nun die Messwerte aus Aufgabe 1 (\csec{A1}) und Aufgabe 2 (\csec{A2}) untereinander, sowie mit den Literaturwerten verglichen. Dies soll tabellarisch entstehen. Die Ergebnisse für den Vergleich mit den Literaturwerten sind der \ctab{AdM} zu entnehmen. Der Vergleich unter den MEssergebnissen selbst ist der \ctab{AdM2} zu entnehmen.
+
+\begin{table}[h]
+    \centering
+    \caption{Vergleich der Messergebnisse für $\kappa$ mit den Literaturwerten von $\kappa_\text{L, lit} = 1.401$ und $\kappa_\text{A, lit} = 1.648$.}
+    \label{tab:AdM}
+    \begin{tabular}{l l | L L}
+        \toprule
+        Medium  & Verfahren             & \kappa            & \text{Sdt. Abweichung}\\
+        \midrule
+        Luft    &  Clément-Desormes     & 1.374 \pm 0.004   & 6.8 \sigma\\
+                & Rüchardt              & 1.382 \pm 0.005   & 3.8 \sigma\\
+         \midrule
+        Argon   & Rüchardt              & 1.6846 \pm 0.0219 & 1.7 \sigma\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Leider lassen sich nach unseren Werten die Literaturwerte nicht opimal bestätigen. Zwar lässt sich klar sagen, dass die Größenordnung stimmt, jedoch sind abweichungen vob über $3.0 \sigma$ nicht mehr signifikant. Sehr wahrscheinlich haben wir die Ungenauigkeiten stark unterschätzt und hätten hier einige höhr bestimmen können. Insbesondere die Ablesegenauigkeit der Höhenstände bei Aufgabe 1 scheint mir etwas zu optimistisch. Zwar ist die Aperatur auf den genutzen Wert geeicht, jedoch hat sich das Ablesen durch die Oberflächenkrümmung des Wassers als herausforderung gezeigt. Vermutlich währe daher ein Fehler von eher $\Delta h = 0.15$ angemessen gewesen. Dies jedoch alleien würde nicht ausreichen, dies würde das Ergebnis zwar bemerkeswert verbessen, aber signifikant wäre das Ergebnis noch immer nicht.
+
+Eine weitere BEobachtung ist, dass die Ergebnisse für den Luftadiabaten chronisch kleiner ausfallen als der Literaturwert. Die könnte an der Luftzusammensetzung liegen. So könnte der $CO_2$-Anteil der Luft höher als der Standardtwert liegt. Dieser hat einen Adiabatenkoeffizienten von $\kappa_{CO_2,\text{ lit}} = 1.293$. 
+
+Es  ist jedoch offensichtlich, dass die Messsmethode nach Rüchardt den Literaturwert besser annäht. Dies deutet darauf hin, dass dies die präzisere Messmethode ist.
+
+Besser scheinen hier die Ergebnisse von Argon, diese sind als siginifikatn einzustufen. Hier macht sich die größere Ungenauigkeit bemerkbar. Dieser kommt auf Grund der starken Schwankungen der Messzeit zustande, wodurch die Standardabweichung vom Mittelwert besonders groß wurde. Daherher ist hier der Wert nicht automatisch als \afz{besser} zu bewerten, denn die zusätzliche signifikanz stammt aus weniger präzisen Messungen. 
+
+Was jedoch positiv auffällt, ist, dass nach den Ergebnissen aus \ctab{AdM2} die beiden Messmethoden koharänte Ergebnisse liefern. 
+
+\begin{table}[h]
+    \centering
+    \caption{Vergleich der Messergebnisse für $\kappa$ von Luft nach beiden Methoden}
+    \label{tab:AdM2}
+    \begin{tabular}{l | L L L}
+        \toprule
+        Medium  & \kappa_\text{CD}   & \kappa_\text{R}  & \text{Sdt. Abweichung }\\
+        \midrule
+        Luft    & 1.374 \pm 0.004    & 1.382 \pm 0.005  & 1.25 \sigma\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Die Ungenauigkeitne beider Methoden sind hier als klein zu bewerten (beide bei unter $0.37\%$ Abweichugn). Umso erstaunlicher ist es, dass die Standartabweichung im signifikanten Bereich leigt, daher lässt sich sagen, dass die Messergebnisse sich gegenseiteig bestätigen.
+
+Dies lässt auch die Abweichungen aus \ctab{AdM} im anderen Licht stehen. Denn die großen Abweichungen vom Literaturwert der Luft lassen sich nun besser erklären. Es scheint einen Faktor zu geben, der unsere Messungen stark beeinflusst hat, aber beide Messungen gleichermaßen. 
+Daher lässt sich vermuten, dass es sich um eine Raumgegebnheit handelt, die unsere Ergebnisse systematisch verfäscht hat. Zwar haben wir ggf. dennoch einige Ungenauigkeiten unterschätzt, aber mindestens genauso wahrscheinlich – ich würde sogar sagen noch wahrscheinlicher – ist der Fehler darauf zurückzuführen, dass entweder die Raumtemperatur stark geschwankt hat und-oder der Luftdruck.
+
+Beides wäre plausibel und lässt sich nur anekdotisch \afz{beweisen}. Aber tatsächlich wurde a) das Fenster nicht richtig geschlossen und b) war auf dem Thermometer eine große Temperaturschwankung zu erkennen. Wie stark sich dies auf die Ergebnisse ausgewirtk hat kann man nur mutmaßen.
+
+\section{Zusammenfassung}
+\label{sec:Zusammenfassung}
+
+Zusammengefasst lässt sich sagen, das wir mit den Versuchsaufbauten grundsätzlich die Adiabatenkoeffizienten ordentlich nähert, jedoch der sind keine idealen Verushcsbedingungen gegeben. Druck, Luftfecuhtigkeit und Temperatur im Raum können stark schawnken. Zudem stehen die Versuchsaufbauten auf Tischen, die nicht besonders stabil stehen und schnell in Schwinnung versetzt werden können.
+
+Natürlich ist immer zu kritisieren, dass die Versuschaufbauen nicht ideal wie in der Theorie wirken können. Dies dürfte für diesen Versuch grundsätzlich ignoriert werden.
+
+
 \section{Kritik}
 \label{sec:Kritik}
+
+Der Versuch hat Spaß gemacht. Die Durchführung ging schnell und es wurden schöne Bilder verwendet. Leider wurde im Skript \afz{Rüchardt} falsch geschrieben und zwar \afz{Rüchhardt}, was viel cooler wäre aber leider falsch ist. Das hat mich etwas traurig gemacht, da es jetzt auch fashc im \hyperref[ch:protokoll]{Messprotokoll (\ref*{ch:protokoll})} steht.

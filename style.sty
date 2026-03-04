@@ -3,6 +3,7 @@
 \usepackage{ifthen}
 \usepackage{graphicx}    
 \usepackage{caption}    
+\usepackage{bm}
 
 \usepackage{pdfpages} % notwendig zum Einbinden von PDF-Seiten
 \usepackage{hyperref} 
@@ -46,10 +47,10 @@
 
 \RequirePackage[
   a4paper, % Papierformat
-  top=1.5cm,
-  bottom=1.5cm,
-  left= 1.5cm,
-  right= 1.5cm,
+  top=2cm,
+  bottom=2cm,
+  left= 2cm,
+  right= 2cm,
   includehead, % Kopfzeile in Randberechnung
   includefoot, % Fußzeile in Randberechnung
   headheight=13.75pt % Höhe der Kopfzeile
@@ -83,9 +84,7 @@
 ]{caption}
 
 \renewcommand{\thetable}{\thechapter\Roman{table}}
-
-
-
+\usepackage[justification=centering]{caption}
 
 % Formeln
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
