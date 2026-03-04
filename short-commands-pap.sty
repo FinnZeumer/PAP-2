@@ -3,15 +3,17 @@
 %%%%%%%%%%%%%%%
 
 % Results \res[Exponent der 10er Potenz]{Ergebniswert}{Fehler des Ergebnisses}{Einheit}
-\newcommand{\res}[4][0]{
+\newcommand{\res}[5][0]{
   \begin{equation}
-      \boxed{{(#2 \pm #3)}
+    \boxed{
+        #2 =
+      {(#3 \pm #4)}
         \ifthenelse{#1=0}{
             \,
           }{
           \cdot 10^{#1} \,
         }
-        \mathrm{#4}
+        \mathrm{#5}
       }
   \end{equation}
 }

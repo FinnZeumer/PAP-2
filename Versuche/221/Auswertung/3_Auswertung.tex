@@ -28,15 +28,48 @@ Fehler des Adiabatenkoeffizienten \(\kappa\) werden via \hyperref[eq:gauss_fehlf
     \Delta \kappa_{\text{CD, Luft}} = \sqrt{\frac{\Delta {h_1}^2 \, {h_3}^2 + \Delta{h_3}^2 \, {h_1}^2}{(h_1 - h_3)^4}} \, .
 }
 
-% Tabelle aller K_Luft Werte
+\begin{table}[h]
+    \centering
+    \caption{Ergebnisse der Adiabatenkoeffizienten $\kappa$ der einzelnen Messungen.}
+    \label{tab:kappaA1}
+    \begin{tabular}{c c}
+        \toprule
+        Messung & $\kappa_\text{Luft}$ \\
+        \midrule
+        1 & $1.34 \pm 0.06$ \\
+        2 & $1.38 \pm 0.07$ \\
+        3 & $1.39 \pm 0.06$ \\
+        4 & $1.36 \pm 0.06$ \\
+        5 & $1.39 \pm 0.07$ \\
+        6 & $1.39 \pm 0.07$ \\
+        7 & $1.36 \pm 0.06$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 Da wir mehrere Messwerte haben, berechnen wir den Mittelwert \(\bar{\kappa}_{\text{CD, Luft}}\) und den Fehler des Mittelwerts \(\Delta \bar{\kappa}_{\text{CD, Luft}}\) mit \hyperref[eq:arithmetisches_mittel]{Arithmetisches Mittel (\ref*{eq:arithmetisches_mittel})} und \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwerts (\ref*{eq:fehler_mittelwert})}:
 
 \eq{errCD_k_mittelwert}{
-    \Delta {\overline{\kappa}_{\text{CD, Luft}}} = \frac{1}{5} \sqrt{\sum (\Delta \kappa_{\text{CD, Luft}})^2} \, .
+    \Delta {\overline{\kappa}_{\text{CD, Luft}}} = \frac{1}{n} \sqrt{\sum (\Delta \kappa_{\text{CD, Luft}})^2} \, .
 }
 
-% Ergebnis mit Fehler angeben
+Damit kommen wir auf das Ergebnis für den Mittelwert des Adiabatenkoeffizienten der Luft:
+
+\res{\kappa_\text{Luft}}{1,374}{0,004}{}
 
 \section{Adiabatenkoeffizient nach Rüchardt}
 \label{sec:A2}
+
+Nun sollen die Adiabatenkoeffizienten von Luft und Argon bestimmt werden. Dies passiert über die Periodendauer \(T\) der Schwingung. Es wurde die Zeit für 75 Schwinungen gemessen, um die Periodendauer \(T\) zu bestimmen. Fehler der Periodendauer \(\Delta T\) werden mit \hyperref[eq:fehler_proportional]{Fehler für $f = ax$ (\ref*{eq:fehler_proportional})} berechnet:
+
+\eq{errR_T}{
+    \Delta T = \sqrt{frac{(\Delta T_i)^2 + \sigma^2}{n}}
+}
+
+Dabei wurden $n = 5$ Messungen für Luft und Argon durchgeführt. $T_i$ beschreibt den $i$-ten Messwert der Periodendauer, $\sigma$ die Standardabweichung der Messwerte. 
+Zusätzlich muss nach ceq{R_p}. Der Fehler bestimmt sich nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu:
+
+\eq{errR_p}{
+    \Delta p = \sqrt{\left(\frac{\partial p}{\partial m} \Delta m\right)^2 + \left(\frac{\partial p}{\partial A} \Delta A\right)^2 + \left(\frac{\partial p}{\partial g} \Delta g\right)^2} \, .
+}
