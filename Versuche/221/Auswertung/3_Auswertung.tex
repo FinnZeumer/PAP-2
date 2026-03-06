@@ -28,7 +28,7 @@ In diesem Abschnitt sollen die Messwerte aus dem Messprotokoll zu Aufgabe 1, bes
 Fehler des Adiabatenkoeffizienten \(\kappa\) (\ceq{CD_k_final}) werden via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} berechnet. Die Formel für \(\Delta\kappa\) lautet:
 
 \eq{errCD_k}{
-    \Delta \kappa_{\text{CD, L}} = \sqrt{\frac{\Delta {h_1}^2 \, {h_3}^2 + \Delta{h_3}^2 \, {h_1}^2}{(h_1 - h_3)^4}} \, .
+    \Delta \kappa_{\text{CD, L}} = \frac{\sqrt{\Delta {h_1}^2 \, {h_3}^2 + \Delta{h_3}^2 \, {h_1}^2}}{(h_1 - h_3)^2} \, .
 }
 
 Der  Indize \afz{CD} heißt, dass die Methode nach Clément und Desomers verwendet wurde, \afz{L} soll zeigen, dass es sich um Luft handelt.
@@ -80,7 +80,7 @@ Dabei wurden $n = 5$ Messungen für Luft und Argon durchgeführt. $T_i$ beschrei
 Zusätzlich muss nach \ceq{R_p}. Der Fehler bestimmt sich nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu:
 
 \eq{errR_p}{
-    \Delta p = \sqrt{\frac{1}{\pi^{4} r^{6}} \left(\pi^{4} \Delta p_{0}^{2} r^{6} + 4 \pi^{2} \Delta r^{2} g^{2} m^{2} + \pi^{2} r^{2} \left(\Delta g^{2} m^{2} + \Delta m^{2} g^{2}\right)\right)} \, .
+    \Delta p = p \, \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta p^{2}}{p^{2}} + \frac{16 \Delta r^{2}}{r^{2}} + \frac{\Delta V^{2}}{V^{2}} + \frac{4 \Delta T^{2}}{T^{2}}} \, .
 }
 
 Die Werte für $p_0, r, m$ sind alle dem \hyperref[ch:protokoll]{Messprotokoll (\ref*{ch:protokoll})} zu entnehmen, genauso wie deren Ungenauigkeiten. Für die Gravitationsbeschleunigung wurde der Heidelberger-Standardwert von $g = (9.80984 \pm 0.00002) m/s^2$ gewählt.
@@ -88,7 +88,7 @@ Die Werte für $p_0, r, m$ sind alle dem \hyperref[ch:protokoll]{Messprotokoll (
 Damit sind alle Werte zusammen, um $\kappa_\text{R}$ nach \ceq{R_k_final} zu bestimmen. Es fehlt nur noch der Fehler, der nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} sich zu
 
 \eq{err_R_k_final}{
-    \Delta \kappa_\text{R} = \kappa_\text{R} \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta p^{2}}{p^{2}} + \frac{16 \Delta r^{2}}{r^{2}} + \frac{\Delta V^{2}}{V^{2}} + \frac{4 \Delta T^{2}}{T^{2}}}
+    \Delta \kappa_\text{R} = \kappa_\text{R} \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta p^{2}}{p^{2}} + \frac{16 \Delta r^{2}}{r^{2}} + \frac{\Delta V^{2}}{V^{2}} + \frac{4 \Delta T^{2}}{T^{2}}} \, .
 }
 
 Mit dieser Formel lassen sich nun die Adiabatenkoeffizienten sowohl von Luft ($\kappa_\text{R, L}$), als auch von Argon ($\kappa_\text{R, A}$) bestimmen. Die Tabelle \ctab{kappaA2} zeigt die Kappa Werte für die bestimmten Periodendauern $T$, sowie für die gemessenen Luftdrücke $p$.
@@ -102,7 +102,7 @@ Mit dieser Formel lassen sich nun die Adiabatenkoeffizienten sowohl von Luft ($\
         Medium & T [\mathrm{s}] & p [\mathrm{hPa}] & \kappa_\text{R} \\
         \midrule
         Luft & 0.9989 \pm 0.0018 & 1013.3 \pm 0.3 & {1.382 \pm 0.005}\\
-        Argon & 0.901 \pm 0.006 & 1013.3 \pm 0.3 & {1.6846 \pm 0.0219}\\
+        Argon & 0.901 \pm 0.006 & 1013.3 \pm 0.3 & {1.685 \pm 0.022}\\
         \bottomrule
     \end{tabular}
 \end{table}

@@ -49,8 +49,8 @@
   a4paper, % Papierformat
   top=2cm,
   bottom=2cm,
-  left= 2cm,
-  right= 2cm,
+  left= 2.5cm,
+  right= 2.5cm,
   includehead, % Kopfzeile in Randberechnung
   includefoot, % Fußzeile in Randberechnung
   headheight=13.75pt % Höhe der Kopfzeile
@@ -83,8 +83,7 @@
   singlelinecheck=false        
 ]{caption}
 
-\renewcommand{\thetable}{\thechapter\Roman{table}}
-\usepackage[justification=centering]{caption}
+
 
 % Formeln
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
@@ -125,12 +124,47 @@
 \setlength{\columnsep}{1em}     % Abstand zwischen den Spalten
 \setlength{\columnseprule}{0pt} % Stärke der Trennlinie (0pt = keine Linie)
 
-% Tabellen design
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tabellen und Abbildungen %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{booktabs}
 \RequirePackage{siunitx}
 \RequirePackage{longtable}
-
 \RequirePackage[table]{xcolor}
+\RequirePackage{wrapfig}
+
+\DeclareCaptionFormat{custom}
+{
+    #1#2 \\ #3
+}
+
+\captionsetup
+{
+    format=custom,
+}
+
+
+% -------------------------------------------
+% Abbildungen design
+% -------------------------------------------
+\renewcommand{\thefigure}{\thechapter\Roman{figure}}
+
+% -------------------------------------------
+% Diagramm design
+% -------------------------------------------
+
+
+% -------------------------------------------
+% Tabellen design
+% -------------------------------------------
+
+\renewcommand{\thetable}{\thechapter\Roman{table}}
+\usepackage[justification=centering]{caption}
+
+% Manipulation der Table Caption
+\usepackage[labelfont=bf]{caption}
+\usepackage[textfont=none]{caption} 
 
 
 \sisetup{

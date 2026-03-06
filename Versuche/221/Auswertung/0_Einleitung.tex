@@ -1,5 +1,6 @@
 \chapter{Einleitung} \label{ch:Einleitung}
-\cite{skriptPAP21}
+
+Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermekrt. Rechtschreibprüfungen werden sowohl durhc K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
 
 \section{Aufgabe und Motivation} \label{sec:AuM}
 Adiabatische Zustandsänderungen spielen in vielen physikalischen und technischen Prozessen eine zentrale Rolle, insbesondere immer dann, wenn Vorgänge so schnell ablaufen, dass praktisch kein Wärmeaustausch mit der Umgebung stattfindet. Beispiele sind Schallausbreitung in Gasen, schnelle Kompressions- und Expansionsprozesse in Kolbenmaschinen oder Strömungsvorgänge in Düsen. Das Verhalten eines idealen Gases bei solchen Prozessen wird im Wesentlichen durch den Adiabatenkoeffizienten \(\kappa\) beschrieben, der das Verhältnis der spezifischen Wärmekapazitäten bei konstantem Druck und konstantem Volumen charakterisiert.
@@ -33,8 +34,8 @@ sodass sich \(\kappa\) in Abhängigkeit von \(f\) schreiben lässt:
 }
 Für einatomige Gase (z.\,B. Argon) mit \(f \approx 3\) ergibt sich \(\kappa = 5/3\), für zweiatomige Gase (z.\,B. Stickstoff, Sauerstoff als Hauptbestandteile der Luft) mit \(f \approx 5\) folgt \(\kappa = 7/5\). In realen Gasen können zusätzliche Rotations- und Schwingungsfreiheitsgrade angeregt sein, sodass die effektive Zahl der Freiheitsgrade größer wird und der experimentell bestimmte Adiabatenkoeffizient von diesen einfachen theoretischen Werten abweichen kann.
 
-\subsection*{Clément und Desormes}
-\img{CuD-Veruschsaufbau}{Schematischer Aufbau des Versuchs nach Clément und Desormes.}
+\subsection{Clément und Desormes}
+\wrap[0.35]{R}{CuD-Veruschsaufbau}{Schematischer Aufbau des Versuchs nach Clément und Desormes.}
 
 Die Methode nach Clément und Desormes beruht auf der Analyse eines Kreisprozesses in einem luftgefüllten Gasbehälter, dessen Druck über einen Luftbalg erhöht und über ein Manometer beobachtet wird. Zunächst wird durch Pumpen mit dem Luftbalg ein Überdruck erzeugt. Nach ausreichender Wartezeit stellt sich wieder Raumtemperatur ein, und das Gas befindet sich im Zustand
 
@@ -92,12 +93,12 @@ Einsetzen von \ceq{CD_dV} in \ceq{CD_k_intermediate} führt schließlich auf
 }
 Damit lässt sich der Adiabatenkoeffizient von Luft allein aus den am Manometer abgelesenen Höhen \(h_1\) und \(h_3\) bestimmen.
 
-\img{CuD-pV}{pV-Diagramm des Kreisprozesses nach Clément und Desormes.}
+\img[0.5]{CuD-pV}{pV-Diagramm des Kreisprozesses nach Clément und Desormes.}
 
-\subsection*{Rüchardt}
+\subsection{Rüchardt}
+\wrap[0.35]{L}{Ruechardt-Shematisch}{Schematischer Aufbau des Versuchs nach Rüchardt.}
 Die Methode nach Rüchardt bestimmt den Adiabatenkoeffizienten aus der Schwingung eines Körpers in einem vertikalen Glasrohr, das mit einem Gasbehälter verbunden ist. Der Schwingkörper besitzt nahezu den gleichen Durchmesser wie das Rohr und schwingt auf der Gassäule. Durch die Bewegung wird das Gas periodisch adiabatisch komprimiert und expandiert. Ein kontinuierlicher Gasstrom durch eine kleine Öffnung im Rohr kompensiert Reibungsverluste, ohne die grundlegende adiabatische Dynamik zu verändern.
 
-\img{Ruechardt-Shematisch}{Schematischer Aufbau des Versuchs nach Rüchardt.}
 
 Im statischen Gleichgewicht wirkt auf den Schwingkörper der Gasdruck \(p\) im Behälter, der sich aus dem äußeren Luftdruck \(p_0\) und dem „Schweredruck“ des Schwingkörpers ergibt:
 \eq{R_p}{
@@ -139,5 +140,5 @@ sodass sich der Adiabatenkoeffizient zu
 }
 ergibt. Die Größen \(m\), \(V\) und \(r\) sind am Versuchsaufbau bekannt, der Druck \(p\) wird mit \ceq{R_p} aus dem Atmosphärendruck und der Masse des Schwingkörpers bestimmt. Damit kann \(\kappa\) allein aus der gemessenen Periodendauer \(T\) berechnet werden.
 
-\subsection*{Tipische Adiabatenkoeffizienten}
-\img{Tabelle-Wichtige-Kappa}{Typische Werte für den Adiabatenkoeffizienten \(\kappa\) verschiedener Gase.}
+\subsection{Literaturwerte für Adiabatenkoeffizienten}
+\img[0.3]{Tabelle-Wichtige-Kappa}{Typische Werte für den Adiabatenkoeffizienten \(\kappa\) verschiedener Gase. Dies sind zugleich die Literaturwerte, die Später für die Rechnung genutzt werden sollen.}
