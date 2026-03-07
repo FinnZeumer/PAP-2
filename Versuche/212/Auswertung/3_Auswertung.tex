@@ -1,4 +1,4 @@
-\onecolumn
+% \onecolumn
 
 \chapter{Auswertung}
 \label{ch:Auswertung}
@@ -17,7 +17,8 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
 \end{align}
 
-\twocolumn
+% \twocolumn
+\newpage
 
 \section{Bestimmung der Viskosität nach Stokes mit einem Kugelfallviskosimeter}
 \label{sec:A1}
@@ -65,24 +66,47 @@ Damit lässt sich die tatsächliche Endgeschwindigkeit \(v_s\) über die Formel 
 
 Aus den in \ctab{messwerteTab} zusammengefassten Messwerten können nun die Werte für den Plot von \(v\) gegen \(r^2\) berechnet werden.
 
-\messwerteTab
+\begin{table}[h]
+\caption{Wichtigen Messwerte aus dem Messprotokoll zusammengefasst.}
+\label{tab:messwerteTab}
+\centering
+\begin{tabular}{llll}
+\toprule
+d [$\mathrm{m} \cdot 10^{-3}$] & r [$\mathrm{m} \cdot 10^{-3}$] & s [$\mathrm{m} \cdot 10^{-3}$] & $\overline{t} [\mathrm{s}]$ \\
+\midrule
+$100.0 \pm 2.5$ & $50.0 \pm 1.3$ & $5.00 \pm 0.20$ & $79.04 \pm 1.24$ \\
+$200.0 \pm 2.5$ & $100.0 \pm 1.3$ & $5.00 \pm 0.20$ & $25.0 \pm 0.6$ \\
+$300.0 \pm 2.5$ & $150.0 \pm 1.3$ & $10.00 \pm 0.20$ & $22.0 \pm 0.5$ \\
+$400.0 \pm 2.5$ & $200.0 \pm 1.3$ & $15.00 \pm 0.20$ & $20.1 \pm 0.3$ \\
+$500.0 \pm 2.5$ & $250.0 \pm 1.3$ & $15.00 \pm 0.20$ & $12.9 \pm 0.4$ \\
+$600.0 \pm 2.5$ & $300.0 \pm 1.3$ & $20.00 \pm 0.20$ & $13.3 \pm 0.3$ \\
+$700.0 \pm 2.5$ & $350.0 \pm 1.3$ & $20.00 \pm 0.20$ & $9.7 \pm 0.3$ \\
+$800.0 \pm 2.5$ & $400.0 \pm 1.3$ & $20.00 \pm 0.20$ & $7.9 \pm 0.3$ \\
+$900.0 \pm 2.5$ & $450.0 \pm 1.3$ & $20.00 \pm 0.20$ & $6.5 \pm 0.3$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-% \dia{path}{Sinkggeschwindigkeiten der Kugeln gegen den Quadratradius. Es sind sowohl die unkorrierten gemessenen Werte \(v\) als auch die korrigierten Werte \(v_s\) dargestellt. Es ist die lineare Regression durch die korrigierten Werte \(v_s\) für die 5 kleinsten Kugeln eingezeichnet, welche die Stokes'sche Formel \ceq{eta_Fallrohr} widerspiegelt.}
 
 Es lässt sich beobachten, dass für kleine Kugelradien  die gemessenen Werte \(v\) und die korrigierten Werte \(v_s\) nahezu identisch sind, was darauf hindeutet, dass die Ladenburgsche Korrektur in diesem Bereich vernachlässigbar ist. Für größere Kugelradien hingegen weichen die unkorrierten Werte \(v\) deutlich von den korrigierten Werten \(v_s\) ab, was die zunehmende Bedeutung der Ladenburgschen Korrektur bei größeren Kugeln verdeutlicht. 
-Jedoch ist auch zu beobachten, dass selbst die korrigierten Werte \(v_s\) für die größten Kugeln nicht mehr der linearen Beziehung entsprechen, die durch die Stokes'sche Formel \ceq{eta_Fallrohr} beschrieben wird. Dies deutet darauf hin, dass bei größeren Kugeln der Übergang von laminarer zu turbulenter Umströmung stattfindet, wodurch die Stokes'sche Formel nicht mehr gültig ist.
-Die Steigung $m$ der linearen Regression berechnet sich zu
 
-\eq{steigungA1}{
-   k (x \pm errx) \frac{1}{ms}
+\img[.95]{plot/ges_gegen_r2}{Plot der Geschwindigkeiten gegen den quadrierten Kugelradius. Die Lineare Regression ist durch die ersten fünf Messwerte der korrigierten Werte gelegt. Die lineare Nährung ist damit nicht gültig.}
+
+Jedoch ist auch zu beobachten, dass selbst die korrigierten Werte \(v_s\) für die größten Kugeln nicht mehr der linearen Beziehung entsprechen, die durch die Stokes'sche Formel \ceq{eta_Fallrohr} beschrieben wird. Dies deutet darauf hin, dass bei größeren Kugeln der Übergang von laminarer zu turbulenter Umströmung stattfindet, wodurch die Stokes'sche Formel nicht mehr gültig ist.
+
+Die Steigung ist via $k = \Delta v_s / \Delta r^2$ definiert. Seine Ungenauigkeit ist somit
+
+\eq{k_err}{
+    \Delta k = \sqrt{\left(\frac{\Delta v_s}{r^2}\right)^2 + \left(\frac{2\,v_s\,\Delta r}{r^3}\right)^2} \, .
 }
 
-Smoit ist die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq{eta_Fallrohr} berechnet werden, wobei die Unsicherheit \(\Delta \eta\) ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt wird, wobei die Unsicherheiten der Steigung \(m\) und der Dichteunterschiede \(\rho_k - \rho_f\) berücksichtigt werden:
+Final berechnet sich die Steigung zu
+
+\res{k}{1961}{25}{\frac{1}{m \, s}}
+
+Somit ist die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq{eta_Fallrohr} berechnet werden, wobei die Unsicherheit \(\Delta \eta\) ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt wird, wobei die Unsicherheiten der Steigung \(m\) und der Dichteunterschiede \(\rho_k - \rho_f\) berücksichtigt werden:
 
 \eq{delta_eta}{
-    \Delta \eta = \sqrt{\left(\frac{2}{9} g r^2 \frac{1}{m} \Delta (\rho_k - \rho_f)\right)^2 + \left(\frac{2}{9} g r^2 \frac{\rho_k - \rho_f}{m^2} \Delta m\right)^2}.
-}
-\eq{delta_eta2}{
     \Delta \eta = \frac{2gr^2}{9}\sqrt{\left(\frac{1}{m} \Delta (\rho_k - \rho_f)\right)^2 + \left(\frac{\rho_k - \rho_f}{m^2} \Delta m\right)^2}.
 }
 

@@ -9,77 +9,79 @@ Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstand
 Ziel des Versuchs ist die Bestimmung der dynamischen Viskosität \(\eta\) von Polyethylenglykol (PEG) mit zwei komplementären Messverfahren: dem Kugelfallviskosimeter nach Stokes und dem Kapillarviskosimeter nach Hagen‑Poiseuille. Beim Kugelfallversuch wird zusätzlich der Übergang von laminarer zu turbulenter Umströmung der Kugel untersucht, um die Gültigkeitsgrenze des Stokes'schen Gesetzes zu bestimmen. Die mit beiden Methoden erhaltenen Werte werden abschließend verglichen und auf Konsistenz unter Berücksichtigung der Messunsicherheiten geprüft.
 
 \section{Physikalische Grundlage}
-\label{sec:PhyBasics} \cite{skriptPAP21}
+\label{sec:PhyBasics}
 
 Die innere Reibung einer Newtonschen Flüssigkeit lässt sich durch das Verhältnis der tangentialen Scherkraft \(F\) zur Fläche \(A\) und zum Geschwindigkeitsgradienten \(\mathrm{d}v/\mathrm{d}z\) beschreiben. Diese Beziehung definiert die dynamische Viskosität \(\eta\):
 \eq{newton_shear}{
   F \;=\; \eta\,A\,\frac{\mathrm{d}v}{\mathrm{d}z}.
 }
-Die Einheit von \(\eta\) ist \(\mathrm{Pa\cdot s}\). Auf diese Grundgleichung wird in der Herleitung der folgenden Formeln zurückgegriffen; Verweise erfolgen mit \ceq{newton_shear}.
+Die Einheit von \(\eta\) ist \(\mathrm{Pa\cdot s}\).
 
-Für eine Kugel mit Radius \(r\), die sich mit konstanter Geschwindigkeit \(v\) durch eine viskose Flüssigkeit bewegt, gilt das Stokes'sche Gesetz für die Reibungskraft:
+
+Für eine Kugel mit Radius \(r\), die sich mit konstanter Geschwindigkeit \(v\) durch eine (viskose) Flüssigkeit bewegt, gilt das Stokes'sche Gesetz für die Reibungskraft:
 \eq{stokes}{
   F_{\mathrm{R}} \;=\; 6\pi\,\eta\,r\,v.
 }
 
+\wrap[0.4]{R}{Definition_Viskositaet}{Gedankliche Darstellung der Viskosität. \cite{Wikipedia-Visko}}
 
 Da in einem realen Fallrohr der Raum nicht unendlich ist, wird die Reibung mit einem Korrekturfaktor \(\lambda\) (Ladenburgsche Korrektur) angepasst; eine gebräuchliche Näherung lautet
 \eq{ladenburg}{
   \lambda \;=\; 1 + \alpha\,\frac{r}{R},
 }
-wobei \(R\) der Radius des Fallrohres ist und \(\alpha\) in diesem Versuch \(2{,}1\) beträgt. Die korrigierte Reibung ist dann \(F_{\mathrm{R}}=6\pi\eta r v\,\lambda\); siehe \ceq{stokes} und \ceq{ladenburg}.
+wobei \(R\) der Radius des Fallrohres ist und \(\alpha\) in diesem Versuch \(2{,}1\) beträgt. Die korrigierte Reibung ist dann die Multiplikation von \ceq{stokes} mit \ceq{ladenburg}.
 
-\img[0.9]{Definition_Viskositaet}{Gedankliche Darstellung der Viskosität als Proportionalitätsfaktor zwischen Scherkraft und Geschwindigkeitsgradient.}
+\eq{f_r_korrigiert}{
+  F_{\mathrm{R}}=6\pi\eta r v\,\lambda
+}
 
-Für eine fallende Kugel mit Kugeldichte \(\rho_k\), Flüssigkeitsdichte \(\rho_f\) und Kugelvolumen \(V_k=\tfrac{4}{3}\pi r^3\) stellt sich im stationären Zustand ein Kräftegleichgewicht zwischen Gewichtskraft, Auftrieb und Reibung ein:
+Für eine fallende Kugel mit Materialdichte \(\rho_k\), Flüssigkeitsdichte \(\rho_f\) und Kugelvolumen \(V_k=\tfrac{4}{3}\pi r^3\) stellt sich im stationären Zustand ein Kräftegleichgewicht zwischen Gewichtskraft, Auftrieb und Reibung ein:
 \eq{force_balance}{
-  m\,g - \rho_f V_k g - 6\pi\eta r\,\lambda\,v_s \;=\; 0.
+  \underbrace{m\,g}_{F_g} - \underbrace{\rho_f V_k g}_{F_a} - \underbrace{6\pi\eta r\,\lambda\,v_s}_{F_r} = 0.
 }
-Aus \ceq{force_balance} folgt die für das Kugelfallviskosimeter relevante Beziehung für die Endgeschwindigkeit \(v_s\):
-\eq{terminal_velocity}{
-  v_s \;=\; \frac{2}{9}\,\frac{(\rho_k-\rho_f)\,g\,r^2}{\eta}\,\frac{1}{\lambda}.
-}
-Diese Gleichung wird zur Bestimmung von \(\eta\) aus gemessenen Sinkgeschwindigkeiten verwendet; Verweise erfolgen mit \ceq{terminal_velocity}.
 
-Die zeitliche Entwicklung der Geschwindigkeit \(v(t)\) einer Kugel ergibt sich aus der Bewegungsgleichung mit linearer Reibung und lässt sich schreiben als
-\eq{dvdt}{
-  m\,\frac{\mathrm{d}v}{\mathrm{d}t} \;=\; m g - \rho_f V_k g - 6\pi\eta r\,\lambda\,v(t).
-}
-Mit der Anfangsbedingung \(v(0)=0\) ist die Lösung
-\eq{tau}{
-  v(t) \;=\; v_s\Bigl(1 - \exp\!\bigl(-t/\tau\bigr)\Bigr), \qquad
-  \tau \;=\; \frac{m}{6\pi\eta r\,\lambda},
-}
-wobei \(\tau\) die charakteristische Einschwingzeit angibt; auf diese Weise lässt sich abschätzen, nach welcher Zeit die Kugel praktisch die Endgeschwindigkeit erreicht.
+\subsection{Laminare und turbulente Strömung}
+
+In der Physik unterscheidet man zwischen laminaren und turbulenten Strömungen. Dabei sind laminare Strömungen immer eine idealisierung. Rechnungen mit laminarer Strömung sind meist einfacher, aber immer als nährung zu verstehen.
+
 
 \img[0.9]{Laminar_vs_Turbulent-Ball}{Schematische Darstellung der Strömungsregime um eine Kugel: Laminar (links) mit symmetrischem Stromlinienmuster, (rechts) mit unregelmäßigen Wirbeln.}
 
-Für die laminare Rohrströmung liefert die Integration des Scherungsfeldes das parabolische Geschwindigkeitsprofil
-\eq{poiseuille_vr}{
-  v(r) \;=\; \frac{\Delta p}{4\eta L}\,\bigl(R^2 - r^2\bigr),
-}
-wobei \(\Delta p = p_1 - p_2\) die Druckdifferenz über die Rohrlänge \(L\) ist. Das daraus resultierende Volumenstromgesetz lautet
-\eq{poiseuille_Q}{
-  \dot{V} \;=\; \frac{\pi\,\Delta p\,R^4}{8\,\eta\,L}.
-}
-Mit \ceq{poiseuille_Q} lässt sich \(\eta\) aus gemessenen Volumenströmen, Rohrgeometrie und Druckdifferenz bestimmen.
 
-Die dimensionslose Reynoldszahl charakterisiert das Verhältnis von Trägheits- zu Reibungskräften und ist definiert durch
+Um abzuschätze, wie lamianr eine Strömung ist, wird die Reynoldszahl eingeführt. Die dimensionslose Reynoldszahl charakterisiert das Verhältnis von Trägheits- zu Reibungskräften und ist definiert durch
 \eq{reynolds}{
   \mathrm{Re} \;=\; \frac{\rho\,v\,L}{\eta},
 }
-wobei \(L\) eine charakteristische Länge ist (für die Kugelbewegung \(L=2r\), für Rohrströmung \(L=2R\)). Für Rohrströmungen liegt der Übergang zu Turbulenz typischerweise bei \(\mathrm{Re}\approx 2300\); für die Umströmung einer Kugel ist der kritische Bereich deutlich kleiner (experimentell \(\mathrm{Re}_{\mathrm{krit}}\sim 1\)). Verweise auf diese Größe erfolgen mit \ceq{reynolds}.
+wobei \(L\) eine charakteristische Länge ist (für die Kugelbewegung \(L=2r\), für Rohrströmung \(L=2R\)). Für Rohrströmungen liegt der Übergang zu Turbulenz typischerweise bei \(\mathrm{Re}\approx 2300\); für die Umströmung einer Kugel ist der kritische Bereich deutlich kleiner (experimentell \(\mathrm{Re}_{\mathrm{krit}}\sim 1\)).
 
-\subsection*{Kugelfallviskosimeter nach Stoke}
+\subsection{Kugelfallviskosimeter nach Stoke}
 \label{ssec:Kugelfallviskosimeter}
-Wird eine Kugel der Dichte $\rho_k$ und des Volumens $V_k$ in ein senkrechtes, mit einer Flüssigkeit der Dichte $\rho_f$ gefülltes Rohr fallen gelassen, so wirken drei Kräfte auf sie. Die Gewichtskraft beträgt $F_g = \rho_k V_k g$, während die Auftriebskraft durch die verdrängte Flüssigkeit als $F_a = -\,\rho_f V_k g$ wirkt. Zusätzlich tritt eine Reibungskraft $F_r = -6\pi \eta r\, v$ auf, die proportional zur Geschwindigkeit $v$ der fallenden Kugel ist. Da diese Reibungskraft mit zunehmender Geschwindigkeit anwächst, stellt sich nach kurzer Zeit ein stationärer Zustand ein, in dem sich Gewichtskraft, Auftrieb und Reibungskraft genau ausgleichen. Aus diesem Kräftegleichgewicht ergibt sich für die dynamische Viskosität der Flüssigkeit der Ausdruck
+
+Nachdem das in \ceq{force_balance} beschriebene Gleichgewicht eingesetzt hat, kann man diese Gleichung umstellen und nach $\eta$ umstellen. Dabei kommt man auf das Ergebnis:
 
 \eq{eta_Fallrohr}{
-  \eta = \frac{2}{9}\, g\, \frac{\rho_k - \rho_f}{v}\, r^2,
+  \eta = \frac{2}{9}\, g\, \frac{\rho_k - \rho_f}{v}\, r^2 \, .
 }
 
-der es ermöglicht, die Viskosität aus der gemessenen Fallgeschwindigkeit der Kugel zu bestimmen.
+Somit ist es möglich die Viskosität aus der (gemessenen) Fallgeschwindigkeit zu bestimmen.-
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
-Der Versuchsaufbau besteht aus einem zylindrischen Messgefäß mit Präzisionskapillare (Länge \(L\), Innendurchmesser \(2R\)), mehreren POM‑Kugeln verschiedener Durchmesser, Thermometern zur Bestimmung der Flüssigkeitstemperatur sowie Stoppuhren und Messzylindern zur Volumenstrommessung. Grafiken und Abbildungen werden separat eingefügt; hier genügt die textliche Beschreibung der relevanten Größen und Messgrößen.
+\subsection{Viskositätsbestimmung nach Hagen-Poiseuille}
+\label{ssec:HuP}
+
+Zu Viskositätsbestimmung nach Hagen-Poiseuille wird nun die Kapillare am unteren Zylinderende betrachtet. Denn durch die Druckdifferenz $\Delta p = p_1 - p_2$ und die daduch entstehende Kraft $F_p = \pi r^2\,\Delta p$ fließt die Flüssigkeit aus der Kapillare. Dieser Kraft wirkt die Reibungskraft $F_R = 2 \pi r \, L \, \eta \, \d{v} / \d{r}$.
+
+Der Fließgeschwindigketi durch ein zylindrisches Rohr hat ein parabolisches Geschwindigketisprofil. Wir nehmen an, das am Zylinderrand die Fließgeschwindigkeit gleich null ist. Zudem wird die Annahme getroffen, dass es sich um eine laminare Strömung handelt. 
+
+Es wird sich wieder ein Gleichgewichtszustand zwischen $F_R$ und $F_p$ einstellen. Unter allen getrofenen Annahmen, lässt sich der Volumensstrom zu
+
+\eq{vol_strom}{
+  \frac{\d{V}}{\d{t}} = \frac{\pi \, \Delta p \, R^4}{8\eta \, L}
+}
+
+herleiten. In dieser Gleichung ist $R$ der Rohrradius und $L$ die Rohrlänge. Durch Umstellen von \ceq{vol_strom} nach $\eta$ kommt man auf
+
+\eq{final_eta_hup}{
+  \eta = \frac{\pi \, \Delta p \, R^4} {8L \, \dot{V}}
+}
+
+\img[.65]{Geschwindigketisprofil_roht}{Schematische Darstellung für den zweiten Versuchsteil: Eine Flüssigkeit fließt durch ein Rohr, wobei die Geschwindigkeitsverteilung parabolisch ist.}

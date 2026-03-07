@@ -14,10 +14,10 @@
     "description": "Hyperlink zur Gleichung der Gauß'schen Fehlerfortpflanzung"
   },
 
-    "MEssprotokoll ref": {
+    "Messprotokoll ref": {
     "prefix": "messp",
     "body": [
-      "\\hyperref[ch:protokoll]{Messprotokoll (\\ref*{ch:protokoll})}"
+      "\\hyperref[ch:protokoll]{Messprotokoll}"
     ],
     "description": "Hyperlink zum Messprotokoll"
   },

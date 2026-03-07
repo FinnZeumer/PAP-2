@@ -33,7 +33,7 @@ Fehler des Adiabatenkoeffizienten \(\kappa\) (\ceq{CD_k_final}) werden via \hype
 
 Der  Indize \afz{CD} heißt, dass die Methode nach Clément und Desomers verwendet wurde, \afz{L} soll zeigen, dass es sich um Luft handelt.
 
-Die Werte für die Höhendifferenzen und deren Ungenauigkeiten sind dem \hyperref[ch:protokoll]{Messprotokoll (\ref*{ch:protokoll})} zu entnehmen.
+Die Werte für die Höhendifferenzen und deren Ungenauigkeiten sind dem \hyperref[ch:protokoll]{Messprotokoll} zu entnehmen.
 
 Die Ergebnisse der Rechnung sind in \ctab{kappaA1} festgehalten.
 
@@ -70,28 +70,28 @@ Damit kommen wir auf das Ergebnis für den Mittelwert des Adiabatenkoeffizienten
 \section{Adiabatenkoeffizient nach Rüchardt}
 \label{sec:A2}
 
-Nun sollen die Adiabatenkoeffizienten von Luft und Argon nach Rüchhard bestimmt werden. Die ergebnisse werden in \csec{Analyse} mit den Werten aus Aufgabe 1 \csec{A1} und den Literaturwerten verglichen. Zunächst wurde die Periodendauer \(T\) der Schwingung gemessen. Es wurde die Zeit für 75 Schwinungen gemessen, um die Periodendauer \(T\) zu bestimmen. Fehler der Periodendauer \(\Delta T\) werden mit \hyperref[eq:fehler_proportional]{Fehlerfortpflanzung (\ref*{eq:fehler_proportional})} berechnet:
+Nun sollen die Adiabatenkoeffizienten von Luft und Argon nach Rüchhard bestimmt werden. Die ergebnisse werden in \csec{Analyse} mit den Werten aus \csec{A1} und den Literaturwerten verglichen. Zunächst wurde die Periodendauer \(T\) der Schwingung gemessen. Es wurde die Zeit für 75 Schwinungen gemessen, um die Periodendauer \(T\) zu bestimmen. Fehler der Periodendauer \(\Delta T\) werden mit \hyperref[eq:fehler_proportional]{Fehlerfortpflanzung (\ref*{eq:fehler_proportional})} berechnet:
 
 \eq{errR_T}{
     \Delta T = \sqrt{\frac{(\Delta T_i)^2 + \sigma^2}{n}}
 }
 
 Dabei wurden $n = 5$ Messungen für Luft und Argon durchgeführt. $T_i$ beschreibt den $i$-ten Messwert der Periodendauer, $\sigma$ die Standardabweichung der Messwerte. 
-Zusätzlich muss nach \ceq{R_p}. Der Fehler bestimmt sich nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu:
+Zusätzlich muss noch die Ungenauigkeit von \ceq{R_p} bestimmt werden:
 
 \eq{errR_p}{
     \Delta p = p \, \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta p^{2}}{p^{2}} + \frac{16 \Delta r^{2}}{r^{2}} + \frac{\Delta V^{2}}{V^{2}} + \frac{4 \Delta T^{2}}{T^{2}}} \, .
 }
 
-Die Werte für $p_0, r, m$ sind alle dem \hyperref[ch:protokoll]{Messprotokoll (\ref*{ch:protokoll})} zu entnehmen, genauso wie deren Ungenauigkeiten. Für die Gravitationsbeschleunigung wurde der Heidelberger-Standardwert von $g = (9.80984 \pm 0.00002) m/s^2$ gewählt.
+Die Werte für $p_0, r, m$ sind alle dem \hyperref[ch:protokoll]{Messprotokoll} zu entnehmen, genauso wie deren Ungenauigkeiten. Für die Gravitationsbeschleunigung wurde der Heidelberger-Standardwert von $g = (9.80984 \pm 0.00002) m/s^2$ gewählt.
 
-Damit sind alle Werte zusammen, um $\kappa_\text{R}$ nach \ceq{R_k_final} zu bestimmen. Es fehlt nur noch der Fehler, der nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} sich zu
+Damit sind alle Werte zusammen, um $\kappa_\text{R}$ nach \ceq{R_k_final} zu bestimmen. Es fehlt nur noch der Fehler der \ceq{R_k_final}, der sich nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu
 
 \eq{err_R_k_final}{
-    \Delta \kappa_\text{R} = \kappa_\text{R} \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta p^{2}}{p^{2}} + \frac{16 \Delta r^{2}}{r^{2}} + \frac{\Delta V^{2}}{V^{2}} + \frac{4 \Delta T^{2}}{T^{2}}} \, .
+    \Delta \kappa_\text{R} = \kappa_\text{R} \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta p^{2}}{p^{2}} + \frac{16 \Delta r^{2}}{r^{2}} + \frac{\Delta V^{2}}{V^{2}} + \frac{4 \Delta T^{2}}{T^{2}}}
 }
 
-Mit dieser Formel lassen sich nun die Adiabatenkoeffizienten sowohl von Luft ($\kappa_\text{R, L}$), als auch von Argon ($\kappa_\text{R, A}$) bestimmen. Die Tabelle \ctab{kappaA2} zeigt die Kappa Werte für die bestimmten Periodendauern $T$, sowie für die gemessenen Luftdrücke $p$.
+Berechnet. Mit dieser Formel lassen sich nun die Adiabatenkoeffizienten sowohl von Luft ($\kappa_\text{R, L}$), als auch von Argon ($\kappa_\text{R, A}$) bestimmen. Die Tabelle \ctab{kappaA2} zeigt die Kappa Werte für die bestimmten Periodendauern $T$, sowie für die gemessenen Luftdrücke $p$.
 
 \begin{table}[h]
     \centering
