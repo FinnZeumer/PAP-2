@@ -2,10 +2,33 @@
 % newcommands %
 %%%%%%%%%%%%%%%
 
+
+% --------------------------------------------------------------------------------------------------------------------------------
+%   Wichtige Ergebnisse. Res für finale Ergebnisse. Label müssen überarbeitet werden
+% --------------------------------------------------------------------------------------------------------------------------------
+
 % Results \res[Exponent der 10er Potenz]{Ergebniswert}{Fehler des Ergebnisses}{Einheit}
 \newcommand{\res}[5][0]{
   \begin{equation}
+    % \label{eq:#2}
     \boxed{
+        #2 =
+      {(#3 \pm #4)}
+        \ifthenelse{#1=0}{
+            \,
+          }{
+          \cdot 10^{#1} \,
+        }
+        \mathrm{#5}
+      }
+  \end{equation}
+}
+
+% Wichtige Zwischenergebnisse, aber keine Endergebnisse
+\newcommand{\imp}[5][0]{
+  \begin{equation}
+    % \label{eq:#2}
+    \underline{
         #2 =
       {(#3 \pm #4)}
         \ifthenelse{#1=0}{
@@ -20,13 +43,13 @@
 
 
 % ----------------------------------------------------------------
-% Angepasste commands, um schneller Grafiken zu importieren
-% Alle Grafiken sollten im Dateinamen keine Leerzeichen haben, 
-% damit die Label vernünftig funktionieren.
+%   Angepasste commands, um schneller Grafiken zu importieren
+%   Alle Grafiken sollten im Dateinamen keine Leerzeichen haben, 
+%   damit die Label vernünftig funktionieren.
 % ----------------------------------------------------------------
 
-% \img[Width]{Path}{Caption}{Label}
-\newcommand{\img}[3][0.35]{
+% \img[Width]{Path}{Caption}
+\newcommand{\img}[3][0.85]{
   \begin{figure}[h!]
     \centering
     \includegraphics[width = #1 \linewidth]{Versuche/\versuchsnummer/img/#2} % Automatisch im Verzeichznis der Versuchsnummer
@@ -63,8 +86,8 @@
 }
 
 % ----------------------------------------------------------------
-% Comands spezifisch für ein schöneres und schnelleres citen von, 
-% z.B. Literatur oder Abbildungen
+%   Comands spezifisch für ein schöneres und schnelleres citen von, 
+%   z.B. Literatur oder Abbildungen
 % ----------------------------------------------------------------
 
 % Die Eingabe ist das vergebene Label, z.B. \cabb{label} für eine Abbildung, \ctab{label} für eine Tabelle, \cdig{label} für ein Diagramm und \ceq{label} für eine Gleichung
@@ -77,7 +100,7 @@
 
 
 % ----------------------------------------------------------------
-% Comands spezifisch für schnelles schreiben von Formeln
+%   Comands spezifisch für schnelles schreiben von Formeln
 % ----------------------------------------------------------------
 
 \newcommand{\eq}[2]{

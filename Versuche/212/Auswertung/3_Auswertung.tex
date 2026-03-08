@@ -1,5 +1,3 @@
-% \onecolumn
-
 \chapter{Auswertung}
 \label{ch:Auswertung}
 % Liste der genutzer Formeln für die Fehlerrechnung
@@ -17,13 +15,12 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
 \end{align}
 
-% \twocolumn
 \newpage
 
 \section{Bestimmung der Viskosität nach Stokes mit einem Kugelfallviskosimeter}
 \label{sec:A1}
 
-Es soll zunächst die Viskosität \(\eta\) von Polyethylenglykol (PEG) mit einem Kugelfallviskosimeter nach Stokes bestimmt werden. Dazu werden die Fallzeiten \(t\) von Kugeln mit verschiedenen Durchmessern \(d\) über eine definierte Strecke \(s\) gemessen, um die mittlere Sinkgeschwindigkeit \(v = s/\bar{t}\) zu berechnen. Die Ladenburgsche Korrektur \(\lambda\) wird angewendet, um die Endgeschwindigkeit \(v_s\) zu korrigieren, und die Viskosität \(\eta\) wird aus der umgestellten Stokes'schen Formel \ceq{terminal_velocity} bestimmt. Es wird auch der Übergang von laminarer zu turbulenter Umströmung untersucht, indem die Strömungsregime um die Kugel analysiert werden.
+Es soll zunächst die Viskosität \(\eta\) von Polyethylenglykol (PEG) mit einem Kugelfallviskosimeter nach Stokes bestimmt werden. Dazu werden die Fallzeiten \(t\) von Kugeln mit verschiedenen Durchmessern \(d\) über eine definierte Strecke \(s\) gemessen, um die mittlere Sinkgeschwindigkeit \(v = s/\bar{t}\) zu berechnen. Die Ladenburgsche Korrektur \(\lambda\) wird angewendet, um die Endgeschwindigkeit \(v_s\) zu korrigieren, und die Viskosität \(\eta\) wird aus der umgestellten Stokes'schen Formel \ceq{eta_Fallrohr} bestimmt. Es wird auch der Übergang von laminarer zu turbulenter Umströmung untersucht, indem die Strömungsregime um die Kugel analysiert werden.
 Dabei wird die mittlere Sinkzeit über das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} bestimmt:
 
 \eq{avg_t}{
@@ -72,7 +69,7 @@ Aus den in \ctab{messwerteTab} zusammengefassten Messwerten können nun die Wert
 \centering
 \begin{tabular}{llll}
 \toprule
-d [$\mathrm{m} \cdot 10^{-3}$] & r [$\mathrm{m} \cdot 10^{-3}$] & s [$\mathrm{m} \cdot 10^{-3}$] & $\overline{t} [\mathrm{s}]$ \\
+d [$\mathrm{m} \cdot 10^{-6}$] & r [$\mathrm{m} \cdot 10^{-6}$] & s [$\mathrm{m} \cdot 10^{-6}$] & $\overline{t} \, [\mathrm{s}]$ \\
 \midrule
 $100.0 \pm 2.5$ & $50.0 \pm 1.3$ & $5.00 \pm 0.20$ & $79.04 \pm 1.24$ \\
 $200.0 \pm 2.5$ & $100.0 \pm 1.3$ & $5.00 \pm 0.20$ & $25.0 \pm 0.6$ \\
@@ -88,9 +85,9 @@ $900.0 \pm 2.5$ & $450.0 \pm 1.3$ & $20.00 \pm 0.20$ & $6.5 \pm 0.3$ \\
 \end{table}
 
 
-Es lässt sich beobachten, dass für kleine Kugelradien  die gemessenen Werte \(v\) und die korrigierten Werte \(v_s\) nahezu identisch sind, was darauf hindeutet, dass die Ladenburgsche Korrektur in diesem Bereich vernachlässigbar ist. Für größere Kugelradien hingegen weichen die unkorrierten Werte \(v\) deutlich von den korrigierten Werten \(v_s\) ab, was die zunehmende Bedeutung der Ladenburgschen Korrektur bei größeren Kugeln verdeutlicht. 
-
 \img[.95]{plot/ges_gegen_r2}{Plot der Geschwindigkeiten gegen den quadrierten Kugelradius. Die Lineare Regression ist durch die ersten fünf Messwerte der korrigierten Werte gelegt. Die lineare Nährung ist damit nicht gültig.}
+
+Es lässt sich beobachten, dass für kleine Kugelradien  die gemessenen Werte \(v\) und die korrigierten Werte \(v_s\) nahezu identisch sind, was darauf hindeutet, dass die Ladenburgsche Korrektur in diesem Bereich vernachlässigbar ist. Für größere Kugelradien hingegen weichen die unkorrierten Werte \(v\) deutlich von den korrigierten Werten \(v_s\) ab, was die zunehmende Bedeutung der Ladenburgschen Korrektur bei größeren Kugeln verdeutlicht. 
 
 Jedoch ist auch zu beobachten, dass selbst die korrigierten Werte \(v_s\) für die größten Kugeln nicht mehr der linearen Beziehung entsprechen, die durch die Stokes'sche Formel \ceq{eta_Fallrohr} beschrieben wird. Dies deutet darauf hin, dass bei größeren Kugeln der Übergang von laminarer zu turbulenter Umströmung stattfindet, wodurch die Stokes'sche Formel nicht mehr gültig ist.
 
@@ -102,13 +99,83 @@ Die Steigung ist via $k = \Delta v_s / \Delta r^2$ definiert. Seine Ungenauigkei
 
 Final berechnet sich die Steigung zu
 
-\res{k}{1961}{25}{\frac{1}{m \, s}}
+\imp{k}{1961}{25}{\frac{1}{m \, s}}
+\label{eq:k}
 
-Somit ist die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq{eta_Fallrohr} berechnet werden, wobei die Unsicherheit \(\Delta \eta\) ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt wird, wobei die Unsicherheiten der Steigung \(m\) und der Dichteunterschiede \(\rho_k - \rho_f\) berücksichtigt werden:
+Somit ist die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq{eta_Fallrohr} berechnet werden, wobei die Unsicherheit \(\Delta \eta\) ebenfalls über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt wird, wobei die Unsicherheiten der Steigung \(k\) und der Dichteunterschied \(\rho_k - \rho_f\) berücksichtigt werden:
 
 \eq{delta_eta}{
-    \Delta \eta = \frac{2gr^2}{9}\sqrt{\left(\frac{1}{m} \Delta (\rho_k - \rho_f)\right)^2 + \left(\frac{\rho_k - \rho_f}{m^2} \Delta m\right)^2}.
+    \Delta \eta = \eta \, \sqrt{\frac{\Delta pf^{2}}{\left(p_f - p_k\right)^{2}} + \frac{\Delta pk^{2}}{\left(p_f - p_k\right)^{2}} + \frac{\Delta k^{2}}{k^{2}} + \frac{\Delta g^{2}}{g^{2}}} \, .
 }
 
-\section{Bestimmung der Viskosität nach Hagen-Poiseuille mit einem Kapillarviskosimeter}
+Dabei ist $g$ die Ortskonstante der Erdbeschleunigung in Heidelber mit $g = (9.80984 \pm 0.00002) \, \mathrm{m/s^2}$, $\rho_k = (1385 \pm 15) \mathrm{\frac{kg}{m^3}}$ die Dichte der POM-Kugeln nach Angaben im Praktikumsskript. Die Steigung $k$ ist gemäß \ceq{k} angegeben. Die Dichte des PEG ist in Abhänigkeit der Temperatur zu bestimmen. Dem \hyperref[ch:protokoll]{Messprotokoll} ist zu entnehmen, dass die PEG-Temperatur konstant den Wert $T_1 = (21.5\pm 05) \mathrm{^\circ C}$ gehalten hat. Die Werte lassen sich ungerundet der \cabb{Dichte_Polyethylen_Temp-eingetragen} entnehmen. 
+
+Für $T_1$ kommt man dabei auf eine Dichte von
+
+\imp{p_{f,1}}{1148.2}{0.5}{\frac{kg}{m^3}}
+
+und für $T_2$ auf
+
+\imp{p_{f,2}}{1148.2}{1.2}{\frac{kg}{m^3}}
+
+Interessant ist, egal welchen Fehler man hier einsetzt, das Ergebnis läuft auf
+
+\res{\eta}{0.263}{0.017}{\frac{kg}{m\, s}}
+
+hinaus. Das liegt daran, dass der Fehler sowieso vernachlässigbar gegenüber der anderen Fehlergrößen ist. 
+
+\img[0.9]{Dichte_Polyethylen_Temp-eingetragen}{Graph der Dichte von PEG in Temperaturabhänigkeit. Eingezeichnet sind die Werte für die Temperatur $T_1 = (21.1 \pm 0.5)\mathrm{^\circ C}$ und die für $T_2 = (21.5 \pm 1.0) \mathrm{^\circ C}$. Die Werte sind noch nicht gerundet. Bestimmt wurden die Werte über das Grafikprogramm \afz{Inkscape}.}
+
+
+\section{Gültigkeit des Gesetztes von Stokes}
 \label{sec:A2}
+Es soll nun untersucht werden, wie groß der Gültigkeitsbereich des Gesetzes von Stokes ist. Dafür wird das Ergebnis aus \csec{A1} zur hilfe genommen. Zur Prüfung wird die theoretisch erwatete Sinkgeschwindigkeit $v_\text{lam}$ nach \ceq{v_lam} zu Hilfe gezogen und der Reynoldsfaktor $Re$. 
+
+\eq{v_lam}{
+    v_\text{lam} = \frac{2}{9} g \, \frac{(p_k- p_f)}{\eta \, \lambda} \, r^2
+}
+
+\eq{err_v_lam}{
+    \Delta v_\text{lam} = v_\text{lam} \, \sqrt{\frac{\Delta p_f^{2}}{\left(p_f - p_k\right)^{2}} + \frac{\Delta p_k^{2}}{\left(p_f - p_k\right)^{2}} + \frac{4 \Delta r^{2}}{r^{2}} + \frac{\Delta v_\text{lam}^{2}}{v_\text{lam}^{2}} + \frac{\Delta g^{2}}{g^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}}} 
+}
+
+Die Berechnung der Reynoldszahl ist in \ceq{reynolds} festgehalten. Der Fehler berechnet sich zu
+
+\eq{err_re}{
+    \Delta \text{Re} = \text{Re} \sqrt{\frac{\Delta v^{2}}{v^{2}} + \frac{\Delta \rho_f^{2}}{\rho_f^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta L^{2}}{L^{2}}} \, .
+}
+
+Dabei ist $L = 2r$. DIe Ergebnisse der Berechnung sind der \ctab{reynolds_tab} zu entnehmen.
+
+\begin{table}[h!]
+    \caption{Theoretische Sinkgeschwindigkeit $v_\text{lam}$ und Reynoldszahl in Abhänigkeit von $r$, mit der Ungenauigkeit $\Delta r = 0.013 \mathrm{m} \cdot 10^{-3}$.}
+    \label{tab:reynolds_tab}
+    \centering
+    \begin{tabular}{L | L | L}
+        \toprule
+        r [\mathrm{m} \cdot 10^{-3}] & v_\text{lam} \mathrm{\frac{m}{s}} & \text{Re} \\
+        \midrule
+        0.5 & 0.48 \pm 0.05   & 0.00276 \pm 0.00022 \\
+        1.0 & 1.91 \pm 0.18   & 0.0175 \pm 0.0014 \\
+        1.5 & 4.2 \pm 0.4     & 0.060 \pm 0.004 \\
+        2.0 & 7.4 \pm 0.7     & 0.131 \pm 0.009 \\
+        2.5 & 11.5 \pm 1.0    & 0.254 \pm 0.018 \\
+        3.0 & 16.3 \pm 1.5    & 0.393 \pm 0.027 \\
+        3.5 & 21.90 \pm 1.10  & 0.63 \pm 0.05 \\
+        4.0 & 28.2 \pm 2.6    & 0.88 \pm 0.07\\
+        4.5 & 35 \pm 3        & 1.123 \pm 0.010 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Um die kritische Reynolds-Zahl zu bestimmen, wird das Verhältnis der korrigierten Geschwinigkeit $v_s$ und der theoretischen Geschwindigkeit $v_\text{lam}$ gegen $log(Re)$ geplottet. 
+In der \cabb{plot/ver_ges_gegen_re} ist leider kein \afz{Knick} zu erkenne. Normalerweise were dies der Wert, ab dem man die kritische Reynoldszahl abliest. Grob vermuten lässt isch jedoch, dass es der siebte Wert, in der Abbildung rot markiert, ist.
+
+\img{plot/ver_ges_gegen_re}{Keine eindeutigen Messergebnisse. Der kritische Punkt wird nur erahnt.}
+
+Die Vermutung, dass es rund um den siebten Wert liegt, stammt auch daher, dass bekannt ist, dass ein Wert von $<1$ erwartet wird. Die zwei Folge werte scheinen auch dem linearen Verlauf zu folgen, der erwatet werden würde, der Wrt davor jedoch nicht. Um die unsicherheit aber klar zu machen, wird ein großzügiger Fehler von $50\%$ angenommen. Somit kommt man auf einen kritischen Wert von:
+
+\imp{Re_\text{krit}}{0.6}{0.3}{}
+
+\section{Bestimmung der Viskosität nach Hagen-Poiseuille mit einem Kapillarviskosimeter}
+\label{sec:A3}
