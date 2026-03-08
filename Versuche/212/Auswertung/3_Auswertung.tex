@@ -120,14 +120,14 @@ und für $T_2$ auf
 
 Interessant ist, egal welchen Fehler man hier einsetzt, das Ergebnis läuft auf
 
-\res{\eta}{0.263}{0.017}{\frac{kg}{m\, s}}
+\res{\eta_\text{s}}{0.263}{0.017}{\frac{kg}{m\, s}}
 
 hinaus. Das liegt daran, dass der Fehler sowieso vernachlässigbar gegenüber der anderen Fehlergrößen ist. 
 
 \img[0.9]{Dichte_Polyethylen_Temp-eingetragen}{Graph der Dichte von PEG in Temperaturabhänigkeit. Eingezeichnet sind die Werte für die Temperatur $T_1 = (21.1 \pm 0.5)\mathrm{^\circ C}$ und die für $T_2 = (21.5 \pm 1.0) \mathrm{^\circ C}$. Die Werte sind noch nicht gerundet. Bestimmt wurden die Werte über das Grafikprogramm \afz{Inkscape}.}
 
 
-\section{Gültigkeit des Gesetztes von Stokes}
+\subsection{Gültigkeit des Gesetztes von Stokes}
 \label{sec:A2}
 Es soll nun untersucht werden, wie groß der Gültigkeitsbereich des Gesetzes von Stokes ist. Dafür wird das Ergebnis aus \csec{A1} zur hilfe genommen. Zur Prüfung wird die theoretisch erwatete Sinkgeschwindigkeit $v_\text{lam}$ nach \ceq{v_lam} zu Hilfe gezogen und der Reynoldsfaktor $Re$. 
 
@@ -169,7 +169,7 @@ Dabei ist $L = 2r$. DIe Ergebnisse der Berechnung sind der \ctab{reynolds_tab} z
 \end{table}
 
 Um die kritische Reynolds-Zahl zu bestimmen, wird das Verhältnis der korrigierten Geschwinigkeit $v_s$ und der theoretischen Geschwindigkeit $v_\text{lam}$ gegen $log(Re)$ geplottet. 
-In der \cabb{plot/ver_ges_gegen_re} ist leider kein \afz{Knick} zu erkenne. Normalerweise were dies der Wert, ab dem man die kritische Reynoldszahl abliest. Grob vermuten lässt isch jedoch, dass es der siebte Wert, in der Abbildung rot markiert, ist.
+In der \cabb{plot/ver_ges_gegen_re} ist leider kein \afz{Knick} zu erkenne. Normalerweise were dies der Wert, ab dem man die kritische Reynoldszahl abliest. Grob vermuten lässt sich jedoch, dass es der siebte Wert, in der \cabb{plot/ver_ges_gegen_re} rot markiert, ist.
 
 \img{plot/ver_ges_gegen_re}{Keine eindeutigen Messergebnisse. Der kritische Punkt wird nur erahnt.}
 
@@ -179,3 +179,74 @@ Die Vermutung, dass es rund um den siebten Wert liegt, stammt auch daher, dass b
 
 \section{Bestimmung der Viskosität nach Hagen-Poiseuille mit einem Kapillarviskosimeter}
 \label{sec:A3}
+Nun soll sich im letzten Aufgaben Teil einer neuen Methode zur Bestimmung der Viskosität fokussiert werden.
+Bei der Hagen-Poiseuille-Methode wird nun der Volumenfluss nach \ceq{vol_strom} bestimmt. Die Messwerte sind dem \hyperref[ch:protokoll]{Messprotokoll} der Tabelle II zu entnehmen. Der Rohrdurchmesser ist mit $R = (1.50 \pm 0.01) \mathrm{mm}$ und die Länge ist mit $L = (100.0 \pm 0.5)\mathrm{mm} $ gegeben. \cite{skriptPAP21}
+
+\img{plot/volumenfluss}{Plot der Messwerte (blau) mit linerarer Regression (grün).}
+
+In \cabb{plot/volumenfluss} sind die Messwert inklusive linerarer Regression eingezeichnet. Die Steigung der Geraden entspricht dabei gerade dem Volumenfluss:
+
+\imp[-8]{\dot V}{3.318}{0.017}{\frac{m^3}{s}}
+
+Weiterführend fehlt nun noch die Druckdifferenz $p_\text{diff} = p_1 - P_2$. Dabei entspricht $p_2$ dem Athmosphärendruch und $p_1$ der Druch, der durch die Schwerkraft auf das PEG wirkt (\afz{hydrostatischer Druck}). Dieser ist nur Abhänig von der Füllhöhe des Zylinders.
+Somit lässt sich die Druckdifferenz auch wie folgt formulieren:
+
+\eq{durck_diff_h}{
+    p_\text{diff} = \frac{\rho_f \, g}{2} \, (h_\text{A} - h_\text{E}) \, ,
+}
+
+und seine Ungenauigkeit
+
+\eq{durck_diff_h_err}{
+    \Delta p_\text{diff} = p_\text{diff} \, \sqrt{\frac{\Delta h_\text{A}^{2}}{\left(h_\text{A} + h_\text{E}\right)^{2}} + \frac{\Delta h_\text{E}^{2}}{\left(h_\text{A} + h_\text{E}\right)^{2}} + \frac{\Delta g^{2}}{g^{2}} + \frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}}}  \, .
+}
+
+Berechnet man mit den bekannten Werten die Druckdifferent, so kommt man auf
+
+\imp{p_\text{diff}}{5941}{24}{Pa}
+
+Damit sind alle Werte zusammen, die für die Berehcnung der Viskosität nach Hagen-Poiseuille benötigt werden. 
+Die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} wird auf \ceq{final_eta_hup} angewendet:
+
+\eq{err_final_eta_hup}{
+    \Delta \eta = \eta \, \sqrt{\frac{\Delta p^{2}}{p^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{16 \Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} 
+}
+
+Somtit kommt man auf eine Viskosität von
+
+\res{\eta_\text{hp}}{0.222}{0.006}{\frac{kg}{m\, s}}
+
+nach der Methode von Hagen-Poiseuille.
+
+\subsubsection{Reynoldszahl für Hagen-Poiseuille}
+Zu letzt soll noch die Reynolds-Zahl bestimmt werden. Diese berechnet sich nach der Formel:
+
+Dafür benötigen wir die mittlere Fließgeschwindigkeit $\overline{v}_f$. Diese Berechnet sich nach
+
+\eq{fliessges_hp}{
+    \overline{v}_f = \frac{\dot{V}}{\pi \, R^2} \, .
+}
+
+Diese steht im Zusammenhang mit der Reynoldszahl. 
+
+\eq{re_zwischendurch}{
+    Re_\text{hp} = \frac{\rho_f \, \overline{v}_f \, 2r_\text{k}}{\eta}
+}
+
+Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{\ceq{fliessges_hp}} erhält man
+
+\eq{reynolds_final_hp}{
+    Re_\text{hp} = \frac{2 \dot{V} \rho_{f}}{\pi L R} 
+}
+
+und seine Ungenauigkeit nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
+
+\eq{reynolds_final_hp_err}{
+    \Delta Re_\text{hp} = Re_\text{hp} \, \sqrt{\frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{\Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} 
+}
+
+Durh einsetzen der Messwerte kommt man final auf eine Reynodls-Zahl von
+
+\res{Re_\text{hp}}{0.1617}{0.0016}{}
+
+Für die Hagen-Poiseuille-Methode gilt für Reynoldszahlen ab $Re \approx 2300$, dass die Strömng turbulent wird. Der bestimmte Wert liegt dabei weit unter den kritischen Wert. 
