@@ -218,35 +218,35 @@ Somtit kommt man auf eine Viskosität von
 
 nach der Methode von Hagen-Poiseuille.
 
-\subsubsection{Reynoldszahl für Hagen-Poiseuille}
-Zu letzt soll noch die Reynolds-Zahl bestimmt werden. Diese berechnet sich nach der Formel:
+% \subsubsection{Reynoldszahl für Hagen-Poiseuille}
+% Zu letzt soll noch die Reynolds-Zahl bestimmt werden. Diese berechnet sich nach der Formel:
 
-Dafür benötigen wir die mittlere Fließgeschwindigkeit $\overline{v}_f$. Diese Berechnet sich nach
+% Dafür benötigen wir die mittlere Fließgeschwindigkeit $\overline{v}_f$. Diese Berechnet sich nach
 
-\eq{fliessges_hp}{
-    \overline{v}_f = \frac{\dot{V}}{\pi \, R^2} \, .
-}
+% \eq{fliessges_hp}{
+%     \overline{v}_f = \frac{\dot{V}}{\pi \, R^2} \, .
+% }
 
-Diese steht im Zusammenhang mit der Reynoldszahl. 
+% Diese steht im Zusammenhang mit der Reynoldszahl. 
 
-\eq{re_zwischendurch}{
-    Re_\text{hp} = \frac{\rho_f \, \overline{v}_f \, 2r_\text{k}}{\eta}
-}
+% \eq{re_zwischendurch}{
+%     Re_\text{hp} = \frac{\rho_f \, \overline{v}_f \, 2r_\text{k}}{\eta}
+% }
 
-Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{\ceq{fliessges_hp}} erhält man
+% Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{\ceq{fliessges_hp}} erhält man
 
-\eq{reynolds_final_hp}{
-    Re_\text{hp} = \frac{2 \dot{V} \rho_{f}}{\pi L R} 
-}
+% \eq{reynolds_final_hp}{
+%     Re_\text{hp} = \frac{2 \dot{V} \rho_{f}}{\pi L R} 
+% }
 
-und seine Ungenauigkeit nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
+% und seine Ungenauigkeit nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
 
-\eq{reynolds_final_hp_err}{
-    \Delta Re_\text{hp} = Re_\text{hp} \, \sqrt{\frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{\Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} 
-}
+% \eq{reynolds_final_hp_err}{
+%     \Delta Re_\text{hp} = Re_\text{hp} \, \sqrt{\frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{\Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} 
+% }
 
-Durh einsetzen der Messwerte kommt man final auf eine Reynodls-Zahl von
+% Durh einsetzen der Messwerte kommt man final auf eine Reynodls-Zahl von
 
-\res{Re_\text{hp}}{0.1617}{0.0016}{ }
+% \res{Re_\text{hp}}{0.1617}{0.0016}{ }
 
-Für die Hagen-Poiseuille-Methode gilt für Reynoldszahlen ab $Re \approx 2300$, dass die Strömng turbulent wird. Der bestimmte Wert liegt dabei weit unter den kritischen Wert. 
+% Für die Hagen-Poiseuille-Methode gilt für Reynoldszahlen ab $Re \approx 2300$, dass die Strömng turbulent wird. Der bestimmte Wert liegt dabei weit unter den kritischen Wert. 
