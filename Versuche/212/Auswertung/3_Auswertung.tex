@@ -108,7 +108,7 @@ Somit ist die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq
     \Delta \eta = \eta \, \sqrt{\frac{\Delta pf^{2}}{\left(p_f - p_k\right)^{2}} + \frac{\Delta pk^{2}}{\left(p_f - p_k\right)^{2}} + \frac{\Delta k^{2}}{k^{2}} + \frac{\Delta g^{2}}{g^{2}}} \, .
 }
 
-Dabei ist $g$ die Ortskonstante der Erdbeschleunigung in Heidelber mit $g = (9.80984 \pm 0.00002) \, \mathrm{m/s^2}$, $\rho_k = (1385 \pm 15) \mathrm{\frac{kg}{m^3}}$ die Dichte der POM-Kugeln nach Angaben im Praktikumsskript. Die Steigung $k$ ist gemäß \ceq{k} angegeben. Die Dichte des PEG ist in Abhänigkeit der Temperatur zu bestimmen. Dem \hyperref[ch:protokoll]{Messprotokoll} ist zu entnehmen, dass die PEG-Temperatur konstant den Wert $T_1 = (21.5\pm 05) \mathrm{^\circ C}$ gehalten hat. Die Werte lassen sich ungerundet der \cabb{Dichte_Polyethylen_Temp-eingetragen} entnehmen. 
+Dabei ist $g$ die Ortskonstante der Erdbeschleunigung in Heidelber mit $g = (9.80984 \pm 0.00002) \, \mathrm{m/s^2}$, $\rho_k = (1385 \pm 15) \mathrm{\frac{kg}{m^3}}$ die Dichte der POM-Kugeln nach Angaben im Praktikumsskript. Die Steigung $k$ ist gemäß \ceq{k} angegeben. Die Dichte des PEG ist in Abhänigkeit der Temperatur zu bestimmen. Dem \hyperref[ch:Protokoll]{Messprotokoll} ist zu entnehmen, dass die PEG-Temperatur konstant den Wert $T_1 = (21.5\pm 05) \mathrm{^\circ C}$ gehalten hat. Die Werte lassen sich ungerundet der \cabb{Dichte_Polyethylen_Temp-eingetragen} entnehmen. 
 
 Für $T_1$ kommt man dabei auf eine Dichte von
 
@@ -175,12 +175,12 @@ In der \cabb{plot/ver_ges_gegen_re} ist leider kein \afz{Knick} zu erkenne. Norm
 
 Die Vermutung, dass es rund um den siebten Wert liegt, stammt auch daher, dass bekannt ist, dass ein Wert von $<1$ erwartet wird. Die zwei Folge werte scheinen auch dem linearen Verlauf zu folgen, der erwatet werden würde, der Wrt davor jedoch nicht. Um die unsicherheit aber klar zu machen, wird ein großzügiger Fehler von $50\%$ angenommen. Somit kommt man auf einen kritischen Wert von:
 
-\imp{Re_\text{krit}}{0.6}{0.3}{}
+\res{Re_\text{krit}}{0.6}{0.3}{}
 
 \section{Bestimmung der Viskosität nach Hagen-Poiseuille mit einem Kapillarviskosimeter}
 \label{sec:A3}
 Nun soll sich im letzten Aufgaben Teil einer neuen Methode zur Bestimmung der Viskosität fokussiert werden.
-Bei der Hagen-Poiseuille-Methode wird nun der Volumenfluss nach \ceq{vol_strom} bestimmt. Die Messwerte sind dem \hyperref[ch:protokoll]{Messprotokoll} der Tabelle II zu entnehmen. Der Rohrdurchmesser ist mit $R = (1.50 \pm 0.01) \mathrm{mm}$ und die Länge ist mit $L = (100.0 \pm 0.5)\mathrm{mm} $ gegeben. \cite{skriptPAP21}
+Bei der Hagen-Poiseuille-Methode wird nun der Volumenfluss nach \ceq{vol_strom} bestimmt. Die Messwerte sind dem \hyperref[ch:Protokoll]{Messprotokoll} der Tabelle II zu entnehmen. Der Rohrdurchmesser ist mit $R = (1.50 \pm 0.01) \mathrm{mm}$ und die Länge ist mit $L = (100.0 \pm 0.5)\mathrm{mm} $ gegeben. \cite{skriptPAP21}
 
 \img{plot/volumenfluss}{Plot der Messwerte (blau) mit linerarer Regression (grün).}
 
@@ -188,7 +188,7 @@ In \cabb{plot/volumenfluss} sind die Messwert inklusive linerarer Regression ein
 
 \imp[-8]{\dot V}{3.318}{0.017}{\frac{m^3}{s}}
 
-Weiterführend fehlt nun noch die Druckdifferenz $p_\text{diff} = p_1 - P_2$. Dabei entspricht $p_2$ dem Athmosphärendruch und $p_1$ der Druch, der durch die Schwerkraft auf das PEG wirkt (\afz{hydrostatischer Druck}). Dieser ist nur Abhänig von der Füllhöhe des Zylinders.
+Weiterführend fehlt nun noch die Druckdifferenz $p_\text{diff} = p_1 - p_2$. Dabei entspricht $p_2$ dem Athmosphärendruch und $p_1$ der Druch, der durch die Schwerkraft auf das PEG wirkt (\afz{hydrostatischer Druck}). Dieser ist nur Abhänig von der Füllhöhe des Zylinders.
 Somit lässt sich die Druckdifferenz auch wie folgt formulieren:
 
 \eq{durck_diff_h}{
@@ -218,35 +218,35 @@ Somtit kommt man auf eine Viskosität von
 
 nach der Methode von Hagen-Poiseuille.
 
-% \subsubsection{Reynoldszahl für Hagen-Poiseuille}
-% Zu letzt soll noch die Reynolds-Zahl bestimmt werden. Diese berechnet sich nach der Formel:
+\subsubsection{Reynoldszahl für Hagen-Poiseuille}
+Zu letzt soll noch die Reynolds-Zahl bestimmt werden. Diese berechnet sich nach der Formel:
 
-% Dafür benötigen wir die mittlere Fließgeschwindigkeit $\overline{v}_f$. Diese Berechnet sich nach
+Dafür benötigen wir die mittlere Fließgeschwindigkeit $\overline{v}_f$. Diese Berechnet sich nach
 
-% \eq{fliessges_hp}{
-%     \overline{v}_f = \frac{\dot{V}}{\pi \, R^2} \, .
-% }
+\eq{fliessges_hp}{
+    \overline{v}_f = \frac{\dot{V}}{\pi \, R^2} \, .
+}
 
-% Diese steht im Zusammenhang mit der Reynoldszahl. 
+Diese steht im Zusammenhang mit der Reynoldszahl. 
 
-% \eq{re_zwischendurch}{
-%     Re_\text{hp} = \frac{\rho_f \, \overline{v}_f \, 2r_\text{k}}{\eta}
-% }
+\eq{re_zwischendurch}{
+    Re_\text{hp} = \frac{\rho_f \, \overline{v}_f \, 2r_\text{k}}{\eta}
+}
 
-% Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{\ceq{fliessges_hp}} erhält man
+Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{fliessges_hp} erhält man
 
-% \eq{reynolds_final_hp}{
-%     Re_\text{hp} = \frac{2 \dot{V} \rho_{f}}{\pi L R} 
-% }
+\eq{reynolds_final_hp}{
+    Re_\text{hp} = \frac{2 \dot{V} \rho_{f}}{\pi L R} 
+}
 
-% und seine Ungenauigkeit nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
+und seine Ungenauigkeit nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
 
-% \eq{reynolds_final_hp_err}{
-%     \Delta Re_\text{hp} = Re_\text{hp} \, \sqrt{\frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{\Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} 
-% }
+\eq{reynolds_final_hp_err}{
+    \Delta Re_\text{hp} = Re_\text{hp} \, \sqrt{\frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{\Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} 
+}
 
-% Durh einsetzen der Messwerte kommt man final auf eine Reynodls-Zahl von
+Durh einsetzen der Messwerte kommt man final auf eine Reynodls-Zahl von
 
-% \res{Re_\text{hp}}{0.1617}{0.0016}{ }
+\res{Re_\text{hp}}{0.1617}{0.0016}{ }
 
-% Für die Hagen-Poiseuille-Methode gilt für Reynoldszahlen ab $Re \approx 2300$, dass die Strömng turbulent wird. Der bestimmte Wert liegt dabei weit unter den kritischen Wert. 
+Für die Hagen-Poiseuille-Methode gilt für Reynoldszahlen ab $Re \approx 2300$, dass die Strömng turbulent wird. Der bestimmte Wert liegt dabei weit unter den kritischen Wert. 

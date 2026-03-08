@@ -17,7 +17,7 @@
     "Messprotokoll ref": {
     "prefix": "messp",
     "body": [
-      "\\hyperref[ch:protokoll]{Messprotokoll}"
+      "\\hyperref[ch:Protokoll]{Messprotokoll}"
     ],
     "description": "Hyperlink zum Messprotokoll"
   },
