@@ -20,8 +20,8 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 \section{Bestimmung der Viskosität nach Stokes mit einem Kugelfallviskosimeter}
 \label{sec:A1}
 
-Es soll zunächst die Viskosität \(\eta\) von Polyethylenglykol (PEG) mit einem Kugelfallviskosimeter nach Stokes bestimmt werden. Dazu werden die Fallzeiten \(t\) von Kugeln mit verschiedenen Durchmessern \(d\) über eine definierte Strecke \(s\) gemessen, um die mittlere Sinkgeschwindigkeit \(v = s/\bar{t}\) zu berechnen. Die Ladenburgsche Korrektur \(\lambda\) wird angewendet, um die Endgeschwindigkeit \(v_s\) zu korrigieren, und die Viskosität \(\eta\) wird aus der umgestellten Stokes'schen Formel \ceq{eta_Fallrohr} bestimmt. Es wird auch der Übergang von laminarer zu turbulenter Umströmung untersucht, indem die Strömungsregime um die Kugel analysiert werden.
-Dabei wird die mittlere Sinkzeit über das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} bestimmt:
+Es soll zunächst die Viskosität \(\eta\) von Polyethylenglykol (PEG) mit einem Kugelfallviskosimeter nach Stokes bestimmt werden. Dazu werden die Fallzeiten \(t\) von Kugeln mit verschiedenen Durchmessern \(d\) über eine definierte Strecke \(s\) gemessen, um die mittlere Sinkgeschwindigkeit \(v = s/\bar{t}\) zu berechnen. Die ladenburgsche Korrektur \(\lambda\) wird angewendet, um die Endgeschwindigkeit \(v_s\) zu korrigieren, und die Viskosität \(\eta\) wird aus der umgestellten Stokes'schen Formel (\ceq{eta_Fallrohr}) bestimmt. Es wird auch der Übergang von laminarer zu turbulenter Umströmung untersucht.
+Zunächst wird die mittlere Sinkzeit über das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} bestimmt:
 
 \eq{avg_t}{
     \overline{t} = \frac{1}{5} \sum_{i=1}^{5} t_i
@@ -35,7 +35,7 @@ Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Feh
 Dabei ist \(\Delta t\) die Ungenauigkeit der Zeitmessung, welche durch die Reaktionszeit des Experimentators bestimmt wird, wobei die Genauigkeit der Stoppuhr dagegen vernachlässigt werden kann.
 Aus der gemessenen Fallzeit \(t\) wird die mittlere Sinkgeschwindigkeit \(v\) über die Formel \(v = s/\bar{t}\) berechnet, wobei \(s\) die definierte Strecke ist. Die Ungenauigkeit der Geschwindigkeit \(\Delta v\) wird ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt, wobei die Unsicherheiten von \(s\) und \(\bar{t}\) berücksichtigt werden:
 \eq{delta_v}{
-    \Delta v = \sqrt{\left(\frac{1}{\bar{t}} \Delta s\right)^2 + \left(\frac{s}{\bar{t}^2} \Delta \bar{t}\right)^2}.
+    \Delta v = \sqrt{\left(\frac{1}{\bar{t}} \Delta s\right)^2 + \left(\frac{s \Delta \bar{t}}{\bar{t}^2}\right)^2}.
 }
 
 Damit sind die wichtigen Parameter zur Berechnung der Viskosität \(\eta\) über die umgestellte Stokes'sche Formel gegeben. Über die \ceq{eta_Fallrohr} kann die Viskosität berechnet werden. Dazu wird zunächst die Sinkgeschwindigkeit \(v\) gegen den Quadratradius der Kugeln geplottet. Der Quadratradius ist definiert als:
@@ -48,9 +48,9 @@ Seine Ungenauigkeit wird über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß's
     \Delta r^2 = \frac{d}{2} \Delta d.
 }
 
-Die Ungenauigkeiten für die Messzeiten (\(\Delta t = \s{0,3}\)) und die Durchmesser (\(\Delta d = \m{0,0025}\)) sind dem Messprotokoll csec{messprotokoll} zu entnehmen. Die Unsicherheit der Strecke (\(s = \m{0,002}\)) wird ebenfalls berücksichtigt, wobei sie durch die Genauigkeit der Skala geschätzt wird.
+Die Ungenauigkeiten für die Messzeiten (\(\Delta t = {0.3} \mathrm{s}\)) und die Durchmesser (\(\Delta d = {0.0025} \mathrm{mm}\)) sind dem Messprotokoll csec{messprotokoll} zu entnehmen. Die Unsicherheit der Strecke (\(s = \{0.002} \mathrm{m}\)) wird ebenfalls berücksichtigt, wobei sie durch die Genauigkeit der Skala geschätzt wird.
 
-Darüber hinaus muss noch die Ladenburgsche Korrektur \(\lambda\) (\ceq{ladenburg}) berechnet werden. Seine Unsicherheit \(\Delta \lambda\) wird ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt, wobei die Unsicherheiten der Durchmesser \(d\) und des Fallrohrs \(D\) \footnote{Urspünglich $d_k$ genannt, für bessere Übersicht in $D$ unbenannt.} berücksichtigt werden, welcher in diesem Versuch als exakt angenommen wird:
+Darüber hinaus muss noch die ladenburgsche Korrektur \(\lambda\) (\ceq{ladenburg}) berechnet werden. Seine Unsicherheit \(\Delta \lambda\) wird ebenfalls über die Gauß'sche Fehlerfortpflanzung bestimmt, wobei die Unsicherheiten der Durchmesser \(d\) und des Fallrohrs \(D\) \footnote{Urspünglich $d_k$ genannt, für bessere Übersicht in $D$ unbenannt.} berücksichtigt werden, welcher in diesem Versuch als exakt angenommen wird:
 
 \eq{delta_lambda}{
     \Delta \lambda = \frac{2,1}{D} \Delta d
@@ -85,15 +85,15 @@ $900.0 \pm 2.5$ & $450.0 \pm 1.3$ & $20.00 \pm 0.20$ & $6.5 \pm 0.3$ \\
 \end{table}
 
 
-\img[.95]{plot/ges_gegen_r2}{Plot der Geschwindigkeiten gegen den quadrierten Kugelradius. Die Lineare Regression ist durch die ersten fünf Messwerte der korrigierten Werte gelegt. Die lineare Nährung ist damit nicht gültig.}
+\img[.95]{plot/ges_gegen_r2}{Plot der Geschwindigkeiten gegen den quadrierten Kugelradius. Die Lineare Regression ist durch die ersten fünf Messwerte der korrigierten Werte gelegt. Die lineare Nährung zeigt sich damit als nicht gültig.}
 
-Es lässt sich beobachten, dass für kleine Kugelradien  die gemessenen Werte \(v\) und die korrigierten Werte \(v_s\) nahezu identisch sind, was darauf hindeutet, dass die Ladenburgsche Korrektur in diesem Bereich vernachlässigbar ist. Für größere Kugelradien hingegen weichen die unkorrierten Werte \(v\) deutlich von den korrigierten Werten \(v_s\) ab, was die zunehmende Bedeutung der Ladenburgschen Korrektur bei größeren Kugeln verdeutlicht. 
+Es lässt sich beobachten, dass für kleine Kugelradien  die gemessenen Werte \(v\) und die korrigierten Werte \(v_s\) nahezu identisch sind, was darauf hindeutet, dass die ladenburgsche Korrektur in diesem Bereich vernachlässigbar ist. Für größere Kugelradien hingegen weichen die unkorrierten Werte \(v\) deutlich von den korrigierten Werten \(v_s\) ab, was die zunehmende Bedeutung der ladenburgschen Korrektur bei größeren Kugeln verdeutlicht. 
 
-Jedoch ist auch zu beobachten, dass selbst die korrigierten Werte \(v_s\) für die größten Kugeln nicht mehr der linearen Beziehung entsprechen, die durch die Stokes'sche Formel \ceq{eta_Fallrohr} beschrieben wird. Dies deutet darauf hin, dass bei größeren Kugeln der Übergang von laminarer zu turbulenter Umströmung stattfindet, wodurch die Stokes'sche Formel nicht mehr gültig ist.
+Jedoch ist auch zu beobachten, dass selbst die korrigierten Werte \(v_s\) für die größten Kugeln nicht mehr der linearen Beziehung entsprechen, die durch die Stokes'sche Formel (\ceq{eta_Fallrohr}) beschrieben wird. Dies deutet darauf hin, dass bei größeren Kugeln der Übergang von laminarer zu turbulenter Umströmung stattfindet, wodurch die Stokes'sche Formel nicht mehr gültig ist.
 
 Die Steigung ist via $k = \Delta v_s / \Delta r^2$ definiert. Seine Ungenauigkeit ist somit
 
-\eq{k_err}{
+\eq{k_err}{Erdbeschleunigung in Heidelbe
     \Delta k = \sqrt{\left(\frac{\Delta v_s}{r^2}\right)^2 + \left(\frac{2\,v_s\,\Delta r}{r^3}\right)^2} \, .
 }
 
@@ -102,34 +102,37 @@ Final berechnet sich die Steigung zu
 \imp{k}{1961}{25}{\frac{1}{m \, s}}
 \label{eq:k}
 
-Somit ist die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq{eta_Fallrohr} berechnet werden, wobei die Unsicherheit \(\Delta \eta\) ebenfalls über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt wird, wobei die Unsicherheiten der Steigung \(k\) und der Dichteunterschied \(\rho_k - \rho_f\) berücksichtigt werden:
+Somit kann die Viskosität \(\eta\) über die umgestellte Stokes'sche Formel \ceq{eta_Fallrohr} berechnet werden, und auch hier muss die Unsicherheit \(\Delta \eta\) ebenfalls über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt wird, wobei die Unsicherheiten der Steigung \(k\) und der Dichteunterschied \(\rho_k - \rho_f\) berücksichtigt werden:
 
 \eq{delta_eta}{
     \Delta \eta = \eta \, \sqrt{\frac{\Delta pf^{2}}{\left(p_f - p_k\right)^{2}} + \frac{\Delta pk^{2}}{\left(p_f - p_k\right)^{2}} + \frac{\Delta k^{2}}{k^{2}} + \frac{\Delta g^{2}}{g^{2}}} \, .
 }
 
-Dabei ist $g$ die Ortskonstante der Erdbeschleunigung in Heidelber mit $g = (9.80984 \pm 0.00002) \, \mathrm{m/s^2}$, $\rho_k = (1385 \pm 15) \mathrm{\frac{kg}{m^3}}$ die Dichte der POM-Kugeln nach Angaben im Praktikumsskript. Die Steigung $k$ ist gemäß \ceq{k} angegeben. Die Dichte des PEG ist in Abhänigkeit der Temperatur zu bestimmen. Dem \hyperref[ch:Protokoll]{Messprotokoll} ist zu entnehmen, dass die PEG-Temperatur konstant den Wert $T_1 = (21.5\pm 05) \mathrm{^\circ C}$ gehalten hat. Die Werte lassen sich ungerundet der \cabb{Dichte_Polyethylen_Temp-eingetragen} entnehmen. 
+Dabei ist $g$ die Ortskonstante der Erdbeschleunigung in Heidelberg mit $g = (9.80984 \pm 0.00002) \, \mathrm{m/s^2}$, $\rho_k = (1385 \pm 15) \mathrm{\frac{kg}{m^3}}$ die Dichte der POM-Kugeln nach Angaben im Praktikumsskript. Die Steigung $k$ ist gemäß \ceq{k} angegeben. Die Dichte des PEG ist in Abhänigkeit der Temperatur zu bestimmen. Dem \hyperref[ch:Protokoll]{Messprotokoll} ist zu entnehmen, dass die PEG-Temperatur konstant den Wert $T_1 = (21.5\pm 0.5) \mathrm{^\circ C}$ gehalten hat. Um zu überprüfen, ob der Fehler Unterschätzt wurde, soll noch die Temperatur $T_2 = (21.5\pm 1.0) \mathrm{^\circ C}$ untersucht werden. Die Werte lassen sich ungerundet der \cabb{Dichte_Polyethylen_Temp-eingetragen} entnehmen. 
 
 Für $T_1$ kommt man dabei auf eine Dichte von
 
-\imp{p_{f,1}}{1148.2}{0.5}{\frac{kg}{m^3}}
+\imp{\rho_{f,1}}{1148.2}{0.5}{\frac{kg}{m^3}}
 
 und für $T_2$ auf
 
-\imp{p_{f,2}}{1148.2}{1.2}{\frac{kg}{m^3}}
+\imp{\rho_{f,2}}{1148.2}{1.2}{\frac{kg}{m^3}}
 
 Interessant ist, egal welchen Fehler man hier einsetzt, das Ergebnis läuft auf
 
 \res{\eta_\text{s}}{0.263}{0.017}{\frac{kg}{m\, s}}
 
-hinaus. Das liegt daran, dass der Fehler sowieso vernachlässigbar gegenüber der anderen Fehlergrößen ist. 
+hinaus. 
 
 \img[0.9]{Dichte_Polyethylen_Temp-eingetragen}{Graph der Dichte von PEG in Temperaturabhänigkeit. Eingezeichnet sind die Werte für die Temperatur $T_1 = (21.1 \pm 0.5)\mathrm{^\circ C}$ und die für $T_2 = (21.5 \pm 1.0) \mathrm{^\circ C}$. Die Werte sind noch nicht gerundet. Bestimmt wurden die Werte über das Grafikprogramm \afz{Inkscape}.}
+
+Das liegt daran, dass der Fehler sowieso vernachlässigbar gegenüber der anderen Fehlergrößen ist. Es soll daher mit $T_1$ weiter gerechnet werden.
+
 
 
 \subsection{Gültigkeit des Gesetztes von Stokes}
 \label{sec:A2}
-Es soll nun untersucht werden, wie groß der Gültigkeitsbereich des Gesetzes von Stokes ist. Dafür wird das Ergebnis aus \csec{A1} zur hilfe genommen. Zur Prüfung wird die theoretisch erwatete Sinkgeschwindigkeit $v_\text{lam}$ nach \ceq{v_lam} zu Hilfe gezogen und der Reynoldsfaktor $Re$. 
+Es soll nun untersucht werden, wie groß der Gültigkeitsbereich des Gesetzes von Stokes ist. Dafür wird das Ergebnis aus \csec{A1} zur Hilfe genommen. Zur Prüfung wird die theoretisch erwatete Sinkgeschwindigkeit $v_\text{lam}$ nach \ceq{v_lam} benutzt und der Reynoldsfaktor $Re$ wird bestimmt. 
 
 \eq{v_lam}{
     v_\text{lam} = \frac{2}{9} g \, \frac{(p_k- p_f)}{\eta \, \lambda} \, r^2
@@ -168,19 +171,19 @@ Dabei ist $L = 2r$. DIe Ergebnisse der Berechnung sind der \ctab{reynolds_tab} z
     \end{tabular}
 \end{table}
 
-Um die kritische Reynolds-Zahl zu bestimmen, wird das Verhältnis der korrigierten Geschwinigkeit $v_s$ und der theoretischen Geschwindigkeit $v_\text{lam}$ gegen $log(Re)$ geplottet. 
+Um die kritische Reynolds-Zahl zu bestimmen, wird das Verhältnis der korrigierten Geschwinigkeit $v_s$ und der theoretischen Geschwindigkeit $v_\text{lam}$ gegen $lg(Re)$ geplottet. 
 In der \cabb{plot/ver_ges_gegen_re} ist leider kein \afz{Knick} zu erkenne. Normalerweise were dies der Wert, ab dem man die kritische Reynoldszahl abliest. Grob vermuten lässt sich jedoch, dass es der siebte Wert, in der \cabb{plot/ver_ges_gegen_re} rot markiert, ist.
 
 \img{plot/ver_ges_gegen_re}{Keine eindeutigen Messergebnisse. Der kritische Punkt wird nur erahnt.}
 
-Die Vermutung, dass es rund um den siebten Wert liegt, stammt auch daher, dass bekannt ist, dass ein Wert von $<1$ erwartet wird. Die zwei Folge werte scheinen auch dem linearen Verlauf zu folgen, der erwatet werden würde, der Wrt davor jedoch nicht. Um die unsicherheit aber klar zu machen, wird ein großzügiger Fehler von $50\%$ angenommen. Somit kommt man auf einen kritischen Wert von:
+Die Vermutung, dass es rund um den siebten Wert liegt, stammt auch daher, dass bekannt ist, dass ein Wert von $<1$ erwartet wird. Die zwei Folge werte scheinen auch dem linearen Verlauf zu folgen, der erwatet werden würde, der Wert davor jedoch nicht. Um die Unsicherheit aber klar zu machen, wird ein großzügiger Fehler von $50\%$ angenommen. Somit kommt man auf einen kritischen Wert von:
 
 \res{Re_\text{krit}}{0.6}{0.3}{}
 
 \section{Bestimmung der Viskosität nach Hagen-Poiseuille mit einem Kapillarviskosimeter}
 \label{sec:A3}
-Nun soll sich im letzten Aufgaben Teil einer neuen Methode zur Bestimmung der Viskosität fokussiert werden.
-Bei der Hagen-Poiseuille-Methode wird nun der Volumenfluss nach \ceq{vol_strom} bestimmt. Die Messwerte sind dem \hyperref[ch:Protokoll]{Messprotokoll} der Tabelle II zu entnehmen. Der Rohrdurchmesser ist mit $R = (1.50 \pm 0.01) \mathrm{mm}$ und die Länge ist mit $L = (100.0 \pm 0.5)\mathrm{mm} $ gegeben. \cite{skriptPAP21}
+Nun soll sich im letzten Aufgabenteil einer neuen Methode zur Bestimmung der Viskosität Augenmerk geschenckt werden.
+Bei der Hagen-Poiseuille-Methode wird der Volumenfluss nach \ceq{vol_strom} bestimmt. Die Messwerte sind dem \hyperref[ch:Protokoll]{Messprotokoll} der Tabelle II zu entnehmen. Der Rohrdurchmesser ist mit $R = (1.50 \pm 0.01) \mathrm{mm}$ und seine Länge mit $L = (100.0 \pm 0.5)\mathrm{mm} $ gegeben. \cite{skriptPAP21}
 
 \img{plot/volumenfluss}{Plot der Messwerte (blau) mit linerarer Regression (grün).}
 
@@ -188,7 +191,7 @@ In \cabb{plot/volumenfluss} sind die Messwert inklusive linerarer Regression ein
 
 \imp[-8]{\dot V}{3.318}{0.017}{\frac{m^3}{s}}
 
-Weiterführend fehlt nun noch die Druckdifferenz $p_\text{diff} = p_1 - p_2$. Dabei entspricht $p_2$ dem Athmosphärendruch und $p_1$ der Druch, der durch die Schwerkraft auf das PEG wirkt (\afz{hydrostatischer Druck}). Dieser ist nur Abhänig von der Füllhöhe des Zylinders.
+Weiterführend fehlt nun noch die Druckdifferenz $p_\text{diff} = p_1 - p_2$. Dabei entspricht $p_2$ dem Athmosphärendruch und $p_1$ dem Druck, der durch die Schwerkraft auf das PEG wirkt(\afz{hydrostatischer Druck}). Dieser ist nur Abhänig von der Füllhöhe des Zylinders.
 Somit lässt sich die Druckdifferenz auch wie folgt formulieren:
 
 \eq{durck_diff_h}{
@@ -205,7 +208,7 @@ Berechnet man mit den bekannten Werten die Druckdifferent, so kommt man auf
 
 \imp{p_\text{diff}}{5941}{24}{Pa}
 
-Damit sind alle Werte zusammen, die für die Berehcnung der Viskosität nach Hagen-Poiseuille benötigt werden. 
+Damit sind alle Werte zusammen, die für die Berechnung der Viskosität nach Hagen-Poiseuille benötigt werden. 
 Die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} wird auf \ceq{final_eta_hup} angewendet:
 
 \eq{err_final_eta_hup}{
@@ -219,21 +222,19 @@ Somtit kommt man auf eine Viskosität von
 nach der Methode von Hagen-Poiseuille.
 
 \subsubsection{Reynoldszahl für Hagen-Poiseuille}
-Zu letzt soll noch die Reynolds-Zahl bestimmt werden. Diese berechnet sich nach der Formel:
-
-Dafür benötigen wir die mittlere Fließgeschwindigkeit $\overline{v}_f$. Diese Berechnet sich nach
+Zu letzt soll noch die Reynolds-Zahl bestimmt werden. Dafür benötigen wir die mittlere Fließgeschwindigkeit $\overline{v}_f$. Diese Berechnet sich nach
 
 \eq{fliessges_hp}{
-    \overline{v}_f = \frac{\dot{V}}{\pi \, R^2} \, .
+    \overline{v}_f = \frac{\dot{V}}{\pi \, R^2} \, ,
 }
 
-Diese steht im Zusammenhang mit der Reynoldszahl. 
+welche im Zusammenhang mit der Reynoldszahl steht:
 
 \eq{re_zwischendurch}{
     Re_\text{hp} = \frac{\rho_f \, \overline{v}_f \, 2r_\text{k}}{\eta}
 }
 
-Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{fliessges_hp} erhält man
+Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{re_zwischendurch} erhält man
 
 \eq{reynolds_final_hp}{
     Re_\text{hp} = \frac{2 \dot{V} \rho_{f}}{\pi L R} 
@@ -242,7 +243,7 @@ Durch Einsetzen von \ceq{final_eta_hup} und \ceq{fliessges_hp} in \ceq{fliessges
 und seine Ungenauigkeit nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
 
 \eq{reynolds_final_hp_err}{
-    \Delta Re_\text{hp} = Re_\text{hp} \, \sqrt{\frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{\Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} 
+    \Delta Re_\text{hp} = Re_\text{hp} \, \sqrt{\frac{\Delta \rho_{f}^{2}}{\rho_{f}^{2}} + \frac{\Delta \dot{V}^{2}}{\dot{V}^{2}} + \frac{\Delta R^{2}}{R^{2}} + \frac{\Delta L^{2}}{L^{2}}} \, .
 }
 
 Durh einsetzen der Messwerte kommt man final auf eine Reynodls-Zahl von

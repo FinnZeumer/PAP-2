@@ -25,11 +25,11 @@ Für eine Kugel mit Radius \(r\), die sich mit konstanter Geschwindigkeit \(v\) 
 
 \wrap[0.4]{R}{Definition_Viskositaet}{Gedankliche Darstellung der Viskosität. \cite{Wikipedia-Visko}}
 
-Da in einem realen Fallrohr der Raum nicht unendlich ist, wird die Reibung mit einem Korrekturfaktor \(\lambda\) (Ladenburgsche Korrektur) angepasst; eine gebräuchliche Näherung lautet
+Da in einem realen Fallrohr der Raum nicht unendlich ist, wird die Reibung mit einem Korrekturfaktor \(\lambda\) (Ladenburgsche Korrektur) angepasst; die Näherung lautet
 \eq{ladenburg}{
   \lambda \;=\; 1 + \alpha\,\frac{r}{R},
 }
-wobei \(R\) der Radius des Fallrohres ist und \(\alpha\) in diesem Versuch \(2{,}1\) beträgt. Die korrigierte Reibung ist dann die Multiplikation von \ceq{stokes} mit \ceq{ladenburg}.
+wobei \(R\) der Radius des Fallrohres ist und \(\alpha\) in diesem Versuch \(2.1\) beträgt. Die korrigierte Reibung ist dann die Multiplikation von \ceq{stokes} mit \ceq{ladenburg}.
 
 \eq{f_r_korrigiert}{
   F_{\mathrm{R}}=6\pi\eta r v\,\lambda
@@ -42,7 +42,7 @@ Für eine fallende Kugel mit Materialdichte \(\rho_k\), Flüssigkeitsdichte \(\r
 
 \subsection{Laminare und turbulente Strömung}
 
-In der Physik unterscheidet man zwischen laminaren und turbulenten Strömungen. Dabei sind laminare Strömungen immer eine idealisierung. Rechnungen mit laminarer Strömung sind meist einfacher, aber immer als nährung zu verstehen.
+In der Physik unterscheidet man zwischen laminaren und turbulenten Strömungen. Dabei sind laminare Strömungen immer eine idealisierung. Rechnungen mit laminarer Strömung sind meist einfacher, aber immer als Nährung zu verstehen.
 
 
 \img[0.9]{Laminar_vs_Turbulent-Ball}{Schematische Darstellung der Strömungsregime um eine Kugel: Laminar (links) mit symmetrischem Stromlinienmuster, (rechts) mit unregelmäßigen Wirbeln.}
@@ -52,7 +52,7 @@ Um abzuschätze, wie lamianr eine Strömung ist, wird die Reynoldszahl eingefüh
 \eq{reynolds}{
   \mathrm{Re} \;=\; \frac{\rho\,v\,L}{\eta},
 }
-wobei \(L\) eine charakteristische Länge ist (für die Kugelbewegung \(L=2r\), für Rohrströmung \(L=2R\)). Für Rohrströmungen liegt der Übergang zu Turbulenz typischerweise bei \(\mathrm{Re}\approx 2300\); für die Umströmung einer Kugel ist der kritische Bereich deutlich kleiner (experimentell \(\mathrm{Re}_{\mathrm{krit}}\sim 1\)).
+wobei \(L\) eine charakteristische Länge ist (für die Kugelbewegung \(L=2r\), für Rohrströmung \(L=2R\)). Für Rohrströmungen liegt der Übergang zu Turbulenz typischerweise bei \(\mathrm{Re}\approx 2300\); für die Umströmung einer Kugel ist der kritische Bereich deutlich kleiner (experimentell \(\mathrm{Re}_{\mathrm{krit}}\approx 1\)).
 
 \subsection{Kugelfallviskosimeter nach Stoke}
 \label{ssec:Kugelfallviskosimeter}
@@ -68,20 +68,20 @@ Somit ist es möglich die Viskosität aus der (gemessenen) Fallgeschwindigkeit z
 \subsection{Viskositätsbestimmung nach Hagen-Poiseuille}
 \label{ssec:HuP}
 
-Zu Viskositätsbestimmung nach Hagen-Poiseuille wird nun die Kapillare am unteren Zylinderende betrachtet. Denn durch die Druckdifferenz $\Delta p = p_1 - p_2$ und die daduch entstehende Kraft $F_p = \pi r^2\,\Delta p$ fließt die Flüssigkeit aus der Kapillare. Dieser Kraft wirkt die Reibungskraft $F_R = 2 \pi r \, L \, \eta \, \d{v} / \d{r}$.
+Zu Viskositätsbestimmung nach Hagen-Poiseuille wird nun die Kapillare am unteren Zylinderende betrachtet. Denn durch die Druckdifferenz $\Delta p_\text{diff} = p_1 - p_2$ und die daduch entstehende Kraft $F_p = \pi r^2\,\Delta p_\text{diff}$ fließt die Flüssigkeit aus der Kapillare. Dieser Kraft wirkt die Reibungskraft $F_R = 2 \pi r \, L \, \eta \, \d{v} / \d{r}$.
 
 Der Fließgeschwindigketi durch ein zylindrisches Rohr hat ein parabolisches Geschwindigketisprofil. Wir nehmen an, das am Zylinderrand die Fließgeschwindigkeit gleich null ist. Zudem wird die Annahme getroffen, dass es sich um eine laminare Strömung handelt. 
 
 Es wird sich wieder ein Gleichgewichtszustand zwischen $F_R$ und $F_p$ einstellen. Unter allen getrofenen Annahmen, lässt sich der Volumensstrom zu
 
 \eq{vol_strom}{
-  \frac{\d{V}}{\d{t}} = \frac{\pi \, \Delta p \, R^4}{8\eta \, L}
+  \frac{\d{V}}{\d{t}} = \frac{\pi \, \Delta p_\text{diff} \, R^4}{8\eta \, L}
 }
 
 herleiten. In dieser Gleichung ist $R$ der Rohrradius und $L$ die Rohrlänge. Durch Umstellen von \ceq{vol_strom} nach $\eta$ kommt man auf
 
 \eq{final_eta_hup}{
-  \eta = \frac{\pi \, \Delta p \, R^4} {8L \, \dot{V}}
+  \eta = \frac{\pi \, \Delta p_\text{diff} \, R^4} {8L \, \dot{V}}
 }
 
 \img[.65]{Geschwindigketisprofil_roht}{Schematische Darstellung für den zweiten Versuchsteil: Eine Flüssigkeit fließt durch ein Rohr, wobei die Geschwindigkeitsverteilung parabolisch ist.}
