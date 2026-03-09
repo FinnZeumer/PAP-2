@@ -3,11 +3,70 @@
 Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermekrt. Rechtschreibprüfungen werden sowohl durhc K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
 
 
-\section{Aufgabe und Motivation}
-\label{sec:AuM}
+\section{Aufgabe und Motivation} \label{sec:AuM}
 
-\section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+Die Brownsche Bewegung beschreibt die unregelmäßige, thermisch verursachte Bewegung mikroskopischer Teilchen in einem Fluid. Sie entsteht durch die ständigen Stöße der Moleküle des umgebenden Mediums auf das suspendierte Partikel. Obwohl diese Bewegung auf mikroskopischer Ebene chaotisch erscheint, lässt sie sich statistisch präzise beschreiben und stellt damit eine direkte Verbindung zwischen makroskopischen Größen wie Temperatur oder Viskosität und mikroskopischen Parametern wie der Boltzmannkonstante her.
+
+Ziel dieses Versuchs ist es, die Brownsche Bewegung einzelner Silicananopartikel experimentell zu beobachten und aus deren Trajektorien die Boltzmannkonstante zu bestimmen. Dazu wird die mittlere quadratische Verschiebung eines Partikels analysiert und über das Stokes–Einstein‑Modell mit den Materialparametern des Systems verknüpft. Der Versuch demonstriert somit anschaulich, wie statistische Mechanik und Thermodynamik experimentell zugänglich werden.
+
+\section{Physikalische Grundlage} \label{sec:PhyBasics}
+\subsection{Der Random-Walk} \label{ssec:RndWalk}
+
+Zur theoretischen Beschreibung der Brownschen Bewegung wird das Modell des eindimensionalen Random‑Walks herangezogen. Dabei erfährt ein Partikel in zeitlichen Abständen \(T\) zufällige Stöße, die es jeweils um eine feste Distanz \(d\) nach links oder rechts verschieben. Die Wahrscheinlichkeit für beide Richtungen ist gleich groß, sodass die Position nach \(n = t/T\) Stößen durch eine Binomialverteilung beschrieben wird. Die Anzahl möglicher Schrittfolgen, die zu einer Endposition \(x = m d\) führen, ergibt sich zu
+
+\eq{binom}{
+    \binom{n}{\frac{n+m}{2}} = \frac{n!}{\left(\frac{n+m}{2}\right)!\left(\frac{n-m}{2}\right)!}.
+}
+
+Für große Stoßzahlen kann die Stirlingsche Näherung
+
+\eq{stirling}{
+    n! \approx \sqrt{2\pi n}\, n^{n} e^{-n}
+}
+
+verwendet werden, wodurch die Binomialverteilung in den Grenzfall einer Gaußverteilung übergeht. Die Wahrscheinlichkeit, das Teilchen nach der Zeit \(t\) im Intervall \([x, x+\Delta x]\) zu finden, lautet dann
+
+\eq{gauss1d}{
+    P(x,t)\,\Delta x = \frac{1}{\sqrt{4\pi D t}} \exp\!\left(-\frac{x^{2}}{4Dt}\right)\Delta x,
+}
+
+wobei \(D\) der Diffusionskoeffizient ist.
+
+Da die Verteilung symmetrisch ist, verschwindet der Mittelwert der Verschiebung. Stattdessen dient das mittlere Verschiebungsquadrat als charakteristische Größe:
+
+\eq{msd1d}{
+    \sigma^2 = \langle x^{2} \rangle = 2 D t.
+}
+
+\subsection{Random-Walk in der Physik} \label{ssec:RndWalkPhys}
+
+In realen Flüssigkeiten wirkt auf ein Partikel zusätzlich eine Reibungskraft, die durch das Stokes’sche Gesetz beschrieben wird. Für eine Kugel mit Radius \(a\) in einem Medium der Viskosität \(\eta\) lautet der Reibungskoeffizient
+
+\eq{stokes}{
+    f = 6\pi \eta a.
+}
+
+Einstein verknüpfte diesen Reibungskoeffizienten mit der thermischen Energie des Systems und leitete den Stokes–Einstein‑Zusammenhang her:
+
+\eq{stokes_einstein}{
+    D = \frac{k_{\mathrm{B}} T}{6\pi \eta a}.
+}
+
+In zwei Dimensionen ergibt sich für das mittlere Verschiebungsquadrat nach \ceq{msd1d} 
+
+\eq{msd2d}{
+    \langle r^{2} \rangle = 4 D t,
+}
+
+woraus sich die Boltzmannkonstante bestimmen lässt:
+
+\eq{kfrommsd}{
+    k_{\mathrm{B}} = \frac{6\pi \eta a}{4 T t}\,\langle r^{2} \rangle.
+}
+
+Die Schlussfolgerung von \ceq{msd2d} ist möglich, da hier Isotropie angenommen wird. Also eine Unabhänigkeit der Richtung wird angenommen. 
+Damit erlaubt die Analyse der Brownschen Bewegung eine direkte experimentelle Bestimmung einer fundamentalen Naturkonstante $k_{\mathrm{B}}$.
+
 
 \subsubsection*{Skizze des Versuchsaufbaus}
 \label{sec:Skizze}
