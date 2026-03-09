@@ -28,7 +28,23 @@
       "\\hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\\ref*{eq:arithmetisches_mittel})}"
     ],
     "description": "Hyperlink zur Gleichung des arithmetischen Mittels"
-  }
+  },
+
+    "Standardabweichung": {
+    "prefix": "stdabw",
+    "body": [
+      "\\hyperref[eq:standardabweichung]{Standardabweichung (\\ref*{eq:standardabweichung})}"
+    ],
+    "description": "Hyperlink zur Gleichung der Standardabweichung"
+  },
+
+    "Fehler des Mittelwerts": {
+    "prefix": "erravg",
+    "body": [
+      "\\hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\\ref*{eq:fehler_mittelwert})}"
+    ],
+    "description": "Hyperlink zur Gleichung des Fehlers des Mittelwertes"
+  },
 }
 
 

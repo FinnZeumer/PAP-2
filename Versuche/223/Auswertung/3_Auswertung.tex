@@ -15,11 +15,45 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
 \end{align}
 
+\newpage
+
 \section{Visuallisierung der Teilchenbewegung}
 \label{sec:A1}
+Im ersten Aufgabenteil soll der zurückgelegte Weg des beobateten Tilchens geplottet werden, um einen besseren Eindruck der BEwegung zu bekommen.
+Die Bewegung ist der \cabb{Bewegung-1a} zu entnehmen. Zwischen zwei Positionen liegt ungefähr eine Sekunde.
+
+\img{Bewegung-1a}{Relative Bewegung des beobachteten Teilchens; Start und Ende vermerkt. Es wurden 150 Messpunkte aufgenommen.}
 
 \section{Normalverteilung und Verbindung}
 \label{sec:A2}
+Weiterführend soll untersucht werden, ob unsere Messdaten stringent mit der Theorie sind. Insbesondere bedeutet dies, dass geprüft wird, ob die mittlere Verschiebung pro Zeitintervall eine Gauß-Normalverteilung darstellt.
+Für jede Sekunde wurde die x- und y-Position gemessen. Aufgrund dessen, dass die brownsche Bewegung als isotrop angenommen wird, werden diese Werte zu einem Wert verrechnet.
+Für die Gaußverteilung muss das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} $\mu$ und die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} $\sigma$ bestimmt werden.
+Diese Theoretisch erwartete Verteilung wird über das Histogramm gelegt, um eine Abschätzung zu treffen, ob die theoretische Gaußkruve tatsächliche die Messwerte wiederspiegelt. 
+In \cabb{Histogramm-2b} sind zwei Histogramme verschiedener Bin-Breiten eingestellt. 
+
+\img[0.95]{Histogramm-2b}{Histogramm zur Untersuchung der Normalverteilung mit Gaußverteilung. Links mit 15 Bins, rechts mit 50. \afz{Breite} meint dabei das Gesamtintervall der Abszisse.}
+
+Der rechte Plot mit 15 Bins zeigt eine ziemlich gute Nährung der Gauskruve an die Verteilung des Histogramms. Verkleinert man jedoch die Bin-Breite auf 50 Bins, so fällt ein Peak rund um $0$ auf. 
+Dabei sind kleine Verschiebungen bei $\approx 0$ statistisch überpräsentiert. Hier soll nochmal in der Diskussion (\cch{Diskussion}) drauf eingegangen werden. 
+Allgmeien lässt sich dennoch sagen, dass die gemessenen Werte der Theorie schon nah kommen, sodass die Annahme hält, dass es sich um die bronsche Bewegung handelt. 
 
 \section{Bestimmung der Boltzmannkonstante}
 \label{sec:A3}
+Da die bronwsche Bewegung als wahr angenommen werden kann, kann weitergehend die Bolzmannkonstante bestimmt werden. 
+
+\subsection{Bestimmung über das mittlere Verschiebungsquadrat}
+\label{ssec:A3_1}
+Zur Bestimmung der Boltsmannkonstante $k_b$ kann das mittlere Verschiebungsquadrat $\langle r^2 \rangle$. Dieses berechnet sich über die arithmetische Mittel der quadrierten Bewegungen in x- und y-Richtung:
+
+\eq{r_quadr}{
+    \langle r^2 \rangle = \frac{1}{149} \sum_{i=}^{149}({x_i}^2 + {y_i}^2) \, .
+}
+
+Die Ungenauigkeit ist dabei über den \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} definiert,
+
+\eq{err_r_quadr}{
+    \Delta \langle r^2 \rangle = \frac{\sigma}{\sqrt{149}}
+}
+
+mit der Standardabweichung $\sigma$. b
