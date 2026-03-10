@@ -19,7 +19,7 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \section{Visuallisierung der Teilchenbewegung}
 \label{sec:A1}
-Im ersten Aufgabenteil soll der zurückgelegte Weg des beobateten Tilchens geplottet werden, um einen besseren Eindruck der BEwegung zu bekommen.
+Im ersten Aufgabenteil soll der zurückgelegte Weg des beobateten Tilchens geplottet werden, um einen besseren Eindruck der Bewegung zu bekommen.
 Die Bewegung ist der \cabb{Bewegung-1a} zu entnehmen. Zwischen zwei Positionen liegt ungefähr eine Sekunde.
 
 \img{Bewegung-1a}{Relative Bewegung des beobachteten Teilchens; Start und Ende vermerkt. Es wurden 150 Messpunkte aufgenommen.}
@@ -88,7 +88,8 @@ bestimmt werden und folglich ein Diffusionskoeffizient von
 
 Die Werte werden in \cch{Diskussion} diskutiert. Zuerst soll die Boltsmannkonstante auf eine weitere Art und Weise bestimmt werden
 
-\subsection{Bestimmung über das kumuliertes Verschiebungsquadrat}
+\subsection{Bestimmung über das kumulierte Verschiebungsquadrat}
+\label{ssec:kumulierte}
 In dieser Sektion soll erneut die Boltzmannkonstante und der Diffusionskoeffizient bestimmt werden. Im Unterschied wierd dieses Mal das krumuleirte Verschiebungsquadrat zur berechnung benutzt:
 
 \eq{kurm_vers_quadr}{
@@ -121,10 +122,34 @@ für die Bolzmankonstante und
 }
 für den Diffusionskoeffizient heruas und resultieren die Ergebnisse:
 
-\res[-23]{k_\text{B}}{0.99}{0.04}{\frac{J}{K}}
+\res[-23]{k_{\text{B},2}}{0.99}{0.04}{\frac{J}{K}}
 
 \res[-13]{D_2}{4.343}{0.016}{\frac{m^2}{s}}
 
+Ein Vergleich dieser Ergebnisse mit denen aus der Sektion davor wird in \cch{Diskussion} diskutiert.
 
+\subsection{Bestimmung über das korrigierte kumulierte Verschiebungsquadrat}
+Ich wurde über einen Kommilitonen darauf aufmerksam gemacht, dass in \cssec{kumulierte} das kumulierte Verschiebungsquadrat als gleichgewichtet angenommen wurde, jedoch ist dies auch von der Zeitabhänig, wodurch die Ungenauigkeiten hier über die Messungen größer werden müssten.
 
+Daher soll im Folgenden untersucht werden, ob die Annahme eines gleichgewichteten Fehlers hier sinnvoll war, oder die Ungenauigkeit doch besser einbezogen werden sollte.
+Betrachten wir \ceq{kurm_vers_quadr} so ergibt sich über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} eine Ungenauigkeit von
 
+\eq{err_ek__haah}{
+    \Delta {r_k}^2 (t) = \sqrt{t} \, \Delta {r_i}^2 , .
+}
+
+$\Delta {r_i}^2$ entspricht der Standardabweichung über alle ${r_i}^2$. Wir erstellen einen neuen Plot, der jene Ungenauigkeit berücksichtigt. Der erweiterte Plot ist in \cabb{kumulativ_3b} dargestellt.
+
+\img{kumulativ_3b}{Kumulative Verschiebung unter Berücksichtigung der Ungenauigkeit.}
+
+Steigung, Boltzmannkonstante und Diffusionskoeffizient werden analog zu \cssec{kumulierte} bestimmt. Für die Steigung bestimmen wir
+
+\res[-12]{s_\text{kor}}{1.737}{0.021}{\frac{m^2}{s}}
+
+für die Bolzmankonstante kommt das Ergebnis
+
+\res[-23]{k_\text{B,kor}}{0.99}{0.04}{\frac{J}{K}}
+
+heraus. Zuletzt kommt man für den Diffusionskoeffizient auf ein Ergebnis von
+
+\res[-13]{D_\text{kor}}{4.34}{0.05}{\frac{m^2}{s}}
