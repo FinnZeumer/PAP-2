@@ -47,7 +47,7 @@ Da die bronwsche Bewegung als wahr angenommen werden kann, kann weitergehend die
 Zur Bestimmung der Boltsmannkonstante $k_b$ kann das mittlere Verschiebungsquadrat $\langle r^2 \rangle$. Dieses berechnet sich über die arithmetische Mittel der quadrierten Bewegungen in x- und y-Richtung:
 
 \eq{r_quadr}{
-    \langle r^2 \rangle = \frac{1}{149} \sum_{i=}^{149}({x_i}^2 + {y_i}^2) \, .
+    \langle r^2 \rangle = \frac{1}{149} \sum_{i=1}^{149}({x_i}^2 + {y_i}^2) \, .
 }
 
 Die Ungenauigkeit ist dabei über den \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} definiert,
@@ -56,4 +56,75 @@ Die Ungenauigkeit ist dabei über den \hyperref[eq:fehler_mittelwert]{Fehler des
     \Delta \langle r^2 \rangle = \frac{\sigma}{\sqrt{149}}
 }
 
-mit der Standardabweichung $\sigma$. b
+mit der Standardabweichung $\sigma$. Durch Einsetzen der Messwerte ergibt sich ein mittleres Verschiebungsquadrat von
+
+\res{\langle r^2 \rangle}{1.76}{0.14}{\mu m^2}
+
+Dieses Ergebnis wird zur Berechnung der Boltzmannkonstante nach \ceq{kfrommsd}. Darüberhinaus wird über die vermerkte Temperatur im \hyperref[ch:Protokoll]{Messprotokoll} genutzt, um die Viskosität $\eta$ zu bestimmen. 
+Dies ist der \cabb{Visko_Wasser} zu entnehmen.
+
+\img[0.85]{Visko_Wasser}{Bestimmung der Viskosität von Wasser über die gemessene Raumtemperatur $T = (22.5 \pm 0.5) \mathrm{^\circ C}$.}
+
+Die Raumtemperatur beträgt $T = (22.5 \pm 0.5) \mathrm{^\circ C}$, woraus sich die Viskosität des Wassers auf $\eta = (950 \pm 10) \mathrm{hPa \, s}$. 
+Der Radius der $SiO_2$-Kugeln ist mit $a = (378 \pm 15) \mathrm{nm}$. Dies sind alle Werte, die zur Bestimmung der Boltsmannkonstanten nötig sind. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt:
+
+\eq{err_kb}{
+    \Delta k_\text{B} = k \, \sqrt{\frac{\left(\Delta \langle r^2 \rangle\right)^{2}}{\left(\langle r^2 \rangle\right)^{2}} + \frac{\Delta a^{2}}{a^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, .
+}
+
+Somit lässt sich die Bolzmannkonstante zu
+
+\res[-23]{k_{\text{B},2}}{1.00}{0.09}{\frac{J}{K}}
+
+berechnen. Weitergehend kann über \ceq{msd2d} der Diffusionskoeffizient $D$ mit Ungenauigkeit
+
+\eq{err_diff_konst}{
+    \Delta D = \frac{\Delta \langle r^2 \rangle}{4t}
+}
+
+bestimmt werden und folglich ein Diffusionskoeffizient von
+
+\res[-13]{D}{4.4}{0.4}{\frac{m^2}{s}}
+
+Die Werte werden in \cch{Diskussion} diskutiert. Zuerst soll die Boltsmannkonstante auf eine weitere Art und Weise bestimmt werden
+
+\subsection{Bestimmung über das kumuliertes Verschiebungsquadrat}
+In dieser Sektion soll erneut die Boltzmannkonstante und der Diffusionskoeffizient bestimmt werden. Im Unterschied wierd dieses Mal das krumuleirte Verschiebungsquadrat zur berechnung benutzt:
+
+\eq{kurm_vers_quadr}{
+    {r_k}^2 = \sum_{i=1}^t ({x_i}^2 + {y_i}^2)
+}
+
+Diese Gleichung summiert über diskrete Zeitstücke $t$. Da jede Sekunde gemessen wurde, sind es 150 Messwerte.
+Diese Werte werden geplottet und es wird eine lineare Regression darauf angewendet. Für die Boltzmannkonstante muss hier die Steigung bestimmt werden, für die Messdaten kommt die Steigung
+
+\imp[-12]{m}{1.737}{0.006}{\frac{{m ^2}}{s}}
+
+heraus. Damit sind alle Werte für die Berechnung der Boltzmannkonstante nach \ceq{kfrommsd} und der Diffusionskoeffizient nach \ceq{stokes_einstein} zusammen, denn es gilt:
+
+\eq{spannender_zusammenhang_haah}{
+    m = \frac{\langle r^2 \rangle}{t} \, .
+}
+
+\img{kumulativ_3a}{Messwerte für kumuliertes Verschiebungsquadrat (rot) und lineare Regression (grün).}
+
+Die Fehler lassen sich analog zur \cssec{A3_1} bestimmten. Somit kommt die Ungenauigkeit
+
+\eq{err_kb_erneut}{
+    \Delta k_{\text{B},2} = k \, \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta a^{2}}{a^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, 
+}
+
+für die Bolzmankonstante und 
+
+\eq{err_diff_wiederholt}{
+    \Delta D_2 = \frac{\Delta s}{4}
+}
+für den Diffusionskoeffizient heruas und resultieren die Ergebnisse:
+
+\res[-23]{k_\text{B}}{0.99}{0.04}{\frac{J}{K}}
+
+\res[-13]{D_2}{4.343}{0.016}{\frac{m^2}{s}}
+
+
+
+
