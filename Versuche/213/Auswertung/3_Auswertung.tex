@@ -55,7 +55,7 @@ Dies entspricht einer Halbwertszeit von $T_\text{H} = (14.8 \pm 0.3)$ min.
 
 \section{Vergleich mit Präzessionszeiten}
 \label{sec:A2}
-Für das weitere Fortgehen muss überprüft werden, wie sich der Auslenkungswinkel $\phi$ auf die Präzessionsdauer $T_P$ auswirkt.
+Für das weitere Fortgehen muss überprüft werden, wie sich der Auslenkungswinkel $\varphi$ auf die Präzessionsdauer $T_P$ auswirkt.
 
 \begin{table}[h]
     \centering
@@ -63,18 +63,54 @@ Für das weitere Fortgehen muss überprüft werden, wie sich der Auslenkungswink
     \label{tab:P_time}
     \begin{tabular}{L  L}
         \toprule 
-        \phi [\mathrm{^\circ}] & T_P [\mathrm{s}] \\
+        \text{Auslenkungswinkel } \varphi \, [\mathrm{^\circ}] & \text{Präzessionsdauer } T_P \, [\mathrm{s}] \\
         \midrule 
-        45 & 70,3 \pm 0,3 \\ 
-        90 & 69,6 \pm 0,3 \\ 
+        45 & 70.3 \pm 0.3 \\ 
+        90 & 69.6 \pm 0.3 \\ 
         \bottomrule 
     \end{tabular}
 \end{table}
 
-Die Abweichung der beiden Werte liegt bei $\sigma = 1,6$ und ist damit nicht signifikant. 
+Die Abweichung der beiden Werte liegt bei $\sigma = 1.6$ und ist damit nicht signifikant. Der Auslenkungswinkel scheint hier also keine wichtige Rolle zu spielen und kann in den weiterführenden Messungen ignoriert werden.
 
 \section{Berechnung des Trägheitsmomentes in z-Richtung}
 \label{sec:A3}
+Zur Beschreibung der Bewegung eines symmetrischen Kreisels müssen zwei Trägheitsmomente bestimmt werden. Zunächst wird das Trägheitsmoment in $z$-Richtung $I_z$ bestimmt. Dieses wird dann in \csec{A5} zur Bestimmung des Trägheitmoments in $x$-Richtung $I_x$ benötigt.
+Zur Bestimmung des Trägheitmoments $I_z$ wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Start- und Endfrequenz bestimmt. Die gemessenen Frequenzen sind dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. 
+
+\subsection*{Vergleich gemessene und gemessene Endfrequenz}
+Es soll verglichen werden, wie gut die theoretisch erwartete Endfrequenz im Vergleich zu gemessenen ist. Die theoretische Endfrequenz lässt sich Analog zur \ceq{exp_zusammenhang} bestimmen:
+
+\eq{theo_end_freq}{
+    f_\text{e} = f_\text{a} exp{[- T_\text{p} \delta]}\, , \quad \Delta f_\text{e} = f_\text{e} \, \sqrt{T_\text{p}^{2} \Delta \delta^{2} + \delta^{2} \Delta T_\text{p}^{2} + \frac{\Delta f_\text{a}^{2}}{f_\text{a}^{2}}} 
+}
+
+Die Ergebnisse lassen sichd er \ctab{freq_compare} entnehmen.
+
+\begin{table}
+    \caption{Vergleich gemessener und theoretischer Endfrequenzen}
+    \label{tab:freq_compare}
+    \begin{tabular}{LLL}
+        \toprule
+        f_{\mathrm{gem}} & f_{\mathrm{theo}} & \sigma \\
+        \midrule
+        54.5 \pm 0.5 & 59.0 \pm 0.5 & 6.34 \\
+        56.6 \pm 0.5 & 60.8 \pm 0.5 & 5.81 \\
+        55.3 \pm 0.5 & 60.2 \pm 0.5 & 6.76 \\
+        51.3 \pm 0.5 & 57.8 \pm 0.5 & 9.09 \\
+        42.4 \pm 0.5 & 44.8 \pm 0.5 & 3.34 \\
+        43.5 \pm 0.5 & 45.9 \pm 0.5 & 3.38 \\
+        41.4 \pm 0.5 & 45.5 \pm 0.5 & 5.73 \\
+        35.1 \pm 0.5 & 44.2 \pm 0.5 & 12.68 \\
+        28.8 \pm 0.5 & 30.3 \pm 0.5 & 2.12 \\
+        29.3 \pm 0.5 & 30.9 \pm 0.5 & 2.09 \\
+        26.2 \pm 0.5 & 30.7 \pm 0.5 & 6.20 \\
+        25.1 \pm 0.5 & 30.1 \pm 0.5 & 6.82 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
 
 \section{Qualitativer Vergleich der Beobachtung mit der Erwartung}
 \label{sec:A4}
