@@ -2,13 +2,109 @@
 
 Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermekrt. Rechtschreibprüfungen werden sowohl durhc K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
 
+\section{Aufgabe und Motivation} \label{sec:AuM}
 
-\section{Aufgabe und Motivation}
-\label{sec:AuM}
+Ziel dieses Versuches ist es, die charakteristischen Bewegungsformen eines symmetrischen Kreisels zu untersuchen. 
+Insbesondere sollen die Phänomene \emph{Nutation} und \emph{Präzession} sowohl qualitativ beobachtet als auch quantitativ ausgewertet werden. 
+Durch geeignete Messungen werden die relevanten Trägheitsmomente des Kreisels bestimmt, nämlich das Trägheitsmoment entlang der Figurenachse $I_z$ sowie das senkrecht dazu liegende Hauptträgheitsmoment $I_x = I_y$. 
 
-\section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+Darüber hinaus wird die Dämpfung des Kreisels untersucht, da Reibungsverluste die Eigenrotation beeinflussen und somit in allen späteren Auswertungen berücksichtigt werden müssen.  
+Die Kombination aus theoretischer Modellierung und experimenteller Analyse ermöglicht ein vertieftes Verständnis der Dynamik starrer Körper und liefert gleichzeitig eine Grundlage für zahlreiche technische Anwendungen, etwa in Navigationssystemen oder der Stabilisierung von Satelliten.
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+\section{Physikalische Grundlage} \label{sec:PhyBasics}
 
+\subsection{Symmetrischer Kreisel}\label{ssec:SymKrei}
+
+Ein symmetrischer Kreisel ist ein starrer Körper, dessen zwei Hauptträgheitsmomente übereinstimmen, also
+
+\[
+    I_x = I_y \neq I_z.
+\]
+
+\img[0.75]{Gemetrisch_Nutation}{Matehmatische Beschreibung der Drehachsen. \cite{skriptPAP21}}
+
+Die Symmetrieachse wird als \emph{Figurenachse} bezeichnet.  
+Zur Beschreibung der Bewegung werden drei Achsen unterschieden:
+\begin{itemize}
+    \item die Figurenachse $F$,
+    \item die Drehimpulsachse $L$,
+    \item die momentane Drehachse $\vec{\omega}$.
+\end{itemize}
+
+
+Fallen diese Achsen zusammen, führt der Kreisel eine reine Eigenrotation mit Winkelgeschwindigkeit $\omega_F$ aus.  
+Sobald jedoch ein Stoß oder eine äußere Störung erfolgt, treten Nutation und Präzession auf, wodurch die Achsen nicht länger parallel sind.
+
+
+\subsection{Kräftefreier Kreisel}\label{ssec:NonFKrei}
+
+Ein Kreisel ist \emph{kräftefrei}, wenn sein Auflagepunkt im Schwerpunkt liegt.  
+Dann wirkt kein äußeres Drehmoment, sodass der Drehimpuls zeitlich konstant bleibt:
+
+\[
+    \frac{d\vec{L}}{dt} = 0.
+\]
+
+
+Wird ein rotierender Kreisel leicht angestoßen, beginnt die Figurenachse auf einem sogenannten \emph{Nutationskegel} um die Drehimpulsachse zu rotieren.  
+Die momentane Winkelgeschwindigkeit setzt sich aus Eigenrotation und Nutation zusammen:
+
+\eq{omega_sum}{
+    \vec{\omega} = \vec{\omega}_N + \vec{\omega}_F
+}
+
+Für kleine Nutationswinkel kann die Nutationsfrequenz näherungsweise durch
+
+\eq{nutation}{
+    \omega_N \approx \frac{I_z}{I_x}\,\omega_F
+}
+
+beschrieben werden.
+
+\img[0.9]{Kräftefrei_sym}{Schematische Visuallisierung des symmetrischen, kräftefreien Kreisels. \cite{skriptPAP21}}
+
+Die momentane Drehachse wandert mit einer Winkelgeschwindigkeit $\Omega$ um die Figurenachse. 
+
+Zwischen $\Omega$, $\omega_N$ und $\omega_F$ gilt
+
+\eq{Omega}{
+    \Omega = \omega_N \frac{r_{\mathrm{KK}}}{r_{\mathrm{RK}}}
+}
+
+wobei $r_{\mathrm{KK}}$ und $r_{\mathrm{RK}}$ die Radien des Körper- bzw. Raumkegels sind.  
+Nach ausführlicher mechanischer Analyse ergibt sich schließlich
+
+\eq{IxIz}{
+    \Omega = \left(1 - \frac{I_z}{I_x}\right)\omega_F.
+}
+
+Diese Beziehung erlaubt später die Bestimmung von $I_x$ aus der beobachteten Umlauffrequenz der momentanen Drehachse.
+
+\subsection{Schwerer Kreisel}\label{ssec:SchwerKrei}
+
+Wird der Kreisel nicht im Schwerpunkt gelagert, sondern durch ein Zusatzgewicht entlang der Figurenachse belastet, entsteht ein äußeres Drehmoment
+
+\eq{moment}{
+    \vec{M} = \vec{l} \times m\vec{g},
+}
+
+wobei $l$ der Abstand der Zusatzmasse vom Auflagepunkt ist.
+
+Dieses Drehmoment führt zu einer zeitlichen Änderung der Drehimpulsrichtung, wodurch der Kreisel eine \emph{Präzessionsbewegung} ausführt.  
+Die Präzessionsfrequenz ergibt sich zu
+
+\img{Schwere_masse}{Schematische Darstellung des schweren symmetrischen Kreisels\cite{skriptPAP21}}
+
+\eq{prezession}{
+    \omega_p = \frac{mgl}{I_z \omega_F}.
+}
+
+Damit ist die Präzession umso schneller,
+\begin{itemize}
+    \item je größer das erzeugte Drehmoment $mgl$ ist,
+    \item je kleiner das Trägheitsmoment $I_z$ ist,
+    \item je langsamer der Kreisel um die Figurenachse rotiert.
+\end{itemize}
+
+Treten Nutation und Präzession gleichzeitig auf, bewegt sich die Figurenachse auf einer girlandenförmigen Bahn.  
+Für die quantitative Auswertung wird jedoch jeweils ein dominierender Effekt betrachtet.

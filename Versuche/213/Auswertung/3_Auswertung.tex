@@ -5,7 +5,7 @@
 Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größen definiert \cite{errorSkript25}:
 \begin{align}
     \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetisches Mittel}} \label{eq:arithmetisches_mittel} \\
-    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Variation}} \label{eq:variation} \\
+    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Varianz}} \label{eq:Varianz} \\
     \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
     \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
     \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
@@ -15,42 +15,92 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
 \end{align}
 
-\newpagen
+\newpage
 
-\section{Aufgabe 1: }
+\section{Bestimmung der Halbwertszeit und der Dämpfung}
 \label{sec:A1}
+Eine \afz{optimale} Kreiselbewegung ist nicht möglich, es treten Reibungskräfte auf, die die Rotation beeinflussen. Diese wird als Dämpfung bezeichnet. 
+Die Dämpfung im System bleibt dabei kontinuirlich die Gleiche, und wird daher hier auch als \emph{Dämpfungskonstante} bezeichnet.
+Jene Dämpfung für das vorliegende System kann über die Steigung der Regression nach \cabb{Damping_1} bestimmt werden. Die benutzen Messdaten sind dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. 
 
-\section{Aufgabe 2: }
+Die Messdaten wurden jedoch nicht 1:1 übernommen, die Frequenzen mussten in Kreiselfrequenzen umgerechtent werden:
+\eq{f_to_omega}{
+    \omega = 2\pi\, f \, , \quad \Delta\omega = 2\pi \, \Delta f \, .
+}
+
+Es ist auch zu beachten, dass die Frequenz nicht linear abfällt, sondern in einem Exponentialzusammenhang steht:
+\eq{exp_zusammenhang}{
+    \omega (t) = \omega_0 \, \exp{[-\delta \, t]} \, .
+}
+
+$\omega_0$ beschreibt die Startfrequenz, $t$ die verstrichene Zeit und $\delta$ die Dämpfung.
+
+\img{Damping_1}{Kreisfrequenz $\omega_F$ gegen die Zeit $t$ aufgetragen. Die Ordinate ist logarithmisch Skaliert.}
+
+Durch die lograrithmische Skalierung erscheint die Regression linear. Für die Steigung der Regressionsfunktion ergibt sich:
+
+\res[-4]{\delta}{7.82}{0.16}{s^{-1}} \label{eq:delta_1}
+
+Über die Dämpfung lässt sich auch die Halbwertszeit $T_\text{H}$ bestimmen. Die logarithmische Skalierung msus beachtet werden.
+
+\eq{halb_zeit_f}{
+    T_\text{H} = \frac{\ln{2}}{\delta} \, , \quad \Delta T_\text{H} = \frac{\Delta \delta}{\delta}
+}
+
+Die Ergebnisse von \ceq{delta_1} werden in \ceq{halb_zeit_f} eingesetzt und berechnet:
+
+\res[2]{T_\text{H}}{8.86}{0.18}{s}
+
+Dies entspricht einer Halbwertszeit von $T_\text{H} = (14.8 \pm 0.3)$ min. 
+
+\section{Vergleich mit Präzessionszeiten}
 \label{sec:A2}
+Für das weitere Fortgehen muss überprüft werden, wie sich der Auslenkungswinkel $\phi$ auf die Präzessionsdauer $T_P$ auswirkt.
 
-\section{Aufgabe 3: }
+\begin{table}[h]
+    \centering
+    \caption{Gemessene Präzessionszeiten bei angepassten Winkeln des Kreisels zur Achse}
+    \label{tab:P_time}
+    \begin{tabular}{L  L}
+        \toprule 
+        \phi [\mathrm{^\circ}] & T_P [\mathrm{s}] \\
+        \midrule 
+        45 & 70,3 \pm 0,3 \\ 
+        90 & 69,6 \pm 0,3 \\ 
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+Die Abweichung der beiden Werte liegt bei $\sigma = 1,6$ und ist damit nicht signifikant. 
+
+\section{Berechnung des Trägheitsmomentes in z-Richtung}
 \label{sec:A3}
 
 \section{Qualitativer Vergleich der Beobachtung mit der Erwartung}
 \label{sec:A4}
-Vergleich von beobachter Nutation mit "Gleichung 8":
+% Vergleich von beobachter Nutation mit "Gleichung 8":
 
-Betrachtung von b = omega_F/Omega: 
-1. 0 > b >1: I_z < I_x
-2. Gleich 1: Mathematisch problematisch, im Limes I_x = infty I_z
-3. Gleich 2: I_z = I_x
-4. Größer 2: I_z > I_x
+% Betrachtung von b = omega_F/Omega: 
+% 1. 0 > b >1: I_z < I_x
+% 2. Gleich 1: Mathematisch problematisch, im Limes I_x = infty I_z
+% 3. Gleich 2: I_z = I_x
+% 4. Größer 2: I_z > I_x
 
-Unsere Beobachtung: Rot in Uhrzeigersinn, aber Farbverlauf entgegen Uhrzeigersinn, daher:
+% Unsere Beobachtung: Rot in Uhrzeigersinn, aber Farbverlauf entgegen Uhrzeigersinn, daher:
 
-Omega < omega_f => I_z < I_x (Fall 1)
+% Omega < omega_f => I_z < I_x (Fall 1)
 
-Auch erwartbar, denn Figurenachse (die Stange) nur kleiner Teil der Rotation zum I_z zu sich slebst, dafür größer bei I_x = I_y. 
+% Auch erwartbar, denn Figurenachse (die Stange) nur kleiner Teil der Rotation zum I_z zu sich slebst, dafür größer bei I_x = I_y. 
 
 
-\section{Bestimmung des Trägheitmoments $I_x$}
+\section{Bestimmung des Trägheitmoments in x-Richtung}
 \label{sec:A5}
 
-Ziel: Aus Drehfrequent der momentaren Drehachse omega_f -> Trägheitsmoment I_x
+% Ziel: Aus Drehfrequent der momentaren Drehachse omega_f -> Trägheitsmoment I_x
 
-Plot: x = omega_f, y = Omega
+% Plot: x = omega_f, y = Omega
 
-Omega = 20pi/t_10
-omega_f wurde gemessen
+% Omega = 20pi/t_10
+% omega_f wurde gemessen
 
-$\Delta I_x = I_x \, \sqrt{\frac{\Delta \left(\frac{\Omega}{\omega_F}\right)^{2}}{\left(\frac{\Omega}{\omega_F} - 1\right)^{2}} + \frac{\Delta I_{z}^{2}}{I_{z}^{2}}}$
+% $\Delta I_x = I_x \, \sqrt{\frac{\Delta \left(\frac{\Omega}{\omega_F}\right)^{2}}{\left(\frac{\Omega}{\omega_F} - 1\right)^{2}} + \frac{\Delta I_{z}^{2}}{I_{z}^{2}}}$
