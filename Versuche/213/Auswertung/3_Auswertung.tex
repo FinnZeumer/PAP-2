@@ -25,7 +25,7 @@ Jene Dämpfung für das vorliegende System kann über die Steigung der Regressio
 
 Die Messdaten wurden jedoch nicht 1:1 übernommen, die Frequenzen mussten in Kreiselfrequenzen umgerechtent werden:
 \eq{f_to_omega}{
-    \omega = 2\pi\, f \, , \quad \Delta\omega = 2\pi \, \Delta f \, .
+    \omega = 2\pi\, f \, , \qquad \Delta\omega = 2\pi \, \Delta f \, .
 }
 
 Es ist auch zu beachten, dass die Frequenz nicht linear abfällt, sondern in einem Exponentialzusammenhang steht:
@@ -44,7 +44,7 @@ Durch die lograrithmische Skalierung erscheint die Regression linear. Für die S
 Über die Dämpfung lässt sich auch die Halbwertszeit $T_\text{H}$ bestimmen. Die logarithmische Skalierung msus beachtet werden.
 
 \eq{halb_zeit_f}{
-    T_\text{H} = \frac{\ln{2}}{\delta} \, , \quad \Delta T_\text{H} = \frac{\Delta \delta}{\delta}
+    T_\text{H} = \frac{\ln{2}}{\delta} \, , \qquad \Delta T_\text{H} = \frac{\Delta \delta}{\delta}
 }
 
 Die Ergebnisse von \ceq{delta_1} werden in \ceq{halb_zeit_f} eingesetzt und berechnet:
@@ -59,7 +59,7 @@ Für das weitere Fortgehen muss überprüft werden, wie sich der Auslenkungswink
 
 \begin{table}[h]
     \centering
-    \caption{Gemessene Präzessionszeiten bei angepassten Winkeln des Kreisels zur Achse}
+    \caption{Gemessene Präzessionszeiten bei angepassten Winkeln des Kreisels zur Achse bei einer Startfrequenz von $500 \mathrm{min^{-1}}$}
     \label{tab:P_time}
     \begin{tabular}{L  L}
         \toprule 
@@ -82,14 +82,14 @@ Zur Bestimmung des Trägheitmoments $I_z$ wird das \hyperref[eq:arithmetisches_m
 Es soll verglichen werden, wie gut die theoretisch erwartete Endfrequenz im Vergleich zu gemessenen ist. Die theoretische Endfrequenz lässt sich Analog zur \ceq{exp_zusammenhang} bestimmen:
 
 \eq{theo_end_freq}{
-    f_\text{e} = f_\text{a} exp{[- T_\text{p} \delta]}\, , \quad \Delta f_\text{e} = f_\text{e} \, \sqrt{T_\text{p}^{2} \Delta \delta^{2} + \delta^{2} \Delta T_\text{p}^{2} + \frac{\Delta f_\text{a}^{2}}{f_\text{a}^{2}}} 
+    f_\text{e} = f_\text{a} exp{[- T_\text{p} \delta]}\, , \qquad \Delta f_\text{e} = f_\text{e} \, \sqrt{T_\text{p}^{2} \Delta \delta^{2} + \delta^{2} \Delta T_\text{p}^{2} + \frac{\Delta f_\text{a}^{2}}{f_\text{a}^{2}}} 
 }
 
 Die Ergebnisse lassen sichd er \ctab{freq_compare} entnehmen.
 
 \begin{table}
     \centering
-    \caption{Vergleich gemessener und theoretischer Endfrequenzen}
+    \caption{Vergleich gemessener und theoretischer Endfrequenzen. Die Reihenfolge ist dieselbe wie im \hyperref[ch:Protokoll]{Messprotokoll}.}
     \label{tab:freq_compare}
     \begin{tabular}{L L | C}
         \toprule
@@ -116,34 +116,122 @@ Die Ergebnisse lassen sichd er \ctab{freq_compare} entnehmen.
 
 Es zeigt sich, dass die theoretischen und gemessenen Frequenzen statistisch nicht signifikant sind. Entweder haben die Experimentatoren schlecht gemessen, die theoretische Vorhersage ist inakkurat oder die Raumbedingungen waren im Ausnahmezustand. 
 Das wahrscheinlichste ist, dass die Experimentatoren hier die Fehlerquelle sind. Insbesondere daher, dass die gemessenen Frequenz chronisch kleiner ausfallen als die Theoretischen, liegt die vermutung nah, dass der Messprozess so lange gedauert hat, dass die Frequenz bereits abgenommen hat.
+Es lässt sich kein eindeutiger Zusammenhang erkennen, ob die Masse und/oder deren Position auf der Stange hier einen Einfluss gehabt haben könnte. Dies stärkt die hypothese, dass die PAPnasigen Experimentatoren hier zu langsam gearbeitet haben \footnote{Dies wundert nun vermutlich wirklich niemanden im Tutorenraum mehr.}.
 
-Beide Werte sollen verglichen Werden, die Rechnungen im Folgenden sind jedcoh mit den experimentell gemessenen Werten entstanden. In der \cch{Diskussion} soll ein Vergleich der beiden Methoden diskutiert werden.
+Beide Werte sollen verglichen Werden, die Rechnungen im Folgenden sind jedoch mit den experimentell gemessenen Werten entstanden. In der \cch{Diskussion} soll ein Vergleich der beiden Methoden diskutiert werden. \footnote{Dies liegt daran, dass dieser Einschub nach der Auswertung geschrieben wurde, die Werte sind jedoch so daneben, dass ein extra Vergleich in der Diskussion eingebaut wird.}
+
+\subsection*{Tatsächliche Berechnung des Trägheitmoments}
+Für die Bestimmung des Trägheitmoments $I_Z$ werden alle vier Messreihen aus dem \hyperref[ch:Protokoll]{Messprotokoll} geplottet. Da die Masse und deren Position, sowie die Startfrequenz variiert wurden, entstehen vier Datenreihen. Jede dieser wird mit einer linearen Regression versehen, welche als Randbedinung durch den Punkt $(0,0)$ laufen muss. 
+
+\img{tp_gegen_omegaAVG3}{Präzisionsdauer $T_P$ in Abhänigkeit der Drehfrequenzen $\overline{\omega}_F$ unter verschiedenen Massenvariationen.}
+
+Für alle vier Messreihen lassen sich nun die Steigungen $s_i$ der linearen Regression bestimmen. Betrachtet man nun \ceq{prezession} und den Zusammenhang $\omega_p = I_z \cdot 2\pi/T_P$, lässt sich die Gleichung nach
+
+\eq{prez_umgeformt}{
+    I_z = \frac{m \,g \, l}{2 \pi} s \, , \qquad \Delta I_z = I_z \, \sqrt{\frac{\Delta s^{2}}{s^{2}} + \frac{\Delta l^{2}}{l^{2}} + \frac{\Delta g^{2}}{g^{2}}} 
+}
+
+umformen. Dabei beschreibt $g$ die heidelberger Ortskonstante für die Erdbeschleunigung von $(9.80984 \pm 0.00002) \mathrm{m/s^2}$, $m = (9.85) \, 10^{-3} \mathrm{kg}$ das Gewicht einer Masse, $l$ der Abstand des Mittelpunktes der Masse(n) zur Oberfäche des Kreisels. \cite{skriptPAP21}
+Die Ergebnisse sind in \ctab{traegheitsmomente} gelistet.
+
+
+\begin{table}
+    \caption{Bestimmung der Trägheitsmomente $I_z$ jeder Massenkonfiguration}
+    \centering
+    \label{tab:traegheitsmomente}
+    \begin{tabular}{R | L || L L}
+        \toprule
+        \text{Anzahl der Massen } m & l \, [10 \cdot \mathrm{m} ] & \text{Steigung } s \, [\mathrm{s^2}] & I_z [\mathrm{10^{-3} \cdot kg \, m^2}]\\
+        \midrule
+        1 & 2.00 \pm 0.01 & 1.40 \pm 0.03 & 4.30 \pm 0.10 \\
+        2 & 2.00 \pm 0.01 & 0.720 \pm 0.013 & 4.43 \pm 0.08 \\
+        2 & 1.50 \pm 0.01 & 0.952 \pm 0.023 & 4.39 \pm 0.11 \\
+        1 & 1.50 \pm 0.01 & 1.91 \pm 0.04 & 4.40 \pm 0.10 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Einzelnen Messungen bestimmt, um ein finales Trägheitsmoment zubestimmen.
+
+\res[-3]{I_z}{4.38}{0.11}{kg \, m^2} \label{eq:res_i_z}
+
+% \subsection*{Nachtrag zur Winkelabhänigkeit}
+% An dieser Stelle kann auf erneute weise die Winkelabhänigkeit hinterfragt werden. Denn für die Messung $a)$ dess \hyperref[ch:Protokoll]{Messprotokoll} wurde eine Masse $m$ an der Position $l = (20 \pm 0.1) cm$ platziert und hat mit einer Frequenz von $f_0 = 500 \mathrm{min^{-1}}$ rotiert.
+% Rechnet man die Frequent in die Kreiselfrequenzen um, so kann das Produkt aus Winkelgeschwindigketi und die Steigung für eine Masse bei gegebener Position gebildet werden. Die Periodendauern müssten identisch zu den gemessenen sein.
+
+% \eq{t_45}{
+%     T_{45} = ()
+% }
+
+% \eq{t_90}{
+%     T_{90} = 
+% }
 
 \section{Qualitativer Vergleich der Beobachtung mit der Erwartung}
 \label{sec:A4}
-% Vergleich von beobachter Nutation mit "Gleichung 8":
+Weiterführuend ist nun aus dem Trägheitmoment $T_z$ das Trägheitmoment $I_x$ zu bestimmen. Zunächst soll jedoch qualitaiv untersucht werden, welches der beiden Trägheitsmomente größer ist.
+Mathematisch lassen sich hier folgende Fälle überlegen:
 
-% Betrachtung von b = omega_F/Omega: 
-% 1. 0 > b >1: I_z < I_x
-% 2. Gleich 1: Mathematisch problematisch, im Limes I_x = infty I_z
-% 3. Gleich 2: I_z = I_x
-% 4. Größer 2: I_z > I_x
+\[
+    \text{Betrachtung von } b = \frac{\omega_F}{\Omega}:
+    \qquad
+    \begin{cases}
+    0 < b < 1   &\Rightarrow I_z < I_x \\[2pt]
+    b = 1       &\Rightarrow \lim_{b \to 1}: I_x = \infty \\[2pt]
+    b = 2       &\Rightarrow I_z = I_x \\[2pt]
+    b > 2       &\Rightarrow I_z > I_x
+    \end{cases}
+\]
 
-% Unsere Beobachtung: Rot in Uhrzeigersinn, aber Farbverlauf entgegen Uhrzeigersinn, daher:
-
-% Omega < omega_f => I_z < I_x (Fall 1)
-
-% Auch erwartbar, denn Figurenachse (die Stange) nur kleiner Teil der Rotation zum I_z zu sich slebst, dafür größer bei I_x = I_y. 
-
+Die Bestimmung von $b$ ist daher wichtig, da es in der \ceq{ix_formel} vorkommt. Physikalisch ist jedoch nur der erste Fall $0 < b < 1$ plausibel. 
+Die Begründung liegt darin, dass die Rotation des Kreisels entgegen dem Uhrzeigersinn gestartet wurde, der Farbverlauf der Farbplatte jedoch sich entgegen dem Uhrzeigersinn zudrehen scheint. Denn die Reihenfolge der Farben war gelb, grün, rot (s. \hyperref[ch:Protokoll]{Messprotokoll}).
+Dies bedeutet, dass $\Omega < \omega_F$ sein muss und somit $I_z < I_x$. Dies ist auch plausibel, denn die Stange fügt der Rotation um die $z$-Achse kaum Trägheit hinzu, da diese gerade die Figurenachse kennzeichnet und die Masse nah an der Rotationsachse liegt. Der Beitrag zu den anderen Trägheissmomenten ist jedoh weitaus größer, da diese weite von der Masse der Stange entfernt liegen.
 
 \section{Bestimmung des Trägheitmoments in x-Richtung}
 \label{sec:A5}
+Da das Trägheissmoment $I_z$ bestimmt wurde, kann nun nach \ceq{ix_formel} das Trägheitmoment $I_x$ bestimmt werden. In dieser Gleichung taucht die Kreiselfrequenzen auf. Diese berechnet sich hier zu
 
-% Ziel: Aus Drehfrequent der momentaren Drehachse omega_f -> Trägheitsmoment I_x
+\eq{grosses_omega}{
+    \Omega = \frac{20\pi}{t_{10}} \, , \qquad \Delta \Omega = \frac{20\pi}{{t_{10}}^2} \Delta t
+}
 
-% Plot: x = omega_f, y = Omega
+wobei $t_{10}$ die Zeit für $10$ Perioden beschreibt. Die Gemessenen Frequenzen werdne wieder in Kreiselfrequenzen umgerechnet (\ceq{f_to_omega}).
 
-% Omega = 20pi/t_10
-% omega_f wurde gemessen
+\img{Omega_gegen_omegaF5}{Kreisfrequent $\Omega$ aufgetragen gegen die Figurenfrequenz $\omega_F$. Nicht durch den Nullpunkt normiert.}
 
-% $\Delta I_x = I_x \, \sqrt{\frac{\Delta \left(\frac{\Omega}{\omega_F}\right)^{2}}{\left(\frac{\Omega}{\omega_F} - 1\right)^{2}} + \frac{\Delta I_{z}^{2}}{I_{z}^{2}}}$
+Einsetzen aller Werte lieftert 
+
+\imp[-2]{\Omega}{5.17}{0.09}{}
+
+Zunächst wird die Ungenauigkeit von \ceq{ix_formel}, es ergibt sich:
+
+\eq{err_i_x}{
+    \Delta I_x = I_X \, \sqrt{\frac{\left(\Delta \frac{\Omega}{\omega_F}\right)^{2}}{\left(\left(\frac{\Omega}{\omega_F}\right) - 1\right)^{2}} + \frac{\Delta I_{z}^{2}}{I_{z}^{2}}} \, .
+}
+
+Unter Nutzung von $Omega$ und $I_z$ nach \ceq{res_i_z} und \ceq{err_i_x} ergibt sich ein Trägheitmoment
+
+\res[-3]{I_x}{4.66}{0.19}{kg \, m^2}
+
+Dies Ergebnis ist auch grundsätzlich plausibel, da hier die Bedinung $I_x > I_z$ erfüllt ist. 
+
+\section{Nutzung der Nutation zur Bestimmung des Trägheitmoments in x-Richtung}
+\label{sec:A6}
+In dieser Sektion wird erneut das Trägheitmoment $I_x$ bestimmt, jedoch dieses Mal über die Nutationsfrequenz $\omega_N$. Auch wenn hier dasselbe $I_x$ berechnet wird, soll es hier $I_{x,2}$ genannt werden, damit es bess seperiert werden kann.
+Zur Bestimmung des Trägheitmomentes muss die Nutatiosnfrequenz gegen die Figurenfrequenz geplottet werden. Die Steigung der linearen Regression $k$ wir bestimmt. Diese beträgt
+
+\imp[-1]{k}{9.20}{0.18}{}
+
+\img{omegaN_gegen_omegaF6b}{Nutationsfrequenz $\omega_N$ aufgetragen gegen die Figurenfrequenz $\omega_F$. Nicht durch den Nullpunkt normiert.}
+
+Desweiteren wird die Ungenauigkeit der \ceq{nutation} bestimmt:
+
+\eq{hab_den_fehler_ghefunden}{
+    \Delta I_{x,2} = I_{x,2} \, \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta I_{z}^{2}}{I_{z}^{2}}}
+}
+
+Damit lässt sich das Trägheitmoment bestimmen:
+
+\res[-3]{I_{x,2}}{4.76}{0.15}{kg \, m^2}
+
+Auch hier ist die notwendige Bedinung, dass $I_x > I_z$ gilt gegeben.
