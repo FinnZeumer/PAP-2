@@ -88,29 +88,36 @@ Es soll verglichen werden, wie gut die theoretisch erwartete Endfrequenz im Verg
 Die Ergebnisse lassen sichd er \ctab{freq_compare} entnehmen.
 
 \begin{table}
+    \centering
     \caption{Vergleich gemessener und theoretischer Endfrequenzen}
     \label{tab:freq_compare}
-    \begin{tabular}{LLL}
+    \begin{tabular}{L L | C}
         \toprule
-        f_{\mathrm{gem}} & f_{\mathrm{theo}} & \sigma \\
+        f_{\text{gem}} \, [\mathrm{s^{-1}}] & f_\text{theo} \, [\mathrm{s^{-1}}] & \text{St.Abw. } \sigma \\
         \midrule
-        54.5 \pm 0.5 & 59.0 \pm 0.5 & 6.34 \\
-        56.6 \pm 0.5 & 60.8 \pm 0.5 & 5.81 \\
-        55.3 \pm 0.5 & 60.2 \pm 0.5 & 6.76 \\
-        51.3 \pm 0.5 & 57.8 \pm 0.5 & 9.09 \\
-        42.4 \pm 0.5 & 44.8 \pm 0.5 & 3.34 \\
-        43.5 \pm 0.5 & 45.9 \pm 0.5 & 3.38 \\
-        41.4 \pm 0.5 & 45.5 \pm 0.5 & 5.73 \\
-        35.1 \pm 0.5 & 44.2 \pm 0.5 & 12.68 \\
-        28.8 \pm 0.5 & 30.3 \pm 0.5 & 2.12 \\
-        29.3 \pm 0.5 & 30.9 \pm 0.5 & 2.09 \\
-        26.2 \pm 0.5 & 30.7 \pm 0.5 & 6.20 \\
-        25.1 \pm 0.5 & 30.1 \pm 0.5 & 6.82 \\
+        8.67 \pm 0.08 & 9.40 \pm 0.08 & 6.34 \\
+        9.00 \pm 0.08 & 9.68 \pm 0.08 & 5.81 \\
+        8.80 \pm 0.08 & 9.58 \pm 0.08 & 6.76 \\
+        \midrule
+        8.17 \pm 0.08 & 9.21 \pm 0.08 & 9.09 \\
+        6.75 \pm 0.08 & 7.14 \pm 0.08 & 3.34 \\
+        6.92 \pm 0.08 & 7.31 \pm 0.08 & 3.38 \\
+        \midrule
+        6.58 \pm 0.08 & 7.25 \pm 0.08 & 5.73 \\
+        5.58 \pm 0.08 & 7.04 \pm 0.08 & 12.68 \\
+        4.58 \pm 0.08 & 4.83 \pm 0.08 & 2.12 \\
+        \midrule
+        4.67 \pm 0.08 & 4.91 \pm 0.08 & 2.09 \\
+        4.17 \pm 0.08 & 4.89 \pm 0.08 & 6.20 \\
+        4.00 \pm 0.08 & 4.79 \pm 0.08 & 6.82 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
+Es zeigt sich, dass die theoretischen und gemessenen Frequenzen statistisch nicht signifikant sind. Entweder haben die Experimentatoren schlecht gemessen, die theoretische Vorhersage ist inakkurat oder die Raumbedingungen waren im Ausnahmezustand. 
+Das wahrscheinlichste ist, dass die Experimentatoren hier die Fehlerquelle sind. Insbesondere daher, dass die gemessenen Frequenz chronisch kleiner ausfallen als die Theoretischen, liegt die vermutung nah, dass der Messprozess so lange gedauert hat, dass die Frequenz bereits abgenommen hat.
 
+Beide Werte sollen verglichen Werden, die Rechnungen im Folgenden sind jedcoh mit den experimentell gemessenen Werten entstanden. In der \cch{Diskussion} soll ein Vergleich der beiden Methoden diskutiert werden.
 
 \section{Qualitativer Vergleich der Beobachtung mit der Erwartung}
 \label{sec:A4}
