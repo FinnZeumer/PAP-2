@@ -1,6 +1,6 @@
 \chapter{Einleitung} \label{ch:Einleitung}
 
-Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermekrt. Rechtschreibprüfungen werden sowohl durhc K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
+Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermekrt. Rechtschreibprüfungen werden sowohl durch K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
 
 \section{Aufgabe und Motivation} \label{sec:AuM}
 
@@ -8,8 +8,8 @@ Ziel dieses Versuches ist es, die charakteristischen Bewegungsformen eines symme
 Insbesondere sollen die Phänomene \emph{Nutation} und \emph{Präzession} sowohl qualitativ beobachtet als auch quantitativ ausgewertet werden. 
 Durch geeignete Messungen werden die relevanten Trägheitsmomente des Kreisels bestimmt, nämlich das Trägheitsmoment entlang der Figurenachse $I_z$ sowie das senkrecht dazu liegende Hauptträgheitsmoment $I_x = I_y$. 
 
-Darüber hinaus wird die Dämpfung des Kreisels untersucht, da Reibungsverluste die Eigenrotation beeinflussen und somit in allen späteren Auswertungen berücksichtigt werden müssen.  
-Die Kombination aus theoretischer Modellierung und experimenteller Analyse ermöglicht ein vertieftes Verständnis der Dynamik starrer Körper und liefert gleichzeitig eine Grundlage für zahlreiche technische Anwendungen, etwa in Navigationssystemen oder der Stabilisierung von Satelliten.
+Darüber hinaus wird die Dämpfung des Kreisels untersucht, da Reibungsverluste die Eigenrotation beeinflussen und somit in allen Auswertungen berücksichtigt werden müssen.  
+Der Versuch ermöglicht ein vertieftes Verständnis der Dynamik starrer Körper und liefert gleichzeitig eine grundlegendes Verständnis für zahlreiche technische Anwendungen, etwa in Navigationssystemen oder der Stabilisierung von Satelliten.
 
 \section{Physikalische Grundlage} \label{sec:PhyBasics}
 
@@ -72,7 +72,7 @@ Zwischen $\Omega$, $\omega_N$ und $\omega_F$ gilt
 }
 
 wobei $r_{\mathrm{KK}}$ und $r_{\mathrm{RK}}$ die Radien des Körper- bzw. Raumkegels sind.  
-Nach ausführlicher mechanischer Analyse ergibt sich schließlich
+Durch umformen ergibt sich schließlich
 
 \eq{IxIz}{
     \Omega = \left(1 - \frac{I_z}{I_x}\right)\omega_F.
@@ -82,13 +82,13 @@ Diese Beziehung erlaubt später die Bestimmung von $I_x$ aus der beobachteten Um
 
 \subsection{Schwerer Kreisel}\label{ssec:SchwerKrei}
 
-Wird der Kreisel nicht im Schwerpunkt gelagert, sondern durch ein Zusatzgewicht entlang der Figurenachse belastet, entsteht ein äußeres Drehmoment
+Wird der Kreisel nicht im Schwerpunkt gelagert, sondern durch ein Zusatzgewicht $m$ entlang der Figurenachse belastet, entsteht ein äußeres Drehmoment
 
 \eq{moment}{
     \vec{M} = \vec{l} \times m\vec{g},
 }
 
-wobei $l$ der Abstand der Zusatzmasse vom Auflagepunkt ist.
+wobei $l$ der Abstand der Zusatzmasse vom Auflagepunkt ist und $g$ die Erdbeschleunigung.
 
 Dieses Drehmoment führt zu einer zeitlichen Änderung der Drehimpulsrichtung, wodurch der Kreisel eine \emph{Präzessionsbewegung} ausführt.  
 Die Präzessionsfrequenz ergibt sich zu
@@ -111,8 +111,8 @@ Für die quantitative Auswertung wird jedoch jeweils ein dominierender Effekt be
 
 
 \subsection{Zusammenhang der Trägheitmomente}\label{ssec:zumHangTraeg}
-Die Trägheitsmomente stehen im physikalischen Zusammenhang. Kennt man genügend Messgrößen, so lassen sich aus diesen die verstrichenen Trägheitsmomenete Bestimmen. 
-Für die im Versuch definierten Achsen, kann man unter Kenntnis der Figurenfrequenz $\omega_F$, der Winkelgeschwindigketi $\Omega$ und dem Trägheitsmoment $I_z$, $I_x$ wie folgt bestimmen:
+Die Trägheitsmomente stehen im physikalischen Zusammenhang. Kennt man genügend Messgrößen, so lassen sich aus diesen die verstrichenen Trägheitsmomenete bestimmen. 
+Für die im Versuch definierten Achsen, kann man unter Kenntnis der Figurenfrequenz $\omega_F$, der Winkelgeschwindigkeit $\Omega$ und dem Trägheitsmoment wie folgt bestimmen:
 
 \eq{ix_formel}{
     I_y = I_x = I_z \, \left(\frac{1}{\frac{\omega_f}{\Omega} - 1} + 1\right) \, .

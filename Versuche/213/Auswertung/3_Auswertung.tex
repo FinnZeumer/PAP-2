@@ -123,7 +123,7 @@ Beide Werte sollen verglichen Werden, die Rechnungen im Folgenden sind jedoch mi
 \subsection*{Tatsächliche Berechnung des Trägheitmoments}
 Für die Bestimmung des Trägheitmoments $I_Z$ werden alle vier Messreihen aus dem \hyperref[ch:Protokoll]{Messprotokoll} geplottet. Da die Masse und deren Position, sowie die Startfrequenz variiert wurden, entstehen vier Datenreihen. Jede dieser wird mit einer linearen Regression versehen, welche als Randbedinung durch den Punkt $(0,0)$ laufen muss. 
 
-\img{tp_gegen_omegaAVG3}{Präzisionsdauer $T_P$ in Abhänigkeit der Drehfrequenzen $\overline{\omega}_F$ unter verschiedenen Massenvariationen.}
+\img[1]{tp_gegen_omegaAVG3}{Präzisionsdauer $T_P$ in Abhänigkeit der Drehfrequenzen $\overline{\omega}_F$ unter verschiedenen Massenvariationen.}
 
 Für alle vier Messreihen lassen sich nun die Steigungen $s_i$ der linearen Regression bestimmen. Betrachtet man nun \ceq{prezession} und den Zusammenhang $\omega_p = I_z \cdot 2\pi/T_P$, lässt sich die Gleichung nach
 
@@ -153,7 +153,7 @@ Die Ergebnisse sind in \ctab{traegheitsmomente} gelistet.
 
 Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Einzelnen Messungen bestimmt, um ein finales Trägheitsmoment zubestimmen.
 
-\res[-3]{I_z}{4.38}{0.11}{kg \, m^2} \label{eq:res_i_z}
+\res[-3]{\overline{I_z}}{4.38}{0.11}{kg \, m^2} \label{eq:res_i_z}
 
 % \subsection*{Nachtrag zur Winkelabhänigkeit}
 % An dieser Stelle kann auf erneute weise die Winkelabhänigkeit hinterfragt werden. Denn für die Messung $a)$ dess \hyperref[ch:Protokoll]{Messprotokoll} wurde eine Masse $m$ an der Position $l = (20 \pm 0.1) cm$ platziert und hat mit einer Frequenz von $f_0 = 500 \mathrm{min^{-1}}$ rotiert.
@@ -211,7 +211,7 @@ Zunächst wird die Ungenauigkeit von \ceq{ix_formel}, es ergibt sich:
 
 Unter Nutzung von $Omega$ und $I_z$ nach \ceq{res_i_z} und \ceq{err_i_x} ergibt sich ein Trägheitmoment
 
-\res[-3]{I_x}{4.66}{0.19}{kg \, m^2}
+\res[-3]{I_x}{4.62}{0.12}{kg \, m^2}
 
 Dies Ergebnis ist auch grundsätzlich plausibel, da hier die Bedinung $I_x > I_z$ erfüllt ist. 
 
@@ -227,7 +227,7 @@ Zur Bestimmung des Trägheitmomentes muss die Nutatiosnfrequenz gegen die Figure
 Desweiteren wird die Ungenauigkeit der \ceq{nutation} bestimmt:
 
 \eq{hab_den_fehler_ghefunden}{
-    \Delta I_{x,2} = I_{x,2} \, \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta I_{z}^{2}}{I_{z}^{2}}}
+    \Delta I_{x,2} = I_{x,2} \, \sqrt{\frac{\Delta k^{2}}{k^{2}} + \frac{\Delta I_{z}^{2}}{I_{z}^{2}}}
 }
 
 Damit lässt sich das Trägheitmoment bestimmen:

@@ -3,9 +3,134 @@
 
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
+Ziel des Versuches war es, die Dämpfungskonstante des Kreiselsystems und den Trägheitstensor des Kreisels zu bestimmen. Dabei wurden Nutations- und Präzessionseffekte berücksichtigt.
+Es wurde gezeigt, dass der Auslenkungswinkel irrelevant für alle hier getätigten Rechnungen ist.
+
+\paragraph{Dämpfung:}
+Die Dämpfung wurde über die Steigung einer Regressionsfunktion bestimmt (\cabb{Damping_1}). Der Kreisel hat sich nutations- und präzessionsfrei in Rotationversetzt. Somit konnte die Dämpfung zu
+\res[-4]{\delta}{7.82}{0.16}{s^{-1}}
+bestimmt werden. Daraus konnte zudem die Halbwertszeit $T_\text{H} = (14.8 \pm 0.3)$ min bestimmt werden. 
+
+\paragraph{Trägheitmomente:}
+Über die Dämpfung konnte weiterführend das erste Trägheitmoment bestimmt werden: $I_z$. Hierzu wurden vier verschiedene Massenkonfiguration untersucht, für alle wurde eine lineare Regression gelegt (\cabb{tp_gegen_omegaAVG3}).
+Über die Steigungen jeder Messreihe, konnte für jede Konfigutation ein Trägheitsmomenet bestimmt werden. Über das arithmetische Mittel wurde so das Trägheitmoment
+\res[-3]{I_z}{4.38}{0.11}{kg \, m^2}
+bestimmt. 
+Mit diesem Trägheitsmoment und der Drehfrequenzen $\Omega$ konnte zu letzt die Trägheitmomente $I_y = I_x$ bestimmt werden. Für $\Omega = 5.17\pm0.09$ Konnte das Trägheitmoment für $I_x$ bestimmt werden:
+\res[-3]{I_x}{4.62}{0.12}{kg \, m^2}
+Zuletzt kann das Trägheissmoment $I_x$ auch über die Nutationsbewegung bestimmt werden. Dazu wurde die Steigung $k$ aus der \cabb{omegaN_gegen_omegaF6b} bestimmt. Das Trägheissmoment wurde zu
+\res[-3]{I_{x,2}}{4.76}{0.15}{kg \, m^2}
+berechnet. Für beide Berechnungsmethoden von $I_x$ ist die Bedinung erfüllt, dass $I_x > I_z$ ist. 
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
+\subsection{Vergleich der Bestimmten Trägheitsmomente}
+In den letzten zwei Aufgaben wurde das Trägheitsmoment $I_x$ auf zwei verschiedene Methoden bestimmt. Beide Werte kommen auf eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von
+\eq{std_i_x}{
+    0.73\sigma \, ,
+}
+womit die Werte als statistisch signifikant einegordnet werden können.
 
-\section{Kritik}
-\label{sec:Kritik}
+\subsection{Nutzung der theoretischen Endfrequenz}
+Wie in \csec{A3} vermerkt, wurden zur Berechnung der Trägheitsmomente die gemessenen und nicht die theoretischen Endwerte verwendet. Die neuen Trägheitsmomente sind der \ctab{traegheitsmomente_theo} zu entnehmen.
+
+\begin{table}
+    \caption{Bestimmung des Trägheitsmoments $I_z$}
+        \label{tab:traegheitsmomente_theo}
+        \centering
+    \begin{tabular}{R | L || L L}
+        \toprule
+        \text{Anzahl der Massen } m & l \, [10 \cdot \mathrm{m} ] & \text{Steigung } s \, [\mathrm{s^2}] & {I}_{z,\text{alt}} [\mathrm{10^{-3} \cdot kg \, m^2}]\\
+        \midrule
+        1 & 0.200 \pm 0.001 & 1.351 \pm 0.036 & 4.16 \pm 0.11 \\
+        2 & 0.200 \pm 0.001 & 0.698 \pm 0.014 & 4.29 \pm 0.09 \\
+        2 & 0.150 \pm 0.001 & 0.908 \pm 0.018 & 4.19 \pm 0.09 \\
+        1 & 0.150 \pm 0.001 & 1.770 \pm 0.014 & 4.08 \pm 0.04 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Der Mtitelwert berechnet sich zu
+\imp[-3]{\overline{I}_{z,\text{alt}}}{4.18}{0.11}{kg\,m^2}
+
+\img[1]{tp_gegen_omegaAVG3_alt}{Plot mit den theoretischen Endfrequnezen.}
+
+Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} der beiden $I_z$ Werte beträgt
+\eq{std_sigma_was_auch_immmmmmer}{
+    1.29\sigma \, .
+}
+Die Werte sind statistisch signifikant. Für das Trägheitsmoment $I_x = I_y$ ergibt sich
+\imp[-3]{I_{x, \text{alt}}}{4.45}{0.19}{kg\, m^2}
+bzw. zu 
+\imp[-3]{I_{x,2, \text{alt}}}{4.54}{0.15}{kg\, m^2}
+
+Die Werte werden im Nächsten Teil mit den theoretischen Werten einer Kugel verglichen.
+
+\subsection{Verglecih zum theoretischen Trägheitsmoment}
+Dem Praktikumsskript \cite{skriptPAP21} wurde der Radius die Masse der Kreiselgugel gegeben. Über diese Wete kann das theoretische Trägheitsmoment bestimmt werden. Die Formel für das Trägheitsmoment einer (Voll-)Kugel ist gegeben durch
+\eq{tr_kugel_form}{
+    I_K = \frac{2}{5} \, m \, r^2 \, ,
+}
+mit der Kugelmasse $m$ und dem Kugelradius $r$ \cite{wikiTraeg}. Einsetzen der Werte lieftert
+\imp[-3]{I_K}{4.3}{0}{kg \, m^2}
+für die Trägheissmomente $I_x = I_y = I_z$. Dies berücksichtigt die heruasstehende Stange nicht. 
+
+Es soll die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} der theoretischen und der experimentell bestimmten Trägheitmomente bestimmt werden. Die Werte sind in der \ctab{abweichungen_bestimmt_final_lol_liest_ehe_keiner} vermerkt.
+
+\begin{table}[h!]
+    \caption{Bestimmung der Trägheitsmomente $I_z$ jeder Massenkonfiguration}
+    \centering
+    \label{tab:abweichungen_bestimmt_final_lol_liest_ehe_keiner}
+    \begin{tabular}{L L | L || L}
+        \toprule
+        \text{Trägheitsmoment } & I_\text{gem} [10^{-3} \mathrm{kg \, m^2}] & I_\text{theo} [10^{-3} \mathrm{kg \, m^2}] & \text{Std. Abw. } \sigma \\
+        \midrule
+        I_z         & 4.38 \pm 0.11 & 4.3 & 0.73\sigma \\
+        I_x = I_y   & 4.69 \pm 0.19 & 4.3 & 2.05\sigma \\
+        \midrule
+        I_{z,\text{alt}} & 4.18 \pm 0.11 & 4.3 & 1.10\sigma \\
+        I_{x, \text{alt}} = I_{y, \text{alt}} & 4.50 \pm 0.24 & 4.3 & 0.83\sigma \\
+    \end{tabular}
+\end{table}
+
+Für den hier benutzten $I_x = I_y$-Wert wurde das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der beiden bestimmten Werte gebildet. 
+Die gemessenen Trägheitsmomente fallen größer aus, als die theoretisch zu erwartenen, sind aber alle im statistisch signifikanten Bereich. Das die gemessenen Werte größer ausfallen war zu erwarten, da die Stange an der Kugel auch einen Einfluss zum Trägheitsmoment hat. Das erklärt auch, wieso $I_z$ näher am theoretischen Wert ist, da hier die Stange weniger schwer wiegt und die Nährung als Kugel hier gut zutrifft, während für $I_x = I_y$ die Stange einen größeren Einfluss hat.
+
+Auch die alternativen Werte für die theoretischen Endfrequenzen liefern statistisch signifikante Werte. Somit kann über beide Methoden das Trägheitsmoment sinnvoll angenährt werden. Jedoch ist ein interessanter Unterschied, dass die alternativen Werte nicht chronisch größer sind, sondern hier das Trägheitsmoment $I_{z,\text{alt}}$ sogar kleiner ist. 
+Dies scheint unlogisch, da die interpretation dessen wäre, dass es leichtwer wäre die Kugel mir Stange in Rotation zu versetzten also ohne. Somit lässt sich vermuten, dass die gemessenen Endfrequenzen eine sinnvollere Methode darstellen, da diese auch die Raum- und Umwelteinflüsse berücksichtigten. Jedoch ist hier da Problem, dass die Messgeschwindigkeit sehr langsam ist, was zu größeren Fehlern führt.
+
+\subsection{Verbesserte Graphen}
+Zuletzt sollen noch eine korrektur der beiden Graphen zur Bestimmung des Trägheissmomentes $I_x$ diskutiert werden (\cabb{Omega_gegen_omegaF5}, \cabb{omegaN_gegen_omegaF6b}). Deren Regressionsfunktionen sind nur an den Messwerten gefittet, und laufen beide nicht (exakt) durch den Nullpunkt. Beide Abbildungen haben den Achsenabschitt zur Ordinate vermerkt und sind als $\approx 0$ angenährt. 
+Jedoch ist bekannt, dass beide Graphen erwartbar duch den Punkt $(0,0)$ laufen. Daher lassen sich die Plots auch durch diesen Punkt legen. Die neuen Plots sind der \cabb{Omega_gegen_omegaF5b} und \cabb{omegaN_gegen_omegaF6} zu entnehmen. Die Steigungen sind wie zu erwarten in derselben Größenordnung, jedoch leicht unterschiedlich. 
+
+Für die erste Methode ergibt sich das Trägheissmoment 
+\imp[-3]{I_{x,\text{null}}}{4.66}{0.19}{kg \, m^2}
+
+und für die zweite
+\imp[-3]{I_{x,\text{null}}}{4.74}{0.12}{kg \, m^2}
+
+Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen diesen Werten liegt bei
+
+\eq{zg78ufnjgh}{
+    0.36\sigma \, .
+}
+
+Die werte sind somit signifikan und liegen näher statistisch näher beieinander als die urprünnglichen $I_x$-Werte. Die Abweichugn der neuen Werte zu den ursprünglichen liegt für die erste Methode bei
+
+\eq{te4rgzeuiwfrzhgzb}{
+    0.18\sigma \, ,
+}
+
+und für die zweite Methode bei
+\eq{te4rgzeuiwfrzhfghjgzb}{
+    0.10\sigma \, .
+}
+
+Die Resultate zeigen, dass beide Methoden statistisch dieselben Werte liefert und somit keine außerordentliche Methode festgestellt werden kann. Da es jedoch plausibel und physikalisch notwendig ist, dass die Graphen durch den Ursprung (Nullpunkt) laufen, ist diese Methode als sinnvoller zu betrachten.
+
+\img{Omega_gegen_omegaF5b}{Korrigierter Plot durch den Nullpunkt zu Bestimmung $I_x$ nach erster Methode.}
+
+\img{omegaN_gegen_omegaF6}{Korrigierter Plot durch den Nullpunkt zu Bestimmung $I_x$ über die Nutation.}
+
+% \section{Kritik}
+% \label{sec:Kritik}
