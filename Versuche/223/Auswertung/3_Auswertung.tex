@@ -69,12 +69,12 @@ Die Raumtemperatur beträgt $T = (22.5 \pm 0.5) \mathrm{^\circ C}$, woraus sich 
 Der Radius der $SiO_2$-Kugeln ist mit $a = (378 \pm 15) \mathrm{nm}$. Dies sind alle Werte, die zur Bestimmung der Boltsmannkonstanten nötig sind. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt:
 
 \eq{err_kb}{
-    \Delta k_\text{B} = k \, \sqrt{\frac{\left(\Delta \langle r^2 \rangle\right)^{2}}{\left(\langle r^2 \rangle\right)^{2}} + \frac{\Delta a^{2}}{a^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, .
+    \Delta k_\text{B} = k_\text{B} \, \sqrt{\frac{\left(\Delta \langle r^2 \rangle\right)^{2}}{\left(\langle r^2 \rangle\right)^{2}} + \frac{\Delta a^{2}}{a^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, .
 }
 
 Somit lässt sich die Bolzmannkonstante zu
 
-\res[-23]{k_{\text{B},2}}{1.00}{0.09}{\frac{J}{K}}
+\res[-23]{k_{\text{B}}}{1.00}{0.09}{\frac{J}{K}}
 
 berechnen. Weitergehend kann über \ceq{msd2d} der Diffusionskoeffizient $D$ mit Ungenauigkeit
 
@@ -153,3 +153,39 @@ für die Bolzmankonstante kommt das Ergebnis
 heraus. Zuletzt kommt man für den Diffusionskoeffizient auf ein Ergebnis von
 
 \res[-13]{D_\text{korr}}{4.34}{0.05}{\frac{m^2}{s}}
+
+Beide Methoden werden in \cch{Diskussion} verglichen.
+
+\subsection{Nutzung weitrerer (alternativer) Daten}
+\label{ssec:A3_4}
+Da zwei Versuchsaufbauten parallel genutzt wurden, sollen nun die Daten der anderen Gruppe berücksichtig werden, um das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} beider Lösungen zu bilden und ein präziseres Ergebnis zu erzilen.
+Die Rechnung erfolgt dabei komplett Analog, weshalb nur die Lösungen festgehalten werden. Die Teilchenbewegung ist der \cabb{FuN/Bewegung-1a} zu entnehmen.
+\img{FuN/Bewegung-1a}{Alternative Teilchenbewegung der anderen Gruppe.}
+Die statistische Verteilung der Teilchen ist der \cabb{FuN/Histogramm-2b} zu entnehmen.
+\img{FuN/Histogramm-2b}{Alternative statistische Verteilung der anderen Gruppe.}
+Für die Viskosität des Wassers können dieselben Werte angenommen werden, wie in \cabb{Visko_Wasser}.
+
+\paragraph{Rohdaten:}
+Dabei ergibt sich eine Boltsmannkonstante von
+\res[-24]{k_{\text{B,alt}}}{8.8}{0.9}{\frac{J}{K}}
+und ein Diffusionskoeffizient von
+\res[-13]{D_\text{alt}}{3.9}{0.3}{\frac{m^2}{s}}
+
+\paragraph{Kumulierte Verschiebungsquadrat unkorrigiert:}
+Auch hier wurden die kumulative Verschiebung betrachtet. Diese ist der \cabb{FuN/kumulativ_3a} unkorrigiert zu entnehmen.
+\img{FuN/kumulativ_3a}{Unkorrigiertes Verschiebungsquadrat der anderen Gruppe}
+Ausrechnen liefert:
+\res[-24]{k_{\text{B,2,alt}}}{8.5}{0.9}{\frac{J}{K}}
+bzw. für den Diffusionskoeffizient
+\res[-13]{D_\text{2,alt}}{3.727}{0.016}{\frac{m^2}{s}}
+
+
+\paragraph{Kumulierte Verschiebungsquadrat korrigiert:}
+Auch hier wurde die Korrektur angewant. Die Ergebnisse sind der \cabb{FuN/kumulativ_3b} zu entnehmen.
+\img{FuN/kumulativ_3b}{Korrigiertes Verschiebungsquadrat der anderen Gruppe}
+Ausrechnen liefert:
+\res[-24]{k_{\text{B,korr,alt}}}{8.5}{0.9}{\frac{J}{K}}
+bzw. für den Diffusionskoeffizient
+\res[-13]{D_\text{korr,alt}}{3.72}{0.05}{\frac{m^2}{s}}
+
+
