@@ -5,14 +5,16 @@ Auch der Folgende Text ist am Praktikumsskript von Jens Wagner orientiert. Es ge
 
 \section{Messverfahren} \label{sec:Messverfahren}
 
-Für die experimentelle Beobachtung der Brownschen Bewegung wird eine Suspension von Silicananopartikeln unter einem Durchlichtmikroskop untersucht. Die Probe wird durch ein doppelseitiges Klebeband mit ausgestanzter Öffnung definiert, das auf einen Objektträger aufgebracht wird. Die Öffnung wird mit der Partikelsuspension befüllt und anschließend mit einem Deckglas luftdicht verschlossen. Ein Tropfen Immersionsöl auf dem Deckglas ermöglicht die Verwendung des 100\(\times\)-Ölimmersionsobjektivs, welches die notwendige optische Auflösung bereitstellt.
+Für die experimentelle Beobachtung der Brownschen Bewegung wird ein Tropfen von Silicananopartikeln unter einem Durchlichtmikroskop untersucht. Die Probe wird durch ein doppelseitiges Klebeband mit ausgestanzter Öffnung an Stelle gehalten, das auf einen Objektträger aufgebracht wird. Ein Tropfen Immersionsöl auf dem Deckglas ermöglicht die Verwendung des 100\(\times\)-Ölimmersionsobjektivs, welches die notwendige optische Auflösung bereitstellt.
 
 Nach dem Einspannen der Probe wird das Mikroskop vorsichtig fokussiert, bis einzelne Partikel klar sichtbar sind. Vor Beginn der Messung muss die Probe thermisch zur Ruhe kommen, um Konvektionsströme zu vermeiden. Während der gesamten Aufnahme dürfen weder der Objekttisch noch die Fokuslage abrupt verändert werden, da dies zu systematischen Verschiebungen führen würde.
 
-Die Bildaufnahme erfolgt über das bereitgestellte Python-Messprogramm. Im \emph{Capture}-Modus wird jede Sekunde ein Bild aufgenommen, typischerweise mindestens 150 Bilder. Die Position eines ausgewählten Partikels muss während der gesamten Messdauer im Bildausschnitt verbleiben; gegebenenfalls wird minimal nachfokussiert, ohne das Deckglas zu berühren.
+Die Bildaufnahme erfolgt über das bereitgestellte Python-Messprogramm. Im \emph{Capture}-Modus wird jede Sekunde ein Bild aufgenommen, hier 150 Bilder. Die Position eines ausgewählten Partikels muss während der gesamten Messdauer im Bildausschnitt verbleiben; gegebenenfalls wird minimal nachfokussiert, ohne das Deckglas zu berühren.
 
-Zur späteren Auswertung ist eine Kalibrierung des Abbildungsmaßstabs erforderlich. Dazu wird ein Objektmikrometer unter das Mikroskop gelegt und im \emph{Calibration}-Modus des Programms vermessen. Aus dem Abstand zweier Teilstriche wird der Maßstab in \(\mathrm{nm/pixel}\) bestimmt und im Programm gespeichert.
+Zur späteren Auswertung ist eine Kalibrierung des Abbildungsmaßstabs erforderlich. Dazu wird ein Objektmikrometer unter das Mikroskop gelegt und im \emph{Calibration}-Modus des Programms vermessen. Aus dem Abstand zweier Teilstriche wird der Maßstab in \(\mathrm{\mu m/pixel}\) bestimmt und im Programm gespeichert.
 
 Im \emph{Tracking}-Modus wird anschließend für jedes Bild die Position desselben Partikels manuell markiert. Das Programm speichert die Zeit-, \(x\)- und \(y\)-Koordinaten in einer Textdatei, die anschließend in der Auswertung zur Berechnung der Verschiebungen und des mittleren Verschiebungsquadrats verwendet wird.
 
 Die gemessenen Daten bilden die Grundlage für die Bestimmung des Diffusionskoeffizienten und der Boltzmannkonstante gemäß den theoretischen Beziehungen aus \csec{PhyBasics}.
+
+\img[0.4]{calibration}{Screenshot aus der Kalibrierung.}

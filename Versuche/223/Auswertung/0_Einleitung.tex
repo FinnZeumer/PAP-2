@@ -5,14 +5,14 @@ Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstand
 
 \section{Aufgabe und Motivation} \label{sec:AuM}
 
-Die Brownsche Bewegung beschreibt die unregelmäßige, thermisch verursachte Bewegung mikroskopischer Teilchen in einem Fluid. Sie entsteht durch die ständigen Stöße der Moleküle des umgebenden Mediums auf das suspendierte Partikel. Obwohl diese Bewegung auf mikroskopischer Ebene chaotisch erscheint, lässt sie sich statistisch präzise beschreiben und stellt damit eine direkte Verbindung zwischen makroskopischen Größen wie Temperatur oder Viskosität und mikroskopischen Parametern wie der Boltzmannkonstante her.
+Die Brownsche Bewegung beschreibt die unregelmäßige, thermisch verursachte Bewegung mikroskopischer Teilchen in einem Fluid. Sie entsteht durch die ständigen Stöße der Moleküle des umgebenden Mediums auf das Partikel. Obwohl diese Bewegung auf mikroskopischer Ebene chaotisch erscheint, lässt sie sich statistisch präzise beschreiben und stellt damit eine direkte Verbindung zwischen makroskopischen Größen wie Temperatur oder Viskosität und mikroskopischen Parametern wie der Boltzmannkonstante her.
 
-Ziel dieses Versuchs ist es, die Brownsche Bewegung einzelner Silicananopartikel experimentell zu beobachten und aus deren Trajektorien die Boltzmannkonstante zu bestimmen. Dazu wird die mittlere quadratische Verschiebung eines Partikels analysiert und über das Stokes–Einstein‑Modell mit den Materialparametern des Systems verknüpft. Der Versuch demonstriert somit anschaulich, wie statistische Mechanik und Thermodynamik experimentell zugänglich werden.
+Ziel dieses Versuchs ist es, die Brownsche Bewegung einzelner Silicananopartikel experimentell zu beobachten und aus deren Trajektorien die Boltzmannkonstante zu bestimmen. Dazu wird die mittlere quadratische Verschiebung eines Partikels analysiert und über das Stokes–Einstein‑Modell mit den Materialparametern des Systems verknüpft.
 
 \section{Physikalische Grundlage} \label{sec:PhyBasics}
 \subsection{Der Random-Walk} \label{ssec:RndWalk}
 
-Zur theoretischen Beschreibung der Brownschen Bewegung wird das Modell des eindimensionalen Random‑Walks herangezogen. Dabei erfährt ein Partikel in zeitlichen Abständen \(T\) zufällige Stöße, die es jeweils um eine feste Distanz \(d\) nach links oder rechts verschieben. Die Wahrscheinlichkeit für beide Richtungen ist gleich groß, sodass die Position nach \(n = t/T\) Stößen durch eine Binomialverteilung beschrieben wird. Die Anzahl möglicher Schrittfolgen, die zu einer Endposition \(x = m d\) führen, ergibt sich zu
+Zur theoretischen Beschreibung der Brownschen Bewegung wird das Modell des eindimensionalen Random-Walks herangezogen. Dabei erfährt ein Partikel in zeitlichen Abständen \(\tau\) zufällige Stöße, die es jeweils um eine feste Distanz \(d\) nach links oder rechts verschieben. Die Wahrscheinlichkeit für beide Richtungen ist gleich groß, sodass die Position nach \(n = t/\tau\) Stößen durch eine Binomialverteilung beschrieben wird. Die Anzahl möglicher Schrittfolgen, die zu einer Endposition \(x = m d\) führen, ergibt sich zu
 
 \eq{binom}{
     \binom{n}{\frac{n+m}{2}} = \frac{n!}{\left(\frac{n+m}{2}\right)!\left(\frac{n-m}{2}\right)!}.
@@ -32,7 +32,7 @@ verwendet werden, wodurch die Binomialverteilung in den Grenzfall einer Gaußver
 
 wobei \(D\) der Diffusionskoeffizient ist.
 
-Da die Verteilung symmetrisch ist, verschwindet der Mittelwert der Verschiebung. Stattdessen dient das mittlere Verschiebungsquadrat als charakteristische Größe:
+Da die Verteilung symmetrisch ist (Gaußverteilung), verschwindet der Mittelwert der Verschiebung. Stattdessen dient das mittlere Verschiebungsquadrat als charakteristische Größe:
 
 \eq{msd1d}{
     \sigma^2 = \langle x^{2} \rangle = 2 D t.
@@ -68,6 +68,20 @@ Die Schlussfolgerung von \ceq{msd2d} ist möglich, da hier Isotropie angenommen 
 Damit erlaubt die Analyse der Brownschen Bewegung eine direkte experimentelle Bestimmung einer fundamentalen Naturkonstante $k_{\mathrm{B}}$.
 
 
-\subsubsection*{Skizze des Versuchsaufbaus}
+\subsubsection*{Aus dem Versucshaufbau}
 \label{sec:Skizze}
 
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Versuche/223/img/versuchsaufbau.png}
+        \caption{Abbildung des Versuchsaufbau \cite{skriptPAP21}}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Versuche/223/img/Pfad.png}
+        \caption{Pfad des Teilchens. Gespiegelt um x-Achse.}
+    \end{minipage}
+\end{figure}

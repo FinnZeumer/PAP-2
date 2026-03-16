@@ -27,24 +27,24 @@ Die Bewegung ist der \cabb{Bewegung-1a} zu entnehmen. Zwischen zwei Positionen l
 \section{Normalverteilung und Verbindung}
 \label{sec:A2}
 Weiterführend soll untersucht werden, ob unsere Messdaten stringent mit der Theorie sind. Insbesondere bedeutet dies, dass geprüft wird, ob die mittlere Verschiebung pro Zeitintervall eine Gauß-Normalverteilung darstellt.
-Für jede Sekunde wurde die x- und y-Position gemessen. Aufgrund dessen, dass die brownsche Bewegung als isotrop angenommen wird, werden diese Werte zu einem Wert verrechnet.
+Für jede Sekunde wurde die x- und y-Position gemessen. Aufgrund dessen, dass die Brownsche Bewegung als isotrop angenommen wird, werden diese Werte zu einem Wert verrechnet.
 Für die Gaußverteilung muss das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} $\mu$ und die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} $\sigma$ bestimmt werden.
 Diese Theoretisch erwartete Verteilung wird über das Histogramm gelegt, um eine Abschätzung zu treffen, ob die theoretische Gaußkruve tatsächliche die Messwerte wiederspiegelt. 
-In \cabb{Histogramm-2b} sind zwei Histogramme verschiedener Bin-Breiten eingestellt. 
+In \cabb{Histogramm-2b} sind zwei Histogramme verschiedener Bin-Breiten zu finden. 
 
 \img[0.95]{Histogramm-2b}{Histogramm zur Untersuchung der Normalverteilung mit Gaußverteilung. Links mit 15 Bins, rechts mit 50. \afz{Breite} meint dabei das Gesamtintervall der Abszisse.}
 
-Der rechte Plot mit 15 Bins zeigt eine ziemlich gute Nährung der Gauskruve an die Verteilung des Histogramms. Verkleinert man jedoch die Bin-Breite auf 50 Bins, so fällt ein Peak rund um $0$ auf. 
+Der rechte Plot mit 15 Bins zeigt eine ziemlich gute Näherung der Gauskruve an die Verteilung des Histogramms. Verkleinert man jedoch die Bin-Breite auf 50 Bins, so fällt ein Peak rund um $0$ auf. 
 Dabei sind kleine Verschiebungen bei $\approx 0$ statistisch überpräsentiert. Hier soll nochmal in der Diskussion (\cch{Diskussion}) drauf eingegangen werden. 
-Allgmeien lässt sich dennoch sagen, dass die gemessenen Werte der Theorie schon nah kommen, sodass die Annahme hält, dass es sich um die bronsche Bewegung handelt. 
+Allgmeien lässt sich dennoch sagen, dass die gemessenen Werte der Theorie nahkommen, sodass die Annahme hält, dass es sich um die Brownsche Bewegung handelt. 
 
 \section{Bestimmung der Boltzmannkonstante}
 \label{sec:A3}
-Da die bronwsche Bewegung als wahr angenommen werden kann, kann weitergehend die Bolzmannkonstante bestimmt werden. 
+Da die Bronwsche Bewegung als wahr angenommen werden kann, kann weitergehend die Bolzmannkonstante bestimmt werden. 
 
 \subsection{Bestimmung über das mittlere Verschiebungsquadrat}
 \label{ssec:A3_1}
-Zur Bestimmung der Boltsmannkonstante $k_b$ kann das mittlere Verschiebungsquadrat $\langle r^2 \rangle$. Dieses berechnet sich über die arithmetische Mittel der quadrierten Bewegungen in x- und y-Richtung:
+Zur Bestimmung der Boltzmannkonstante $k_\text{B}$ kann das mittlere Verschiebungsquadrat $\langle r^2 \rangle$ benutzt werden. Dieses berechnet sich über die \hyperref[eq:arithmetisches_mittel]{arithmetischen Mittel (\ref*{eq:arithmetisches_mittel})} der quadrierten Bewegungen in x- und y-Richtung:
 
 \eq{r_quadr}{
     \langle r^2 \rangle = \frac{1}{149} \sum_{i=1}^{149}({x_i}^2 + {y_i}^2) \, .
@@ -60,13 +60,13 @@ mit der Standardabweichung $\sigma$. Durch Einsetzen der Messwerte ergibt sich e
 
 \res{\langle r^2 \rangle}{1.76}{0.14}{\mu m^2}
 
-Dieses Ergebnis wird zur Berechnung der Boltzmannkonstante nach \ceq{kfrommsd}. Darüberhinaus wird über die vermerkte Temperatur im \hyperref[ch:Protokoll]{Messprotokoll} genutzt, um die Viskosität $\eta$ zu bestimmen. 
+Dieses Ergebnis wird zur Berechnung der Boltzmannkonstante nach \ceq{kfrommsd} benötigt. Darüberhinaus wird die im \hyperref[ch:Protokoll]{Messprotokoll} vermerkte Temperatur genutzt, um die Viskosität $\eta$ zu bestimmen. 
 Dies ist der \cabb{Visko_Wasser} zu entnehmen.
 
-\img[0.85]{Visko_Wasser}{Bestimmung der Viskosität von Wasser über die gemessene Raumtemperatur $T = (22.5 \pm 0.5) \mathrm{^\circ C}$.}
+\img[0.85]{Visko_Wasser}{Bestimmung der Viskosität von Wasser aus der gemessenen Raumtemperatur $T = (22.5 \pm 0.5) \mathrm{^\circ C}$.}
 
-Die Raumtemperatur beträgt $T = (22.5 \pm 0.5) \mathrm{^\circ C}$, woraus sich die Viskosität des Wassers auf $\eta = (950 \pm 10) \mathrm{hPa \, s}$. 
-Der Radius der $SiO_2$-Kugeln ist mit $a = (378 \pm 15) \mathrm{nm}$. Dies sind alle Werte, die zur Bestimmung der Boltsmannkonstanten nötig sind. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt:
+Die Raumtemperatur betrug $T = (22.5 \pm 0.5) \mathrm{^\circ C}$, woraus sich die Viskosität des Wassers auf $\eta = (950 \pm 10) \mathrm{hPa \, s}$ ergibt. 
+Der Radius der $SiO_2$-Kugeln ist mit $a = (378 \pm 15) \mathrm{nm}$ angegeben. Dies sind alle Werte, die zur Bestimmung der Boltzmannkonstanten nötig sind. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt:
 
 \eq{err_kb}{
     \Delta k_\text{B} = k_\text{B} \, \sqrt{\frac{\left(\Delta \langle r^2 \rangle\right)^{2}}{\left(\langle r^2 \rangle\right)^{2}} + \frac{\Delta a^{2}}{a^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, .
@@ -74,23 +74,23 @@ Der Radius der $SiO_2$-Kugeln ist mit $a = (378 \pm 15) \mathrm{nm}$. Dies sind 
 
 Somit lässt sich die Bolzmannkonstante zu
 
-\res[-23]{k_{\text{B}}}{1.00}{0.09}{\frac{J}{K}}
+\res[-24]{k_{\text{B}}}{10.0}{0.9}{\frac{J}{K}}
 
-berechnen. Weitergehend kann über \ceq{msd2d} der Diffusionskoeffizient $D$ mit Ungenauigkeit
+berechnen. Weitergehend kann über \ceq{msd2d} der Diffusionskoeffizient $D$ mit einer Ungenauigkeit von
 
 \eq{err_diff_konst}{
     \Delta D = \frac{\Delta \langle r^2 \rangle}{4t}
 }
 
-bestimmt werden und folglich ein Diffusionskoeffizient von
+bestimmt werden. Folglich berechnet sich der Diffusionskoeffizient zu
 
 \res[-13]{D}{4.4}{0.4}{\frac{m^2}{s}}
 
-Die Werte werden in \cch{Diskussion} diskutiert. Zuerst soll die Boltsmannkonstante auf eine weitere Art und Weise bestimmt werden
+Die Werte werden in \cch{Diskussion} diskutiert. Zuerst soll die Boltzmannkonstante auf eine weitere Art bestimmt werden
 
 \subsection{Bestimmung über das kumulierte Verschiebungsquadrat}
 \label{ssec:kumulierte}
-In dieser Sektion soll erneut die Boltzmannkonstante und der Diffusionskoeffizient bestimmt werden. Im Unterschied wierd dieses Mal das krumuleirte Verschiebungsquadrat zur berechnung benutzt:
+In dieser Sektion soll erneut die Boltzmannkonstante und der Diffusionskoeffizient bestimmt werden. Im Unterschied wird dieses Mal das kumulierte Verschiebungsquadrat zur berechnung benutzt:
 
 \eq{kurm_vers_quadr}{
     {r_k}^2 = \sum_{i=1}^t ({x_i}^2 + {y_i}^2)
@@ -112,24 +112,24 @@ heraus. Damit sind alle Werte für die Berechnung der Boltzmannkonstante nach \c
 Die Fehler lassen sich analog zur \cssec{A3_1} bestimmten. Somit kommt die Ungenauigkeit
 
 \eq{err_kb_erneut}{
-    \Delta k_{\text{B},2} = k \, \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta a^{2}}{a^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, 
+    \Delta k_{\text{B},2} = k_\text{B} \, \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta a^{2}}{a^{2}} + \frac{\Delta \eta^{2}}{\eta^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, 
 }
 
 für die Bolzmankonstante und 
 
 \eq{err_diff_wiederholt}{
-    \Delta D_2 = \frac{\Delta s}{4}
+    \Delta D_2 = \frac{\Delta m}{4}
 }
 für den Diffusionskoeffizient heruas und resultieren die Ergebnisse:
 
-\res[-23]{k_{\text{B},2}}{0.99}{0.04}{\frac{J}{K}}
+\res[-24]{k_{\text{B},2}}{9.9}{0.4}{\frac{J}{K}}
 
 \res[-13]{D_2}{4.343}{0.016}{\frac{m^2}{s}}
 
 Ein Vergleich dieser Ergebnisse mit denen aus der Sektion davor wird in \cch{Diskussion} diskutiert.
 
 \subsection{Bestimmung über das korrigierte kumulierte Verschiebungsquadrat}
-Ich wurde über einen Kommilitonen darauf aufmerksam gemacht, dass in \cssec{kumulierte} das kumulierte Verschiebungsquadrat als gleichgewichtet angenommen wurde, jedoch ist dies auch von der Zeitabhänig, wodurch die Ungenauigkeiten hier über die Messungen größer werden müssten.
+Ich wurde über einen Kommilitonen darauf aufmerksam gemacht, dass in \cssec{kumulierte} das kumulierte Verschiebungsquadrat als gleichgewichtet angenommen wurde, jedoch ist dies auch von der Zeit abhänig, wodurch die Ungenauigkeiten hier über die Messungen größer werden müssten.
 
 Daher soll im Folgenden untersucht werden, ob die Annahme eines gleichgewichteten Fehlers hier sinnvoll war, oder die Ungenauigkeit doch besser einbezogen werden sollte.
 Betrachten wir \ceq{kurm_vers_quadr} so ergibt sich über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} eine Ungenauigkeit von
@@ -144,11 +144,11 @@ $\Delta {r_i}^2$ entspricht der Standardabweichung über alle ${r_i}^2$. Wir ers
 
 Steigung, Boltzmannkonstante und Diffusionskoeffizient werden analog zu \cssec{kumulierte} bestimmt. Für die Steigung bestimmen wir
 
-\res[-12]{s_\text{korr}}{1.737}{0.021}{\frac{m^2}{s}}
+\res[-12]{m_\text{korr}}{1.737}{0.021}{\frac{m^2}{s}}
 
 für die Bolzmankonstante kommt das Ergebnis
 
-\res[-23]{k_\text{B,korr}}{0.99}{0.04}{\frac{J}{K}}
+\res[-24]{k_\text{B,korr}}{9.9}{0.4}{\frac{J}{K}}
 
 heraus. Zuletzt kommt man für den Diffusionskoeffizient auf ein Ergebnis von
 
@@ -156,24 +156,25 @@ heraus. Zuletzt kommt man für den Diffusionskoeffizient auf ein Ergebnis von
 
 Beide Methoden werden in \cch{Diskussion} verglichen.
 
-\subsection{Nutzung weitrerer (alternativer) Daten}
-\label{ssec:A3_4}
-Da zwei Versuchsaufbauten parallel genutzt wurden, sollen nun die Daten der anderen Gruppe berücksichtig werden, um das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} beider Lösungen zu bilden und ein präziseres Ergebnis zu erzilen.
+\section{Nutzung weiterer (alternativer) Daten}
+\label{sec:alt_data}
+Da zwei Versuchsaufbauten parallel genutzt wurden, sollen nun die Daten der anderen Gruppe berücksichtig werden, um das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} beider Lösungen zu bilden und ein präziseres Ergebnis zu erzilen.\footnote{Da die Werte der anderen Gruppe sehr viel stärker noch abweichen als unsere von dem Literaturwert, wird das arithmetische Mittel nicht genutzt, um es mit dem Literaturwert zu vergleichen.}
+Dies funktioniert gut, da beide Versuchsaufbauten (ziemlich) denselben Raumbedinungen ausgesetzt waren.
 Die Rechnung erfolgt dabei komplett Analog, weshalb nur die Lösungen festgehalten werden. Die Teilchenbewegung ist der \cabb{FuN/Bewegung-1a} zu entnehmen.
 \img{FuN/Bewegung-1a}{Alternative Teilchenbewegung der anderen Gruppe.}
 Die statistische Verteilung der Teilchen ist der \cabb{FuN/Histogramm-2b} zu entnehmen.
-\img{FuN/Histogramm-2b}{Alternative statistische Verteilung der anderen Gruppe.}
+\img[1]{FuN/Histogramm-2b}{Alternative statistische Verteilung der anderen Gruppe.}
 Für die Viskosität des Wassers können dieselben Werte angenommen werden, wie in \cabb{Visko_Wasser}.
 
 \paragraph{Rohdaten:}
-Dabei ergibt sich eine Boltsmannkonstante von
+Dabei ergibt sich eine Boltzmannkonstante von
 \res[-24]{k_{\text{B,alt}}}{8.8}{0.9}{\frac{J}{K}}
 und ein Diffusionskoeffizient von
 \res[-13]{D_\text{alt}}{3.9}{0.3}{\frac{m^2}{s}}
 
 \paragraph{Kumulierte Verschiebungsquadrat unkorrigiert:}
-Auch hier wurden die kumulative Verschiebung betrachtet. Diese ist der \cabb{FuN/kumulativ_3a} unkorrigiert zu entnehmen.
 \img{FuN/kumulativ_3a}{Unkorrigiertes Verschiebungsquadrat der anderen Gruppe}
+Auch hier wurden die kumulative Verschiebung betrachtet. Diese ist der \cabb{FuN/kumulativ_3a} unkorrigiert zu entnehmen.
 Ausrechnen liefert:
 \res[-24]{k_{\text{B,2,alt}}}{8.5}{0.9}{\frac{J}{K}}
 bzw. für den Diffusionskoeffizient
@@ -181,8 +182,8 @@ bzw. für den Diffusionskoeffizient
 
 
 \paragraph{Kumulierte Verschiebungsquadrat korrigiert:}
-Auch hier wurde die Korrektur angewant. Die Ergebnisse sind der \cabb{FuN/kumulativ_3b} zu entnehmen.
 \img{FuN/kumulativ_3b}{Korrigiertes Verschiebungsquadrat der anderen Gruppe}
+Auch hier wurde die Korrektur angewant. Die Ergebnisse sind der \cabb{FuN/kumulativ_3b} zu entnehmen.
 Ausrechnen liefert:
 \res[-24]{k_{\text{B,korr,alt}}}{8.5}{0.9}{\frac{J}{K}}
 bzw. für den Diffusionskoeffizient
