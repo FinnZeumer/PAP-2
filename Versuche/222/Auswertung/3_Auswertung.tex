@@ -1,5 +1,3 @@
-n
-
 \chapter{Auswertung}
 \label{ch:Auswertung}
 % Liste der genutzer Formeln für die Fehlerrechnung
@@ -17,19 +15,52 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
 \end{align}
 
-\newpagen
+\newpage
 
-\section{Aufgabe 1: }
+\section{Stirlingmotor als Kältekraftmaschine}
 \label{sec:A1}
+In dieser Sektion wird der Stirlingmotor als Kältekraftmaschine betrieben. Zunächst soll dafür nach \ceq{kalteleistung_muhaha_anders} die Kälteleistung bestimmt werden. Es wir ddie Ungenauigkeit über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt.
+\eq{Fehler_der_kalte_leistung_anders_oder_so}{
+    \Delta P_\text{K} = P_\text{K} \, \sqrt{\left(\frac{\Delta I_\text{K}}{I_\text{K}}\right)^2 + \left(\frac{\Delta U_\text{K}}{U_\text{K}}\right)^2}
+}
+Der Temperaturverlauf ist der \cabb{Temperatur-gaph} zu entnehmen. Mit einem Heizstrom $I_\text{H} = (5.600 \pm 0.025) \mathrm{A}$ und einer -spannung $U_\text{H} = (5.190 \pm 0.005)$ ergibt sich für die Kälteleistung
+\imp[1]{P-\text{K}}{2.890}{0.013}{W}
+Dies entspricht einemprozentualem Fehler von $0.48\%$. Dabei ist hier der Gerätefehler nicht berücksichtigt. Es soll geprüft werden, ob das Weglessen des Gerätefehlers sinnvoll ist. Dafür wird die rechnung mit einem Gesamtfehler bestimmt. Die Gerätefehler sind dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. Es ergibt sich eine Kälteleistung von
+\imp[1]{P-\text{K}}{2.89}{0.06}{W}
+Der prozentuale Fehler berechnet sich unter Berücksichtigung des Gesamtfehlers zu $2.08\%$. Der Fehler ist (circa) vier mal so groß und daher sollte und wird der Gerätefehler im Folgenden mit berücksichtigt.
+\img{Temperatur-gaph}{Temperaturverlauf während der ertsen Messung.}
 
-\section{Aufgabe 2: }
+Nun wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} auf \ceq{mit_ordentlich_kalorien} und \ceq{qZWEI_ist_es_diesessmalalasdhj} angewendet. Außerdem kann Analog zu \ceq{qZWEI_ist_es_diesessmalalasdhj} auch die mechanische Arbeit definiert werden. Auch diese Ungenauigkeit wird nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt.
+
+Für $Q_2$ ergibt sich die Ungenuigkeit zu
+\eq{q2_err_func}{
+    \Delta Q_2 = Q_2 \, \sqrt{\frac{\Delta {P_\text{K}}^{2}}{{P_\text{K}}^{2}} + \frac{\Delta f^{2}}{f^{2}}} 
+}
+und somit ein Ergebnis von
+\imp{Q_2}{6.20}{0.14}{J}
+
+und für $Q_1$ berecnet sich die Ungenuigkeit über
+\eq{q1_err_func{
+    \Delta Q_1 = Q_1 \, \sqrt{\frac{\Delta {\dot{V}}^{2}}{{\dot{V}}^{2}} + \frac{\Delta f^{2}}{f^{2}} + \frac{\Delta T^{2}}{T^{2}}} 
+}}
+und somit ein Ergebnis von
+\imp{Q_1}{9.80}{0.21}{J}
+
+Zuletzt wird die mechanische Arbeit $W_\text{M}$ berechnet, ihr Fehler ist 
+\eq{err_fun_wM}{
+    \Delta W_\text{M} = W_\text{M} \sqrt{\frac{\Delta {I_M}^{2}}{{I_M}^{2}} + \frac{\Delta {U_M}^{2}}{{U_M}^{2}} + \frac{\Delta f^{2}}{f^{2}}} 
+}
+und somit ein Ergebnis von
+\imp{ W_\text{M}}{19.9}{0.5}{J}
+
+\section{Betrib als Wärmepumpe}
 \label{sec:A2}
 
-\section{Aufgabe 3: }
+\img{Temperaturverlauf_des_Wassers_verbessert_cassy}{Temperaturverlauf des Wassers in der Software\afz{Cassy}. Eingezeichnet der Wechselpunkt von Kältemaschine zu Wärmepumpe.}
+
+\img{Wassertemperatur}{Temperaturverlauf des Kühlwassers und der Raumtemperatur.}
+
+\section{Nutzung als Heißluftmotor}
 \label{sec:A3}
 
-\section{Aufgabe 4: }
-\label{sec:A4}
-
-\section{Aufgabe 5: }
-\label{sec:A5}
+\img{pV_CassyS_Verbessert_Kreisprozess}{Kreisprozess des Heißluftmotors aus der Software\afz{Cassy}.}
