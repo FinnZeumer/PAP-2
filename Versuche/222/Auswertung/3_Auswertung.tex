@@ -115,12 +115,33 @@ Durch Einsetzen aller Messwerte ergibt sich für die erneut bestimmte Kälteleis
 \res{P_\text{2,K}}{2.3}{0.6}{W}
 
 
-\section{Nutzung als Heißluftmotor}
+\section{Nutzung als Heißluftmotor im Leerlauf}
 \label{sec:A3}
-\subsection{Betireb im Leerlauf}
 
 \eq{err_func_something_i_would_never_write_is_HAHAHAHAHAAHAHAHAHAHHAHAHAHAHHAHHAHAHHAHAHAHAHHHAHAHAHAHHAHAAHHAHAHAHHAHA}{
     \Delta Q_\text{ab} = Q_\text{ab} \, \sqrt{\frac{\Delta {T_\text{diff}}^{2}}{{T_\text{diff}}^{2}} + \frac{\Delta {\dot{V}}^{2}}{{\dot{V}}^{2}} + \frac{\Delta {f}^{2}}{{f}^{2}}} \, ,
 }
 
-\img{pV_CassyS_Verbessert_Kreisprozess}{Kreisprozess des Heißluftmotors aus der Software\afz{Cassy}.}
+\img{pV_CassyS_Verbessert_Kreisprozess}{Beispielhafter Kreisprozess des Heißluftmotors aus der Software\afz{Cassy}. Farbe in\afz{Inkscape} nachbearbeitet}
+
+\section{Nutzung als Heißluftmotor mit Prony-Zaum}
+\label{sec:A4}
+
+
+\eq{err_func_elektrische_heizwarme}{
+    \Delta Q_\text{2, el} = Q_\text{2, el} \, \sqrt{\frac{\Delta {P_\text{el}}^{2}}{{P_\text{el}}^{2}} + \frac{\Delta f^{2}}{f^{2}}} \, ,
+}
+
+
+\eq{err_func_lastarbeit}{
+    \Delta W_\text{D} = W_\text{D} \, \sqrt{\frac{\Delta l^{2}}{l^{2}} + \frac{\Delta F^{2}}{F^{2}}}  \, ,
+}
+
+\eq{err_func_wirkungsgrad_hier_der}{
+    \Delta \eta_\text{Last} = \eta_\text{Last} \, \sqrt{\frac{\Delta {Q_\text{el}}^{2}}{{Q_\text{el}}^{2}} + \frac{\Delta {W_\text{pV}}^{2}}{{W_\text{pV}}^{2}}}  \, ,
+}
+
+
+\eq{err_func_eta_efffffff}{
+    \Delta \eta_\text{eff} = \eta_\text{eff} \, \sqrt{\frac{\Delta {Q_\text{el}}^{2}}{{Q_\text{el}}^{2}} + \frac{\Delta {W_\text{D}}^{2}}{{W_\text{D}}^{2}}}  \, ,
+}
