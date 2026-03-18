@@ -5,6 +5,7 @@ Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstand
 
 \section{Aufgabe und Motivation} \label{sec:AuM}
 
+\wrap{R}{memes/doch_ein_ossi}{Ich lag also nie falsch!}
 Gekoppelte Oszillatoren spielen in vielen Bereichen der Physik eine zentrale Rolle. Sie treten sowohl in mechanischen Systemen wie Pendeln, als auch in Molekülen, elektrischen Schwingkreisen oder Festkörpern auf. Ein besonders anschauliches Beispiel ist das System zweier mechanisch gekoppelter Pendel, an dem sich grundlegende Eigenschaften wie Normalschwingungen, Energieübertragung und Schwebung sehr gut beobachten lassen.
 
 Ziel dieses Versuchs ist es, die Dynamik zweier über eine Feder gekoppelter Pendel experimentell zu untersuchen. Dazu werden die Eigenfrequenzen der symmetrischen und antisymmetrischen Schwingung bestimmt, die Schwebung bei gemischter Anregung analysiert und der Kopplungsgrad quantitativ ermittelt. Ergänzend wird das Verhalten eines analogen elektrischen Systems betrachtet, um die Übertragbarkeit der Konzepte auf andere physikalische Bereiche zu verdeutlichen.
@@ -64,7 +65,7 @@ Die Pendel schwingen dabei exakt gegenphasig.
 
 \subsection{Schwebung}
 
-Werden die Pendel nicht in einer Normalschwingung angeregt, sondern beispielsweise nur eines ausgelenkt, so überlagern sich beide Eigenmoden. Dies führt zu einer periodischen Energieübertragung zwischen den Pendeln, der sogenannten Schwebung. Die Einzelfrequenz und die Schwebungsfrequenz ergeben sich zu
+Werden die Pendel nicht in einer Normalschwingung angeregt, sondern beispielsweise nur eines ausgelenkt, so überlagern sich beide Eigenmoden. Dies führt zu einer periodischen Energieübertragung zwischen den Pendeln, der sogenannten Schwebung. Die Einzelfrequenz\footnote{Diese werden in der Auswertung auch teils mit\afz{Pendelfrequenz} bezeichnet.} und die Schwebungsfrequenz ergeben sich zu
 \eq{schwebung}{
     \omega_\mathrm{I} = \frac{\omega_1 + \omega_2}{2}, \qquad
     \omega_\mathrm{II} = \frac{\omega_2 - \omega_1}{2}.
@@ -79,14 +80,23 @@ Zur Quantifizierung der Kopplung wird der Kopplungsgrad definiert als
 }
 Über die Eigenfrequenzen lässt sich dieser experimentell bestimmen:
 \eq{kopplungsgrad_frequenzen}{
-    K = \frac{\omega_2^2 - \omega_1^2}{\omega_2^2 + \omega_1^2}.
+    K = \frac{\omega_2^2 - \omega_1^2}{\omega_2^2 + \omega_1^2} = \frac{(\omega_{I} + \omega_{II})^{2} - (\omega_{I} - \omega_{II})^{2}}{(\omega_{I} + \omega_{II})^{2} + (\omega_{I} - \omega_{II})^{2}} \, .
 }
 Für schwache Kopplungen (\(D' \ll D\)) gilt näherungsweise
 \eq{kopplungsgrad_naeherung}{
     K \approx \frac{D'}{D} \propto l^2,
 }
 wodurch sich die Kopplungsgrade verschiedener Federaufhängungen direkt über die Abstände vergleichen lassen.
-
+Durch die Proportionalität zu $l^2$ lässt sich der Ausdruck 
+\eq{noch_nicht_coole_matrix}{
+    \frac{K_i}{K_j} = \frac{{l_i}^2}{{l_j}^2} 
+}
+herleiten. Dafür werden zwei Matrixen defineirt:
+\eq{coole_matrixen}{
+    \kappa_\mathrm{i,j} = \frac{K_i}{K_j}, \qquad 
+    \zeta_\mathrm{i,j} = \frac{{l_i}^2}{{l_j}^2}, \qquad i,j \in \{1,2,3\} 
+}
+Dabei stehen die Indizes für Kopplungsgrade. Die Kopplungen werden aufiteriert vom schwächetn zum stärksten bezeichnet. Ergo: $1$ ist für schwache Kopplung, $2$ ist für Mittlere und $3$ für Starke.
 
 \subsection{Der Hall-Effekt}
 Der im Versuchsaufbau verwendete Hallsensor dient zur präzisen Messung der Winkelauslenkung der Pendel. Er befindet sich an der Pendelachse und bewegt sich relativ zu einem feststehenden Magnetfeld. Durch den Hall-Effekt entsteht dabei eine Spannung, deren Betrag proportional zum Sinus des Auslenkwinkels ist. Diese Spannung wird verstärkt, digitalisiert und anschließend von der Messsoftware ausgewertet. Auf diese Weise lässt sich die zeitabhängige Pendelbewegung berührungslos, kontinuierlich und mit hoher Genauigkeit erfassen, was die Grundlage für die spätere Frequenzanalyse bildet.

@@ -17,14 +17,91 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \newpage
 
-\section{Bestimmung der Eigenfrequenz}
+\section[Untersuchung der Schwebung]{Symmetrische und antisymmetrische Schwinung in der Schwebung}
 \label{sec:A1}
 
-\section{Untersuchung der anti- und symmetrischen Oszillation}
+\begin{table}[h!]
+    \caption{Vergleich der symmetrischen $\omega_1$ und antisymmetrischen $\omega_2$ Schwinungen mit den Schwebungsfrequenzen $\omega_\text{{1,s}}, \omega_\text{{2,s}}$.}
+    \label{tab:vergleich_fur_A1}
+    \centering
+    \begin{tabular}{l | C C | C || C C | C}
+        \toprule
+        Kopplung & \omega_1 \, [\mathrm{\frac{rad}{s}}] & \omega_\text{1,s} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma & \omega_2 \, [\mathrm{\frac{rad}{s}}] & \omega_\text{2,s} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma \\
+        \midrule
+        \textbf{Schwach} & 3.91 \pm 0.10 & 3.90 \pm 0.09 & 0.07 & 4.08 \pm 0.08 & 4.08 \pm 0.09 & 0.00 \\
+        \textbf{Mittel} & 3.91 \pm 0.10 & 3.90 \pm 0.09 & 0.07 & 4.31 \pm 0.09 & 4.32 \pm 0.09 & 0.08 \\
+        \textbf{Stark} & 3.91 \pm 0.10 & 3.90 \pm 0.08 & 0.08 & 4.64 \pm 0.10 & 4.64 \pm 0.09 & 0.00 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+\section[Fehleruntersuchung FFT]{Vergleich Schwebungsfrequenz und Pendelfrequenz}
 \label{sec:A2}
 
-\section{Untersuchung der Schwebung}
+\eq{berechnung_in_kreisfrequenz}{
+    \omega = \frac{2\, \pi}{T} \, , \qquad \Delta \omega = \frac{2\, \pi \, \Delta T}{T^2}
+}
+
+Betrachtung \ceq{schwebung} und \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
+
+\eq{err_func_schwebung_I_II_und_allgemein_ist_diese_IIIIIIIIIHHH_Gitt}{
+    \Delta {\omega_\text{I}} = \Delta {\omega_\text{I}} = \sqrt{(\Delta \omega_\text{1})^2 + (\Delta \omega_\text{1})^2}
+}
+
+
+\begin{table}[h!]
+    \label{tab:vergleich_fur_A2}
+    \caption{Vergleich der Frequenzen. Zum einen Bestimmt über die Periodendauer $T$, und zum anderen über die im FFT gegeben Information.}
+    \centering
+    \begin{tabular}{l | C C | C || C C | C}
+    \toprule
+    Kopplung & \omega_\text{I,T} \, [\mathrm{\frac{rad}{s}}] & \omega_\text{I,FFT} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma & \omega_\text{II,T} \, [\mathrm{\frac{rad}{s}}] & \omega_\text{II,FFT} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma \\
+    \midrule
+    \textbf{Schwach} & 3.97 \pm 0.18 & 3.99 \pm 0.06 & 0.10 & 0.09061 \pm 0.00012 & 0.09 \pm 0.06 & 2.84 \\
+    \textbf{Mittel} & 4.07 \pm 0.16 & 4.11 \pm 0.06 & 0.21 & 0.200 \pm 0.006 & 0.21 \pm 0.06 & 6.41 \\
+    \textbf{Stark} & 4.24 \pm 0.17 & 4.27 \pm 0.06 & 0.18 & 0.361 \pm 0.018 & 0.37 \pm 0.06 & 12.31 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+\section[Kopplung]{Bestimmung der Kopplung}
 \label{sec:A3}
+
+Via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} Fehler von \ceq{kopplungsgrad_frequenzen}:
+
+\eq{tzuhergtuiobidfgjokhjk}{
+    \Delta K = 4 \sqrt{\frac{{\omega_1}^{2} {\omega_2}^{2}}{\left({\omega_1}^{2} + {\omega_2}^{2}\right)^{4}} \left(\Delta {\omega_1}^{2} {\omega_2}^{2} + \Delta {\omega_2}^{2} {\omega_1}^{2}\right)} 
+}
+bzw.
+\eq{err_func_kopplung_stuff_idk}{
+    \Delta K = K \, \frac{\lvert {\omega_\text{I}}^2- {\omega_\text{II}}^2\rvert}{{\omega_\text{I}} \, {\omega_\text{II}}\bigl({\omega_\text{I}}^2+ {\omega_\text{II}}^2\bigr)}\sqrt{ {\omega_\text{II}}^2(\Delta{\omega_\text{I}})^2+{\omega_\text{I}}^2(\Delta {\omega_\text{II}})^2}
+}
+
+\hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} auf \ceq{coole_matrixen}:
+
+\eq{err_func_matrixen_izen_izen_izen_izne_izen_izen}{
+    \Delta \kappa_{i,j} = \kappa_{i,j} \sqrt{\frac{\Delta {K_{j}}^{2}}{{K_{j}}^{2}} + \frac{\Delta {K_{i}}^{2}}{{K_{i}}^{2}}}, \qquad \Delta \zeta_{i,j} = 2 \zeta_{i,j} \sqrt{\frac{(\Delta l_{i})^{2}}{{l_{i}}^{2}} + \frac{(\Delta l_{j})^{2}}{{l_{j}}^{2}}}
+}
+
+\begin{table}[h!]
+    \caption{Bestimmte Kopplungsgrade. $K_1$ wurde über $\omega_1$ und $\omega_2$ bestimmt, wohingegen $K_2$ über $\omega_\text{I}$ und $\omega_\text{II}$ bestimmt wurde (also was die Aufgabe von einem wollte).}
+    \label{tab:vergleich_fur_A3}
+    \centering
+    \begin{tabular}{l L | C C | C}
+        \toprule
+        Kopplung & \text{Index} & K_1 (\omega_1, \omega_2) & K_2 (\omega_\text{I}, \omega_\text{II}) & \text{Abstand zur Achse} \, l \, [10^{1}\mathrm{m}] \\
+        \midrule
+        \textbf{Schwach} & 1 & 0.05 \pm 0.03 & 0.0456 \pm 0.0014 & 1.920 \pm 0.005 \\
+        \textbf{Mittel} & 2 & 0.10 \pm 0.03 & 0.098 \pm 0.004 & 2.920 \pm 0.005 \\
+        \textbf{Stark} & 3 & 0.172 \pm 0.027 & 0.169 \pm 0.009 & 3.920 \pm 0.005 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 \section{Der gekoppelte elektrische Schwingkreis}
 \label{sec:A4}
