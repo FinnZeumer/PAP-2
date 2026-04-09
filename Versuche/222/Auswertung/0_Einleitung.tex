@@ -41,7 +41,7 @@ Ohne Regenerator setzt sich die aufgenommene Wärme aus der isothermen Expansion
 
 Reale Stirlingmotoren weichen hiervon ab, da die Kolbenbewegung kontinuierlich erfolgt und die Zustandsänderungen überlappen. Dies führt zu Verlusten durch unvollständige Regeneration, Wärmeleitung, Reibung und Totvolumen.
 
-\img{pV_sterling_beta_wareme}{pV-Diagramm des Stirlingmotors und shematischer Aufbau des Motorzustanden im jeweiligen Moment (idealisiert) im Betrieb als Wärmekraftmaschine. \cite{skriptPAP21}}
+\img{pV_sterling_beta_wareme}{pV-Diagramm des Stirlingmotors und schematischer Aufbau des Motorzustanden im jeweiligen Moment (idealisiert) im Betrieb als Wärmekraftmaschine. \cite{skriptPAP21}}
 
 \subsection{Betrieb des Motors als Kältemaschine} \label{ssec:SterKa}
 
@@ -49,11 +49,11 @@ Wird der Stirlingprozess umgekehrt durchlaufen, arbeitet der Motor als Kältemas
 \eq{Kaelte}{
     Q_1 = Q_2 + W_\mathrm{M},
 }
-wobei \(Q_2\) die entzogene und \(Q_1\) die abgegebene Wärme ist. Alternativ lässt sich $Q_1$ auch über die kalorische Zustandsgleichung bestimmen
+wobei \(Q_2\) die aufgenommene und \(Q_1\) die abgegebene Wärme ist. Alternativ lässt sich $Q_1$ auch über die kalorische Zustandsgleichung bestimmen
 \eq{mit_ordentlich_kalorien}{
     Q_1 = \frac{C_\text{W} \, \rho_\text{W} \, \Delta T \, \dot V}{f} \, ,
 }
-wobei der Indize\afz{W} für Wasser steht. $C$ ist die Wärmekapazität, $rho$ die Dichte, $\Delta T$ die Temperaturdifferenz und $f$ die Frequenz des Motors.
+wobei der Indize\afz{W} für Wasser steht. $C$ ist die Wärmekapazität, $\rho$ die Dichte, $\Delta T$ die Temperaturdifferenz und $f$ die Frequenz des Motors.
 Auch für die entzogene Wärme $Q_2$ lässt sich ein Ausdruck finden, denn diese entspricht gerade der zugeführten elektrischen Heißarbeit $W_\text{H}$
 \eq{qZWEI_ist_es_diesessmalalasdhj}{
     Q_2 = W_\text{H} = \frac{U_\text{H} \, I_\text{H}}{f} \, ,
@@ -62,14 +62,14 @@ mit dem Heißstrom $U_\text{H}$ und der Heißspannung $I_\text{H}$.
 
 Für die Leistungsbewertung werden zwei Größen verwendet. Zum einen der Wirkungsgrad der Kältemaschine
 \eq{nK}{
-    \varepsilon_\mathrm{K} = \frac{Q_2}{W_\mathrm{M}} \,  ,
+    \eta_\mathrm{K} = \frac{Q_2}{W_\mathrm{M}} \,  ,
 }
 und zum Anderen die Leistungszahl der Wärmepumpe
 \eq{WP}{
-    \varepsilon_\mathrm{WP} = \frac{Q_1}{W_\mathrm{M}} \, .
+    \eta_\mathrm{WP} = \frac{Q_1}{W_\mathrm{M}} \, .
 }
 
-\img{pV_sterling_kaelte}{pV-Diagramm des Stirlingmotors und shematischer Aufbau des Motorzustanden im jeweiligen Moment (idealisiert) im Betrieb als Kältekraftmaschine. \cite{skriptPAP21}}
+\img{pV_sterling_kaelte}{pV-Diagramm des Stirlingmotors und schematischer Aufbau des Motorzustanden im jeweiligen Moment (idealisiert) im Betrieb als Kältekraftmaschine. \cite{skriptPAP21}}
 
 Im Versuch wird die Kälteleistung sowohl über eine Kompensationsmessung als auch über die Gefrierzeit einer Wasserprobe bestimmt.
 Zudem kann über das Wasservolumen $V_\text{W}$, die Schmelzwärme von Wasser $\lambda_\text{W}$, der Wasserdichte $\rho_\text{W}$ und der Gefrierzeit $t_0$ die Kälteleistugn 

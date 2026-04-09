@@ -19,24 +19,24 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \section{Stirlingmotor als Kältekraftmaschine}
 \label{sec:A1}
-In dieser Sektion wird der Stirlingmotor als Kältekraftmaschine betrieben. Zunächst soll dafür nach \ceq{kalteleistung_muhaha_anders} die Kälteleistung bestimmt werden. Es wir ddie Ungenauigkeit über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt.
+In dieser Sektion wird der Stirlingmotor als Kältekraftmaschine betrieben. Zunächst soll dafür nach \ceq{kalteleistung_muhaha_anders} die Kälteleistung bestimmt werden. Es wir die Ungenauigkeit über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt;
 \eq{Fehler_der_kalte_leistung_anders_oder_so}{
-    \Delta P_\text{K} = P_\text{K} \, \sqrt{\left(\frac{\Delta I_\text{K}}{I_\text{K}}\right)^2 + \left(\frac{\Delta U_\text{K}}{U_\text{K}}\right)^2}
+    \Delta P_\text{K} = P_\text{K} \, \sqrt{\left(\frac{\Delta I_\text{K}}{I_\text{K}}\right)^2 + \left(\frac{\Delta U_\text{K}}{U_\text{K}}\right)^2} \, .
 }
 Der Temperaturverlauf ist der \cabb{Temperatur-gaph} zu entnehmen. Mit einem Heizstrom $I_\text{H} = (5.600 \pm 0.025) \mathrm{A}$ und einer -spannung $U_\text{H} = (5.190 \pm 0.005)$ ergibt sich für die Kälteleistung
 \imp[1]{P_\text{K}}{2.890}{0.013}{W}
-Dies entspricht einemprozentualem Fehler von $0.48\%$. Dabei ist hier der Gerätefehler nicht berücksichtigt. Es soll geprüft werden, ob das Weglessen des Gerätefehlers sinnvoll ist. Dafür wird die rechnung mit einem Gesamtfehler bestimmt. Die Gerätefehler sind dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. Es ergibt sich eine Kälteleistung von
+Dies entspricht einem prozentualem Fehler von $0.48\%$. Dabei ist hier der Gerätefehler nicht berücksichtigt. Es soll geprüft werden, ob das Weglessen des Gerätefehlers sinnvoll ist. Dafür wird die Rechnung mit einem Gesamtfehler bestimmt, also unter Berücksichtigung der Gerätefehler. Diese sind dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. Es ergibt sich eine Kälteleistung von
 \imp[1]{P_\text{K}}{2.89}{0.06}{W}
 Der prozentuale Fehler berechnet sich unter Berücksichtigung des Gesamtfehlers zu $2.08\%$. Der Fehler ist (circa) vier mal so groß und daher sollte und wird der Gerätefehler im Folgenden mit berücksichtigt.
-\img{Temperatur-gaph}{Temperaturverlauf während der ertsen Messung.}
+\img{Temperatur-gaph}{Temperaturverlauf während der Nutzung als Kältemaschine (ertse Messung).}
 
 Nun wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} auf \ceq{mit_ordentlich_kalorien} und \ceq{qZWEI_ist_es_diesessmalalasdhj} angewendet. Außerdem kann Analog zu \ceq{qZWEI_ist_es_diesessmalalasdhj} auch die mechanische Arbeit definiert werden. Auch diese Ungenauigkeit wird nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt.
 
-Für die folgenden Rechnungen wird die Frequenz benötigt, hier wird ihr \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} bestimmt und die Ungenauigkeit zusammengesetzt aus dem Ablesefehler und dem \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})}. 
+Für die folgenden Rechnungen wird die Frequenz benötigt, hier wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} bestimmt und die Ungenauigkeit wird aus dem Ablesefehler und dem \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} zusammengesetzt;
 \eq{err_for_freq}{
-    \Delta f = sqrt{\frac{(\Delta f_\text{ablese}^2) + \sigma_f}{3}} \, ,
+    \Delta f = \sqrt{\frac{(\Delta f_\text{ablese}^2) + \sigma_f}{3}} \, 
 }
-analog wird auch der Volumenfluss $\dot V$ und seine Ungenauigkeit $\Delta \dot V$ gebildet
+Analog wird auch der Volumenfluss $\dot V$ und seine Ungenauigkeit $\Delta \dot V$ gebildet
 \eq{err_func_vol_fluss}{
     \Delta \dot V = \sqrt{\frac{\sigma_V}{5}} \, .
 }
@@ -47,7 +47,7 @@ Somit ergibt sich für $Q_2$ die Ungenuigkeit zu
 }
 und somit ein Ergebnis von
 \imp{Q_2}{6.20}{0.14}{J}
-Analog wird für $Q_1$ die Ungenuigkeit zu
+Auf gleiche Weise wird für $Q_1$ die Ungenuigkeit zu
 \eq{q1_err_func}{
     \Delta Q_1 = Q_1 \, \sqrt{\frac{\Delta {\dot{V}}^{2}}{{\dot{V}}^{2}} + \frac{\Delta f^{2}}{f^{2}} + \frac{\Delta T^{2}}{T^{2}}} 
 }
@@ -62,11 +62,10 @@ gegeben und somit ergibt sich
 für die mechanische Arbeit.
 Die Verlorene Energie pro Zyklus ergibt sich zu 
 \eq{func_und_err_func_e_bilanz_lol}{
-    U_\text{zy} = W_\text{M} + Q_2 - Q_1\, , \qquad \Delta U_\text{zy} = \sqrt{{\Delta W_\text{M}}^2 + {\Delta Q_2}^2 + {\Delta Q_1}^2}
+    U_\text{zy} = W_\text{M} + Q_2 - Q_1\, , \qquad \Delta U_\text{zy} = \sqrt{{\Delta W_\text{M}}^2 + {\Delta Q_2}^2 + {\Delta Q_1}^2} \, .
 }
-Es ergibt sich ein Energieverlust von 
+Es ergibt sich unter einsetzen der Werte aus den vorherigen Berechnungen ein Energieverlust von 
 \imp[1]{U_\text{zy}}{1.63}{0.05}{J}
-
 
 
 Final kann der Wirkungsgrad nach \ceq{nK} bestimmt werden. Die Ungenauigkeit wird erneut via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt:
@@ -74,42 +73,42 @@ Final kann der Wirkungsgrad nach \ceq{nK} bestimmt werden. Die Ungenauigkeit wir
     \Delta \eta_\text{K} = \eta_\text{K} \, \sqrt{\left(\frac{\Delta Q_2}{Q_2}\right)^2 + \left(\frac{\Delta  W_\text{M}}{ W_\text{M}}\right)^2}
 }
 Es ergibt sich ein Wirkungsgrad von
-\res{\eta_\text{K}}{0.31}{0.05}{}
+\res{\eta_\text{K}}{31}{5}{\%}
 
 
 \section{Betrib als Wärmepumpe}
 \label{sec:A2}
 
-\subsection{Beobachtung udn Deutung der Temperaturverläufe}
-Es wird der Temperaturverlauf der \cabb{Verbessert_Waermeverauf_A2} nachvollzogen. Der grüne Graph $T_1$ spiegelt den Temperaturverlauf des ausfließenden Kühlwassers dar, währen der rote Graph $T_2$ die Temperatur des einfließenden Kühlwassers darstellt. Bis zum eingezeichneten Wechselpunkt wird der Motor als Kältemaschine betrieben. Ab dann würde der Motor als Wärmepumpe betrieben.
+\subsection{Beobachtung und Deutung der Temperaturverläufe}
+Es wird der Temperaturverlauf der \cabb{Verbessert_Waermeverauf_A2} nachvollzogen. Der grüne Graph $T_1$ spiegelt den Temperaturverlauf des ausfließenden Kühlwassers dar, währen der rote Graph $T_2$ die Temperatur des einfließenden Kühlwassers darstellt. Bis zum eingezeichneten Wechselpunkt wird der Motor als Kältemaschine betrieben. Ab dann wurde der Motor als Wärmepumpe betrieben.
 Auch die Temperatur des mit wassergefüllten Reagenzglases wurde gespeichert. Dies ist der \cabb{Temperaturverlauf_des_Wassers_verbessert_cassy} zu entnehmen. Auch hier ist der Wechselpunkt eingezeichent, zu welchem der Betrieb der Maschine von Kältemaschine zur Wärmepumpe geädert wurde.
 
 \paragraph{Temperaturverlauf des Kühlwassers:}
-Zunächst wird der Verlauf des Kühlwassers beobachtet. Der Motor wird nach kurzer Zeit gestartet. Die Temperatur $T_2$ bleibt über den gesamten Verlauf annährend konstant. Die Temperatur des abfließenden Wassers $T_1$ hingegen, fängt zu nächst an zu steigen, nachdem der Motor als Kältemaschine eingestellt wird. Dieses erreicht nach kurzer Zeit (nachdem die Machine eingelaufen ist) ein Plateau. Dieses liegt einie Grad Celsius über der Temperatur $T_2$. 
-Dies ist genau das, was zu erwarten war. Denn der Stirlingmotor transferiert immer Wärme von einem System ins andere, hier wird die Wärme des Gases an das Kühlwasser abgegeben. Dies hat in diesem Fall zur Folge, dass das Kühlwasser sich erhitzt und das Betriebsgas sich abkühlt. Dies ist nachdem ertsen thermodynamikschen Gesetzt notwendig, da beide Systeme im Zusammenahng stehen und ein thermisches Gleichgewicht erzielen. 
-\img{Verbessert_Waermeverauf_A2}{Temperaturverlauf des Kühlwassers und der Raumtemperatur. Für eine bessere Übersicht wurde die Grafik in\afz{Inkscape} nachbearbeitet.}
+Zunächst wird der Verlauf des Kühlwassers beobachtet. Der Motor wird nach kurzer Zeit gestartet. Die Temperatur $T_2$ bleibt über den gesamten Verlauf annährend konstant. Die Temperatur des abfließenden Wassers $T_1$ hingegen, fängt zunächst an zu steigen, nachdem der Motor als Kältemaschine eingestellt wird. Dieses erreicht nach kurzer Zeit (nachdem die Machine eingelaufen ist) ein Plateau. Dieses liegt einige Grad Celsius über der Temperatur $T_2$. 
+Dies ist mit der Erwartung kohärent. Denn der Stirlingmotor transferiert immer Wärme von einem System ins andere, hier wird die Wärme des Gases an das Kühlwasser abgegeben. Dies hat in diesem Fall zur Folge, dass das Kühlwasser sich erhitzt und das Betriebsgas sich abkühlt. Dies ist nachdem ertsen thermodynamikschen Gesetzt notwendig, da beide Systeme im Zusammenahng stehen und ein thermisches Gleichgewicht erzielen. 
+\img{Verbessert_Waermeverauf_A2}{Temperaturverlauf des Kühlwassers. Für eine bessere Übersicht wurde die Grafik in\afz{Inkscape} nachbearbeitet.}
 
 Als logische Konsequenz ist zu erwatren, dass wenn die Maschine als Wärmepumpe betrieben wird, sich der Effekt umkehrt und das Kühlwasser abgekült werden müsste, da dies das Betriebsgas erhitzen würde.
-edoch entspricht dies nicht der Beobachtung. Nachdem Wechsel kühlt die Temperatur $T_1$ kurz ab, erreicht aber circa die Temperatur des Einflusswassers $T_2$. Über die gesamte Beobachtung hinweg ist $T_1$ größer als $T_2$. Dies bedeutet zwangsläufig, dass dem Kühlwasser weiterhin Wärme hinzugefügt werden muss. Diese kann (bzw. sollte) nun nicht direkt aus der Wärmepumpe kommen.
-Eine Erkläung für das nicht erwartete Verhalten sind Reibungskräfte, denn auch diese können ein System erwärmen, diese müsste betragsmäßig so groß sein, wie die von der Wärmepumpe aufgenommene Wärme $Q_2$ sein. Auch könnte die Raumtemperatur hier eine kleine Rolle gespielt haben, aber dürfte nicht so ausschlaggebend gewesen sein. Eine bessere Wärmeisolation wäre jedoch nötig, um diesen Faktir vollständig ignorieren zu können. 
+Jedoch entspricht dies nicht der Beobachtung. Nachdem Wechsel kühlt die Temperatur $T_1$ kurz ab, erreicht aber circa die Temperatur des Einflusswassers $T_2$. Über die gesamte Beobachtung hinweg ist $T_1$ größer als $T_2$. Dies bedeutet zwangsläufig, dass dem Kühlwasser weiterhin Wärme hinzugefügt werden muss. Diese kann nun nicht direkt aus der Wärmepumpe kommen.
+Eine Erkläung für das nicht erwartete Verhalten sind Reibungskräfte, denn auch diese können ein System erwärmen, diese müsste betragsmäßig so groß sein, wie die von der Wärmepumpe aufgenommene Wärme $Q_2$ sein. Auch könnte die Raumtemperatur hier eine kleine Rolle gespielt haben, aber dürfte nicht so ausschlaggebend gewesen sein. Eine bessere Wärmeisolation wäre jedoch nötig, um diesen Faktor vollständig vernachläsigen zu können. 
 
 \paragraph{Temperaturverlauf des Reagenzglaswassers:}
 Für diesen Versuchsaufbau wurde der Kolbenkopf mit dem wassergefüllten Reagenzglases benutzt. Die Temperatur ist der \cabb{Temperaturverlauf_des_Wassers_verbessert_cassy} zu entnehmen. Es wurde wieder der Wechselpunkt eingezeichnet, an welchem der Betreibsmodus des Motors geändert wurde. Zudem sind Wärme- und Kälteplateau eingezeichnet, die sich für den jeweiligen Betrieb circa einegsetzt haben. Der Punkt des Ausschaltens wurde auch eingezeichent, damit dieser keine Verwirrung stiftet.
-Die Starttemperatur entspricht circa der Raumtemperatur (die Aperatur wurde zwischen den Versuchen nicht benutzt, damit sich die Temperatur setzen kann.)
+Die Starttemperatur entspricht circa der Raumtemperatur (die Aperatur wurde zwischen den Versuchsteilen nicht benutzt, damit sich die Temperatur setzen kann).
 \img{Temperaturverlauf_des_Wassers_verbessert_cassy}{Temperaturverlauf des Wassers in der Software\afz{Cassy}. Eingezeichnet der Wechselpunkt von Kältemaschine zu Wärmepumpe. In\afz{Inkscape} nachbearbeitet.}
 
 Im Betrieb als \emph{Kältemaschine} kühlt das Wasser im Reagenzglas ab. Ein erstes Plateau ist bei $\approx 0 ^\circ$C zu erkennen. Über diese Zeit gefriert das Wasser. Hier nimmt das System kontinuirlich Energie auf, um den Phasenübergang von Wasser zu Eis zu ermöglich. In dieser Zeit wird (fast) das gesamte Wasser zu Eis.
 Durch die schlechte Auflösung ist nur schwirig zu erkennen, dass der Graph vor dem Eisplateau schon kurz unter $0^\circ$C fällt. Dies ist auch zu erwatren, da das System zunächst in einem kälteren Zustand noch stabil ist, bis dem System so viel Energie hinzugefügt wird, dass dieser Zustand instabil wird und das Wasser gefriert. 
 
-Wird die Zeit über die das Wasser gefriert abgewartet, fängt die Temperatur ein zweites Mal an zu fallen, dieses Mal sogar bis auf $\approx -25 ^\circ$C. Hier stellt sich erneut ein Plateau ein, dieses mal jedoch sehr instabil. Das ein weiteres Plateau erreicht wird, ist zu erwarten, denn der Probe (hier dem Wasser) kann nicht beliebig viel Wärme entzogen werden. Auf dem Niveau des Kälteplateau ist der Probe in diesem Versuchsaufbau also die größtmögliche Menge Wärme entzogen wurden und die Maschine hat ihre maximale Wirkung erreicht.
+Wird die Zeit über die das Wasser gefriert abgewartet, fängt die Temperatur ein zweites Mal an zu fallen, dieses Mal bis auf $\approx -25 ^\circ$C. Hier stellt sich erneut ein Plateau ein, dieses weist jedoch hohe Fluktuationen auf. Das ein weiteres Plateau erreicht wird, ist erneut zu erwarten, denn der Probe (hier dem Wasser) kann nicht beliebig viel Wärme entzogen werden. Auf dem Niveau des Kälteplateau ist der Probe in diesem Versuchsaufbau also die größtmögliche Menge Wärme entzogen wurden und die Maschine hat ihre maximale Wirkung erreicht.
 
 Nachdem sich das Kälteplateau kurze Zeit eingestellt hatte, wurde der Betriebsmodus zur \emph{Wärmepumpe} geändert. Es ist kurz darauf ein Temperatur ansteig des Probenwassers zu beobachten. Der Temperaturanstieg ist dabei weitaus rapider, als die Abkühlung zu vor. Zudem ist bei $\approx 0 ^\circ$C das Schmelzen des Wassers zu beobachten, es ist jedoch kontinuirlich; es ist kein Plateau zu beobachten. 
-All dies ist darüber zu erklären, dass für das Einfrieren und Abkühlen die Wärme $Q_1$ relevant ist, wärend das Erhitzen und Schmelzen durch die Wärme $Q_2$ verursacht wird. Dies ist mit \ceq{Kaelte} koharänt.
+Dies ist darüber zu erklären, dass für das Einfrieren und Abkühlen die Wärme $Q_1$ relevant ist, wärend das Erhitzen und Schmelzen durch die Wärme $Q_2$ verursacht wird. Nach \ceq{Kaelte} ist der Betrag von $Q_1$ größer als der von $Q_2$.
 
 \subsection{Bestimmung der Kälteleistung}
-Es wird erneut die Kälteleistung $P_\text{2,K}$ berechnet. Dieses Mal wird \ceq{kalteleistung_muhaha} herangezogen. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt.
+Es wird erneut die Kälteleistung $P_\text{2,K}$ berechnet. Dieses Mal wird \ceq{kalteleistung_muhaha} herangezogen. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt
 \eq{another_err_func_loil_keine_lust_mehr_lowkey}{
-    \Delta P_\text{2,K} = P_\text{2,K} \,  \sqrt{\frac{\Delta {\rho_\text{W}}^{2}}{{\rho_\text{W}}^{2}} + \frac{\Delta {t_0}^{2}}{{t_0}^{2}}} 
+    \Delta P_\text{2,K} = P_\text{2,K} \,  \sqrt{\frac{\Delta {\rho_\text{W}}^{2}}{{\rho_\text{W}}^{2}} + \frac{\Delta {t_0}^{2}}{{t_0}^{2}}} \, .
 }
 Durch Einsetzen aller Messwerte ergibt sich für die erneut bestimmte Kälteleistung
 \res{P_\text{2,K}}{2.3}{0.6}{W}
@@ -118,47 +117,89 @@ Durch Einsetzen aller Messwerte ergibt sich für die erneut bestimmte Kälteleis
 \section{Nutzung als Heißluftmotor im Leerlauf}
 \label{sec:A3}
 
+In dieser Sektion wird der Heißluftmotor im Leerlauf betrieben. Es soll der Wirkungsgrad des unbelasteten Systems, sowie sein Wirkungsgrad bestimmt werden. Heizstrom, und -spannung, sowie die Temperaturdifferenz sind dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. Einsetzen der Werte in \ceq{kalteleistung_muhaha_anders} liefert eine elektrische Leistung von
+\imp{P_\text{el}}{226.0}{0.3}{W}
+
+Analog zu \csec{A1} kann erneut die elektrische Wärmeenergie bestimmt werden, es ergibt sich
+\imp{Q_\text{el}}{43.01}{0.29}{J}
+
+Die Ungenauigkeit wurde via
+\eq{err_func_elektrische_heizwarme}{
+    \Delta Q_\text{2,el} = Q_\text{2,el} \, \sqrt{\frac{\Delta {P_\text{el}}^{2}}{{P_\text{el}}^{2}} + \frac{\Delta f^{2}}{f^{2}}}
+}
+berechnet.
+
+Es sollen auch die abgeführte Leistung, sowie die abgeführte Wärme bestimmt werden, welche das kühlwasser abführt. Die Abfuhrwärme kann analog zur \ceq{mit_ordentlich_kalorien} bestimmt werden. Bestimmung der Ungenauigkeit via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} lieftert
 \eq{err_func_something_i_would_never_write_is_HAHAHAHAHAAHAHAHAHAHHAHAHAHAHHAHHAHAHHAHAHAHAHHHAHAHAHAHHAHAAHHAHAHAHHAHA}{
     \Delta Q_\text{ab} = Q_\text{ab} \, \sqrt{\frac{\Delta {T_\text{diff}}^{2}}{{T_\text{diff}}^{2}} + \frac{\Delta {\dot{V}}^{2}}{{\dot{V}}^{2}} + \frac{\Delta {f}^{2}}{{f}^{2}}} \, ,
 }
 
-\img{pV_CassyS_Verbessert_Kreisprozess}{Beispielhafter Kreisprozess des Heißluftmotors aus der Software\afz{Cassy}. Farbe in\afz{Inkscape} nachbearbeitet}
+Durch Einsetzen der Messwerte kann die Abfurwärme zu 
+\imp{Q_\text{ab}}{13.77}{0.19}{J}
+berechnet werden.
+
+Da Leistung und Wärme im folgenden Zusammenahng stehen, kann die Abfuhrleistung ermittelt werden.
+\eq{zusammenhang_der_einfach_ultra_cool_ist}{
+    P_\text{ab} = Q_\text{ab} \, f \qquad \Delta P_\text{ab} = \sqrt{(\Delta Q_\text{ab} \, f)^2 + (Q_\text{ab} \, \Delta f)^2} \, ,
+}
+mit der Frequenz $f$, welche ebenefalls dem \hyperref[ch:Protokoll]{Messprotokoll} entnommen werden kann. Somit wird die Abfurhleistung zu 
+\imp{P_\text{ab}}{72.3}{1.1}{W}
+berechnet.
+Zuletzt kann noch die mechanische Arbeit, sowie Leistung dem \hyperref[ch:Protokoll]{Messprotokoll} entnommen werden. Diese wurde über die Software\afz{Cassy} bestimmt. Diese hat ein $pV$-Diagramm erzeugt. Zudem lag ein Tool vor, welches automatisiert die Fälche des Diagramms bestimmt hat. Visuell ist dies der \cabb{pV_CassyS_Verbessert_Kreisprozess} zu entnehmen. Es wurden mehrere Messreihen aufgenommen und das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet. 
+\img{pV_CassyS_Verbessert_Kreisprozess}{Beispielhafter Kreisprozess des Heißluftmotors aus der Software\afz{Cassy}. Farbe in\afz{Inkscape} nachbearbeitet.}
+Die Ungenauigkeit ist dabei der \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})}. Mit den Messergebnissen berechnet sich die mechanische Arbeit zu
+\imp{W_\text{pV}}{2.62}{0.04}{J}
+Durch Multiplikation der Frequenz $f$ kann die mechanische Leistung
+\imp{P_\text{pV}}{13.77}{0.23}{W}
+ermittelt werden. Die Energiebilanz des unbelasteten Stirlingmotors lässt sich über
+\eq{aiudgfzsdfusdiuf}{
+    Q_\text{el} = W_\text{pV} + Q_\text{ab} + Q_\text{ver}
+}
+bestimmen, wobei $Q_\text{ver}$ die Verlustwärme ist. Auf diese wird aufgelöst und der Fehler via \ceq{fehler_summe} angegeben
+\res{Q_\text{ver}}{6.9}{0.4}{J}
+
+Der thermische Wirkungsgrad des unbelasteten Systems kann über  
+\eq{uneblastetets_sytsem_wirkungsgrad}{
+    \eta_\text{u,t} = \frac{W_\text{pV}}{Q_\text{el}} \qquad     \Delta \eta_\text{u,t} = \eta_\text{u,t} \, \sqrt{\frac{\Delta {Q_\text{el}}^{2}}{{Q_\text{el}}^{2}} + \frac{\Delta {W_\text{pV}}^{2}}{{W_\text{pV}}^{2}}}  \, ,
+}
+berechnet werden. Es ergibt sich ein thermischer Wirkungsgrad von
+\res{\eta_\text{u,t}}{6.09}{0.10}{\%}
+
+
 
 \section{Nutzung als Heißluftmotor mit Prony-Zaum}
 \label{sec:A4}
-
-
-\eq{err_func_elektrische_heizwarme}{
-    \Delta Q_\text{2, el} = Q_\text{2, el} \, \sqrt{\frac{\Delta {P_\text{el}}^{2}}{{P_\text{el}}^{2}} + \frac{\Delta f^{2}}{f^{2}}} \, ,
+In dieser Sektion soll der Heißluftmotor über einen Prony-Zaum belastet werden. Analog zur \csec{A3} wird der thermische Wirkungsgrad bestimmt. Die elektrische Leistung hat sich nicht geändert. Die Berechnung der elektrischen Wärme wird ebenefalls analog bestimmt.
+Die Frequenzen haben sich jedoch verändert und sind dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen.
+Jedoch kommt eine Lastarbeit hinzu, welche über das Drehmoment erzeugt wird hinzu. Die Last kann über
+\eq{sdfsdfzsdf}{
+    W_\text{D} = 2 \pi l \, F
 }
-
-
+ausgerechnet werden. Nach \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} ist der Fehler über
 \eq{err_func_lastarbeit}{
     \Delta W_\text{D} = W_\text{D} \, \sqrt{\frac{\Delta l^{2}}{l^{2}} + \frac{\Delta F^{2}}{F^{2}}}  \, ,
 }
-
-\eq{err_func_wirkungsgrad_hier_der}{
-    \Delta \eta_\text{Last} = \eta_\text{Last} \, \sqrt{\frac{\Delta {Q_\text{el}}^{2}}{{Q_\text{el}}^{2}} + \frac{\Delta {W_\text{pV}}^{2}}{{W_\text{pV}}^{2}}}  \, ,
-}
-
-
+zu bestimmen. Der belastete thermische Wirkungsgrad wird ebenefalls analog bestimmt. Es ist auch der effektive Wirkungsgrad über
 \eq{err_func_eta_efffffff}{
-    \Delta \eta_\text{eff} = \eta_\text{eff} \, \sqrt{\frac{\Delta {Q_\text{el}}^{2}}{{Q_\text{el}}^{2}} + \frac{\Delta {W_\text{D}}^{2}}{{W_\text{D}}^{2}}}  \, ,
+    \eta_\text{eff} = \frac{W_\text{D}}{Q_\text{el}}, \qquad \Delta \eta_\text{eff} = \eta_\text{eff} \, \sqrt{\frac{\Delta {Q_\text{el}}^{2}}{{Q_\text{el}}^{2}} + \frac{\Delta {W_\text{D}}^{2}}{{W_\text{D}}^{2}}}  \, ,
 }
-
+zu ermitteln. Einsetzen aller Messwerte liefert die Ergebnisse der \ctab{messdaten}.
 \begin{table}
-    \caption{Auswertung der Messdaten}
+    \caption{Auswertung der Messdaten der Aufgabe 4: Belasteter Heißluftmotor.}
     \label{tab:messdaten}
+    \centering
     \begin{tabular}{C | C C C C || C C}
         \toprule
-        F \, [\mathrm{N}] & f \, [\mathrm{Hz}] & W_\mathrm{pV} \, [\mathrm{J}] & Q_\mathrm{el} \, [\mathrm{J}] & W_\mathrm{D} \, [\mathrm{J}] & \eta \, [\%] & \eta_\mathrm{eff} \, [\%]\\
+        F \, [10^1 \mathrm{N}] & f \, [\mathrm{Hz}] & W_\mathrm{pV} \, [\mathrm{J}] & Q_\mathrm{el} \, [\mathrm{J}] & W_\mathrm{D} \, [\mathrm{J}] & \eta_\text{b,thermo} \, [\%] & \eta_\mathrm{eff} \, [\%]\\
         \midrule
-        0.80 \pm 0.03 & 3.73 \pm 0.04 & 2.661 \pm 0.016 & 60.6 \pm 0.6 & 1.26 \pm 0.11 & 4.39 \pm 0.05 & 2.07 \pm 0.18 \\
-        0.60 \pm 0.03 & 4.18 \pm 0.03 & 2.609 \pm 0.007 & 54.1 \pm 0.4 & 0.94 \pm 0.09 & 4.82 \pm 0.04 & 1.74 \pm 0.16 \\
-        0.40 \pm 0.03 & 4.83 \pm 0.05 & 2.375 \pm 0.015 & 46.8 \pm 0.5 & 0.63 \pm 0.07 & 5.08 \pm 0.07 & 1.34 \pm 0.15 \\
-        0.20 \pm 0.03 & 5.45 \pm 0.04 & 2.232 \pm 0.014 & 41.44 \pm 0.28 & 0.31 \pm 0.05 & 5.39 \pm 0.05 & 0.76 \pm 0.13 \\
+        8.0 \pm 0.3 & 3.73 \pm 0.04 & 2.661 \pm 0.016 & 60.6 \pm 0.6 & 1.26 \pm 0.11 & 4.39 \pm 0.05 & 2.07 \pm 0.18 \\
+        6.0 \pm 0.3 & 4.18 \pm 0.03 & 2.609 \pm 0.007 & 54.1 \pm 0.4 & 0.94 \pm 0.09 & 4.82 \pm 0.04 & 1.74 \pm 0.16 \\
+        4.0 \pm 0.3 & 4.83 \pm 0.05 & 2.375 \pm 0.015 & 46.8 \pm 0.5 & 0.63 \pm 0.07 & 5.08 \pm 0.07 & 1.34 \pm 0.15 \\
+        2.0 \pm 0.3 & 5.45 \pm 0.04 & 2.232 \pm 0.014 & 41.44 \pm 0.28 & 0.31 \pm 0.05 & 5.39 \pm 0.05 & 0.76 \pm 0.13 \\
         \bottomrule
     \end{tabular}
 \end{table}
-
-\img[1]{Wirkungsgrade}{Wirkungsgrade in Abhänigkeit der Frequenz.}
+\img[1]{Wirkungsgrade}{Wirkungsgrade in Abhänigkeit der Frequenz nach \ctab{messdaten}.}
+Plottet man die Wirkungsgrade gegen die Frequenzen, so ergibt sich \cabb{Wirkungsgrade}. Beide Messreihen weisen jeweils einen klaren Trend auf. Der thermische Wirkungsgrad nimmt bei zunehmender Frequenz zu, dies ist damit zu begründen, dass entweder die elektrische Wärme sinkt, oder die mechanische Arbeit steigt. Besonders plausibel scheint eine Erklärung übder die hohe Frequenz, welche den Temperaturaustausch mit der Umgebung abschwächen könnte. Zudem nähren sich die Werte logischer Weise immer näher $\eta_\text{u,t}$ an, erreichen diesen Wert jedoch nicht. 
+Der effektive Wirkungsgrad hat einen negativ Trend und nimmt bei zunehmender Frequenz ab. Dies ist damit zu erklären, dass höhre Frequenzen einen höhren Wärmeverlust über die entsethenden Reibungskräfte zur Folge haben. 
+Zuletzt lässt sich beobachten, dass die thermischen Wirkungsgrade kontinuierlich größer sind als die Effektiven. Dies folgt damit, dass $W_\text{pV} > W_\text{D}$ ist. Denn in $W_\text{pV}$ ist Energie gespeichert, welche bei $ W_\text{D}$ als Wärmeverlust der Reibung freigesetzt wird.

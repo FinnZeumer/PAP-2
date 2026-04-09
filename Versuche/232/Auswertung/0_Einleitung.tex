@@ -3,12 +3,67 @@
 Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermerkt. Rechtschreibprüfungen werden sowohl durch K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
 
 
-\section{Aufgabe und Motivation}
-\label{sec:AuM}
+\section{Aufgabe und Motivation} \label{sec:AuM}
 
-\section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+Das Michelson-Interferometer zählt zu den zentralen Instrumenten der modernen Optik und ermöglicht die präzise Bestimmung fundamentaler Eigenschaften von Licht. In diesem Versuch sollen drei Größen experimentell untersucht werden: die Wellenlänge eines grünen Lasers, der Brechungsindex von Luft sowie die Kohärenzlänge einer Leuchtdiode. Diese Größen sind nicht nur für das Verständnis klassischer Interferenzphänomene relevant, sondern besitzen auch hohe praktische Bedeutung, etwa in der Metrologie, der Spektroskopie oder beim Nachweis von Gravitationswellen.  
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+Die Motivation des Versuchs liegt daher sowohl im Kennenlernen des Interferometers als Messinstrument als auch im vertieften Verständnis der physikalischen Konzepte, die Interferenzphänomene ermöglichen. Durch die kontrollierte Veränderung des optischen Weges, etwa durch Spiegelverschiebung oder Druckänderung in einer Küvette, lassen sich Interferenzmaxima beobachten und quantitativ auswerten. Die Analyse dieser Muster erlaubt es, die zugrunde liegenden optischen Parameter mit hoher Genauigkeit zu bestimmen.
+
+
+\section{Physikalische Grundlage} \label{sec:PhyBasics}
+
+\subsection[Interferenz]{Idee der Interferenz}
+Licht lässt sich als elektromagnetische Welle beschreiben, deren elektrische Feldstärke im einfachsten Fall durch eine ebene, monochromatische Welle dargestellt wird. Solch eine monochromatische ebene Welle wird mathematisch über
+\eq{wellengleichung}{
+    \vec{E} = \vec{E_0} \, \exp{[i(\vec{k} \cdot \vec{r} - \omega t + \varphi)]}
+}
+beschrieben. Dabei beschreibt $\vec{E_0}$ die Amplitude bei $t,\vec{r} = (0, 0)$, $\omega$ die Kreisfrequenz, $\vec{k}$ die Wellenzahl und $\varphi$ die relative Phasenverschiebung.
+Treffen zwei solche Wellen aufeinander, überlagern sie sich gemäß dem Superpositionsprinzip. Die beobachtbare Größe ist dabei die Intensität, welche proportional zum zeitlichen Mittelwert des Betragsquadrats der elektrischen Feldstärke ist.
+Für zwei Wellen gleicher Frequenz ergibt sich die Intensität der überlagerten Welle zu
+\eq{Interferenz}{
+    I \propto |E_1|^2 + |E_2|^2 + 2 E_{0,1} E_{0,2} \cos(\varphi),
+}
+wobei \(\varphi\) die relative Phasenverschiebung ist. Diese hängt vom Gangunterschied \(\Delta s\) der beiden Wellen ab:
+\eq{Phase}{
+    \varphi = \frac{2\pi}{\lambda} \Delta s.
+}
+Konstruktive Interferenz tritt auf, wenn \(\Delta s = m\lambda\), destruktive Interferenz bei \(\Delta s = (2m+1)\frac{\lambda}{2}\).  
+\img{KohaerenzLichtVeranschaulichung}{Schematische Visualisierung der Entstehung realer Phasenverschiebung zweier ebener Wellen. a) Einfacher Gangunterschied, b) Gangunterschied durch Brechung verschiedener Medien. \cite{skriptPAP21}}
+Durchläuft eine der beiden Wellen ein Medium mit Brechungsindex \(n\), so ist nicht die geometrische Weglänge entscheidend, sondern die optische Weglänge
+\eq{OptWeg}{
+    \zeta = n s.
+}
+Dies führt zu zusätzlichen Phasenverschiebungen und ist Grundlage vieler interferometrischer Messverfahren.
+
+
+\subsection[Kohärenz]{Kohärentes Licht}
+\wrap[.4]{R}{Doppelspaltblende}{Schematische Visualisierung der Entstehung von kohärenten Lichtwellen am Doppelspalt.}
+Interferenz ist nur beobachtbar, wenn die interferierenden Wellen eine konstante Phasenbeziehung besitzen. Dies wird durch die Kohärenz beschrieben. Natürliche Lichtquellen wie Glühlampen emittieren Licht in kurzen, statistisch unabhängigen Wellenzügen, sodass Interferenz nur bei sehr kleinen Gangunterschieden sichtbar wäre.  
+Die räumliche Ausdehnung eines solchen Wellenpakets wird als Kohärenzlänge \(L\) bezeichnet. Sie hängt über die Kohärenzzeit \(\tau\) direkt mit der Lichtgeschwindigkeit zusammen:
+\eq{KohLaenge}{
+    L = c \tau.
+}
+Für reale Lichtquellen besitzt das Spektrum stets eine endliche Breite. Bei einer spektralen Bandbreite \(\Delta \lambda\) ergibt sich für die Kohärenzlänge eines Wellenpakets näherungsweise
+\eq{KohLaengeSpektrum}{
+    L \approx \frac{\lambda^2}{\Delta \lambda}.
+}
+Laser besitzen aufgrund ihrer geringen spektralen Breite große Kohärenzlängen, während LEDs deutlich kürzere Wellenpakete erzeugen.
+Im Michelson-Interferometer zeigt sich dies darin, dass Interferenz bei LEDs nur in der Nähe der sogenannten Weißlichtposition beobachtbar ist, also dort, wo der Gangunterschied nahezu verschwindet.
+
+
+\subsection{Interferenz gleicher Neigung}
+Trifft ein Lichtbündel auf eine planparallele Platte, so entstehen durch Reflexion und Transmission mehrere Teilstrahlen, die unterschiedliche optische Wege durchlaufen.
+Für zwei benachbarte reflektierte Strahlen ergibt sich der Gangunterschied zu
+\eq{GangunterschiedNeigung}{
+    \Delta s = 2 d \sqrt{n^2 - \sin^2 \alpha} - \frac{\lambda}{2},
+    }
+    wobei \(d\) die Plattendicke, \(n\) der Brechungsindex und \(\alpha\) der Einfallswinkel ist.  
+    Werden die Strahlen anschließend durch eine Linse gesammelt, interferieren alle Strahlen mit gleichem Einfallswinkel im selben Punkt. Da Licht aus verschiedenen Richtungen unterschiedliche Winkel besitzt, entsteht ein Ringsystem, die sogenannten\afz{Haidinger-Ringe}.  
+    \img[.8]{InterferenzGleicherNeigung}{c) Schematische Darstellung der Interferenz gleicher Neigung. d) Das dazu entstehende Interferenzmuster. \cite{skriptPAP21}}
+
+Im Michelson-Interferometer tritt Interferenz gleicher Neigung auf, wenn die beiden Endspiegel exakt parallel stehen. Besonders einfach ist die Interpretation im Zentrum des Musters (\(\alpha = 0\)), wo der Gangunterschied nur von der Spiegelverschiebung \(\Delta x\) abhängt:
+\eq{GangunterschiedMI}{
+    \Delta s = 2 \Delta x.
+}
+Eine Verschiebung des beweglichen Spiegels um \(\Delta x = \frac{\lambda}{2}\) führt zum Auftreten einer neuen Interferenzordnung. Dies bildet die Grundlage zur Bestimmung der Laserwellenlänge.
 

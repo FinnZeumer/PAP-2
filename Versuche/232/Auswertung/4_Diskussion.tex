@@ -4,8 +4,39 @@
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
 
+\paragraph{Wellenlänge}
+Zur Bestimmung der Wellenlänge des verwendeten grünen Lasers wurde die Anzahl der vorbeiziehenden Interferenzmaxima in Abhängigkeit der Spiegelverschiebung ausgewertet. Die einzelnen Messreihen lieferten Werte zwischen \(\lambda = 537\,\mathrm{nm}\) und \(549\,\mathrm{nm}\) (\ctab{wellenlangen}). Aus dem arithmetischen Mittel ergibt sich eine finale Wellenlänge von
+\res{\lambda}{546.0}{1.2}{nm}
+
+\paragraph{Brechungsindex}
+Der Brechungsindex von Luft wurde über die Druckabhängigkeit der Interferenzordnungen bestimmt. Es wurden die Steigungen aller Messreihen gebildet und das arithmetische Mittel gebildet (\cabb{ringe_gegen_druck_SUBPOLLTING_2}).
+Die durchschnittliche Steigung betrug damit $\overline{s} = (492.4 \pm 2.0) MPa^{-1}$.
+Unter Verwendung der Küvettenlänge, der gemessenen Temperatur und der zuvor bestimmten Wellenlänge ergibt sich ein Brechungsindex von 
+\res{n_0}{1.0002959}{0.0000015}{}
+
+\paragraph{Kohärenzlänge}
+
+Die Kohärenzlänge der LED wurde aus der Halbwertsbreite des gaußförmigen Interferogramms bestimmt. Die Halbwertsbreite beträgt nach \cabb{spannung_zeitverlauf} \(\sigma = (0.01339 \pm 0.00020)\,\mathrm{s}\), woraus sich eine Kohärenzlänge von 
+\res{L}{6.30}{0.10}{\mu m} 
+ergibt.
+
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-\section{Kritik}
-\label{sec:Kritik}
+Die Bestimmung der Laserwellenlänge zeigt eine systematische Abweichung vom Herstellerwert von \(532\,\mathrm{nm}\). Die Standardabweichung beträgt \(\sigma = 8.97\), was eine signifikante Abweichung darstellt. Da alle Messwerte chronisch zu groß ausfallen, ist ein systematischer Fehler sehr wahrscheinlich. Mögliche Ursachen sind eine fehlerhafte Justage des Interferometers, ein Versatz in der Nullposition der Messuhr oder eine ungenaue Erfassung der Interferenzmaxima. Die Messmethode selbst ist prinzipiell präzise, jedoch nur bei korrekter Justage. Menschliche Fehler sind jedoch immer zu erwarten.
+
+Beim Brechungsindex ergibt sich eine große Standardabweichung, was jedoch auf den extrem kleinen Fehler zurückzuführen ist. Der prozentuale Fehler beträgt lediglich $0.0016\%$, was zeigt, dass die Methode sehr präzise ist. Die linearen Fits der drei Messreihen stimmen gut überein, und die Steigungen unterscheiden sich nur geringfügig. Die Messmethode ist daher zuverlässig, und die Abweichung vom Literaturwert ist physikalisch plausibel.
+Es gilt noch zu betonen, dass nicht die Herstellerwerte der Wellenlängen benutzt wurden, sonder die hier bestimmten. Dennoch ergibgt sich ein präziser Brechungsindex. Führt man dieselbe Rechnung mit dem Herstellerwert der Wellenlänge durch, so ergibt sich ein Brechungsindex von $n_0 = 1.0002883 \pm 0.0000014$. Hier ergibt sich eine Standardabweichung von $5.82\sigma$, bzw. ein prozentualer Fehler von $0.0008\%$. Es zeigt sich, dass die Abweichung der Wellenlänge einen erheblichen Einfluss auf die Bestimmung des Brechungsindexes hat, jedoch bleibt die Präzision der Methode hoch. Beide Werte weisen jedoch statistisch signifikante Abweichungen vom Literaturwert auf, was auf systematische Fehler in der Messung oder der Justage hindeutet und nicht ausschließlich über die Welenlänge erklärt werden kann.
+
+Für die Kohärenzlänge der LED existiert kein Literaturwert. Die Größenordnung von wenigen Mikrometern ist jedoch typisch für LEDs. Externe Quellen geben für grüne LEDs eine Kohärenzlänge von etwa \(\pm 4\,\mu\mathrm{m}\)\footnote{https://www.opto-e.com/de/resources/tutorials/coherence-artifacts-on-imaging-systems} an, was konsistent mit dem gemessen Wert und der Größenordnung übereinstimmt. Die Messung ist daher konsistent und plausibel.
+
+% \section{Kritik}
+% \label{sec:Kritik}
+
+% Der Versuch liefert insgesamt sinnvolle Ergebnisse, dennoch gibt es mehrere Punkte, die verbessert werden könnten. Die Justage des Michelson-Interferometers ist sehr empfindlich, und kleine Fehlstellungen der Spiegel führen zu systematischen Fehlern, wie sie bei der Wellenlängenbestimmung sichtbar wurden. Eine präzisere oder automatisierte Justagevorrichtung könnte die Genauigkeit deutlich erhöhen.
+
+% Bei der Brechungsindexmessung könnte die Druckmessung verbessert werden, da der systematische Fehler des Drucksensors ($0.006 \cdot 800 \mathrm{Torr}$) erheblich zur Gesamtunsicherheit beiträgt. Ein moderner elektronischer Drucksensor würde die Genauigkeit erhöhen.
+
+% Für die LED‑Messung wäre ein schnellerer Detektor mit höherer Abtastrate hilfreich, um das Interferogramm noch präziser zu erfassen. Auch eine stabilere Motorsteuerung könnte die Bestimmung der Kohärenzlänge verbessern.
+
+% Insgesamt zeigt der Versuch gute Ergebnisse, jedoch ließen sich durch modernere Messtechnik und eine stabilere Justage deutliche Verbesserungen erzielen.

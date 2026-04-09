@@ -1,18 +1,63 @@
 \chapter{Diskussion}
 \label{ch:Diskussion}
 
-Dran Denken, die Punkte zur bestimmung von $T$ einzubringen und Bilder einfügen (auch die restlichen Memes.)
-
-In der Diskussion an dem Cheat vom Tut orientieren.
-
-
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
+In diesem Versuch wurden gekoppelte Oszillation betrachtet. Primär war die Beschreibung zweier gekoppelter mathematischer Pendel Ziel des Versuches. Es wurde zusätzlich ein gekoppelter elektrischer Schwingkreis beobachtet. 
+In \csec{A1} wurde festgestellt, dass die Schwebung als Überlagerung der Frequenzen einer symmetrischen und einer asymmetrischen Schwingung verstanden werden kann.
+
+Darüber hinaus wurden in \csec{A2} die beiden relevanten Frequenzen der Schwebung via zwei Verfahren bestimmt; einmal über die vermessene Periodendauer und einmal über die berechneteten Werte aus der FFT-Analyse. 
+Die Pendelfrequenz ist hier für beide methoden stringend. Bei der Schwebungsfrequenz jedoch nicht festgestellt werden, dass die beiden Methoden denselben Wert liefern, wodurch nicht ausgeschlossen werden kann, das eine der beiden Methoden außerodentlich ist. Mehr dazu in \csec{Analyse}.
+
+In der letzten \csec{A3} wurde die Kopplung nummerisch bestimmt. Aus den Kopplungen wiederrum konnten die Verhältnisse bestimmt werden, ebenso wie die Verhältnisse der quadrierten Aufhängungsabstände. Es kommte festgestellt werden, dass die Verhältnisse statistisch dasselbe aussagen, nur ein Wert ist grenzwertig nicht signifikant.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-\section{Kritik}
-\label{sec:Kritik}
+\paragraph{Fehler in der Cursor und FFT-Messung}
+Viele Analysen des Versuches basierte auf der FFT-Analyse. Außerdem wurde die Periodendauer händisch über eine Cursor-Messung bestimmt. Die Genauigkeit der FFT-Analyse ist dabei abhängig von der gewählten Messzeit. Für eine optimale Analyse müsste die Messzeit unendlich sein, was zu Schwierigkeiten führen könnte. 
+Zudem wird die Zeit nicht wirklich kontinuierlich gemessen und ist auch von der Abtastrate des Messgerätes abhänig. Darüberhinaus wurde das Programm in Python geschrieben, weshalb es nicht ausgeschlossen ist, dass die Floats teilweise falsch gerundet wurden. All dies trägt zur Ungenauigkeit der FFT-Analyse zu.
 
-\wrap[0.2]{R}{memes/worthless}{Skillissue}
+Für die Cursormessung ergeben sich auch Ungenauigkeiten. Insbesondere ist die Bildschimrauflösung wichtig. Diese konnte zwar über die Analyse in Inkscape minimiert werden, da an die Grafiken vektorisiert wurden und somit ein hochauflösender Bildschirmzoom möglich war. Dennoch bleibt eine systemische Ungenauigkeit bestehen. Zudem kommt auch, dass die Messung erneut technisch nur diskret möglich ist, dies aber für die meisten modernen Computer sehr minimal gehalten werden kann. Viel schwerwiegender dürfte hier die menschliche Ungenauigkeit sein, wenn es darum geht die Cursorposition zu bestimmen, da die Wahl der Punkte einem subjektiven Empfinden nachgeht.
+Aber auch dieser Fehler wurde dadurch minimiert, dass mehrere Messreihen aufgenommen wurden und gemittelt wurden. 
+
+Beide Methoden lassen sich optimieren, aber für hochpräzissions Messungen ist die FFT-Methode vermutlich die Bessere, da die Zeitintervalle meist recht einfach vergrößert werden können und die Auswertung keiner händischen Nachbearbeitung bedarf. Nur wenn die Schwingung zu stark gedämpft ist, kann eine händische Mittlung tatsächlich besser sein. 
+
+\paragraph{Koharenz mit der Erwartung}
+Die bestimmten Frequenzen $\omega_1, \omega_2$ sind mit der Erwartung stringent. In der symmetrischen Schwingung schwingen beide Pendel mit derselben Pendelfrequenz.
+
+Auch die Erwartung, dass die Frequenz der asymmetrischen Schwingung größer ist als die der symmetrischenn Schwingung wurde erfüllt. Dies ist auf die Rückstellkraft der Kopplung zurückzuführen, welche die Pendel zusätzlich beschleunigt, diese Kraft entfällt für die symmetrische Schwingung.
+Die besieden Frequenzen lassen sich auch, wie die Theorie es fordert, in der gemischten Schwingung wiederfinden.
+
+\paragraph{Reibungskräfte}
+Es treten während der Versuchsdurchführung Reibungskräfte auf, insbesondere Luftreibung aber auch Reibung an der Aufhängung. Dies hat eine Dämpfung zu folge, welche einen exponentiellen Character hat. Diese lassen sich gut in den aufgenommenen Signalen beobachten; stellt man sich eine Umhüllende vor, so wäre dies eine Exponentialfunktion. Dies ändert jedoch primär die Amplitude und weniger die Frequenz.
+
+\paragraph{Kopplung}
+Die Verhältnisse der Kopplungen und die der Quadratlängen sind nicht perfekt stringend, aber nähren sich sehr gut. Vermutlich müssten die Fehler hier größer geschätzt werden. Zudem ist diese Nährung insbesondere dann gültig, wenn die Auslenkung klein ist (Kleinwinkelnährung). 
+Zudem müssen die Pendel identisch sein und die Kopplung linear.
+
+\paragraph{Idealismus}
+Wollte man den Versuch \emph{perfekt} durchführen, so müssten alle Reibungskräfte gleich null sein. Zudem müssten die Massen ideal homogen bzw. als Punktmassen auftretetn. Würde zudem die Messung absolut präzise sein und, so könnte unter einer unendlich langen Messung ein optimales FFT-Programm gebildet werden.  
+
+\paragraph{Realismus}
+Ein reales, möglichst\afz{perfektes} Experiment mit einem gekoppelten Doppelpendel erfordert einen stabilen, symmetrischen Aufbau mit möglichst geringer Reibung sowie eine präzise Messung mit ausreichend hoher Abtastrate und geeigneter Messdauer. Die Auslenkung sollte klein gehalten werden, damit das System näherungsweise linear bleibt und klare Eigenfrequenzen in der FFT sichtbar sind. Durch Wiederholungen, längere Messzeiten und verbesserte Sensoren lassen sich die Ergebnisse weiter optimieren. Dennoch bleiben Dämpfung, Rauschen, endliche Messzeit und leichte Nichtlinearitäten unvermeidbar und führen zu Abweichungen vom idealen Verhalten.
+
+\section{Zusatzaufgabe}
+\label{sec:extraBlatt}
+\wrap[0.6]{R}{FFTzusatz}{Vergleich der FFT-Analyse unter Nutzung verscheidener Zeit-Integralgrenzen.}
+Wie bereits erwähnt würde eine längere Messdauer die FFT-Messung präzissieren. Dies soll an der \cabb{FFTzusatz} deutlich gemacht werden. \footnote{Der Code ist aus dem Begleitsdokument von Dimitri.} \cite{DimiOverKill}
+Doch wieso erhöt die Messzeit die präzission im FFT-Signal? Dies liegt daran, dass die Kreisfrequenz definiert ist als
+\eq{kreisfrqdefhadfwd}{
+    \omega = \frac{2\pi}{T} \, ,
+}
+wobei $T$ gerade die Messdauer darstellt. Somit ist auch die Frequenzauflösung $\omega_\text{aflö}$ von der Messzeit abhänig:
+\eq{azfehjfsdfsidfsd}{
+    \omega_\text{aflö} = \frac{2\pi}{T} \, .
+}
+Somit können mehr verschiedene Fequenzen betrachtet werden. Wird die Messdauer zu gering gewählt, dann könnte es passieren, dass die Frequenzauflösung zu gering wird und zwei eigentlich seperate\afz{Peaks} zu einem verschmelzen.
+Dies wird in der Abbildung dadurch deutlich, dass die Peaks mit zunehmender Dauer höher und steiler werden, dafür jedoch weniger Breit. Die\afz{wahre} Position der Frequenz wird deutlich.
+
+
+
+% \section{Kritik}
+% \label{sec:Kritik}

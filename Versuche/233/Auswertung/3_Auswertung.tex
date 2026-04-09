@@ -19,7 +19,7 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 Im Folgenden werden nun die Auswertungen zu den einzelnen Aufgaben durchgeführt. Die \hyperref[ch:Auswertung]{Formeln zur Auswertung} sind oben gelistet. Der \hyperref[ch:Python]{Python code} ist am Dokumentende zu finden.
 
-\section{Aufgabe 1: Qualitative Beobachtungen am Einfachspalt}
+\section{Qualitative Beobachtungen am Einfachspalt}
 \label{sec:A1}
 
 Zunächst soll der Einfluss verschiedener Parameter qualitativ untersucht werden, um deren Auswirkung auf Objekt- und Beugungsbild zu verstehen.
@@ -37,34 +37,114 @@ Die hier gemachten Beobachtungen sind nicht mehr trivial wie zuvor. Denn sobald 
 
 \section{Vermessen der Beugungsstruktur des Einfachspaltes}
 \label{sec:A2}
+\subsection{Bestimmung der Extremapositionen}
 In dieser Sektion soll das Beugungsbild untersucht werden. Dafür muss eine Eichung durchgeführt werden. 
 \img[1]{plots/Eingezeichnete_Positionen_Maxima_2_Maxima}{Zu untersuchendes Signal für den Einfachspalt. Links betont das Hauptmaximum. Rechts ist das Hauptmaximum in Settigung, damit die Nebenmaxima besser erkannt werden können. Die Extrema, die untersucht werden sind explizit eingezeichnet.}
 % \img[1]{plots/BeideMaxima2_Kurven}{}
 Die Eichgerade ist der \cabb{plots/Eichgerade2a} zu entnehmen. Der Plot zeigt die Spaltbreite in $m$ gegen die Pixelposition in $px$ des Cursors.
 Die Steigung kann der Abbildung entnommen werden und ergibt
-\imp[-7]{s_\text{E}}{2.59}{0.03}{\frac{m}{px}}
+\imp[-6]{s_\text{E}}{2.59}{0.03}{\frac{m}{px}}
 Die Werte wurden dem \hyperref[ch:Protokoll]{Messprotokoll} entnommen. Die Ungenauigkeit des Cursors wurde auf $\Delta \text{Cursor} = 5$px geschätzt, und die Ungenauigkeit der Messuhr auf $\Delta \text{Messuhr} = 5\cdot10^{-6} \mathrm{m}$.
 
-\img{plots/Eichgerade2a}{Plot für zur Eichung des Versuchaufbaus.}
+\img{plots/Eichgerade2a}{Plot zur Eichung des Versuchaufbaus.}
 
 Aus dem Signal (gezeigt in \cabb{plots/Eingezeichnete_Positionen_Maxima_2_Maxima}) sollen die Positionen der Extrema bestimmt werden, für die Maxima sollen auch die relativen Intensitäten bestimmt werden. Dafür ist die Bestimmung der Abstände zwischen den Extrema zu bestimmen. 
 Die Extrema, die untersucht werden, sind explizit in der \cabb{plots/Eingezeichnete_Positionen_Maxima_2_Maxima} eingezeichnet.
-Es werden die Positionen der Minima genutzt, um deren Abstände zu bestimmen. Die Ordnungen sind relativ zum Hauptmaximum angegeben. Es wird eine lineare Regression durch die Messwerte gelegt. Die Steigung der Regressionsfunktion lässt bestimmt sich zu
-\imp[1]{s_\text{ord}}{9.27}{0.24}{px}
+Es werden die Positionen der Minima genutzt, um deren Abstände zu bestimmen. Die Ordnungen sind relativ zum Hauptmaximum angegeben. Es wird eine lineare Regression durch die Messwerte gelegt. Der Plot ist der \cabb{plots/Extrema_Abstand_Ordnungszahl2_full_rank_ink_max} zu entnehmen.\footnote{Der Plot wurde auf eine zweite Art bestimmt, bei welcher die Steigung stark abweicht. Dies soll später diskutietr werden.}
+\img[1]{plots/Extrema_Abstand_Ordnungszahltry2}{Abstände der Extrema in Abhänigkeit ihrer Ordnungszahl.}
+Die Steigung der Regressionsfunktion lässt bestimmt sich zu
+\imp[1]{s_\text{ord}}{4.71}{0.07}{px}
+Mit dieser Seigung kann auch die position der Maxima bestimmt werden. Die Position der Maxima kann über
+\eq{pos_maxima}{
+    n = \frac{a_\text{max} - b}{s_\text{ord}}\, , \qquad \Delta n = n \, \sqrt{\frac{\Delta {a_\text{max}}^{2}}{\left(a_\text{max} - b\right)^{2}} + \frac{\Delta b^{2}}{\left(a_\text{max} - b\right)^{2}} + \frac{\Delta {s_\text{ord}}^{2}}{{s_\text{ord}}^{2}}} 
+}
+bestimmt werden. Dabei beschreibt $a_\text{max}$ die Position der Maxima, $b$ den Achsenabschnitt und $m$ die Steigung der Regressionsfunktion. Die Fehlerrechnung erfolgt über die Gauß'sche Fehlerfortpflanzung, wie sie in \hyperref[eq:gauss_fehlfortpflanzung]{Formel \ref{eq:gauss_fehlfortpflanzung}} beschrieben ist. 
+Die Positionen der Maxima sind ebenfalls in der \cabb{plots/Extrema_Abstand_Ordnungszahl2_full_rank_ink_max} eingezeichnet. Es soll untersucht werden, ob die Positionen der Maxima mit den theoretisch erwarteten Positionen übereinstimmen. Die Positionen sind der \ctab{vergleich_ordnungszahl_theo_ex_einzelspalt} zu entnehmen. Es zeigt sich, dass die experimentell bestimmten Ordnungszahlen deutlich von den theoretisch erwarteten Ordnungszahlen abweichen. Dies liegt daran, dass das Hauptmaximum nicht ordentlich berücksichtigt wurde, daher mussten die Ordnungen um 1 korrigiert werden. Nach der Korrektur stimmen die experimentell bestimmten Ordnungszahlen mit den theoretisch erwarteten Ordnungszahlen überein. 
+\begin{table}[h!]
+    \caption{Vergleich der experimentell bestimmten Ordnungszahlen un der theorisch erwatreten.}
+    \label{tab:vergleich_ordnungszahl_theo_ex_einzelspalt}
+    \centering
+    \begin{tabular}{L | C || C}
+        \toprule
+        n_\text{theo} & n_\text{exp} & \text{Std. Abw. } \sigma \\
+        \midrule
+        -5.48 & -5.44 \pm 0.24 & 0.19 \\
+        -4.48 & -4.48 \pm 0.23 & 0.02 \\
+        -3.47 & -3.46 \pm 0.23 & 0.03 \\
+        -2.46 & -2.49 \pm 0.22 & 0.13 \\
+        -1.43 & -1.47 \pm 0.22 & 0.18 \\
+        1.43 & 1.48 \pm 0.22 & 0.22 \\
+        2.46 & 2.52 \pm 0.22 & 0.27 \\
+        3.47 & 3.50 \pm 0.23 & 0.11 \\
+        4.48 & 4.49 \pm 0.23 & 0.07 \\
+        5.48 & 5.45 \pm 0.24 & 0.14 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Nach der korrektur sind alle Werte innerhalb von 1 Standardabweichung von den theoretisch erwarteten Werten entfernt, was auf eine gute Übereinstimmung zwischen den experimentellen und theoretischen Werten hinweist.
 
+\subsection{Bestimmung der Spaltbreite}
+Es soll nun die Spaltbreite des Einzelspaltes bestimmt werden. Dafür für die Steiung $s_\text{E}$ der Eichgeraden benötigt. Zur Berechnung der Spaltbreite wird die Definition eines Beugungsminimums am Einzelspalt benötigt, welche besagt, dass die Spaltbreite $b$ durch die Formel
+\eq{beugungsminimum_einzelspalt}{
+    b = \frac{n \lambda}{\sin(\theta_n)}
+}
+gegeben ist. Dabei beschreibt $n$ die Ordnung des Minimums, $\lambda$ die Wellenlänge des verwendeten Lichts und $\theta_n$ den Winkel zwischen der optischen Achse und der Richtung zum $n$-ten Minimum. 
+Darüber hinaus liegt der Analysespalt im Fokus der Linse, daher kann die Formel
+\eq{winkel_minimum}{
+    \tan(\theta_n) = \frac{a}{f_1}
+}
+genutzt werden, wobei $a$ der Abstand des $n$-ten Minimums zum Hauptmaximum und $f_1$ die Brennweite der Linse ist. Da die Winkel klein sind, kann die Näherung $\sin(\theta_n) \approx \tan(\theta_n)$ genutzt werden. Damit ergibt sich für die Spaltbreite
+\eq{spaltbreite_einzelspalt}{
+    b = \frac{2 \, n \lambda f_1}{a}
+}
+Der Faktor 2 ergibt sich, da die Abstände der Minima relativ zum Hauptmaximum bestimmt wurden, daher muss der Abstand zum Hauptmaximum verdoppelt werden, um den Abstand zwischen den Minima zu erhalten.
+Darüber hinaus kann die Steigung aus \cabb{plots/Extrema_Abstand_Ordnungszahltry2} genutzt werden, um den Quotienten $\frac{n}{a}$ zu bestimmen. Somit ergibt sich für die Spaltbreite
+\eq{spaltbreite_einzelspalt_steigung}{
+    b = 2 \frac{\lambda f_1}{s_\text{ord} \, s_\text{E}} \, , \qquad \Delta b = b \sqrt{\left(\frac{\Delta s_\text{E}}{s_\text{E}}\right)^2 + \left(\frac{\Delta s_\text{ord}}{s_\text{ord}}\right)^2 } 
+}
+Final berechnet sich die Spaltbreite zu
+\res[-5]{b}{6.96}{0.14}{m}
 
-
-
-
+\subsection{Itensität der Maxima}
+Zu letzt sollen die Itensitäten der Maxima untersucht werden. Dafür werden die Positionen der Maxima genutzt, um die Intensitäten der Maxima zu bestimmen. Es soll untersucht werden, ob die Intensitäten der Maxima mit den theoretisch erwarteten Intensitäten übereinstimmen. Diese wird nach \ceq{singleIntensity} bestimmt. 
+\textcolor{red}{Hier fehlt noch die theoretische und die experimentelle Itensität und deren Vergleich sowie der Plot. Leider ging es hier schief...}
 
 
 \section{Vermessen der Beugungsstruktur des Doppelspaltes}
 \label{sec:A3}
 
-\section{Das Objektbild als Fouriersynthese des Beugungsbildes
-am Beispiel des Einfachspaltes}
-\label{sec:A4}
 
+\section{Das Objektbild als Fouriersynthese des Beugungsbildes am Beispiel des Einfachspaltes}
+\label{sec:A4}
+\subsection[Spaltbreite]{Bestimmung der Einfachspaltbreite}
+In dieser Sektion wird die Einzelspaltbreite über die Eigenschaften der Linsen bestimmt. Dazu werden die die Bild- und Gegenstandsweite $b,g$ verwendet, sowie die Bild- und Gegenstandsgrößen $B,G$. Außerdem wird sich zunutze gemacht, dass die Brennweiten $f$ der Linsen bekannt sind. Somit können die Gleichungen
+\eq{Linsengleichungen}{
+    \frac{1}{f} = \frac{1}{b} + \frac{1}{g}, \quad \frac{b}{g} = \frac{B}{G} \quad \Rightarrow \quad G = \frac{f\,B}{b-f}
+}
+aufgestellt werden. Dabei wurden die ersten zwei Gleichungen umgeformd und auf $G$ aufgelöst. Dabei gäbe es eine zweite Lösung, indem man anstatt der Bildweite $b$ die Gegenstandsweite $g$ genutzt hätte. Beide Methoden sind in sich äquivalent. Nur die Messpräzession und die Ungenauigkeiten sollten hier berücksichtigt werden. Da die Ungenauigkeit für $b$ größer ausfällt, wurde hier die Bildweite genutzt.
+Dem \hyperref[ch:Protokoll]{Messprotokoll} sind die Werte der Tabelle zu Aufgabe 4 zu entnehmen. Hier wird die Pixelposition benutzt, um die Bildbreite $B_\text{d}$ zubestimmen. 
+
+\textcolor{red}{Hier fehlt noch die Spaltbreite, die kann nicht bestimmt werden, da die Spaltbreite nicht dokumentiert wurde...}
+
+Gleichung zum berechnen der Spaltbreite des Einzelspaltes:
+\eq{spaltbreite_einzelspalt_A4}{
+    b_1 = \frac{\mu {B_\text{d}} {f_1}}{b - {f_1}} 
+}
+
+mit \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} versehen:
+\eq{err_spaltbreite_einzelspalt_A4}{
+    \Delta b_1 = b_1 \, \sqrt{\frac{\Delta b^{2}}{\left(b - {f_1}\right)^{2}} + \frac{\Delta {B_\text{d}}^{2}}{{B_\text{d}}^{2}}}
+}
+
+\subsection[Objektbilder]{Objektbilder des Einzelspaltes nach zugelassenen Ordnungen}
+\wrap[0.5]{R}{plots/Signale_OffsetKorr_relativ_GesmateBreite_ex_theo}{Die Signale, die in diesem Versuchsteil untersucht werden. Daten wurden um einen Offset nach unten verschoben und die Itensitäten relativ zum Hauptmaximum bestimmt.}
+In diesem Abschintt sollen nun die Objektbilder betrachtet werden. Dabei werden verschiedene Szenarien betrachetn; es sollen durch den Analysespalt eine bestimmte Anzahl von Extrema eingeblendet werden. Die Signale, die hier untersucht werden sind der \cabb{plots/Signale_OffsetKorr_relativ_GesmateBreite_ex_theo} zu entnehmen. Die Werte wurden dabei bereits angepasst. Die Intensitäten sind reltiv zur Intensität des Hauptmaximums gebildet, außerdem hatten die Funktionen einen y-offset, dieser wurde ebenfalls wegkorrigiert. Bei diesem handelt es sich um entweder Hintergrund rauschen, oder generierten Offset der Messsoftware.
+Das Objektbild, welches zu sehen ist, sollte einer Fourierrücktransformation zur besagten Ordnung entsprechen. Wie gut Theorie und Experiment zusammenpassen wird in dieser Sektion untersucht und in der \cch{diskussion} diskutiert.
+Die Rücktransformation ist mathematisch in \ceq{singleBack} beschrieben. Jene wird gebraucht, um die theoretisch zu erwartenen Objektbilder zu generieren. Theoretisches und experimentelles Bild müssen anschließend zentriert werden. 
+
+\textcolor{red}{Drüber nachdenken und folgende Zeile löschen, falls es nicht behoben wird,}
+
+Die Werte müssen außerdem in ihrer Breite angepasst werden. Dies liegt daran, dass die Bildbreite auf der Kamera nicht bestimmt wurde. Daher wurde ein FWHM-Algorithmus\footnote{FWHM = Full with at half maximum} benutzt, um die breiten anzupassen. Dieser sollte die Messergebnisse nicht übermäßig beeinflussen, da die Signale nur relativ gestaucht und gestreckt werden und somit das Fehlen der Bildbreite auf der Kamera kompensieren kann.
 \section{Das Objektbild als Fouriersynthese des Beugungsbildes
 am Beispiel des Doppelspaltes}
 \label{sec:A5}
