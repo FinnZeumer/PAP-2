@@ -50,7 +50,7 @@ Die Werte wurden dem \hyperref[ch:Protokoll]{Messprotokoll} entnommen. Die Ungen
 
 Aus dem Signal (gezeigt in \cabb{plots/Eingezeichnete_Positionen_Maxima_2_Maxima}) sollen die Positionen der Extrema bestimmt werden, für die Maxima sollen auch die relativen Intensitäten bestimmt werden. Dafür ist die Bestimmung der Abstände zwischen den Extrema zu bestimmen. 
 Die Extrema, die untersucht werden, sind explizit in der \cabb{plots/Eingezeichnete_Positionen_Maxima_2_Maxima} eingezeichnet.
-Es werden die Positionen der Minima genutzt, um deren Abstände zu bestimmen. Die Ordnungen sind relativ zum Hauptmaximum angegeben. Es wird eine lineare Regression durch die Messwerte gelegt. Der Plot ist der \cabb{plots/Extrema_Abstand_Ordnungszahl2_full_rank_ink_max} zu entnehmen.\footnote{Der Plot wurde auf eine zweite Art bestimmt, bei welcher die Steigung stark abweicht. Dies soll später diskutietr werden.}
+Es werden die Positionen der Minima genutzt, um deren Abstände zu bestimmen. Die Ordnungen sind relativ zum Hauptmaximum angegeben. Es wird eine lineare Regression durch die Messwerte gelegt. Der Plot ist der \cabb{plots/Extrema_Abstand_Ordnungszahltry2} zu entnehmen.\footnote{Der Plot wurde auf eine zweite Art bestimmt, bei welcher die Steigung stark abweicht. Dies soll später diskutietr werden.}
 \img[1]{plots/Extrema_Abstand_Ordnungszahltry2}{Abstände der Extrema in Abhänigkeit ihrer Ordnungszahl.}
 Die Steigung der Regressionsfunktion lässt bestimmt sich zu
 \imp[1]{s_\text{ord}}{4.71}{0.07}{px}
@@ -59,7 +59,7 @@ Mit dieser Seigung kann auch die position der Maxima bestimmt werden. Die Positi
     n = \frac{a_\text{max} - b}{s_\text{ord}}\, , \qquad \Delta n = n \, \sqrt{\frac{\Delta {a_\text{max}}^{2}}{\left(a_\text{max} - b\right)^{2}} + \frac{\Delta b^{2}}{\left(a_\text{max} - b\right)^{2}} + \frac{\Delta {s_\text{ord}}^{2}}{{s_\text{ord}}^{2}}} 
 }
 bestimmt werden. Dabei beschreibt $a_\text{max}$ die Position der Maxima, $b$ den Achsenabschnitt und $m$ die Steigung der Regressionsfunktion. Die Fehlerrechnung erfolgt über die Gauß'sche Fehlerfortpflanzung, wie sie in \hyperref[eq:gauss_fehlfortpflanzung]{Formel \ref{eq:gauss_fehlfortpflanzung}} beschrieben ist. 
-Die Positionen der Maxima sind ebenfalls in der \cabb{plots/Extrema_Abstand_Ordnungszahl2_full_rank_ink_max} eingezeichnet. Es soll untersucht werden, ob die Positionen der Maxima mit den theoretisch erwarteten Positionen übereinstimmen. Die Positionen sind der \ctab{vergleich_ordnungszahl_theo_ex_einzelspalt} zu entnehmen. Es zeigt sich, dass die experimentell bestimmten Ordnungszahlen deutlich von den theoretisch erwarteten Ordnungszahlen abweichen. Dies liegt daran, dass das Hauptmaximum nicht ordentlich berücksichtigt wurde, daher mussten die Ordnungen um 1 korrigiert werden. Nach der Korrektur stimmen die experimentell bestimmten Ordnungszahlen mit den theoretisch erwarteten Ordnungszahlen überein. 
+Die Positionen der Maxima sind ebenfalls in der \cabb{plots/Extrema_Abstand_Ordnungszahltry2} eingezeichnet. Es soll untersucht werden, ob die Positionen der Maxima mit den theoretisch erwarteten Positionen übereinstimmen. Die Positionen sind der \ctab{vergleich_ordnungszahl_theo_ex_einzelspalt} zu entnehmen. Es zeigt sich, dass die experimentell bestimmten Ordnungszahlen deutlich von den theoretisch erwarteten Ordnungszahlen abweichen. Dies liegt daran, dass das Hauptmaximum nicht ordentlich berücksichtigt wurde, daher mussten die Ordnungen um 1 korrigiert werden. Nach der Korrektur stimmen die experimentell bestimmten Ordnungszahlen mit den theoretisch erwarteten Ordnungszahlen überein. 
 \begin{table}[h!]
     \caption{Vergleich der experimentell bestimmten Ordnungszahlen un der theorisch erwatreten.}
     \label{tab:vergleich_ordnungszahl_theo_ex_einzelspalt}
@@ -103,15 +103,32 @@ Darüber hinaus kann die Steigung aus \cabb{plots/Extrema_Abstand_Ordnungszahltr
     b = 2 \frac{\lambda f_1}{s_\text{ord} \, s_\text{E}} \, , \qquad \Delta b = b \sqrt{\left(\frac{\Delta s_\text{E}}{s_\text{E}}\right)^2 + \left(\frac{\Delta s_\text{ord}}{s_\text{ord}}\right)^2 } 
 }
 Final berechnet sich die Spaltbreite zu
-\res[-5]{b}{6.96}{0.14}{m}
+\res[-6]{b}{69.6}{1.4}{m}
 
 \subsection{Itensität der Maxima}
 Zu letzt sollen die Itensitäten der Maxima untersucht werden. Dafür werden die Positionen der Maxima genutzt, um die Intensitäten der Maxima zu bestimmen. Es soll untersucht werden, ob die Intensitäten der Maxima mit den theoretisch erwarteten Intensitäten übereinstimmen. Diese wird nach \ceq{singleIntensity} bestimmt. 
-\textcolor{red}{Hier fehlt noch die theoretische und die experimentelle Itensität und deren Vergleich sowie der Plot. Leider ging es hier schief...}
+% \textcolor{red}{Hier fehlt noch die theoretische und die experimentelle Itensität und deren Vergleich sowie der Plot. Leider ging es hier schief...}
+Der \cabb{plots/relative-IntensitätGesmateBreite_ex-theo} ist der graphische Vergleich der experimentell bestimmten Intensitäten und deren Ordnung, mit die Theorie. Da die Werte chronisch zu klein ausgefallen sind, wird ein systematischer Fehler vermutet. Dieser wurde über einen Korrektrustherm behoben. Dieser wurde über die durschnittlcihe relative Abweichung von Experiment und Theorie gebildet.
+\img{plots/relative-IntensitätGesmateBreite_ex-theo}{Relative Intensitäten gegen ihre Ordnungszahl $n$ im Vergleich zur Theorie.}
 
+Die Ergebnisse sind zudem in der \ctab{intensitaeten} nummerisch gelistst. Es wurde die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen Theorie und Experiment gebildet. 
 
-\section{Vermessen der Beugungsstruktur des Doppelspaltes}
-\label{sec:A3}
+\begin{table}[h!]
+    \caption{Vergleich von theoretischen und experimentellen Intensitäten}
+    \label{tab:intensitaeten}
+    \centering
+    \begin{tabular}{C | C C || C}
+        \toprule
+        \text{Ordnungszahl } m & \text{theo } I_\text{rel} \cdot 10^{3} & \text{exp } I_\text{rel} \cdot 10^{3} & \text{Std.Abw. } \sigma \\
+        \midrule
+        5.45 & 0.33607 & 0.285 \pm 0.009 & 5.37 \\
+        4.49 & 0.50287 & 0.39 \pm 0.01 & 9.00 \\
+        3.50 & 0.83403 & 0.81 \pm 0.03 & 0.99 \\
+        2.52 & 1.64800 & 1.65 \pm 0.05 & 0.05 \\
+        1.48 & 4.71904 & 3.95 \pm 0.10 & 5.90 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 
 \section{Das Objektbild als Fouriersynthese des Beugungsbildes am Beispiel des Einfachspaltes}
@@ -121,10 +138,20 @@ In dieser Sektion wird die Einzelspaltbreite über die Eigenschaften der Linsen 
 \eq{Linsengleichungen}{
     \frac{1}{f} = \frac{1}{b} + \frac{1}{g}, \quad \frac{b}{g} = \frac{B}{G} \quad \Rightarrow \quad G = \frac{f\,B}{b-f}
 }
-aufgestellt werden. Dabei wurden die ersten zwei Gleichungen umgeformd und auf $G$ aufgelöst. Dabei gäbe es eine zweite Lösung, indem man anstatt der Bildweite $b$ die Gegenstandsweite $g$ genutzt hätte. Beide Methoden sind in sich äquivalent. Nur die Messpräzession und die Ungenauigkeiten sollten hier berücksichtigt werden. Da die Ungenauigkeit für $b$ größer ausfällt, wurde hier die Bildweite genutzt.
+aufgestellt werden. Dabei wurden die ersten zwei Gleichungen umgeformd und auf $G$ aufgelöst. Dabei gäbe es eine zweite Lösung, indem man anstatt der Bildweite $b$ die Gegenstandsweite $g$ genutzt hätte. Beide Methoden sind in sich äquivalent. Nur die Messpräzession und die Ungenauigkeiten sollten hier berücksichtigt werden. Beide Ergebnisse werden berechnet.
 Dem \hyperref[ch:Protokoll]{Messprotokoll} sind die Werte der Tabelle zu Aufgabe 4 zu entnehmen. Hier wird die Pixelposition benutzt, um die Bildbreite $B_\text{d}$ zubestimmen. 
 
-\textcolor{red}{Hier fehlt noch die Spaltbreite, die kann nicht bestimmt werden, da die Spaltbreite nicht dokumentiert wurde...}
+% \textcolor{red}{Hier fehlt noch die Spaltbreite, die kann nicht bestimmt werden, da die Spaltbreite nicht dokumentiert wurde...}
+
+Leider wurde die Spaltbreite nicht ordnungsgemäß dokumentiert. Daher wird der Wert einenes Kommilitonen heangezogen. Dies ist bei Optik-Versuchen als kritisch zu betrachten, da diese besonders individuell in ihrem Aufbau und Maßen sind. Dies wird über mathematisch Mittel berücksichtigt werden, zudem werden Fehler dadurch konservativer gerechnet. 
+Die Größenordnungen jedoch sollten Stimmen und im physikalischen Einklang sein.
+
+Für die Spaltbreite über die Bildweite $b$ ergibt sich
+\res[-6]{b_{1,b}}{78}{3}{m}
+und für die Berechnung über die Gegenstandsweite
+\res[-6]{b_{1,g}}{115}{5}{m}
+
+Die Standardabweichung zwischen den beiden Werten liegt bei $6.29\sigma$ und ist damit signifikant.
 
 Gleichung zum berechnen der Spaltbreite des Einzelspaltes:
 \eq{spaltbreite_einzelspalt_A4}{
@@ -142,9 +169,112 @@ In diesem Abschintt sollen nun die Objektbilder betrachtet werden. Dabei werden 
 Das Objektbild, welches zu sehen ist, sollte einer Fourierrücktransformation zur besagten Ordnung entsprechen. Wie gut Theorie und Experiment zusammenpassen wird in dieser Sektion untersucht und in der \cch{diskussion} diskutiert.
 Die Rücktransformation ist mathematisch in \ceq{singleBack} beschrieben. Jene wird gebraucht, um die theoretisch zu erwartenen Objektbilder zu generieren. Theoretisches und experimentelles Bild müssen anschließend zentriert werden. 
 
-\textcolor{red}{Drüber nachdenken und folgende Zeile löschen, falls es nicht behoben wird,}
+% \textcolor{red}{Drüber nachdenken und folgende Zeile löschen, falls es nicht behoben wird,}
+\img[1]{plots/vergleich_maxima_3a}{relative Intensitäten gegen die über FWHM normierte Breite mit eingezeichneten Maxima.}
 
 Die Werte müssen außerdem in ihrer Breite angepasst werden. Dies liegt daran, dass die Bildbreite auf der Kamera nicht bestimmt wurde. Daher wurde ein FWHM-Algorithmus\footnote{FWHM = Full with at half maximum} benutzt, um die breiten anzupassen. Dieser sollte die Messergebnisse nicht übermäßig beeinflussen, da die Signale nur relativ gestaucht und gestreckt werden und somit das Fehlen der Bildbreite auf der Kamera kompensieren kann.
+Die resultierenden Plots der Gemessenen Ordnungen sind der \cabb{plots/vergleich_maxima_3a} zu entnehmen. Es ist anzumerken, dass das dritte Nebenmaximum falsch aufgenommen wurde und somit eigentlich dem vierten entspricht.
+
+Die bestimmten Extrema sowohl der Theorie und der experimentellen Daten sind in der \ctab{extrema_all} gelistst und deren prozentuale Abweichung wurde bestimmt. Dabei wurde sowohl die Intensität, als auch die Postion der Extrema betrachtet.
+
+Für alle Grenzfrequenzen stimmen die Formen der theoretischen und experimentellen Intensitätskurven überein. Dabei ist die Anzahl der lokalen Maxima und Minima in beiden Fällen identisch. Auch bei höheren Beugungsordnungen bis zur vierten Ordnung sind die Extrema klar erkennbar.
+Die gemessene Intensität liegt dabei meist leicht über der theoretisch erwarteten Intensität. Ein Dunkelstrom im Messgerät kann als Ursache hierfür weitgehend ausgeschlossen werden, da die Intensität nach außen hin gegen null geht und dieser Effekt bereits zuvor korrigiert wurde. Zudem sind die beobachteten Abweichungen größer als der zuvor entfernte Dunkelstromanteil.
+Die experimentellen Intensitätsverteilungen zeigen insgesamt breitere Verläufe als die theoretisch vorhergesagten Kurven.
+Auf eine Fehlerrechnung wurde verzichtet, da ausschließlich die qualitative Form der Verteilung im Vordergrund der Untersuchung stand. Die prozentualen Abweichungen bestätigen insgesamt die gute Übereinstimmung der Form, verdeutlichen jedoch zugleich die Grenzen der Messmethode für quantitative Aussagen.
+
+\begin{table}[h!]
+    \caption{Vergleich theoretischer und experimenteller Extrema aller Ordnungen.}
+    \label{tab:extrema_all}
+    \centering
+    \begin{tabular}{l l | C C | C || C C | C}
+        \toprule
+        Zugelassen & Typ & \text{theo } x_\text{pos} & \text{exp } x_\text{pos} & \Delta x [\%] & \text{theo } I_\text{rel} & \text{exp } I_\text{rel} & \Delta I [\%] \\
+        \midrule
+        Hauptmaximum & 1. Maximum & -0.38 & -0.20 & 47.07 & 1.00 & 1.00 & 0.02 \\
+        \hline
+        1. Ordnung & 1. Maximum & -18.71 & -19.69 & 5.23 & 0.91 & 1.14 & 26.02 \\
+        & 1. Minimum & -0.38 & 0.00 & -- & 0.59 & 0.85 & 44.67 \\
+         & 2. Maximum & 18.71 & 15.29 & 18.29 & 0.91 & 1.02 & 12.09 \\
+        \hline
+        2. Ordnung & 1. Maximum & -25.21 & -27.09 & 7.46 & 0.89 & 0.94 & 5.90 \\
+        & 1. Minimum & -12.22 & -13.66 & 11.78 & 0.62 & 0.69 & 11.31 \\
+         & 2. Maximum & 0.00 & -0.24 & -- & 0.82 & 0.82 & 0.40 \\
+         & 2. Minimum & 12.98 & 12.72 & 2.05 & 0.62 & 0.65 & 4.55 \\
+         & 3. Maximum & 25.97 & 24.02 & 7.49 & 0.89 & 0.80 & 9.26 \\
+        \hline
+        4. Ordnung & 1. Maximum & -29.79 & -32.70 & 9.77 & 0.87 & 1.32 & 51.89 \\
+        & 1. Minimum & -22.15 & -23.93 & 8.04 & 0.63 & 0.85 & 33.47 \\
+         & 2. Maximum & -14.51 & -16.82 & 15.92 & 0.79 & 1.01 & 27.58 \\
+         & 2. Minimum & 7.64 & -8.53 & -- & 0.66 & 0.81 & 22.73 \\
+         & 3. Maximum & 15.28 & -0.24 & 101.55 & 0.79 & 0.97 & 22.84 \\
+         & 3. Minimum & 22.91 & 6.63 & 71.05 & 0.63 & 0.88 & 38.72 \\
+         & 4. Maximum & 30.55 & 13.98 & 54.24 & 0.87 & 0.99 & 13.70 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Der \cabb{plots/all_Max_3a} ist das Beugungsbild bei vollkommen geöffnetem Spalt zu betrachten. Es zeigt sich; Bei weit geöffnetem Analysierspalt wird die Wellenstruktur des Objektbildes deutlich weniger klar sichtbar und durch stärker ausgeprägte Kanten ersetzt. Dadurch wird das Zählen der Extrema erschwert, da nicht eindeutig ist, welche Minima noch berücksichtigt werden sollen.
+
+\img{plots/all_Max_3a}{Vergleich der Theorie zum Experiment: Alle Ordnungen zugelassen (Spalt vollkommen offen).}
+
+Insgesamt weicht die Beobachtung hier stärker von der theoretischen Vorhersage ab als in den vorherigen Fällen. Zwar wird zum Vergleich eine Vorhersage für 20 Beugungsordnungen dargestellt, jedoch ist es mit dem vorhandenen Aufbau grundsätzlich nicht möglich, alle Beugungsordnungen vollständig zu erfassen, unter anderem aufgrund der begrenzten Apertur der Linse.
+
+\section{Vermessen der Beugungsstruktur des Doppelspaltes}
+\label{sec:A3}
+
+Analog zum Einzelspalt werden die geometrischen Maße des Doppelspalts sowie die zugehörigen Intensitäten bestimmt. Zusätzlich wird die einhüllende Intensitätsverteilung ermittelt, um die Modulation des Interferenzmusters zu beschreiben.
+
+\subsection{Bestimmung der Doppelspaltmaße}
+Es wird zunächst die Spaltbreite berechnet. Dazu wird erneut die \ceq{spaltbreite_einzelspalt_steigung} genutzt. Bild und Objektweite sind dieselben wie im \hyperref[ch:Protokoll]{Messprotokoll} für Aufgabe 4. 
+Erneut fehlen die Werte der Spaltbreite in Pixeln, daher müssen erneut Werte von Kommilitonen übernommen werden und die Daten mathematisch angepasst werden.
+
+Die Breiete bieder Spalte wird als identisch angenommen. Einseten der Werte über die Bildweite liefert
+\res[-6]{b_\text{b,dop}}{257}{6}{m}
+
+Auch hier lässt sich die Spaltbreite über die Gegenstandsweite besimmen, es ergibt sich eine Spaltbreite von
+\res[-6]{b_\text{g,dop}}{379}{8}{m}
+
+Die Werte haben dabei eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $11.93\sigma$ und weichen damit signifikant ab.
+
+Da es sich um einen Doppelspalt handelt, ist auch die Distanz $d_\text{dop}$ zwischen den Spalten zu bestimmen. Auch hier können beide Methoden benutzt werden, sowohl die Bestimmung über die Bildweite $b$ und die Gegenstandsweite $g$. Es werden beide Werte berechnet und es ergibt sich
+\res[-6]{d_\text{b,dop}}{599}{12}{m}
+bzw.
+\res[-6]{d_\text{g,dop}}{884}{14}{m}
+
+Auch hier wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} berechnet. Die Werte weichen $14.93\sigma$ von einander ab. Dies ist ein signifikante Abweichung.
+
+\subsection{Itensität der Maxima}
+\wrap[0.4]{R}{plots/Dop_sig3a}{Zu untersuchendes Signal für das Intensitätsprofil des Doppelspaltes.}
+Auch für den Doppelspalt sollen die bestimmten Intensitäten mit den theoretischen Werten verglichen werden. Die theoretischen Werte werden via \ceq{doubleFT} bestimmt. Der \cabb{plots/Dop_sig3a} kann das Signal entnommen werden, dass in dieser Sektion untersuch. Es sind die Extrema eingezeichnet, welche in dieser Sektion genutzt werden. Das 0. Maximum ist dabei etwas in Sättigung.
+Die Positionen der Extrema sind dem \hyperref[ch:Protokoll]{Messprotokoll} nach Aufgabe 3 zu entnehmen. Über diese können die Werte der theoretischen und der experimentellen Werte ausgerichtet werden.
+Der \cabb{plots/Dop_sig_ex_theo_vgl_combined} sind die Vergleich zwischen den theoretischen und den experimentellen Intensitäten dargestellt. Die Breiten wurden erneut über den FWHM-Algorythmus skaliert. 
+Der Plot a) hat dabei nur die FWHM-Skalierung, während bei Plot b) die Nullposition angepasst wurde. Dafür wurde das linke Minimum als Referenz benutzt. Die Extrema und die theoretische Umhüllende sind auch geplottet. 
+Die Ergebnisse aus der Abbildung sind nummerisch in der \ctab{doppelspalt_int} eingetragen und deren \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} sind bestimmt wurden.
+\img{plots/Dop_sig_ex_theo_vgl_combined}{a) Gemessene Intensität über FWHM-Skalierung angepasst. b) Plot zusätzlich an dem linken Minimum angepasst.}
+
+Die Werte der Cursor Messung konnten nicht sinnvoll verwendet werden, da zum einen der Plot über eine Fremde Pixelbildbreite bestimmt wurde und zum anderen wurden nur drei Werte vermessen.
+
+\textcolor{red}{2 Probleme! 1. Keine Cursor Werte. 2. Plots sind nicht gegen Extremstellen geplottet. Beides beheben.}
+
+\begin{table}[h!]
+\caption{Bestimmte Inensitäten der Extrema im Vergleich zur Theorie.}
+\centering
+\label{tab:doppelspalt_int}
+    \begin{tabular}{l C || C | C || C | C}
+        \toprule
+        Extremum & \text{theo } I_\text{rel} & \text{exp,1 } I_\text{rel} & \text{Std.Abw } \sigma  & \text{exp,2 } I_\text{rel} & \text{Std.Abw } \sigma   \\
+        \midrule
+        -1 Max & 0.55 & 0.615 \pm 0.014 & 4.63 & 0.541 \pm 0.014 & 0.55 \\
+        -1 Min & 0.00 & 0.161 \pm 0.014 & 11.28 & 0.000 \pm 0.014 & 0.00 \\
+        0 Max & 1.00 & 1.000 \pm 0.014 & 0.00 & 1.000 \pm 0.014 & 0.00 \\
+        1 Min & 0.00 & 0.205 \pm 0.014 & 14.32 & 0.052 \pm 0.014 & 3.63 \\
+        1 Max & 0.55 & 0.528 \pm 0.014 & 1.44 & 0.437 \pm 0.014 & 7.80 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
 \section{Das Objektbild als Fouriersynthese des Beugungsbildes
 am Beispiel des Doppelspaltes}
 \label{sec:A5}
+Im letzen Abschintt soll die 
