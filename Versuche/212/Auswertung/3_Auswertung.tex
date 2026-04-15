@@ -5,7 +5,7 @@
 Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größen definiert \cite{errorSkript25}:
 \begin{align}
     \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetisches Mittel}} \label{eq:arithmetisches_mittel} \\
-    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Variation}} \label{eq:variation} \\
+    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Varianz}} \label{eq:Varianz} \\
     \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
     \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
     \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
@@ -85,7 +85,7 @@ $900.0 \pm 2.5$ & $450.0 \pm 1.3$ & $20.00 \pm 0.20$ & $6.5 \pm 0.3$ \\
 \end{table}
 
 
-\img[.95]{plot/ges_gegen_r2}{Plot der Geschwindigkeiten gegen den quadrierten Kugelradius. Die Lineare Regression ist durch die ersten fünf Messwerte der korrigierten Werte gelegt. Die lineare Nährung zeigt sich damit als nicht gültig.}
+\img[.95]{plot/ges_gegen_r2}{Plot der Geschwindigkeiten gegen den quadrierten Kugelradius. Die Lineare Regression ist durch die ersten fünf Messwerte der korrigierten Werte gelegt. Die lineare Näherung zeigt sich damit als nicht gültig.}
 
 Es lässt sich beobachten, dass für kleine Kugelradien  die gemessenen Werte \(v\) und die korrigierten Werte \(v_s\) nahezu identisch sind, was darauf hindeutet, dass die ladenburgsche Korrektur in diesem Bereich vernachlässigbar ist. Für größere Kugelradien hingegen weichen die unkorrierten Werte \(v\) deutlich von den korrigierten Werten \(v_s\) ab, was die zunehmende Bedeutung der ladenburgschen Korrektur bei größeren Kugeln verdeutlicht. 
 

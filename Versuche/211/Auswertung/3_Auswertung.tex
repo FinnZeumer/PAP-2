@@ -1,5 +1,3 @@
-n
-
 \chapter{Auswertung}
 \label{ch:Auswertung}
 % Liste der genutzer Formeln für die Fehlerrechnung
@@ -7,7 +5,7 @@ n
 Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größen definiert \cite{errorSkript25}:
 \begin{align}
     \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetisches Mittel}} \label{eq:arithmetisches_mittel} \\
-    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Variation}} \label{eq:variation} \\
+    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Varianz}} \label{eq:Varianz} \\
     \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
     \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
     \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
@@ -17,19 +15,133 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
 \end{align}
 
-\newpagen
+\newpage
 
-\section{Aufgabe 1: }
+\section[Untersuchung der Schwebung]{Symmetrische und antisymmetrische Schwingung in der Schwebung}
 \label{sec:A1}
+In dieser Sektion werden die Symmetrische, sowie die antisymmetrische Oszillation des gekoppelten mathematischen Pendels mit der Schwebung des Pendels verglichen. Explizit geht es um die Frequenzen, die verglichen werden. 
+Es werden jeweils die Frequenzen der symmetrischen ($\omega_1$) und der antisymmetrischen ($\omega_2$) Oszillation mit den Schwebungsfrequenzen ($\omega_\text{{1,s}}, \omega_\text{{2,s}}$) verglichen. Die Ergebnisse sind der \ctab{vergleich_fur_A1} zu entnehmen.
+Es werden die Werte aller drei Kopplungsgrade untersucht.
+\begin{table}[h!]
+    \caption{Vergleich der symmetrischen $\omega_1$ und antisymmetrischen $\omega_2$ Schwingungen mit den Schwebungsfrequenzen $\omega_\text{{1,s}}, \omega_\text{{2,s}}$.}
+    \label{tab:vergleich_fur_A1}
+    \centering
+    \begin{tabular}{l | C C | C || C C | C}
+        \toprule
+        Kopplung & \omega_1 \, [\mathrm{\frac{rad}{s}}] & \omega_\text{1,s} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma & \omega_2 \, [\mathrm{\frac{rad}{s}}] & \omega_\text{2,s} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma \\
+        \midrule
+        \textbf{Schwach} & 3.91 \pm 0.10 & 3.90 \pm 0.09 & 0.07 & 4.08 \pm 0.08 & 4.08 \pm 0.09 & 0.00 \\
+        \textbf{Mittel} & 3.91 \pm 0.10 & 3.90 \pm 0.09 & 0.07 & 4.31 \pm 0.09 & 4.32 \pm 0.09 & 0.08 \\
+        \textbf{Stark} & 3.91 \pm 0.10 & 3.90 \pm 0.08 & 0.08 & 4.64 \pm 0.10 & 4.64 \pm 0.09 & 0.00 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Es wird ersichtlich, dass die \hyperref[eq:standardabweichung]{Standardabweichungen (\ref*{eq:standardabweichung})} alle stark signifikant sind. Folglich ist gezeigt, dass die zwei Schwebunsgfrquenzen, die hier untersucht wurden, den der symmetischen bzw. antisymmetrischen Schwingungen entsprechen.
+Somit lässt sich schlussfolgern, dass die Schwebung eine Überlagerung der beiden anderen genannten Schwingungstypen ist. 
 
-\section{Aufgabe 2: }
+
+\section[Schwebungsfrequenzen via FFT und T bestimmen]{Bestimmung der Schwebungsfrequenzen über die Periodendauer und die FFT-Methode}
 \label{sec:A2}
+\wrap[0.2]{R}{memes/worthless}{Skillissue}
+In dieser Sektion wird erneut die Schwebungsfrequenz betrachtet. Diese soll über zwei Methoden bestimmt werden. Anschließend werden die beiden Methoden verglichen. Für den vergleich wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} bestimmt. 
+Für die Bestimmung der Frequenzen über die Periodendauer sind trivalerweise gemessene Periodendauern nötig. Leider waren die Experimentatoren etwas PAPnasig und haben keine vernünftigen Periodendauern via der bereitgestellten Cursorfunktion bestimmt. Geplant war eine präzissere Bestimmung über eine Analyse in Python; hier sollten die gepeicherten Text-Dateien eingelesen werden und die Periodendauern bestimmt werden. 
+Erst zu spät ist den Experimentatoren aufgefallen, dass die bereitgestellten Text-Dateien nur die Informationen des FFT Graphen beinhalten und nicht die sinusförmigen Graphen der Pendelschwingungen. Eine Rücktransformation ist aus zwei Gründen nicht sinnig; ersten gehen zu viele Informationen verloren und machen die Messergebnisse stark fehlerbehaftet. Zwietens soll die FFT-Methode mit einer händischen Bestimmung der Frequenz verglichen werden und nicht mit sich selbst. 
+Die Probleme konnten jedoch elegant umgangen werden. Es wurden neben den Text-Dateien auch Bilddateien gespeichetr, mit unter Vektorgrafiken als .svg-Dateien. Diese konnten in\afz{Inkscape} eingelesen werden. Da Vektorgrafiken die Bildinformationen nicht als Pixelfarbinformation speicher, sondern als vektorisierte geometrische Information, können diese Grafiken nicht nur problemlos skaliert werden, sondern auch präzisse vermessen (limitiert von den Computerauflösungen und der Darstellungpräzission der Messsoftware.) 
+Die importierten Grafiken werden somit mindesten genauso hochauflösend wie am Versuchstag selbst, wenn nicht sogar präzisser, sein. Die Vermessungen der Perioden sind in der \csec{schwebungPerioden} zufinden. Für die Fehlerbestimmung wurde ein Cursorfehler von $\Delta Cursor = 0.008 \mathrm{mm}$ geschätzt. Da mehrere Messreihen bestimmt wurden, um die Ergebnisse zu verbessern müssen die einzelnen Werte via dem \hyperref[eq:arithmetisches_mittel]{arithmetischen Mittel (\ref*{eq:arithmetisches_mittel})} kombiniert werden. Es kommt eine zusätzliche Ungenauigkeit in Form des \hyperref[eq:fehler_mittelwert]{Fehlers des Mittelwertes (\ref*{eq:fehler_mittelwert})} dazu.
+Die Ungenauigkeiten werden gemäß \ceq{fehler_summe} verrechnet.
 
-\section{Aufgabe 3: }
+Die bestimmten Periodendauern $T$ müssen dann in Kreisfrequenz umgerechnet werden:
+\eq{berechnung_in_kreisfrequenz}{
+    \omega = \frac{2\, \pi}{T} \, , \qquad \Delta \omega = \frac{2\, \pi \, \Delta T}{T^2} \, .
+}
+
+Für die \ceq{schwebung} muss die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} genutzt werden, um die Ungenauigkeit zu bestimmen. Es ergibt sich
+\eq{err_func_schwebung_I_II_und_allgemein_ist_diese_IIIIIIIIIHHH_Gitt}{
+    \Delta {\omega_\text{I}} = \Delta {\omega_\text{II}} = \sqrt{(\Delta \omega_\text{1})^2 + (\Delta \omega_\text{2})^2} \, .
+}
+Damit ist Alles zusammen, um beide Methoden zu vergleichen. Die Ergebnisse sind der \ctab{vergleich_A2} zu entnehmen. Der Indize T beschreibt dabei die Bestimmung der Frequenzen über die mittlere Periodendauer und FFT über die Fast-Fourier-Transformation.
+
+\begin{table}[h!]
+    \caption{Vergleich der Frequenzen. Zum einen Bestimmt über die Periodendauer $T$, und zum anderen über die im FFT gegeben Information.}
+    \label{tab:vergleich_A2}
+    \centering
+    \begin{tabular}{l | C C | C || C C | C}
+    \toprule
+    Kopplung & \omega_\text{I,T} \, [\mathrm{\frac{rad}{s}}] & \omega_\text{I,FFT} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma & \omega_\text{II,T} \, [\mathrm{\frac{rad}{s}}] & \omega_\text{II,FFT} \, [\mathrm{\frac{rad}{s}}] & \text{Std. Abw.} \, \sigma \\
+    \midrule
+    \textbf{Schwach} & 3.97 \pm 0.18 & 3.99 \pm 0.06 & 0.10 & 0.09061 \pm 0.00012 & 0.09 \pm 0.06 & 2.84 \\
+    \textbf{Mittel} & 4.07 \pm 0.16 & 4.11 \pm 0.06 & 0.21 & 0.200 \pm 0.006 & 0.21 \pm 0.06 & 6.41 \\
+    \textbf{Stark} & 4.24 \pm 0.17 & 4.27 \pm 0.06 & 0.18 & 0.361 \pm 0.018 & 0.37 \pm 0.06 & 12.31 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Eine Betrachtung der Standardabweichungen zeigt, dass für die Ergebnisse der Frequenz $\omega_\text{I}$ die Methoden kohärent sind, da diese statistisch signifikant sind. Der Grad der Kopplung macht hier keinen statistischen Unterschied. 
+Anders ist es bei der Betrachtung der Frequenz $\omega_\text{II}$, nicht nur sind die Werte nicht als statistisch signifikant anzunehmen. Sondern zeigt sich zudem ein Trend zu größer werdenen Abweichungen, bei stärker werdenen Kopplungen. 
+
+
+\section[Kopplung]{Bestimmung der Kopplung}
 \label{sec:A3}
+Dies ist die Letzte Sektion, die eine quantitaive Auswertung führt. Es sollen nun nummerische Werte der drei Kopplungsgrade bestimmt werden. 
+Dazu wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} die Ungenauigkeit der \ceq{kopplungsgrad_frequenzen} bestimmt:
 
-\section{Aufgabe 4: }
+\eq{tzuhergtuiobidfgjokhjk}{
+    \Delta K = 4 \sqrt{\frac{{\omega_1}^{2} {\omega_2}^{2}}{\left({\omega_1}^{2} + {\omega_2}^{2}\right)^{4}} \left(\Delta {\omega_1}^{2} {\omega_2}^{2} + \Delta {\omega_2}^{2} {\omega_1}^{2}\right)} 
+}
+bzw.
+\eq{err_func_kopplung_stuff_idk}{
+    \Delta K = K \, \frac{\lvert {\omega_\text{I}}^2- {\omega_\text{II}}^2\rvert}{{\omega_\text{I}} \, {\omega_\text{II}}\bigl({\omega_\text{I}}^2+ {\omega_\text{II}}^2\bigr)}\sqrt{ {\omega_\text{II}}^2(\Delta{\omega_\text{I}})^2+{\omega_\text{I}}^2(\Delta {\omega_\text{II}})^2}
+}
+
+Da alle vier diskutieren Frequenzen von der Kopplung anhängen, sind beide Methodne hier möglich zur Auswertung der Kopplung. Die berechneten Kopplungen, sowie die vermessten Abstände $l$ der Kopplungsfeder zu den Aufhängepunkten der Pendel sind der \ctab{vergleich_fur_A3} zu entnehmen.
+\begin{table}[h!]
+    \caption{Bestimmte Kopplungsgrade. $K_1$ wurde über $\omega_1$ und $\omega_2$ bestimmt, wohingegen $K_2$ über $\omega_\text{I}$ und $\omega_\text{II}$ bestimmt wurde.}
+    \label{tab:vergleich_fur_A3}
+    \centering
+    \begin{tabular}{l L || C C | C || C}
+        \toprule
+        & \text{Index} & K_1 (\omega_1, \omega_2) & K_2 (\omega_\text{I}, \omega_\text{II}) & \text{Std. Abw.} \, \sigma & \text{Abstand zur Achse} \, l \, [10^{1}\mathrm{m}] \\
+        \midrule
+        \textbf{Schwach} & 1 & 0.05 \pm 0.03 & 0.0456 \pm 0.0014 & 0.02 & 1.920 \pm 0.005 \\
+        \textbf{Mittel} & 2 & 0.10 \pm 0.03 & 0.098 \pm 0.004 & 0.13 & 2.920 \pm 0.005 \\
+        \textbf{Stark} & 3 & 0.172 \pm 0.027 & 0.169 \pm 0.009 & 0.11 & 3.920 \pm 0.005 \\
+        \bottomrule
+    \end{tabular}
+\end{table} 
+Mit Blick auf die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zeigt sich, dass die zugrunde liegende Frequenz statistisch nicht relevant ist. Für den weiteren Verlauf wird der Wert für $K_2$ verwendet, da dieser kleinere Ungenauigkeiten aufweist. 
+
+Weiterführend sollen die Ungenauigkeiten der Verhältnismatrixen nach \ceq{coole_matrixen} über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauße Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt werden. Es ergibt sich
+\eq{err_func_matrixen_izen_izen_izen_izne_izen_izen}{
+    \Delta \kappa_{i,j} = \kappa_{i,j} \sqrt{\frac{\Delta {K_{j}}^{2}}{{K_{j}}^{2}} + \frac{\Delta {K_{i}}^{2}}{{K_{i}}^{2}}}, \qquad \Delta \zeta_{i,j} = 2 \zeta_{i,j} \sqrt{\frac{(\Delta l_{i})^{2}}{{l_{i}}^{2}} + \frac{(\Delta l_{j})^{2}}{{l_{j}}^{2}}} \, .
+}
+
+Durch Einsetzen der Messwerte ergebn sich die Verhältnisse nach \ctab{zufcgugugzufoutf} und die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})}. 
+\begin{table}[h!]
+    \caption{Vergleich der Verhältnisse der verschiedenen Kopplungsstärken und den dazugehörigen Abständen der Federaufhängung.}
+    \label{tab:zufcgugugzufoutf}
+    \centering
+    \begin{tabular}{L L | C C || C}
+        \toprule
+        i & j & \kappa_{i,j}(K_2) & \zeta_{i,j} & \text{Std. Abw. } \, \sigma \\
+        \midrule
+        1 & 3 & 0.270 \pm 0.06 & 0.240 \pm 0.0014 & 0.48 \\
+        2 & 1 & 2.150 \pm 0.05 & 2.313 \pm 0.014 & 3.18 \\
+        3 & 2 & 1.724 \pm 0.07 & 1.802 \pm 0.008 & 1.18 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Die Ergebnisse lassen sich als signifikant einstufen, nur bei dem Verhältnis der mittleren mit der swachen Kopplung ist die Standardabweichung nicht signifikant. 
+
+
+\section{Der gekoppelte elektrische Schwingkreis}
 \label{sec:A4}
+Es wurde auch ein elektrischer gekoppelter Schwingkreis betrachtet. Die beiden elektrischen Schwingkreise waren am Oszilloskop angeschlossen. Der \cabb{el/perp} ist zu entnehmen, dass die Kopplung abhänig von den Ausrichtung der beiden Schwingkreise ist. Wurden diese rechtwinklig zu einander platziert, so verschwand das eine Signal. Es konnte keine Schwebung beobachtet werden.
+\img[0.4]{el/perp}{Signale rechtwinklig zu einanderstehender Schwingkreise}
+Daher wird in der folgenden Analyse daruaf geachtet, dass die Schwingkreise parallel zueinanderstehen.
+Nun wird die Abhänigkeit des Abstandes der Schwingkreise qualitativ beobachtet. In der \cabb{el/Abstand_Zusammengefasst} sind die Signale verschiedener Abstände zu entnehmen.
+\img[1.0]{el/Abstand_Zusammengefasst}{Signalestärke beider Schwingkreise in Abhänigkeit iherer Entfernung. Von links nach rechts nimmt die Distanz zu.}
+Es zeigt sich, dass das Signal des zweiten Kanals bei zunehmender Distanz verschwindet. Kanal eins wird konstant als Referenz gehalten. Bei sehr großer Distanz verschwindet das Signal des zweiten Kanals visuell, es kann nicht weiter aufgenommen werden, und ist nicht von dem der rechtwinklig zu einanderstehenden Schwingkreisen zu unterscheiden. 
+Die anderen drei Signale zeigen zwei aufgenommene Frequenzen beider Signale, welche jedoch bei zunehmender Distanz kleiner werden. 
+Bei allen treten Schwebungseffekte auf, jedoch wird dies visuell nur bei dem ertsen Signal besonders ersichtlich. Das Signal zeigt deutlich die schnell-frequenzellen Eigenfrequenzen der beiden Schwingkreise (die eigentliche Sinusschwingung) und die langsam-frequenzellen Schwebungsfrequenzen (welche von der Umhüllenden gebildet werden).
+Diese lassen sich elektrodynamisch analog zur mechanischen Analyse dieses Protokolles bestimmen.
 
-\section{Aufgabe 5: }
-\label{sec:A5}
+\wrap[0.3]{L}{memes/signifikante3}{Ich habe auch drauf geachtet!} 

@@ -1,7 +1,39 @@
 \chapter{Durchführung} \label{ch:Durchfuehrung}
 
-Auch der Folgende Text ist am Praktikumsskript von Jens Wagner orientiert. Es gelten diesleben Hinweise wie in \cch{Einleitung}.\cite{skriptPAP21,Duden}
+\section{Durchführung} \label{sec:Durchfuhrung}
 
-\section{Messverfahren}
+Auch der Folgende Text ist am Praktikumsskript von Jens Wagner orientiert. Es gelten diesleben Hinweise wie in \cch{Einleitung}\cite{skriptPAP21,Duden}.
+
+\subsection{Messverfahren}
 \label{sec:Messverfahren}
 
+Zu Beginn wird das Michelson-Interferometer sorgfältig justiert, sodass ein stabiles Interferenzmuster sichtbar wird. Die Justage erfolgt über die beiden kippbaren Spiegel, bis ein zentrales Ringsystem erscheint. Anschließend wird die Weißlichtposition bestimmt, an der der Gangunterschied der beiden Interferometerarme minimal ist.  
+
+Für die Bestimmung der Laserwellenlänge wird der bewegliche Spiegel mithilfe eines Motors über einen definierten Bereich verfahren. Währenddessen zählt ein Diskriminator die vorbeilaufenden Interferenzmaxima. Aus der gemessenen Spiegelverschiebung \(\Delta x\) und der Anzahl der Maxima \(m\) ergibt sich über \ceq{GangunterschiedMI} die Wellenlänge des Lasers:
+
+
+\eq{laserWellenlange}{
+    \lambda = \frac{2 \Delta x}{m}.
+}
+
+Zur Bestimmung des Brechungsindex von Luft wird eine Küvette in einen der Interferometerarme eingesetzt und zunächst evakuiert. Anschließend wird schrittweise Luft eingelassen. Nach jeweils fünf vorbeiziehenden Interferenzstreifen wird der Druck in der Küvette notiert. Die Änderung des Gangunterschieds ergibt sich aus
+
+
+\eq{GangunterschedBrechung}{
+    \Delta s = 2 a \Delta n,
+}
+
+wobei \(a\) die Länge der Küvette ist. Aus der Anzahl der vorbeigelaufenen Maxima lässt sich die Brechungsindexänderung bestimmen und über eine Normierung auf Standardbedingungen der Brechungsindex von Luft über 
+\eq{brechungsindexnormalbedinungen}{
+    n_0 = \frac{\lambda \, m \, p_0 \, T}{2a \, p \, T_0} + 1
+}
+berechnen. $T$ beschreibt die Raumtemperatur in Kelvin und $p$ den Druck in der Küvette. Der Indize $0$ beschreibt die Werte der Normalbedinungen mit $p_0 = 101325 \mathrm{Pa}$ und $T_0 = 273.15 \mathrm{K}$.
+
+\wrap[0.35]{R}{TEK00001}{Beispielhafte Aufnahme des Interferograms der LED.}
+Für die Messung der Kohärenzlänge wird der Laser durch eine LED ersetzt. Da LEDs nur eine geringe Kohärenzlänge besitzen, tritt Interferenz nur in unmittelbarer Nähe der Weißlichtposition auf. Durch schnelles Überfahren dieser Position wird ein zeitlich begrenztes Interferogramm aufgenommen, das typischerweise gaußförmig moduliert ist. Aus der Halbwertsbreite des Interferogramms und der bekannten Verfahrgeschwindigkeit des Motors lässt sich die Kohärenzlänge bestimmen.
+
+\subsection{Versuchsaufbau}
+\img{MichelsonInterferometer}{Schematische Darstellung des Michelson-Interferometers. \cite{skriptPAP21}}
+Der Versuchsaufbau besteht aus einem Michelson-Interferometer mit einem Strahlteiler, einem festen und einem beweglichen Spiegel. Beide Spiegel sind kippbar gelagert, um die Interferenzmuster präzise einstellen zu können. Die Lichtquelle, Laser oder LED, wird auf den Strahlteiler gerichtet, der das Licht in zwei senkrecht zueinander stehende Arme aufteilt.  
+
+Der bewegliche Spiegel wird über einen Motor mit konstanter Geschwindigkeit verfahren, während ein optischer Detektor die Intensität des Interferenzmusters registriert. Für die Brechungsindexmessung befindet sich eine evakuierbare Küvette im Strahlengang eines Arms. Temperatur und Druck werden während der Messung dokumentiert, um die Ergebnisse korrekt normieren zu können.

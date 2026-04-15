@@ -1,2 +1,22 @@
 \chapter{Anhang}
 \label{ch:Anhang}
+
+\img{plots/Positionen_der_Minima2a}{Abstände der Extrema in Abhänigkeit ihrer Ordnungszahl. Maxima sind falsch eingezeichet; sind um 1 zu klein.}
+Leider ist die Ordnungszahl der Maxima falsch bestimmt, diese ist chronisch um $1$ zu klein. Dies ist insbesondere der \ctab{vergleich_ordnungszahl_theo_ex_einzelspalt} zu entnehmen und auch logisch zu begründen. Denn die Iteration berücksichtigt nicht, dass das Hauptmaximum übersprungen werden muss.
+\begin{table}[h!]
+    \caption{Vergleich der experimentell bestimmten Ordnungszahlen un der theorisch erwatreten. Zudem wurden die experimentellen Daten korrigiert, den diese warern alle um 1 zu klein. Die Fehlerherkunft konnte nicht ausfindig gemacht werden.}
+    \label{tab:vergleich_ordnungszahl_theo_ex_einzelspalt}
+    \centering
+    \begin{tabular}{L C | C || C | C}
+        \toprule
+        n_\text{theo} & n_\text{exp} & \text{Std. Abw. } \sigma & n_\text{exp,korr} & \text{Std. Abw., korr} \sigma \\
+        \midrule
+        1.43 & 0.58 \pm 0.15 & 5.76 & 1.58 \pm 0.15 & 0.99 \\
+        2.46 & 1.43 \pm 0.15 & 6.79 & 2.43 \pm 0.15 & 0.20 \\
+        3.47 & 2.47 \pm 0.16 & 6.20 & 3.47 \pm 0.16 & 0.02 \\
+        4.48 & 3.47 \pm 0.17 & 5.87 & 4.47 \pm 0.17 & 0.06 \\
+        5.48 & 4.49 \pm 0.19 & 5.29 & 5.49 \pm 0.19 & 0.05 \\
+        6.48 & 5.46 \pm 0.2 & 5.03 & 6.46 \pm 0.2 & 0.12 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

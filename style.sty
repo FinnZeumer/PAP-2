@@ -13,7 +13,14 @@
 \usepackage{booktabs} 
 \usepackage{amstext} % for \text macro
 \usepackage{array}   % for \newcolumntype macro
+
+\usepackage{orcidlink}
+
 \newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+\newcolumntype{R}{>{$}r<{$}}
+\newcolumntype{C}{>{$}c<{$}} 
+
+
 
 % Kodierung und Sprache
 \RequirePackage[utf8]{inputenc}
@@ -102,8 +109,17 @@
 \chead{\raisebox{0.1cm}[0pt][0pt]{\versuchsname{\versuchsnummer}}}
 \ohead{\raisebox{0.1cm}[0pt][0pt]{\headmark}}
 
+\usepackage{lastpage}
+
 % Fußzeile
 \cfoot{\raisebox{-0.25cm}[0pt][0pt]{Seite \pagemark}}
+
+\newpairofpagestyles{headerOnly}{
+    \ihead{\raisebox{0.1cm}[0pt][0pt]{Finn Zeumer (hz334)}}
+    \chead{\raisebox{0.1cm}[0pt][0pt]{\versuchsname{\versuchsnummer}}}
+    \ohead{\raisebox{0.1cm}[0pt][0pt]{\headmark}}
+    \cfoot{}
+}
 
 % Auf allen Seiten anwenden
 \pagestyle{scrheadings}
@@ -123,7 +139,6 @@
 
 \setlength{\columnsep}{1em}     % Abstand zwischen den Spalten
 \setlength{\columnseprule}{0pt} % Stärke der Trennlinie (0pt = keine Linie)
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tabellen und Abbildungen %

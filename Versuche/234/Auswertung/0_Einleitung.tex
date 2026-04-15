@@ -1,14 +1,98 @@
-\chapter{Einleitung} \label{ch:Einleitung}
+\chapter{Einleitung}\label{ch:Einleitung}
 
-Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermekrt. Rechtschreibprüfungen werden sowohl durhc K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
+Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermerkt. Rechtschreibprüfungen werden sowohl durch K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
+
+\wrap[0.45]{R}{intVert_schwarzerKoerper}{Das Emissionsspektrum des theoretischen schwarzen Strahlers für verschiedene Strahlertemperaturen. \cite{skriptPAP21}}
+\section{Aufgabe und Motivation} \label{sec:AuM}
+
+Ziel dieses Versuches ist die Untersuchung der Emissions- und Absorptionsspektren verschiedener Lichtquellen. Durch die Analyse der spektralen Intensitätsverteilungen lassen sich Rückschlüsse auf die Art der Lichterzeugung sowie auf die zugrunde liegenden atomaren Übergänge ziehen. Besonders relevant ist dabei das Sonnenspektrum, in dem charakteristische Absorptionslinien – die sogenannten Fraunhofer-Linien – auftreten. Diese ermöglichen Aussagen über die Zusammensetzung der Sonnen- und Erdatmosphäre. 
 
 
-\section{Aufgabe und Motivation}
-\label{sec:AuM}
+Darüber hinaus wird das Emissionsspektrum einer Natriumdampflampe detailliert untersucht. Die Vielzahl an Linien erlaubt eine Zuordnung zu den Serien des Natriumatoms und damit eine Bestimmung der Serienenergien sowie der l-abhängigen Korrekturfaktoren. Der Versuch verbindet somit grundlegende spektroskopische Methoden mit quantenmechanischen Modellen der Atomhülle.
 
-\section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+\section{Physikalische Grundlage} \label{sec:PhyBasics}
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+\subsection[Temperaturstrahler]{Funktionsweise von Temperaturstrahlen}
+Jeder Körper mit einer Temperatur oberhalb von \SI{0}{\kelvin} emittiert elektromagnetische Strahlung. Für quantitative Betrachtungen wird häufig der \emph{schwarze Strahler} als Modell verwendet, der sämtliche einfallende Strahlung absorbiert und dessen Emission ausschließlich durch seine Temperatur bestimmt ist. Die spektrale Strahlungsleistung wird durch das Plancksche Strahlungsgesetz beschrieben:
 
+\eq{planck}{
+    M(\lambda, T) \, \d{A} \, \d{\lambda} = \frac{2\pi h c^{2}}{\lambda^{5}} \cdot \frac{1}{\exp\!\left(\frac{hc}{\lambda k_\mathrm{B} T}\right) - 1} \, \d{A} \, \d{\lambda} \, .
+}
+
+Dabei bezeichnet $T$ die Temperatur des Strahlers, $h$ das Plancksche Wirkungsquantum, $c$ die Lichtgeschwindigkeit und $k_\mathrm{B}$ die Boltzmannkonstante. Die Lage des Intensitätsmaximums verschiebt sich gemäß dem Wienschen Verschiebungsgesetz:
+
+\eq{wien}{
+    \lambda_\text{max} \cdot T = 2.898 \cdot 10^{-3}\,\mathrm{m\,K} \, .
+}
+
+Mit steigender Temperatur verschiebt sich das Maximum zu kürzeren Wellenlängen, sodass heiße Körper zunehmend im sichtbaren Bereich abstrahlen. Die Sonne besitzt eine Oberflächentemperatur von etwa \SI{5777}{\kelvin}, wodurch ihr Spektrum im sichtbaren Bereich nahezu gleichmäßig verteilt ist und als weiß wahrgenommen wird.
+
+\wrap[0.35]{L}{BS_H}{Balmer-Serie des Wasserstoffatoms. \cite{skriptPAP21}}
+
+Auf der Erde beobachtet man jedoch kein ideales Schwarzkörperspektrum, da sowohl die Sonnen- als auch die Erdatmosphäre bestimmte Wellenlängen absorbieren. Diese Absorptionslinien werden als Fraunhofer-Linien bezeichnet und ermöglichen Rückschlüsse auf die beteiligten Elemente. Der \cabb{BS_H} ist die Balmer-Serie des Wasserstoffatoms zu entnehmen und die Literaturwerte der Wellenlängen. Diese Linien lassen sich in dem Spektrum der Sonne wiederfinden.
+
+\subsection[Nicht-Temperaturstrahler]{Funktionsweise der Nicht-Temperaturstrahler}
+
+Neben thermischer Strahlung existieren Lichtquellen, deren Emission nicht auf Temperatur beruht. Dazu zählen insbesondere Gasentladungslampen und Leuchtdioden (LEDs).
+
+In Gasentladungslampen werden Atome oder Moleküle durch elektrische Felder angeregt. Beim Zurückfallen in energetisch tiefere Zustände emittieren sie Photonen diskreter Wellenlängen. Das resultierende Spektrum besteht daher aus scharfen Linien, die charakteristisch für das jeweilige Element sind.
+
+LEDs basieren hingegen auf der Rekombination von Elektron-Loch-Paaren in einem Halbleiter-pn-Übergang. Die Energie des emittierten Photons entspricht der Bandlücke des Materials. Typische Halbleitermaterialien sind beispielsweise GaAs (IR), AlGaAs (rot), GaP (grün) oder SiC (blau). Weiße LEDs nutzen meist eine Kombination aus blauer LED und einem Fluoreszenzkonverter, der einen Teil des Lichts in längere Wellenlängen umwandelt.
+
+\subsection[Das Na-Spektrum]{Die Idee des Natrium-Spektrum}
+
+Das Natriumatom besitzt ein einzelnes Valenzelektron und weist daher ein wasserstoffähnliches Energieschema auf. Für große Abstände vom Kern nähert sich das Potential dem Coulomb-Potential eines Wasserstoffatoms:
+
+\eq{coulomb}{
+    V(r) = -\frac{e^{2}}{4\pi\varepsilon_{0} r} \, .
+}
+
+Für kleine Abstände wirkt jedoch die volle Kernladung $Z=11$:
+
+\eq{coulombZ}{
+    V(r) = -\frac{Z e^{2}}{4\pi\varepsilon_{0} r} \, .
+}
+
+\img[.75]{Na_Spektrum}{Das Spektrum der Natriumserien.\cite{skriptPAP21}}
+
+Die Energieniveaus lassen sich in guter Näherung durch
+
+\eq{rydberg}{
+    E_{n,l} = -\frac{E_\mathrm{Ry}}{(n - \delta_l)^2}
+}
+
+beschreiben, wobei $E_\mathrm{Ry}$ die Rydbergenergie und $\delta_l$ der l-abhängige Korrekturterm ist. Dieser Term berücksichtigt die Abweichung vom reinen Wasserstoffpotential und hängt hauptsächlich vom Drehimpulsquantenzahl $l$ ab. Daher wird die Hauptquantenzahl $n$ in dieser Auswertung nicht konkret berücksichtigt. Sein Wert wird für alle Analysen auf $n=3$ gesetzt.
+Die relevanten Spektrallinien des Natriumatoms lassen sich in drei Serien einteilen, die jeweils durch Übergänge zwischen unterschiedlichen Quantenzahlen charakterisiert sind. Grundlage aller Betrachtungen ist, dass die Wellenlänge eines emittierten Photons durch die Energiedifferenz der beteiligten Zustände bestimmt wird. Diese Beziehung ergibt sich aus
+
+\eq{lambda}{
+    \lambda = \frac{hc}{\Delta E} \, ,
+}
+
+wobei $\Delta E$ die Energiedifferenz zwischen Anfangs- und Endzustand bezeichnet. Aus der Analyse der Linien können anschließend die Serienenergien $E_{3s}$ und $E_{3p}$ sowie die l-abhängigen Korrekturterme $\delta_s$, $\delta_p$ und $\delta_d$ bestimmt werden.
+
+\paragraph{Hauptserie}
+Die Hauptserie umfasst Übergänge der Form $m p \rightarrow 3s$. Dabei fällt ein Elektron aus einem angeregten p-Zustand mit Hauptquantenzahl $m > 3$ in den Grundzustand $3s$ zurück. Unter Verwendung der wasserstoffähnlichen Näherung mit dem l-abhängigen Korrekturterm $\delta_p$ ergibt sich für die Wellenlängen der Hauptserie:
+
+\eq{hauptserie}{
+    \lambda_\mathrm{H} = \frac{hc}{E_{mp} - E_{3s}} = \frac{hc}{\displaystyle -\frac{E_\mathrm{Ry}}{(m - \delta_p)^2} - E_{3s}} \, .
+}
+
+Der Term $E_{mp}$ analog zu \ceq{rydberg} aufgelöst. Diese Serie enthält unter anderem die bekannte D-Dublettstruktur im Bereich um \SI{589}{\nano\meter}.
+
+\paragraph{1. Nebenserie}
+Die erste Nebenserie beschreibt Übergänge $m d \rightarrow 3p$. Hier fällt das Elektron aus einem d-Zustand mit Hauptquantenzahl $m > 3$ in den angeregten Zustand $3p$. Da der Korrekturterm $\delta_d$ für d-Zustände sehr klein ist, kann er häufig vernachlässigt werden. Die Wellenlängen ergeben sich zu:
+
+\eq{neben1}{
+     \lambda_{\mathrm{N1}} = \frac{hc}{E_{md} - E_{3p}} = \frac{hc}{\displaystyle -\frac{E_\mathrm{Ry}}{m^{2}} - E_{3p}} \, .
+}
+
+Dabei wurde $E_{md}$ analog zu \ceq{rydberg} aufgelöst. Auch hier liefter die Serie zahlreiche Linien im sichtbaren Bereich, die experimentell gut aufgelöst werden können.
+
+\paragraph{2. Nebenserie}
+Die zweite Nebenserie umfasst Übergänge $m s \rightarrow 3p$. Das Elektron fällt dabei aus einem s-Zustand mit Hauptquantenzahl $m > 3$ in den Zustand $3p$. Da s-Zustände besonders stark vom Kernpotential beeinflusst werden, ist der Korrekturterm $\delta_s$ hier deutlich größer als bei höheren Drehimpulsen. Die Wellenlängen berechnen sich zu:
+
+\eq{neben2}{
+    \lambda_{\mathrm{N2}} = \frac{hc}{E_{ms} - E_{3p}} = \frac{hc}{\displaystyle -\frac{E_\mathrm{Ry}}{(m - \delta_s)^2} - E_{3p}} \, .
+}
+
+Erneut wurde $E_{ms}$ analog zu \ceq{rydberg} aufgelöst. Diese Serie weist im sichtbaren Bereich nur wenige, vergleichsweise schwache Linien auf, weshalb ihre experimentelle Identifikation anspruchsvoller ist.

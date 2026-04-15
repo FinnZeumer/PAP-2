@@ -4,8 +4,56 @@
 \section{Zusammenfassung}
 \label{sec:zusammenfassung}
 
+Im Rahmen dieses Versuchs wurde die Fourieroptik anhand von Einzel- und Doppelspalt experimentell untersucht. Ziel war es, die Zusammenhänge zwischen Objektbild und Beugungsbild sowie deren mathematische Beschreibung durch Fouriertransformationen zu verifizieren.
+
+Beim \textbf{Einzelspalt} konnte zunächst qualitativ bestätigt werden, dass eine Vergrößerung der Spaltbreite zu einem breiteren Objektbild und gleichzeitig zu einem schmaleren Beugungsbild führt (vgl. \csec{A1}). Ebenso wurde die Rotationssymmetrie zwischen Objekt- und Beugungsbild beobachtet.
+
+In der quantitativen Untersuchung (\csec{A2}) wurde mithilfe einer Eichgeraden (vgl. \cabb{plots/Eichgerade2a}) eine Umrechnung zwischen Pixel- und Realraum vorgenommen:
+\imp[-6]{s_\text{E}}{2.59}{0.03}{\frac{m}{px}}
+
+Aus der linearen Regression der Extremabstände (vgl. \cabb{plots/Extrema_Abstand_Ordnungszahltry2}) ergab sich:
+\imp[1]{s_\text{ord}}{4.71}{0.07}{px}
+
+Damit wurde die Spaltbreite zu
+\res[-6]{b}{69.6}{1.4}{m}
+bestimmt. Nach Korrektur der Ordnungszählung zeigte sich eine sehr gute Übereinstimmung zwischen Theorie und Experiment (vgl. \ctab{vergleich_ordnungszahl_theo_ex_einzelspalt}).
+Die Intensitätsverteilung der Maxima wich systematisch von der Theorie ab (vgl. \ctab{intensitaeten}), konnte jedoch durch einen Korrekturterm angenähert werden. Die Form des Verlaufs stimmte dennoch qualitativ mit der theoretischen Vorhersage überein.
+
+Im Abschnitt zur \textbf{Fouriersynthese des Einzelspalts} (\csec{A4}) wurde gezeigt, dass das Objektbild durch sukzessives Hinzufügen höherer Beugungsordnungen rekonstruiert werden kann. Die experimentellen Intensitätsverteilungen stimmen in ihrer Form gut mit den theoretischen Kurven überein (vgl. \ctab{extrema_all}), zeigen jedoch systematisch breitere Profile.
+
+Für den \textbf{Doppelspalt} (\csec{A3}) wurden die Spaltbreite und der Spaltabstand bestimmt. Es ergaben sich:
+\res[-6]{b_\text{b,dop}}{257}{6}{m}
+\res[-6]{b_\text{g,dop}}{379}{8}{m}
+
+sowie für den Spaltabstand:
+\res[-6]{d_\text{b,dop}}{599}{12}{m}
+\res[-6]{d_\text{g,dop}}{884}{14}{m}
+
+Die Intensitätsverteilung zeigte die erwartete Interferenzstruktur mit einhüllender Einzelspaltverteilung (vgl. \ctab{doppelspalt_int}).
+
+Abschließend wurde die Fouriersynthese auch für den Doppelspalt untersucht (\csec{A5}). Dabei konnte gezeigt werden, dass bei zu geringer Grenzfrequenz die Doppelstruktur verschwindet und in das Bild eines Einzelspalts übergeht. Die experimentell bestimmten Grenzfrequenzen wichen jedoch signifikant von den theoretischen Werten ab (vgl. \ctab{finalllllllalllllalllllallllll}).
+
 \section{Analyse der Messwerte}
 \label{sec:analyse}
 
+Die Auswertung zeigt, dass viele der bestimmten Größen signifikante Abweichungen von den theoretischen Erwartungen aufweisen, was sich in entsprechend großen Standardabweichungen widerspiegelt.
+
+Ein zentraler systematischer Fehler liegt in der nicht bestimmten Pixelbreite der aufgenommenen Bilder. Da die Skalierung der Kamerabilder nicht direkt bekannt war, mussten mehrfach Näherungen, beispielsweise durch FWHM-Skalierung, oder Werte von Kommilitonen verwendet werden. Dies beeinflusst insbesondere die Bestimmung der Spaltbreiten, die Lage der Extrema sowie die Intensitätsverteilungen und stellt damit eine der Hauptursachen für die beobachteten Abweichungen dar.
+Dies erklärt auch die signifikanten Diskrepanzen bei mehreren Ergebnissen. So weicht die über Bild- und Gegenstandsweite bestimmte Spaltbreite um mehr als $6\sigma$ ab, die Parameter des Doppelspalts um mehr als $10\sigma$, und auch die Grenzfrequenzen zeigen Abweichungen in der Größenordnung von etwa $6\sigma$.
+
+Ein weiterer wesentlicher Aspekt ist die generelle Fehleranfälligkeit optischer Experimente. Bereits kleine Fehljustierungen im Aufbau, etwa eine leichte Verkippung von Linsen oder Spalten, können zu messbaren Veränderungen in den Intensitätsverteilungen führen und somit die Ergebnisse systematisch verfälschen.
+Darüber hinaus wurden teilweise nur wenige Messpunkte aufgenommen, insbesondere bei der Untersuchung des Doppelspalts. Dies schränkt die statistische Aussagekraft der Ergebnisse zusätzlich ein. Eine größere Anzahl an Messreihen sowie die Einbeziehung höherer Beugungsordnungen hätten zu einer deutlich besseren Absicherung der Resultate geführt.
+Trotz dieser Einschränkungen stimmen die Größenordnungen der bestimmten physikalischen Größen sowie die qualitativen Verläufe der Intensitätsverteilungen gut mit der theoretischen Erwartung überein. Insbesondere die lineare Abhängigkeit der Extremapositionen von der Ordnungszahl, die charakteristische Form der Beugungskurven sowie die beobachtete Fouriersynthese der Objektbilder bestätigen die zugrunde liegenden theoretischen Modelle.
+
+Insgesamt kann der Versuch daher trotz der vorhandenen systematischen Unsicherheiten als erfolgreicher experimenteller Nachweis der Fourieroptik gewertet werden.
+
 \section{Kritik}
 \label{sec:kritik}
+
+Der Versuchsaufbau ist grundsätzlich geeignet, die zentralen Konzepte der Fourieroptik anschaulich zu demonstrieren, weist jedoch einige Schwächen auf.
+Ein wesentlicher Kritikpunkt ist die unzureichende Dokumentation der aufgenommenen Bilder. Insbesondere wurde die Pixelbreite der Kameraaufnahmen nicht bestimmt. Bei einer vollständigeren und sorgfältigeren Aufnahme der Daten wäre es möglich gewesen, diese Größe nachträglich zu rekonstruieren, wodurch viele der systematischen Fehler hätten vermieden werden können.
+Darüber hinaus mussten mehrfach Messwerte von Kommilitonen übernommen werden. Dies ist bei optischen Experimenten problematisch, da diese stark von individuellen Justierungen und Aufbaubedingungen abhängen und daher nur eingeschränkt übertragbar sind.
+Ein weiterer Kritikpunkt ist die begrenzte Anzahl an Messwerten, insbesondere bei der Intensitätsanalyse des Doppelspalts. Eine größere Datenbasis hätte die statistische Sicherheit der Ergebnisse deutlich verbessert.
+Zusätzlich erschweren Sättigungseffekte der Kamera sowie mögliche Hintergrundsignale eine präzise Bestimmung der Intensitäten und tragen zu weiteren Unsicherheiten bei.
+Zur Verbesserung des Versuchs bieten sich daher mehrere Maßnahmen an. Dazu zählen insbesondere eine automatische Bestimmugng der Pixelbildbreite der Kamera, die systematische Aufnahme mehrerer Messreihen, die Vermeidung von Sättigung durch angepasste Belichtungszeiten sowie eine präzisere Justierung des optischen Aufbaus, denn die wackelnde Kamera hat ein Präzises einstellen besonders erschwert. Mehr Zeit hätte hier die aufgenommenen Signale sicherlich verbessern können, da so auch mehr Möglichkeiten sich ergeben hätten, um die teilweise Asymmetrien auszugleichen. 
+Trotz dieser Kritikpunkte ermöglicht der Versuch ein gutes qualitatives Verständnis der Fourieroptik und bestätigt die theoretischen Zusammenhänge im Rahmen der experimentellen Genauigkeit.

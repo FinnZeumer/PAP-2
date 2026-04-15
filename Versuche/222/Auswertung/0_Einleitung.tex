@@ -1,14 +1,91 @@
 \chapter{Einleitung} \label{ch:Einleitung}
 
-Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermekrt. Rechtschreibprüfungen werden sowohl durhc K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
+Die Ausarbeitung der Einleitung ist anhand des Skriptes von Jens Wagner entstanden. Alle Abbildungen, sind entweder aus dem Skript oder selbst erzeugt, wenn nicht anders vermerkt. Rechtschreibprüfungen werden sowohl durch K.I.-Modelle, sowie durch den Rechtschreibprüfer des Dudens durchgeführt.  Dies gilt nur für die Einleitung und die Durchführung. Die Auswertung wird völlig ohne K.I. Assistenz geschrieben. \cite{skriptPAP21, Duden}
 
 
-\section{Aufgabe und Motivation}
-\label{sec:AuM}
+\section{Aufgabe und Motivation} \label{sec:AuM}
 
-\section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+Der vorliegende Versuch untersucht die Funktionsweise eines \(\beta\)-Typs Stirlingmotors sowohl im Betrieb als Wärmekraftmaschine als auch in der umgekehrten Betriebsweise als Kältemaschine bzw. Wärmepumpe. Der Stirlingmotor zählt zu den ältesten periodisch arbeitenden Wärmekraftmaschinen und zeichnet sich durch seine äußere Wärmezufuhr, hohe Laufruhe und einen im Idealfall sehr hohen Wirkungsgrad aus. 
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+Im Rahmen dieses Praktikums sollen die grundlegenden thermodynamischen Prozesse nachvollzogen, die Energiebilanzen der verschiedenen Betriebsarten bestimmt und die Wirkungsgrade experimentell ermittelt werden.
+
+\section{Physikalische Grundlage} \label{sec:PhyBasics}
+
+\subsection{Der Beta-Typ Stirlingmotor} \label{ssec:bTS}
+
+\wrap[0.5]{R}{Sterling_beta_typ}{Schematischer Aufbau des $\beta$-typ Stirlingmotors. \cite{skriptPAP21}}
+Der im Versuch verwendete Stirlingmotor ist ein \(\beta\)-Typ, bei dem sich Arbeits- und Verdrängungskolben in einem gemeinsamen, gasgefüllten Zylinder befinden. Der obere Bereich des Zylinders wird beheizt, während der untere Bereich aktiv gekühlt wird. Der Verdrängungskolben bewegt das Arbeitsgas periodisch zwischen den beiden Temperaturzonen, ohne es dabei zu komprimieren. Die eigentliche Volumenänderung erfolgt durch den Arbeitskolben.
+
+Beide Kolben sind über eine Kurbelwelle mit einem Schwungrad gekoppelt und bewegen sich nahezu sinusförmig mit einer Phasenverschiebung von etwa \(90^\circ\). Im Inneren des Verdrängers befindet sich ein Regenerator aus Kupferwolle, der als kurzzeitiger Wärmespeicher dient und den Wirkungsgrad des Prozesses erhöht, indem er Wärme zwischen den isochoren Zustandsänderungen zwischenspeichert.
+
+\subsection{Der Stirlingmotor als Wärmekraftmaschine} \label{ssec:SterWa}
+
+Der ideale Stirlingprozess besteht aus vier Zustandsänderungen: einer isothermen Expansion, einer isochoren Abkühlung, einer isothermen Kompression und einer isochoren Erwärmung. Grundlage der Beschreibung ist der erste Hauptsatz der Thermodynamik, welcher einen Zusammenahng zwischen der Wärme $Q$, der inneren Energie $U$ und der Volumenarbeit $p \, dV$ beschreibt ($p$ ist der Druck und $V$ das Volumen),
+\eq{1HS}{
+    dQ = dU + p\,dV ,
+}
+wobei die innere Energie eines idealen Gases ausschließlich von der Temperatur $T$ abhängt. Unter Verwendung der molaren Wärmekapazität \(C_V\) ergibt sich
+\eq{dQ}{
+    dQ = C_V v\, dT + p\, dV .
+}
+
+Die isothermen Schritte wandeln zugeführte Wärme vollständig in Volumenarbeit um, während die isochoren Schritte ausschließlich die innere Energie  ändern. Die (Nutz-)Arbeit $W_\text{N}$ pro Zyklus ergibt sich aus der im \(pV\)-Diagramm eingeschlossenen Fläche. Für den idealen Prozess gilt
+\eq{WN}{
+    W_\mathrm{N} = v R (T_1 - T_2)\, \ln\!\left(\frac{V_2}{V_1}\right).
+}
+
+Ohne Regenerator setzt sich die aufgenommene Wärme aus der isothermen Expansion und der isochoren Erwärmung zusammen. Mit Regenerator entfällt der zweite Beitrag, sodass die einzige äußere Wärmezufuhr während der isothermen Expansion erfolgt. Der ideale Wirkungsgrad entspricht dann dem Carnot-Wirkungsgrad,
+\eq{Carnot}{
+    \eta_\mathrm{th} = 1 - \frac{T_2}{T_1}.
+}
+
+Reale Stirlingmotoren weichen hiervon ab, da die Kolbenbewegung kontinuierlich erfolgt und die Zustandsänderungen überlappen. Dies führt zu Verlusten durch unvollständige Regeneration, Wärmeleitung, Reibung und Totvolumen.
+
+\img{pV_sterling_beta_wareme}{pV-Diagramm des Stirlingmotors und schematischer Aufbau des Motorzustanden im jeweiligen Moment (idealisiert) im Betrieb als Wärmekraftmaschine. \cite{skriptPAP21}}
+
+\subsection{Betrieb des Motors als Kältemaschine} \label{ssec:SterKa}
+
+Wird der Stirlingprozess umgekehrt durchlaufen, arbeitet der Motor als Kältemaschine oder Wärmepumpe. Durch äußere mechanische Arbeit wird das Gas zyklisch komprimiert und expandiert, sodass Wärme aus einem kalten Reservoir entzogen und an ein warmes Reservoir abgegeben wird. Die Energiebilanz lautet
+\eq{Kaelte}{
+    Q_1 = Q_2 + W_\mathrm{M},
+}
+wobei \(Q_2\) die aufgenommene und \(Q_1\) die abgegebene Wärme ist. Alternativ lässt sich $Q_1$ auch über die kalorische Zustandsgleichung bestimmen
+\eq{mit_ordentlich_kalorien}{
+    Q_1 = \frac{C_\text{W} \, \rho_\text{W} \, \Delta T \, \dot V}{f} \, ,
+}
+wobei der Indize\afz{W} für Wasser steht. $C$ ist die Wärmekapazität, $\rho$ die Dichte, $\Delta T$ die Temperaturdifferenz und $f$ die Frequenz des Motors.
+Auch für die entzogene Wärme $Q_2$ lässt sich ein Ausdruck finden, denn diese entspricht gerade der zugeführten elektrischen Heißarbeit $W_\text{H}$
+\eq{qZWEI_ist_es_diesessmalalasdhj}{
+    Q_2 = W_\text{H} = \frac{U_\text{H} \, I_\text{H}}{f} \, ,
+}
+mit dem Heißstrom $U_\text{H}$ und der Heißspannung $I_\text{H}$.
+
+Für die Leistungsbewertung werden zwei Größen verwendet. Zum einen der Wirkungsgrad der Kältemaschine
+\eq{nK}{
+    \eta_\mathrm{K} = \frac{Q_2}{W_\mathrm{M}} \,  ,
+}
+und zum Anderen die Leistungszahl der Wärmepumpe
+\eq{WP}{
+    \eta_\mathrm{WP} = \frac{Q_1}{W_\mathrm{M}} \, .
+}
+
+\img{pV_sterling_kaelte}{pV-Diagramm des Stirlingmotors und schematischer Aufbau des Motorzustanden im jeweiligen Moment (idealisiert) im Betrieb als Kältekraftmaschine. \cite{skriptPAP21}}
+
+Im Versuch wird die Kälteleistung sowohl über eine Kompensationsmessung als auch über die Gefrierzeit einer Wasserprobe bestimmt.
+Zudem kann über das Wasservolumen $V_\text{W}$, die Schmelzwärme von Wasser $\lambda_\text{W}$, der Wasserdichte $\rho_\text{W}$ und der Gefrierzeit $t_0$ die Kälteleistugn 
+\eq{kalteleistung_muhaha}{
+    P_\text{K} = \frac{V_\text{W} \, \lambda_\text{W} \, \rho_\text{W}}{t_0}
+}
+bestimmt werden. Diese kann auch über die Heißspannung $U_\text{H}$ und dem Heißstrom $I_\text{H}$ bestimmt werden:
+\eq{kalteleistung_muhaha_anders}{
+    P_\text{K} = U_\text{H} \, I_\text{H}
+}
+
+\subsection{Annahme: Ideales Gas}
+Die theoretische Beschreibung des Stirlingmotors basiert auf dem idealen Gasgesetz,
+\eq{Gas}{
+    pV = \nu RT ,
+}
+wobei $\nu$ die Gasmenge in mol ist und $R$ die ideale Gaskonstante, dem ersten Hauptsatz der Thermodynamik \ceq{1HS} und der Zerlegung der vier Prozessschritte in isotherme und isochore Zustandsänderungen. Die im Versuch gemessenen Größen wie Druck, Volumenänderung, Temperaturdifferenzen und Drehzahl ermöglichen eine vollständige Energiebilanzierung der verschiedenen Betriebsarten.
+
 

@@ -3,9 +3,100 @@
 
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
+Ziel des Versuches war es, ein Teilchen zu beobachten, welches sich nach den Gesetzten der Brownischen Bewegung verhält. Über die zufällig zurückgelegte Strecke konnte über eine statistische Mittlung die Boltzmannkonstante auf zwei verschiedene Weisen bestimmt werden. 
+Mit dieser konnte dann wiederrum der Diffusionskoeffizient bestimmt werden. 
+
+Zusätzlich wurden die Daten der anderen Gruppe ausgewertet, um ein Vergleich beider Messdaten zu führen.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
+\subsection{Vergleich der Ergebnisse beider Gruppen}
+Der Tabelle \ctab{vgl_beide_gruppen_geilomat} sind die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} der gemessenen Werte zu entnehmen.
+\begin{table}[h]
+    \centering
+    \caption{Vergleich der Messergebnisse beider Gruppen}
+    \label{tab:vgl_beide_gruppen_geilomat}
+    \begin{tabular}{R | L L || L}
+        \toprule 
+        \text{Untersuchte Größe } & \text{Werte der Hauptgruppe } & \text{Alternativwerte } & \text{Std. Abw } \sigma\\
+        \midrule 
+        k_\text{B} [10^{-24}\mathrm{\frac{J}{K}}]           & 10.0 \pm 0.9 & 8.8 \pm 0.9        & 0.94\sigma \\
+        D [10^{-13}\mathrm{\frac{m^2}{s}}]                  & 4.4 \pm 0.4 & 3.9 \pm 0.3         & 1.00\sigma \\
+        \midrule 
+        k_{\text{B},2} [10^{-24}\mathrm{\frac{J}{K}}]       & 9.9 \pm 0.4 & 8.5 \pm 0.9         & 1.42\sigma \\
+        D_2 [10^{-13}\mathrm{\frac{m^2}{s}}]                & 4.343 \pm 0.016 & 3.727 \pm 0.016 & 27.22\sigma \\
+        \midrule 
+        k_{\text{B,korr}} [10^{-24}\mathrm{\frac{J}{K}}]    & 9.9 \pm 0.4 & 8.5 \pm 0.9         & 1.42\sigma \\
+        D_{\text{korr}} [10^{-13}\mathrm{\frac{m^2}{s}}]    & 4.34\pm 0.05 & 3.72 \pm 0.05      & 8.77\sigma \\
+        \bottomrule 
+        \bottomrule
+        k_\text{B,avg} [10^{-24}\mathrm{\frac{J}{K}}]       & 9.9 \pm 1.1 & 8.6 \pm 1.6         & 0.67\sigma \\
+        D_{\text{avg}} [10^{-13}\mathrm{\frac{m^2}{s}}]     & 4.4 \pm 0.4 & 3.8 \pm 0.3         & 1.20\sigma \\
+    \end{tabular}
+\end{table}
 
-\section{Kritik}
-\label{sec:Kritik}
+Interessanterweise, sind die Werte aller $k_\text{B}$ statistisch signifikant, die Werte für den Diffusionskoeffizient sind nur dann statistisch signifikant, wenn nicht die Methode des\afz{kumuliertes Verschiebungsquadrates} verwendet wird. 
+Die durchschnittlichen Werte des \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} sind dabei wieder statistisch signifikant, da sich die Fehler hier aufaddieren. Allgmeien lässt sich festhalten, dass die Ungenauigkeiten über die Methode \afz{kumuliertes Verschiebungsquadrat} sehr klein ausfallen. Dies liegt an der präzisen Bestimmung der Steigung. 
+Die geringe Steigungsunsicherheit deutet auf eine geringe Streuung der Einzelmesswerte hin.
+
+Dass das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet werden kann, wird klar, wenn gezeigt wird, dass die Werte alle statistisch im Zusammenhang stehen. Dies wird im Folgenden gezeigt.
+
+\subsection{Vergleich: mittleres Verschiebungsquadrat und kumuliertes Verschiebungsquadrat}
+Es sollen die beiden Messmethoden verglichen werden. Die Ergebnisse für beide Messreihen (Haupt- und Alternativwerte) sind der \ctab{vgl_aber_dieses_mal_etwas_anderes} zu entnehmen.
+\begin{table}[h]
+    \centering
+    \caption{Vergleich des mittleres Verschiebungsquadrat mit dem kumulierten Verschiebungsquadrat}
+    \label{tab:vgl_aber_dieses_mal_etwas_anderes}
+    \begin{tabular}{R | L L || L}
+        \toprule 
+        \text{Untersuchte Größe } & \text{Mittleres } \langle r^2 \rangle & \text{Kumuliertes } \langle r^2 \rangle & \text{Std. Abw } \sigma\\
+        \midrule 
+        k_\text{B} [10^{-24}\mathrm{\frac{J}{K}}]           & 10.0 \pm 0.9 & 9.9 \pm 0.4        & 0.10\sigma \\
+        D [10^{-13}\mathrm{\frac{m^2}{s}}]                  & 4.4 \pm 0.4 & 4.343 \pm 0.016     & 0.14\sigma \\
+        \midrule 
+        % \midrule 
+        k_\text{B,alt} [10^{-24}\mathrm{\frac{J}{K}}]           & 8.8 \pm 0.9 & 8.5 \pm 0.9     & 0.24\sigma \\
+        D_\text{alt} [10^{-13}\mathrm{\frac{m^2}{s}}]           & 3.9 \pm 0.3 & 3.727 \pm 0.016 & 0.58\sigma \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Es zeigt sich eindeutig, dass alle Werte in der $1\sigma$-Umgebung liegen und damit statistisch kongruent. Es kann keine ausgezeichnete Methode festgestellt werden.
+Sowohl die Haupt- als auch die Alternativmessreihe wurden in die Analyse einbezogen.
+
+\subsection{Vergleich: kumuliertes Verschiebungsquadrat mit und ohne Korrektur}
+Weiterführend soll überprüft werden, ob die Korrektur des kumulierten Verschiebungsquadrates signifikante unterschiede gebracht hat. Die Ergebnisse sind der \ctab{val_aber_es_ist_schonwieder_ein_anderer_vergleich_und_ja_dieses_label_ist_viel_zu_lang_ich_weiss_aber_was_soll_man_machen_FRAGEZEICHEN} zu entnehmen
+\begin{table}[h]
+    \centering
+    \caption{Vergleich des unkorrigierten kumulierten Verschiebungsquadrat mit dem korrigierten kumulierten Verschiebungsquadrat}
+    \label{tab:val_aber_es_ist_schonwieder_ein_anderer_vergleich_und_ja_dieses_label_ist_viel_zu_lang_ich_weiss_aber_was_soll_man_machen_FRAGEZEICHEN}
+    \begin{tabular}{R | L L || L}
+        \toprule 
+        \text{Untersuchte Größe } & \text{Unkorrigiertes } \langle r^2 \rangle & \text{Korrigiertes } \langle r^2 \rangle & \text{Std. Abw } \sigma\\
+        \midrule 
+        k_\text{B} [10^{-24}\mathrm{\frac{J}{K}}]           & 9.9 \pm 0.4 & 9.9 \pm 0.4             & 0.00\sigma \\
+        D [10^{-13}\mathrm{\frac{m^2}{s}}]                  & 4.343 \pm 0.016 & 4.34 \pm 0.05       & 0.06\sigma \\
+        \midrule 
+        % \midrule 
+        k_\text{B,alt} [10^{-24}\mathrm{\frac{J}{K}}]           & 8.5 \pm 0.9 & 8.5 \pm 0.9         & 0.00\sigma \\
+        D_\text{alt} [10^{-13}\mathrm{\frac{m^2}{s}}]           & 3.727 \pm 0.016 & 3.72 \pm 0.05   & 0.13\sigma \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Die Ergebnisse zeigen, dass die Methoden gleich zu bewerten sind, denn die statistischen Abweichung sind für die Boltzmannkonstante nicht Messbar gewesen, für den Diffusionskoeffizient sind diese statistisch deckungsgleich.
+Jedoch ist anzumerken, dass die zweite Methode besser korrigeren würde, wenn insbesondere mehr Einzelmessungen durchgeführt werden würden. Die zweite Methode ist also besser geeignet, um die Messung zu skalieren, die erste ist jedoch simpler und daher für eine grobe Einordnung besser zu gebrauchen.
+Anhand der hier berücksichtigten Messung jedoch, kann keine außerordentliche Messmethode festgestellt werden.
+
+\subsection{Vergleich mit dem Literaturwert}
+Der Literaturwert der Boltzmannkonstante liegt bei $k_B = (13.80649) 10^{-24}\mathrm{\frac{J}{K}}$. Aus den Werten folgt, dass beide Gruppen die Boltzmannkonstante chronisch zu klein gemessen haben. Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Hauptwerte mit dem Literaturwert verglichen. Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} der beiden Werte resultiert in
+\eq{rtegfhuioghudfndgh}{
+    3.55\sigma \, .
+}
+Die Werte sind damit nicht deckungsgleich. Der prozentuale Fehler liegt bei $39\%$ und ist damit schlechter, als der erwartete Wert.\footnote{Die Wete der anderen Gruppe sollen hier nicht weiter diskutiert werden.} Mögliche Fehlerquellen könnten hier gewesen sein, dass nicht wirklich ein Teilchen beobachtet wurde, sondern mehrere zusammenklebende. Zudem sind 150 Messungen hier nicht besonders viel; mehr Messungen hätten eine bessere statistische Mittlung zur Folge. Damit lässt sich sagen, dass es sinnvoll wäre, mehrere Messreihen anzufertigen, bei jeder muss ein anderes Teilchen beobachtet werden und die Anzahl der Einzelmessungen drastisch zu erhöhen. Dies würde die statistische Näherung verbessern.
+
+\subsection{Häufung im Histogramm}
+Wie angemerkt, ist dem Histogramm der Hauptwerte mit 50 Bins eine Anomalie fest zu stellen: Ein deutliche Häufung ist bei einer Verschiebung von $\approx 0 \mu$m festzustehllen. Weniger Extrem, aber ähnlich ist es bei den Alternativwerten, auch hier sind peaks bei geringer Auslenkung zu beobachten.
+Zum einen ist hier anzumerken, dass dies statistisch natüclich durchaus möglich ist, so kann es passieren, dass in der Sekunde entweder keine Stöße oder Stöße dessen Impulse sich über die Sekunnde zu null mitteln stattfinden. Dies ist insbesondere bei so wenigen Messungen nicht verwunderlich, wären mehr Messungen gemacht wurden, so wäre der peak unwahrscheinlichr und hätte dann erst eine genauere betrachtung gebracht.
+
+
+% \section{Kritik}
+% \label{sec:Kritik}

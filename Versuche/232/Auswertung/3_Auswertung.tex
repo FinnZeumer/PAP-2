@@ -1,5 +1,3 @@
-n
-
 \chapter{Auswertung}
 \label{ch:Auswertung}
 % Liste der genutzer Formeln für die Fehlerrechnung
@@ -7,7 +5,7 @@ n
 Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größen definiert \cite{errorSkript25}:
 \begin{align}
     \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetisches Mittel}} \label{eq:arithmetisches_mittel} \\
-    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Variation}} \label{eq:variation} \\
+    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Varianz}} \label{eq:Varianz} \\
     \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
     \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
     \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
@@ -17,19 +15,73 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
     \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
 \end{align}
 
-\newpagen
+\newpage
 
-\section{Aufgabe 1: }
+\section[Berechnung der Wellenlänge]{Bestimmung der Wellenlänge des Lasers}
 \label{sec:A1}
+In diesem Abschnitt wird die Wellenlänge des verwendeten Lasers bestimmt. Dazu werden die gemessenen Werte für die Anzahl der Interferenzmaxima $m$, die Verschiebung des Spiegels von $s_a$ nach $s_e$ verwendet. Die Berechnung erfolgt nach der \ceq{laserWellenlange}, wobei die Fehler gemäß \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu \ceq{err_welllangen} berechnet werden:
+\eq{err_welllangen}{
+    \Delta \lambda_i = \lambda_i \, \sqrt{
+        \frac{(\Delta m)^2}{m^2} +
+        \frac{(\Delta s_a)^2}{(s_a - s_e)^2} +
+        \frac{(\Delta s_e)^2}{(s_a - s_e)^2}
+    } \, .
+}
 
-\section{Aufgabe 2: }
+Die Ergebnisse der Rechnng jeder Messreihe sind der \ctab{wellenlangen} zu entnehmen. Es wurde die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Herstellerwert $\lambda_\text{lit}(532 \pm 1) \mathrm{nm}$ bestimmt. 
+\begin{table}[h!]
+    \caption{Wellenlängen der einzelmessungen}
+    \label{tab:wellenlangen}
+    \centering
+    \begin{tabular}{c | C || C}
+        \toprule
+        Messung & \lambda \mathrm{[10^{-9} m]} & \text{Standardabweichung } \sigma \\
+        \midrule
+        1 & 545 \pm 4 & 3.53 \\
+        2 & 549 \pm 4 & 4.56 \\
+        3 & 549 \pm 4 & 4.64 \\
+        4 & 549 \pm 4 & 4.70 \\
+        5 & 537 \pm 4 & 1.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Wellenlängen bestimmt und der \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} mit den Fehler der Einzelmessungen verrechnet. Es ergibt sich eine finale Wellenlänge von
+\res[-9]{\lambda}{546.0}{1.2}{m}
+Die tandardabweichung zum Herstellerwert beträgt $\sigma = 8.97$.
+
+
+\section[Brechungsindex von Luft]{Berechnung des Brechungsindexes von Luft}
 \label{sec:A2}
+In dieser Sektion soll der Brechungsindex von Luft $n$ unter Normalbedinungen bestimmt werden. Die drei Messreihen werden geplottet und mit einer linearen Regression verrechnet. Die Plots sind der \cabb{ringe_gegen_druck_SUBPOLLTING_2} zu entnehmen.
+\img[1]{ringe_gegen_druck_SUBPOLLTING_2}{Gemessener Druck in der Küvette in Abhänigkeit der vorbeigezogenen Interferenzringen.}
+Dabei wurde sowohl ein Ablesefehler $\Delta p_\text{a} = 5 \mathrm{Torr}$, als auch ein systematischer Gerätefehler $\Delta p_\text{s} = 0.006 \cdot 800 \mathrm{Torr}$ (nach Praktikumsskipt \cite{skriptPAP21}) berücksichtigt. Die Fehler werden nach \ceq{fehler_summe} verrechnet. 
+Die durchschnittliche Steigung aller drei Messreihen beträgt dabei 
+\imp[-6]{s}{492.4}{2.0}{{Pa}^{-1}}
 
-\section{Aufgabe 3: }
+Die Steigung $s$ entspricht hier dem Quotienten $p/m$ aus der \ceq{brechungsindexnormalbedinungen}. Die länge der Küvette ist dem Praktikumsskipt zu entnehmen und beträgt $a = (50 \pm 0.05) \mathrm{mm}$, die Wellenlänge des Lasers wurde in der Aufgabe in \csec{A1} bestimmt und die Raumtemperatur wurde zu $T = (23.6 \pm 0.5)\mathrm{^\circ C}$ gemessen.
+
+Die Ungenauigkeit der Gleichung wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu
+\eq{fehler_brechungsindex}{
+    \Delta n_0 = (n_0-1) \sqrt{\left(\frac{\Delta a}{a}\right)^2 + \left(\frac{\Delta T}{T}\right)^2 + \left(\frac{\Delta \lambda}{\lambda}\right)^2 + \left(\frac{\Delta s}{s}\right)^2}
+}
+ermittelt. Durch einsetzen der Werte ergibt sich ein Brechungsindex von Luft unter Normalbedinungen von
+\res{n_0}{1.0002959}{0.0000015}{}
+Der Literarurwert liegt bei $n_\text{lit} = 1.00028$, somit ergibt sich eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $10.56 \sigma$, der prozentuale Fehler liegt bei $0.0016\%$. 
+
+
+\section[Kohärenzlänge der LED]{Berechnung der Kohärenzlänge der Leuchtdiode}
 \label{sec:A3}
-
-\section{Aufgabe 4: }
-\label{sec:A4}
-
-\section{Aufgabe 5: }
-\label{sec:A5}
+In dieser Sektion soll anstelle des Lasers eine Leuchtdiode (LED) untersucht werden. Dazu wird das aufgenommene Interferogramm der LED untersucht. Das Signal ist der \cabb{spannung_zeitverlauf} zu entnehmen, die Maxima sind eingezeichnet und ein Gauß-Fit über das Signal gelegt. 
+\img{spannung_zeitverlauf}{Spannungsverlauf des Interferogramms der LED, inklusive bestimmter Maxima und Gauß-Fit.}
+Die Halbwertsbreite lässt sich dabei via
+\eq{halbwertsbreite}{
+    \tau = 2 \sigma \, \sqrt{2\, \ln(2)} \qquad \Delta \tau = 2 \Delta \sigma \, \sqrt{2\, \ln(2)}
+} 
+bestimmen. Die Standardabweichung ist der \cabb{spannung_zeitverlauf} zu entnehmen und beträgt $\sigma = (0.01339 \pm 0.00020)\mathrm{s}$. Somit ergibt sch die Halbwertsbreite zu
+\imp[2]{\tau}{3.15}{0.05}{s}
+Mit der Halbwertsbreite und der (mittleren) Geschwindigkeit des bewegten Spiegels $v = 0.1 \mathrm{mm/s}$ kann die Kohärenzlänge der LED bestimmt werden. Auf Gurnd dessen, dass sich der Ganunterschied der Strahlen mit der doppelten Geschwindigkeit des bewegten Spigels verändet, muss der Faktor $2$ berücksichtigt werden. Die Kohärenzlänge wird über
+\eq{kolang_formel}{
+    L = 2 \tau v \qquad \Delta L = 2 \Delta \tau v
+}
+berechnet. Einsetzen der Versuchsparameter lieftet eine finale Kohärenzlänge der LED von 
+\res[-6]{L}{6.30}{0.10}{m} 

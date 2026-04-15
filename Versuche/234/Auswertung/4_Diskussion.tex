@@ -4,8 +4,84 @@
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
 
+In diesem Versuch wurden Emissions- und Absorptionsspektren verschiedener Lichtquellen mithilfe eines Gitterspektrometers untersucht. Zunächst wurde das Sonnenspektrum sowohl mit als auch ohne Fensterscheibe aufgenommen, um den Einfluss des Glases auf die spektrale Intensitätsverteilung zu analysieren. Anschließend wurden verschiedene künstliche Lichtquellen vermessen und miteinander verglichen. Abschließend erfolgte eine detaillierte Untersuchung des Emissionsspektrums einer Natriumdampflampe zur Bestimmung von Serienenergien und Korrekturtermen.
+
+Die Ergebnisse zeigen, dass die Fensterscheibe die Intensität des Sonnenspektrums im Mittel um etwa $21.67\%$ reduziert, wobei eine große Streuung mit einem Fehler des Mittelwertes von $38.33\%$ beobachtet wurde (vgl. \cabb{A1/Vergleich_Sonnenspektren_1a} und \cabb{A1/Abs_S_1b}). Das Intensitätsmaximum des Sonnenspektrums liegt in beiden Fällen bei etwa $(520 \pm 5)\,\mathrm{nm}$. Die bestimmten Fraunhofer-Linien stimmen überwiegend gut mit den Literaturwerten überein (vgl. \cabb{A1/FL_S_1c} und \ctab{fraunhofer}), wobei die meisten Abweichungen im Bereich von $\sigma \lesssim 3$ liegen.
+
+Für die künstlichen Lichtquellen konnten charakteristische spektrale Unterschiede festgestellt werden. Die berechneten mittleren Wellenlängen reichen von $466.89\,\mathrm{nm}$ (blaue LED) bis $650.26\,\mathrm{nm}$ (Glühlampe), was die unterschiedlichen Emissionsmechanismen widerspiegelt (vgl. \ctab{wellenlaengen}). 
+
+Das Natriumspektrum zeigte die erwarteten Linienstrukturen der Haupt- und Nebenserien, aus denen die entsprechenden Energien und Korrekturterme bestimmt wurden. Die bestimmten Spektrallinien sind der \ctab{Emissionslinien_Na} zu entnehmen. Die vermessenen Linien $\lambda_\text{E4} = (819.2 \pm 1.2) \mathrm{nm}$ bzw. $\lambda_\text{C1} = \lambda_D = (588.6 \pm 1.2) \mathrm{nm}$ wurden genutzt, um die Energie der Übergänge zu bestimmen. Für die erste Nebenserie wurde die Energie
+\res{E_{3p}}{-3.0251}{0.0022}{eV} \label{eq:resE3p}
+bestimmt. Und für die zweite Nebenserie die Energie
+\res{E_\text{3s}}{-5.131}{0.005}{eV}
+Für die zwite Nebenserie lagen zudem alle Informationen vor, um den Korrekturfaktor zu bestimmen, es ergab sich
+\imp{\delta_s}{1.3717}{0.0008}{}
+
+Die Ergebnisse der theoretischen und der experimentell bestimmten Werte der beiden Nebenserien sind der \ctab{n1_lambdas} bzw. \ctab{n2_lambdas} zu entnehmen.
+
+Zuletzt wurde die Analyse der Serienenergien und der Korrekturen der beiden Nebenserien des Natriums durchgeführt. Die spezifischen Wellenlängen und Energieniveaus der Linien im Emissionsspektrum des Natriums wurden untersucht, insbesondere in Bezug auf die Haupt- und Nebenserien.
+
+Zunächst wurden für jede der beiden Nebenserien die Serienenergien bestimmt. Diese Energien basieren auf den Übergängen der Elektronen innerhalb des Natriumatoms und sind verantwortlich für die erzeugten Linien im Spektrum. Die Energieunterschiede zwischen den verschiedenen Zuständen wurden aus den experimentellen Messungen abgeleitet.
+
+Im weiteren Verlauf der Analyse wurden Korrekturterme berücksichtigt, die die Abweichungen von der theoretischen Wasserstoffmodell-Näherung beschreiben. Diese Korrekturterme hängen von der Drehimpulsquantenzahl des Elektrons ab und haben Einfluss auf die Berechnungen der Serienenergien.
+
+Die beiden Nebenserien des Natriums, die erste und die zweite, wurden getrennt betrachtet. Für jede Serie wurden die entsprechenden Korrekturen ermittelt, wobei Unterschiede aufgrund der unterschiedlichen Energieniveaus und Übergänge zwischen den Zuständen des Natriumatoms festgestellt wurden.
+Der \ctab{werte_comparison} sind die Messergebnisse beider Messreihen eingetragen und deren Standardabweichungen. Für $\delta_\text{s,2}$ wurde die Abweichung zu dem Wert nach \ceq{res_delta_s_1} ($\delta_\text{s,1}$) bestimmt.
+
+Zudem sind der \ctab{werte_comparison_the} die Abweichungen von den gemessenen $E_\text{Ry}$ zum Literaturwert angegeben.
+
+\begin{table}[h!]
+    \centering
+    \caption{Vergleich der Werte zwischen den beiden Nebenserien.}
+    \centering
+    \begin{tabular}{l|l|l||l}
+        \toprule
+        \textbf{Größe} & \textbf{N1} & \textbf{N2} & \textbf{Std.Abw.}\\
+        \midrule
+        $E_\text{Ry} [\mathrm{eV}]$ & $(-12.7 \pm 0.8)$ & $(-13 \pm 5)$ & $0.04\sigma$\\
+        $E_\text{3p} [\mathrm{eV}]$ & $(-3.012 \pm 0.014)$ & $(-3.03 \pm 0.07)$ & $0.20\sigma$\\
+        $\delta_\text{d}/\delta_\text{s}$ & $(0.09 \pm 0.08)$ & $(1.5 \pm 0.5)$ & $0.22\sigma (\delta_\text{s,1},\delta_\text{s,2})$\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:werte_comparison}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \caption{Vergleich der Werte zum Literaturwert von $-13.605$ eV.}
+    \centering
+    \begin{tabular}{l || l | l || l | l}
+        \toprule
+        \textbf{Größe} & \textbf{N1} & \textbf{Std.Abw.} & \textbf{N2} & \textbf{Std.Abw.} \\
+        \midrule
+        $E_\text{Ry} [\mathrm{eV}]$ & $(-12.7 \pm 0.8)$ & $1.15\sigma$ & $(-13 \pm 5)$ & $0.24\sigma$\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:werte_comparison_the}
+\end{table}
+
+Keine der Abweichungen ist signifikant und die Auswertung unterstützt die bekannten physikalischen Gesetze. Jedoch ist anzumerken, dass für die zweite Nebenserie die Ungenauigkeit von $E_\text{Ry}$ besonders groß ausfällt und die Messung daher nicht als präzise angenommen werden kann. Es liegt ein prozentualer Fehler von $\approx 38\%$ vor.
+
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-\section{Kritik}
+Die Messergebnisse stimmen in weiten Teilen mit den theoretischen Erwartungen überein. Insbesondere das kontinuierliche Spektrum der Sonne mit überlagerten Absorptionslinien entspricht dem Modell eines nahezu schwarzen Strahlers mit atmosphärischer Absorption. Abweichungen von der Theorie sind insbesondere durch die Wetterbedingungen zu erklären.
+Auch die spektralen Eigenschaften der künstlichen Lichtquellen zeigen die erwarteten Unterschiede zwischen Temperaturstrahlern und Nicht-Temperaturstrahlern.
+
+Die Fraunhofer-Linien weisen größtenteils nur geringe Abweichungen von den Literaturwerten auf. Viele Linien liegen innerhalb von $\sigma \leq 2$, was auf eine gute Übereinstimmung mit der Theorie hinweist. Einzelne Linien zeigen jedoch größere Abweichungen von bis zu etwa $3.5\sigma$. Diese lassen sich vor allem durch die begrenzte Auflösung des Spektrometers sowie durch Unsicherheiten bei der manuellen Bestimmung der Linienpositionen erklären.
+
+Ein besonders auffälliges Ergebnis ist die fehlende signifikante Trennung der D-Linien des Natriums. Während die b-Linien statistisch unterscheidbar sind ($\approx 3\sigma$), ergibt sich für die D-Linien lediglich eine Abweichung von etwa $0.9\sigma$. Dies widerspricht der theoretischen Erwartung zweier klar getrennter Linien und deutet darauf hin, dass die spektrale Auflösung nicht ausreicht, um diese feine Struktur zuverlässig aufzulösen. Auch das Rauschen des Signals kann hier eine Rolle spielen.
+
+Im Kontext der Natrium-Nebenserien ist zudem die Behandlung der Linie B5 hervorzuheben. In der ersten Nebenserie wurde diese Linie zwar in der Tabelle angegeben später in für den Plot aber raus genommen und der zweiten Nebenserie zugeordnet, da die Standardabweichung in der ersten Nebenserie signifikant war, während sie es in der zweiten zu dem jeweiligen Wert nicht war. Somit ist es statistsich sinnvoller diese der zweiten Nebenserie zu zuordnen. Die Entscheidung zur Ein- bzw. Ausbeziehung basiert somit auf einer statistischen Bewertung.
+
+Es konnten nicht alle theoretischen erwarteten Linien gefunden werden und auch ein falsch zuordnen der Linien ist nicht auszuschließen, da diese nicht mathematisch, sondern subjektiv von dem Experimentator verbunden wurden.
+
+\section{Kritik der Messmethodik}
 \label{sec:Kritik}
+
+Der Versuchsaufbau weist mehrere Einschränkungen auf, die die Genauigkeit der Ergebnisse beeinflussen. Ein wesentlicher Kritikpunkt ist der begrenzte Wellenlängenbereich des verwendeten Spektrometers, der bei etwa $900\,\mathrm{nm}$ endet. Dadurch konnten insbesondere Anteile im infraroten Bereich nicht erfasst werden, was die vollständige Analyse einiger Spektren einschränkt.
+Darüber hinaus ist die spektrale Auflösung des Geräts begrenzt. Dies führt dazu, dass nahe beieinander liegende Linien, wie beispielsweise die D-Dublettstruktur des Natriums, nicht eindeutig getrennt werden können. Auch schwächere Linien der Nebenserien konnten teilweise nicht eindeutig identifiziert werden, da sie im Rauschen des Signals untergehen.
+
+Ein weiterer Unsicherheitsfaktor ergibt sich aus der manuellen Bestimmung der Fraunhofer-Linien mithilfe von Inkscape. Diese Methode ist anfällig für subjektive Einflüsse und kann systematische Fehler verursachen, insbesondere wenn die theoretischen Werte bereits bekannt sind. Dies kann zu einem Bias bei der Linienidentifikation führen.
+Zusätzlich beeinflussen äußere Bedingungen wie Streulicht, nicht ideale Ausrichtung des Spektrometers sowie Schwankungen der Intensität die Messergebnisse. Insgesamt liefert der Versuch zwar qualitativ überzeugende Ergebnisse, ist jedoch in seiner quantitativen Aussagekraft durch die genannten systematischen und statistischen Unsicherheiten begrenzt.
+Ohne den Versuchsaufbau ändern zu müssen wäre auch das erstellen mehrerer Messreihen pro untersuchtem Spektrum möglich, da dies dazu führen würde, dass das rauschen weggemittelt werden kann und so keine/weniger Linien in diesem verschwindne würden.

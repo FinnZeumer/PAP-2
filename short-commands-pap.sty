@@ -7,7 +7,7 @@
 %   Wichtige Ergebnisse. Res für finale Ergebnisse. Label müssen überarbeitet werden
 % --------------------------------------------------------------------------------------------------------------------------------
 
-% Results \res[Exponent der 10er Potenz]{Ergebniswert}{Fehler des Ergebnisses}{Einheit}
+% Results \res[Exponent der 10er Potenz]{Variablenname}{Ergebniswert}{Fehler des Ergebnisses}{Einheit}
 \newcommand{\res}[5][0]{
   \begin{equation}
     % \label{eq:#2}
@@ -52,7 +52,7 @@
 \newcommand{\img}[3][0.85]{
   \begin{figure}[h!]
     \centering
-    \includegraphics[width = #1 \linewidth]{Versuche/\versuchsnummer/img/#2} % Automatisch im Verzeichznis der Versuchsnummer
+    \includegraphics[width = #1 \textwidth]{Versuche/\versuchsnummer/img/#2} % Automatisch im Verzeichznis der Versuchsnummer
     \caption{#3}
     \label{fig:#2}
   \end{figure}
@@ -65,7 +65,7 @@
     \includegraphics[width = #1 \textwidth]{Versuche/\versuchsnummer/img/#3} % Automatisch im Verzeichznis der Versuchsnummer
     \caption{#4}
     \label{fig:#3}
-    \vspace{0.6cm}
+    \vspace{0.3cm}
   \end{wrapfigure}
 }
 

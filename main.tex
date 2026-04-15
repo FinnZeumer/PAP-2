@@ -1,7 +1,8 @@
 \documentclass[fontsize=10pt]{scrreprt}
 
+
 % Gib die Versuschsnummer an, um den entsprechenden Versuchsprotokoll zu laden
-\newcommand{\versuchsnummer}{223}
+\newcommand{\versuchsnummer}{233}
 
 \usepackage{Versuchsinformationen_PAP2_Gruppe-20} % All Information about the experiment for the title
 \usepackage{style} % Beinhaltet Packeges und Styling
@@ -9,13 +10,20 @@
 % \usepackage{Versuche/\versuchsnummer/Auswertung/python-results}
 
 
-
 \begin{document}
     \include{title.tex} 
+
+    % Römische Zahlen für Content bis zum Inhaltsverzeichnis
+    \pagenumbering{roman}
+    \include{Vorwort.tex}
 
     \renewcommand{\contentsname}{Inhaltsverzeichnis}
     \tableofcontents
 
+    \newpage
+
+    % Seitenzahl auf 1 Setzen für textlichen Inhalt
+    \pagenumbering{arabic}
     % Lade die Versuchsnummer-spezifischen Informationen
     \include{Versuche/\versuchsnummer/Auswertung/0_Einleitung}
     \include{Versuche/\versuchsnummer/Auswertung/1_Messprotokoll}
