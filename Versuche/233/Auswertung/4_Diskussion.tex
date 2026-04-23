@@ -1,59 +1,58 @@
 \chapter{Diskussion}
 \label{ch:diskussion}
 
-\section{Zusammenfassung}
+\section{Zusammenfassung und Analyse}
 \label{sec:zusammenfassung}
 
-Im Rahmen dieses Versuchs wurde die Fourieroptik anhand von Einzel- und Doppelspalt experimentell untersucht. Ziel war es, die Zusammenhänge zwischen Objektbild und Beugungsbild sowie deren mathematische Beschreibung durch Fouriertransformationen zu verifizieren.
+In der \csec{A1} wurden qualitativ die Eigenschaften des Versuchsaufbaus untersucht, es zeigte sich,
+eine größere Spaltbreite führt zu einem breiteren Objektbild und entsprechend zu einem schmaleren Beugungsbild. Zudem bewirkt eine Rotation des Spalts eine gleichartige Rotation sowohl des Objekt- als auch des Beugungsbildes.
+Eine breitere Öffnung des Analysespalts führt bei kritischer Spaltbreite dazu, dass im Objektbild zwei Lichtlinien sichtbar werden.
 
-Beim \textbf{Einzelspalt} konnte zunächst qualitativ bestätigt werden, dass eine Vergrößerung der Spaltbreite zu einem breiteren Objektbild und gleichzeitig zu einem schmaleren Beugungsbild führt (vgl. \csec{A1}). Ebenso wurde die Rotationssymmetrie zwischen Objekt- und Beugungsbild beobachtet.
+\subsection*{Einzelspalt}
 
-In der quantitativen Untersuchung (\csec{A2}) wurde mithilfe einer Eichgeraden (vgl. \cabb{plots/Eichgerade2a}) eine Umrechnung zwischen Pixel- und Realraum vorgenommen:
+In der \csec{A2} wurde eine Bestimmung der Extremapositionen sowie deren relativer Intensitäten geliefert und Vergleich mit der Theorie gestellt. 
+Zunächst wurde die Eichgerade anhand von \cabb{plots/Eichgerade2a} bestimmt. Daraus ergibt sich:
 \imp[-6]{s_\text{E}}{2.59}{0.03}{\frac{m}{px}}
+Die Abstände der Extrema in Abhängigkeit von ihrer Ordnung wurden in \cabb{plots/Extrema_Abstand_Ordnungszahltry2} dargestellt. Die Steigung ergibt sich zu:
+\imp{s_\text{ord}}{4.71}{0.07}{\cdot 10 , px}
+Die Bestimmung der experimentellen Ordnung zeigt laut \ctab{vergleich_ordnungszahl_theo_ex_einzelspalt} eine gute Übereinstimmung mit der Theorie; alle Werte liegen innerhalb von $3\sigma$.
+Die aus den beiden Steigungen sowie der Wellenlänge des Lichts und der Brennweite der Linse $L_1$ bestimmte Spaltbreite beträgt:
+\res[-5]{b}{6.96}{0.14}{m}
+Anschließend wurden die relativen Intensitäten, bezogen auf das Hauptmaximum, bestimmt. Die Ergebnisse aus \ctab{intensitaeten} zeigen jedoch keine gute Übereinstimmung mit der Theorie; alle Werte weichen signifikant ab. Auffällig ist, dass sämtliche Werte systematisch zu klein sind und die relativen Abweichungen vergleichbare Größenordnungen aufweisen. Dies deutet auf einen systematischen Fehler hin, beispielsweise einen unpräzisen Versuchsaufbau oder eine fehlerhafte Einstellung der Messsoftware.
 
-Aus der linearen Regression der Extremabstände (vgl. \cabb{plots/Extrema_Abstand_Ordnungszahltry2}) ergab sich:
-\imp[1]{s_\text{ord}}{4.71}{0.07}{px}
+In \csec{A4} wurde das Objektbild als Fouriersynthese des Beugungsbildes betrachtet. Zur Bestimmung der Spaltbreite wurden Bild- und Gegenstandsweite getrennt ausgewertet, die theoretisch denselben Wert liefern sollten. Es ergibt sich jedoch über die Bildweite $b$:
+\res[-4]{d_{1,b}}{3.68}{0.07}{m}
+und über die Gegenstandsweite:
+\res[-4]{d_{1,g}}{5.44}{0.09}{m}
 
-Damit wurde die Spaltbreite zu
-\res[-6]{b}{69.6}{1.4}{m}
-bestimmt. Nach Korrektur der Ordnungszählung zeigte sich eine sehr gute Übereinstimmung zwischen Theorie und Experiment (vgl. \ctab{vergleich_ordnungszahl_theo_ex_einzelspalt}).
-Die Intensitätsverteilung der Maxima wich systematisch von der Theorie ab (vgl. \ctab{intensitaeten}), konnte jedoch durch einen Korrekturterm angenähert werden. Die Form des Verlaufs stimmte dennoch qualitativ mit der theoretischen Vorhersage überein.
+Die Abweichung beträgt $15.00\sigma$ und ist damit hochsignifikant. Dies deutet erneut auf einen unpräzisen Versuchsaufbau hin.
 
-Im Abschnitt zur \textbf{Fouriersynthese des Einzelspalts} (\csec{A4}) wurde gezeigt, dass das Objektbild durch sukzessives Hinzufügen höherer Beugungsordnungen rekonstruiert werden kann. Die experimentellen Intensitätsverteilungen stimmen in ihrer Form gut mit den theoretischen Kurven überein (vgl. \ctab{extrema_all}), zeigen jedoch systematisch breitere Profile.
+In der folgenden Aufgabe wurden Maxima nur bis zu bestimmten Ordnungen zugelassen: bis zur 0., 1., 2. und fälschlicherweise bis zur 4. Ordnung (korrekt wäre die 3. Ordnung gewesen).
+Der Vergleich der theoretischen und experimentellen Kurven in \cabb{plots/vergleich_maxima_3a} zeigt eine grundsätzliche Übereinstimmung der Verläufe. Allerdings sind die experimentellen Kurven nach links verschoben, was auf eine nicht mittig platzierte Kamera hindeutet. Zudem zeigt sich eine Asymmetrie, die auf eine Verkippung des Spalts schließen lässt.
+Die relativen Intensitäten wurden erneut bestimmt. Dabei zeigt sich, dass die Intensitäten bis zur 1. Ordnung signifikant von der Theorie abweichen, während sie für die 2. Ordnung innerhalb des nicht signifikanten Bereichs liegen. Dieser Trend entspricht der theoretischen Erwartung, da mit zunehmender Ordnung die Übereinstimmung besser wird. Allerdings wird dieser Verlauf durch die (fälschlich betrachtete) 4. Ordnung unterbrochen, bei der erneut signifikante Abweichungen auftreten. Dies spricht für eine fehlerhafte Einstellung der Messsoftware, insbesondere eine unpassende Belichtungszeit.
 
-Für den \textbf{Doppelspalt} (\csec{A3}) wurden die Spaltbreite und der Spaltabstand bestimmt. Es ergaben sich:
-\res[-6]{b_\text{b,dop}}{257}{6}{m}
-\res[-6]{b_\text{g,dop}}{379}{8}{m}
+\subsection*{Doppelspalt}
 
-sowie für den Spaltabstand:
-\res[-6]{d_\text{b,dop}}{599}{12}{m}
-\res[-6]{d_\text{g,dop}}{884}{14}{m}
+In \csec{A3} wurde der Doppelspalt untersucht. Zunächst erfolgte die Vermessung der Spaltbreite über Bild- und Gegenstandsweite. Über die Bildweite ergibt sich:
+\res[-8]{b_\text{b,dop}}{2.57}{0.06}{m}
+Über die Gegenstandsweite ergibt sich hingegen:
+\res[-8]{b_\text{g,dop}}{3.79}{0.08}{m}
+Die Abweichung beträgt gemäß \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} $11.93\sigma$ und ist damit signifikant.
 
-Die Intensitätsverteilung zeigte die erwartete Interferenzstruktur mit einhüllender Einzelspaltverteilung (vgl. \ctab{doppelspalt_int}).
+Zusätzlich wurde der Abstand zwischen den Spalten bestimmt. Über die Bildweite ergibt sich:
+\res[-8]{d_\text{b,dop}}{5.99}{0.12}{m}
+und über die Gegenstandsweite:
+\res[-8]{d_\text{g,dop}}{8.84}{0.14}{m}
 
-Abschließend wurde die Fouriersynthese auch für den Doppelspalt untersucht (\csec{A5}). Dabei konnte gezeigt werden, dass bei zu geringer Grenzfrequenz die Doppelstruktur verschwindet und in das Bild eines Einzelspalts übergeht. Die experimentell bestimmten Grenzfrequenzen wichen jedoch signifikant von den theoretischen Werten ab (vgl. \ctab{finalllllllalllllalllllallllll}).
+Die Abweichung beträgt hier $14.93\sigma$ und ist ebenfalls signifikant. Auch dies weist auf einen nicht korrekt justierten Versuchsaufbau hin, da die aus Objekt- und Bildweite bestimmten Werte deutlich voneinander abweichen.
+Für den Doppelspalt wurden ebenfalls relative Intensitäten bestimmt, sowohl mittels Python-Auswertung als auch durch Cursor-Messung. Die Ergebnisse sind in \ctab{doppelspalt_int} dargestellt. Es zeigt sich erneut eine Asymmetrie; lediglich das erste Maximum weist keine signifikante Abweichung auf. Insgesamt kann die Theorie anhand dieser Messwerte kaum bestätigt werden.
 
-\section{Analyse der Messwerte}
-\label{sec:analyse}
-
-Die Auswertung zeigt, dass viele der bestimmten Größen signifikante Abweichungen von den theoretischen Erwartungen aufweisen, was sich in entsprechend großen Standardabweichungen widerspiegelt.
-
-Ein zentraler systematischer Fehler liegt in der nicht bestimmten Pixelbreite der aufgenommenen Bilder. Da die Skalierung der Kamerabilder nicht direkt bekannt war, mussten mehrfach Näherungen, beispielsweise durch FWHM-Skalierung, oder Werte von Kommilitonen verwendet werden. Dies beeinflusst insbesondere die Bestimmung der Spaltbreiten, die Lage der Extrema sowie die Intensitätsverteilungen und stellt damit eine der Hauptursachen für die beobachteten Abweichungen dar.
-Dies erklärt auch die signifikanten Diskrepanzen bei mehreren Ergebnissen. So weicht die über Bild- und Gegenstandsweite bestimmte Spaltbreite um mehr als $6\sigma$ ab, die Parameter des Doppelspalts um mehr als $10\sigma$, und auch die Grenzfrequenzen zeigen Abweichungen in der Größenordnung von etwa $6\sigma$.
-
-Ein weiterer wesentlicher Aspekt ist die generelle Fehleranfälligkeit optischer Experimente. Bereits kleine Fehljustierungen im Aufbau, etwa eine leichte Verkippung von Linsen oder Spalten, können zu messbaren Veränderungen in den Intensitätsverteilungen führen und somit die Ergebnisse systematisch verfälschen.
-Darüber hinaus wurden teilweise nur wenige Messpunkte aufgenommen, insbesondere bei der Untersuchung des Doppelspalts. Dies schränkt die statistische Aussagekraft der Ergebnisse zusätzlich ein. Eine größere Anzahl an Messreihen sowie die Einbeziehung höherer Beugungsordnungen hätten zu einer deutlich besseren Absicherung der Resultate geführt.
-Trotz dieser Einschränkungen stimmen die Größenordnungen der bestimmten physikalischen Größen sowie die qualitativen Verläufe der Intensitätsverteilungen gut mit der theoretischen Erwartung überein. Insbesondere die lineare Abhängigkeit der Extremapositionen von der Ordnungszahl, die charakteristische Form der Beugungskurven sowie die beobachtete Fouriersynthese der Objektbilder bestätigen die zugrunde liegenden theoretischen Modelle.
-
-Insgesamt kann der Versuch daher trotz der vorhandenen systematischen Unsicherheiten als erfolgreicher experimenteller Nachweis der Fourieroptik gewertet werden.
+Abschließend wurde in \csec{A5} das Objektbild als Fouriersynthese des Beugungsbildes für den Doppelspalt untersucht. Dabei wurden Maxima bis zur 0., 1. und 2. Ordnung berücksichtigt. Für die nullte Ordnung ergibt sich die theoretische kritische Ordnung zu:
+\[
+    n_\text{krit} = (0.256 \pm 0.008)
+\]
+Für die kritische sowie die erste Ordnung konnten Grenzfrequenzen bestimmt werden, die in \ctab{finalllllllalllllalllllallllll} aufgeführt sind. Es zeigt sich, dass die experimentellen Werte nicht mit den theoretischen übereinstimmen, da alle Abweichungen statistisch signifikant sind.
 
 \section{Kritik}
-\label{sec:kritik}
 
-Der Versuchsaufbau ist grundsätzlich geeignet, die zentralen Konzepte der Fourieroptik anschaulich zu demonstrieren, weist jedoch einige Schwächen auf.
-Ein wesentlicher Kritikpunkt ist die unzureichende Dokumentation der aufgenommenen Bilder. Insbesondere wurde die Pixelbreite der Kameraaufnahmen nicht bestimmt. Bei einer vollständigeren und sorgfältigeren Aufnahme der Daten wäre es möglich gewesen, diese Größe nachträglich zu rekonstruieren, wodurch viele der systematischen Fehler hätten vermieden werden können.
-Darüber hinaus mussten mehrfach Messwerte von Kommilitonen übernommen werden. Dies ist bei optischen Experimenten problematisch, da diese stark von individuellen Justierungen und Aufbaubedingungen abhängen und daher nur eingeschränkt übertragbar sind.
-Ein weiterer Kritikpunkt ist die begrenzte Anzahl an Messwerten, insbesondere bei der Intensitätsanalyse des Doppelspalts. Eine größere Datenbasis hätte die statistische Sicherheit der Ergebnisse deutlich verbessert.
-Zusätzlich erschweren Sättigungseffekte der Kamera sowie mögliche Hintergrundsignale eine präzise Bestimmung der Intensitäten und tragen zu weiteren Unsicherheiten bei.
-Zur Verbesserung des Versuchs bieten sich daher mehrere Maßnahmen an. Dazu zählen insbesondere eine automatische Bestimmugng der Pixelbildbreite der Kamera, die systematische Aufnahme mehrerer Messreihen, die Vermeidung von Sättigung durch angepasste Belichtungszeiten sowie eine präzisere Justierung des optischen Aufbaus, denn die wackelnde Kamera hat ein Präzises einstellen besonders erschwert. Mehr Zeit hätte hier die aufgenommenen Signale sicherlich verbessern können, da so auch mehr Möglichkeiten sich ergeben hätten, um die teilweise Asymmetrien auszugleichen. 
-Trotz dieser Kritikpunkte ermöglicht der Versuch ein gutes qualitatives Verständnis der Fourieroptik und bestätigt die theoretischen Zusammenhänge im Rahmen der experimentellen Genauigkeit.
+Der Versuchsaufbau wurde insgesamt unzureichend umgesetzt. Insbesondere war die Dokumentation im Messprotokoll lückenhaft und unpräzise. Wichtige Einstellungen der Messsoftware, wie beispielsweise die Belichtungszeit, hätten sorgfältig dokumentiert werden müssen.
