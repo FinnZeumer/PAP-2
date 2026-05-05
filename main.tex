@@ -7,7 +7,7 @@
 \usepackage{Versuchsinformationen_PAP2_Gruppe-20} % All Information about the experiment for the title
 \usepackage{style} % Beinhaltet Packeges und Styling
 \usepackage{short-commands-pap} % Coustum erstellte Commands, für einen besseren Workflow
-% \usepackage{Versuche/PAP22/\versuchsnummer/Auswertung/python-results}
+% \usepackage{Versuche/\versuchsnummer/Auswertung/python-results}
 
 
 \begin{document}
@@ -25,13 +25,13 @@
     % Seitenzahl auf 1 Setzen für textlichen Inhalt
     \pagenumbering{arabic}
     % Lade die Versuchsnummer-spezifischen Informationen
-    \include{Versuche/PAP22/\versuchsnummer/Auswertung/0_Einleitung}
-    \include{Versuche/PAP22/\versuchsnummer/Auswertung/1_Messprotokoll}
-    \include{Versuche/PAP22/\versuchsnummer/Auswertung/2_Durchfuerung}
-    \include{Versuche/PAP22/\versuchsnummer/Auswertung/3_Auswertung}
-    \include{Versuche/PAP22/\versuchsnummer/Auswertung/4_Diskussion}
-    % \include{Versuche/PAP22/\versuchsnummer/Auswertung/5_Python}
-    % \include{Versuche/PAP22/\versuchsnummer/Auswertung/6_Anhang}
+    \include{Versuche/\versuchsnummer/Auswertung/0_Einleitung}
+    \include{Versuche/\versuchsnummer/Auswertung/1_Messprotokoll}
+    \include{Versuche/\versuchsnummer/Auswertung/2_Durchfuerung}
+    \include{Versuche/\versuchsnummer/Auswertung/3_Auswertung}
+    \include{Versuche/\versuchsnummer/Auswertung/4_Diskussion}
+    % \include{Versuche/\versuchsnummer/Auswertung/5_Python}
+    % \include{Versuche/\versuchsnummer/Auswertung/6_Anhang}
 
     % Abbildungsverzeichnis
     \listoffigures
@@ -44,5 +44,4 @@
     % Literaturverzeichnis 
     \bibliographystyle{alpha}
     \bibliography{Literaturverzeichnis-PAP2}
-
 \end{document}
