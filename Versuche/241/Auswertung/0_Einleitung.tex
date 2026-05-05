@@ -40,24 +40,24 @@ Die frequenzabhängige Übertragungsfunktion eines RC-Glieds lässt sich durch d
 Der Betrag der Ausgangsspannung beträgt:
 \eq{rc_amplitude_tp}{|U_C| = \frac{|U_E|}{\sqrt{1 + (\omega RC)^2}}}
 Da die Amplitude für hohe Frequenzen gegen null geht, verhält sich diese Schaltung als Tiefpassfilter. Die Phasenverschiebung $\phi$ ist gegeben durch $\tan \phi = -\omega RC$.
-
-\img{Tiefpass_s}{Der theoretische Tiefpassfilter. \cite{skriptPAP22}}
-
 Vertauscht man Widerstand und Kondensator, so wird die Spannung über dem Widerstand abgegriffen. Dies führt zu einem Hochpassfilter, dessen Amplitudengang durch $|U_R| = \frac{|U_E|}{\sqrt{1 + (1/(\omega RC))^2}}$ beschrieben wird. In beiden Fällen definiert man die Grenzfrequenz $\omega_g$ als den Punkt, an dem die Amplitude auf den Faktor $1/\sqrt{2}$ abgefallen ist:
 \eq{rc_grenzfrequenz}{\omega_g = \frac{1}{RC} = \frac{1}{\tau}}
 
-\img{Hochpass_s}{Der theoretische Hochpassfilter. \cite{skriptPAP22}}
+\img[1]{passos}{Die theoretische BEschreibung von Hoch- und Tiefpassfilter. \cite{skriptPAP22}}
 
 \subsection{RC-Glied als Differenziator und Integrator}
-\wrap[0.35]{R}{BSP_Integrator_s}{Beispielhafter Verlauf des RC-Gliedes als Integrator. \cite{skriptPAP22}}
 Unter bestimmten Bedingungen können RC-Glieder als mathematische Operatoren fungieren. Für einen Tiefpass mit einer sehr großen Zeitkonstante ($\tau \gg T$, wobei $T$ die Periodendauer des Eingangssignals ist) und unter der Annahme $U_A \ll U_E$ vereinfacht sich die Differentialgleichung zu $\dot{U}_A \approx \frac{U_E}{\tau}$. Integration ergibt:
 \eq{rc_integrator}{U_A \approx \frac{1}{\tau} \int U_E \, dt}
-\wrap[0.35]{L}{differentiator_s}{Beispielhafter Verlauf des RC-Gliedes als Differentiator. \cite{skriptPAP22}}
 Das Ausgangssignal ist somit proportional zum Integral des Eingangssignals. Umgekehrt wirkt ein Hochpass mit kleiner Zeitkonstante ($\tau \ll T$) als Differentiator. Hier gilt für die Spannung am Widerstand:
 \eq{rc_differentiator}{U_A \approx \tau \frac{d U_E}{dt}}
 Dies ermöglicht die Umformung von Signalformen, beispielsweise die Bildung von Spitzen bei Rechtecksignalen (Differentiator) oder die Annäherung an Dreieckssignale (Integrator).
+\img[1]{MatehOperatoren}{Beispielhafter Verlauf des RC-Gliedes als Differentiator. \cite{skriptPAP22}}
+
 \subsection{Elektrischer RLC-Schwingkreis}
 Ein elektrischer Schwingkreis besteht aus einer Spule $L$, einem Kondensator $C$ und einem Widerstand $R$ in Reihe. Wird ein geladener Kondensator entladen, fließt ein Strom durch die Spule, wodurch ein magnetisches Feld aufgebaut wird. Nach vollständiger Entladung baut sich das Feld wieder ab und induziert eine Spannung, die den Kondensator umgepolt auflädt. Dieser Prozess wiederholt sich periodisch.
+
+\img{RLC_Serienschwingkreis_U_s}{Schematischer Schaltkreis des Serien RLC-Schwingkreises mit \cite{skriptPAP22}}
+
 Die Beschreibung erfolgt über die Maschenregel $U_R + U_C + U_L = 0$. Mit $U_R = RI$, $U_C = Q/C$ und $U_L = -L\dot{I}$ sowie $I = \dot{Q}$ erhält man die Differentialgleichung für den Strom:
 \eq{rlc_diffgl}{L \ddot{I} + R \dot{I} + \frac{1}{C} I = 0}
 Im idealen Fall ohne Widerstand ($R=0$) reduziert sich dies auf den harmonischen Oszillator mit der Eigenfrequenz $\omega_0 = 1/\sqrt{LC}$. Mit Widerstand entsteht ein gedämpfter Oszillator. Für den Schwingfall ($R^2 < 4L/C$) lautet die Lösung:
@@ -67,7 +67,10 @@ wobei $\delta = \frac{R}{2L}$ die Dämpfungskonstante und $\omega_f = \sqrt{\ome
 \subsection{Frequenzabhängigkeit eines Schwingkreises und Resonanz}
 Wird der Serienschwingkreis durch eine externe Wechselspannung angeregt, ist die Gesamtimpedanz $Z_g = R + i(\omega L - \frac{1}{\omega C})$. Der Strom beträgt $I = \frac{U_E}{Z_g}$. Die Amplitude des Stroms ist frequenzabhängig:
 \eq{rlc_strom}{|I| = \frac{U_0}{\sqrt{R^2 + (\omega L - \frac{1}{\omega C})^2}}}
-Bei der Resonanzfrequenz $\omega_R = \frac{1}{\sqrt{LC}}$ heben sich die Blindwiderstände von Spule und Kondensator auf ($\omega L = \frac{1}{\omega C}$). Die Impedanz ist minimal ($Z=R$) und der Strom maximal ($I_0 = U_0/R$). Die Spannungen an den einzelnen Bauteilen können im Resonanzfall deutlich größer sein als die Eingangsspannung; dieses Phänomen nennt man Resonanzüberhöhung. Die Frequenzen, bei denen die Amplitude auf $1/\sqrt{2}$ des Maximalwerts abfällt, definieren die Bandbreite $\Delta \omega = \frac{R}{L} = 2\delta$. Die Güte $Q$ des Schwingkreises ist definiert als $Q = \frac{\omega_R}{\Delta \omega}$.
+Bei der Resonanzfrequenz $\omega_R = \frac{1}{\sqrt{LC}}$ heben sich die Blindwiderstände von Spule und Kondensator auf ($\omega L = \frac{1}{\omega C}$). Die Impedanz ist minimal ($Z=R$) und der Strom maximal ($I_0 = U_0/R$). Die Spannungen an den einzelnen Bauteilen können im Resonanzfall deutlich größer sein als die Eingangsspannung; dieses Phänomen nennt man Resonanzüberhöhung. Die Frequenzen, bei denen die Amplitude auf $1/\sqrt{2}$ des Maximalwerts abfällt, definieren die Bandbreite $\Delta \omega = \frac{R}{L} = 2\delta$. Die Güte $Q$ des Schwingkreises ist definiert als
+\eq{guete_def}{
+    Q = \frac{\omega_R}{\Delta \omega} \, .
+}
 
 \subsection{Resonanzkurve eines Parallelschwingkreises}
 Schaltet man $L$ und $C$ parallel, so ergibt sich die Impedanz des LC-Teils zu $Z_P = \frac{1}{| \frac{1}{\omega L} - \frac{1}{\omega C} |}$. Bei der Resonanzfrequenz $\omega_0 = \frac{1}{\sqrt{LC}}$ wird der Nenner null und die Impedanz theoretisch unendlich. Der Parallelkreis wirkt in diesem Fall wie ein Isolator (hochohmig). In einer Schaltung mit einem Vorwiderstand führt dies dazu, dass Frequenzen um $\omega_0$ stark gedämpft werden, während andere Frequenzen durchgelassen werden. Ein solcher Schwingkreis wird daher als Bandsperre bezeichnet.

@@ -17,9 +17,40 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \newpage
 
+\section{Definieren der Unegnauigkeiten}
+\label{sec:A0}
+Für die Bestimmung der meisten Werte wurde die Cursorfuntkion zum Vermessen der Plots verwendet. Für jede Messung wurden individuelle Einstellungen getreoffen. Daher ist das pauschale Abschätzen von Fehlern nicht direkt trivial. Stattdessen soll eine schematische Fehleranalyse vorgenommen werden. 
+Daher wird die eine neue Größe definiert, der \afz{STEP}. Denn der Bereich eines Oszilloskopes wird in Divisions (kurz div) eingeteilt. Dieses Osziloskop hat $13 \times 8$ Divisions. Über die Divisions wird sowohl die Spannung und die Zeit eingestellt, welche aufgelöst werden soll. Diese Divisons wiederrum können in Steps eingeteilt werden, ein Step ist dabei der Diskrete Sprung, den der Cursor macht, also die kelisnt mögliche Cursorbewegung auf dem Screen. Ein Div ist dabei in $50 \times 32$ Steps aufgeteilt (Horizontal $\times$ Vertikal). Dies kann schematisch der \cabb{OSZI_STEPS} entnommen werden. Die Steps wurden auf unter der neusten Version der Software händisch abgezählt. \footnote{Ja, dafür habe ich die Software extra daheim herunetrgleaden, um mit 100DPI Mausempfindlichkeit und bei 5000\% Bilschirmgröße die Steps zu vermessen.}
+Dividiert man Auflösungen pro Div mit einem Step, so bekommt man die Auflösung pro Step heraus. Dies ist die größtmögliche Genauigkeit, welche überhaupt vermessen werden kann. Dazu wird noch eine ablese Unegnauigkeit eingebaut, daher wird der Fehler von Spannungswerten auf 3 Steps (vertical) und 5 Steps fpr die Zeit (horizontal).
+
+\img{OSZI_STEPS}{Begriffserklärung, DIV und STEPS.}
+
+
 \section{Bestimmung der Zeitkonstante eines RC-Gliedes}
 \label{sec:A1}
-Ziel der ersten Aufgabe ist es die Zeitkonstante $\tau$ \com{Hier link zu Gl für zau} herauszufinden. Dazu wird der Versuchsaufbau \com{nach abb hier einfügen} mit verschiedenen Kombinationen aus Widerständen und Kondensatoren aufgebaut. Es wird zunächst die Spannung $U_C$ über den Kondensator abgegriffen. Die Halbwertszeit $T_{1/2}$ wurde über den Cursor gemessen. \com{Unegnauigkeit angeben}. Die gemessenen für die Halbwetszeit, sowie die genutzte Generatorfrequenz sind im \hyperref[ch:Protokoll]{Messprotokoll} der Tabelle M.1.1 aufgelistet. 
+Ziel der ersten Aufgabe ist es die Zeitkonstante $\tau$ \ceq{rc_halbwertszeit} herauszufinden. Dazu wird der Versuchsaufbau mit verschiedenen Kombinationen aus Widerständen und Kondensatoren aufgebaut. Es wird zunächst die Spannung $U_C$ über den Kondensator abgegriffen. Die Halbwertszeit $T_{1/2}$ wurde über den Cursor gemessen. Die gemessenen Halbwetszeiten, sowie die genutzte Generatorfrequenz sind im \hyperref[ch:Protokoll]{Messprotokoll} der Tabelle M.1.1 aufgelistet.
+Dabei war die eingestelle Generatorfrequenz nicht relevant für die Halbwertszeit, der Kondensator hat sich mit derselben Geschwindigkeit geladen. Die Signale sahen alle in etwa wie in \cabb{A1/M3_1a} aus. 
+Für die Bestimmung der Halbwertszeit wurde an den Plot im Oszilloskop die Zeitauflösung hochgestellt, dadurch konnten dann die Halbwertszeit abgelesen werden, indem die Zeitdifferenz vom Start des Aufladens bis zu dem Punkt, an dem das Signal die Nulllinie durchdringt, da das Signal zentriert ist, entspricht dies genau der Halbwertszeit. Das Vorhgehen ist der \cabb{A1/M3} zu entnehmen. Dasselbe wurde auch für den elektrischen Strom gemacht, nur dass das Signal hier anders herum verläuft, dies ist der \cabb{A1/M4} zu entnehmen.
+
+\img{A1/M3}{Beispielhates Aussehen eines Plots zur Bestimmung der Halbwetszeit der Spannung.}
+
+\img{A1/M1}{Herangezoomed zur Bestimmung der Halbwetszeit der Spannung.}
+
+\img{A1/M4}{Herangezoomed zur Bestimmung der Halbwetszeit des Stromes.}
+
+Zur Bestimmung der wird sich an der Anleitung nach \csec{A0} gehalten. Dabei ist nur die Zeitauflösung relevant. Für erste Messung ist die Zeitauflösung auf $50 \mathrm{\mu s/div}$ gestellt gewesen, für die zwei weiteren Soannungsmessungen auf $5 \mathrm{\mu s/div}$. Für die Strommessung lag die Auflösung bei $20 \mathrm{\mu s/div}$.
+Daraus können nun die Halbwertszeiten der Aufbauten bestimmt werden:
+\imp[-8]{T_{1/2}^1}{3.76}{0.05}{s}
+
+\imp[-7]{T_{1/2}^2}{3.12}{0.05}{s}
+
+\imp[-7]{T_{1/2}^3}{3.97}{0.05}{s}
+
+\imp[-7]{T_{1/2}^4}{3.02}{0.20}{s}
+
+Für die 
+
+
 \section{RC-Glied als Integrator und Differentiator}
 \label{sec:A2}
 

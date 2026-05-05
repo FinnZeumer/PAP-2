@@ -2,18 +2,23 @@
 \setcounter{chapter}{2}
 \addcontentsline{toc}{chapter}{\thechapter \, Messdaten} % Damit es im Inhaltsverzeichnis erscheint
 \setcounter{table}{0}  % Setze den Tabellenzähler zurück
-\label{Protokoll}
+\label{ch:Protokoll}
 
 \thispagestyle{empty}
 
-% \includepdf[
-%   pages=-,               
-%   pagecommand={\thispagestyle{empty}} 
-% ]{Versuche/\versuchsnummer/Auswertung/Messprotokoll.pdf}
+\includepdf[
+  pages=1-8,               
+  pagecommand={\thispagestyle{empty}} 
+]{Versuche/\versuchsnummer/Auswertung/Messprotokoll.pdf}
 
 
 
-\addcontentsline{lot}{table}{\protect\numberline{\thechapter.1} Schwingdauer mit Messung bei der Maximalauslenkung der Feder}
-\addcontentsline{lot}{table}{\protect\numberline{\thechapter.2} Schwingdauer mit Messung durch den Nulldurchgang der Feder}
-\addcontentsline{lot}{table}{\protect\numberline{\thechapter.3} Messung der Federkonstante via verschiedener Massen}
-\addcontentsline{lot}{table}{\protect\numberline{\thechapter.4} Messung der Erdbeschleunigung}
+\addcontentsline{lot}{table}{{M.1.1} Halbwertszeiten Spannung}
+\addcontentsline{lot}{table}{{M.1.2} Halbwertszeiten Strom}
+\addcontentsline{lot}{table}{{M.3.1} Grenzfrequenzen}
+\addcontentsline{lot}{table}{{M.3.2} Phasenverschiebung Tiefpass}
+\addcontentsline{lot}{table}{{M.3.3} Phasenverschiebung Hochpass}
+\addcontentsline{lot}{table}{{M.4.1} Grenzfrequenzen RLC}
+\addcontentsline{lot}{table}{{M.5.1} Resonantfrequenzen}
+\addcontentsline{lot}{table}{{M.6.1} Spannungsamplitude und Periodendauer}
+\addcontentsline{lot}{table}{{M.8.1 - M.8.6} Amplituden}
