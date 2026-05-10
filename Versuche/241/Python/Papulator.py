@@ -120,7 +120,7 @@ def round_sig_digs(err: float, val: float = None):
         Rounded error (numeric)
 
     **rounded_combined_str** : str
-        Formatted string "value ± error" with matching decimal places
+        Formatted string "value \pm error" with matching decimal places
     '''
 
     err_str, rounded_err, decimals = round_err_sig(err)
@@ -134,7 +134,7 @@ def round_sig_digs(err: float, val: float = None):
     else:
         val_str = str(int(rounded_val))
 
-    rounded_combined_str = f"{val_str} \\pm {err_str}"
+    rounded_combined_str = f"{val_str} \pm {err_str}"
 
     return rounded_val, rounded_err, rounded_combined_str
 

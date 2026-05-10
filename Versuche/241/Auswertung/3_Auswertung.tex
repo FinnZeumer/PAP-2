@@ -25,11 +25,12 @@ Dividiert man Auflösungen pro Div mit einem Step, so bekommt man die Auflösung
 
 \img{OSZI_STEPS}{Begriffserklärung, DIV und STEPS.}
 
+Die Genauigkeit der genutzten Bauteile werden nach Praktikumsskript mit $\Delta C = 10\%$ und $\Delta R = 5\%$ bestimmt, und die des Frequenzgenerators, die der Spulen und die technische Präzision des Oszilloskopes werde als exakt angenommen. 
 
 \section{Bestimmung der Zeitkonstante eines RC-Gliedes}
 \label{sec:A1}
 Ziel der ersten Aufgabe ist es die Zeitkonstante $\tau$ \ceq{rc_halbwertszeit} herauszufinden. Dazu wird der Versuchsaufbau mit verschiedenen Kombinationen aus Widerständen und Kondensatoren aufgebaut. Es wird zunächst die Spannung $U_C$ über den Kondensator abgegriffen. Die Halbwertszeit $T_{1/2}$ wurde über den Cursor gemessen. Die gemessenen Halbwetszeiten, sowie die genutzte Generatorfrequenz sind im \hyperref[ch:Protokoll]{Messprotokoll} der Tabelle M.1.1 aufgelistet.
-Dabei war die eingestelle Generatorfrequenz nicht relevant für die Halbwertszeit, der Kondensator hat sich mit derselben Geschwindigkeit geladen. Die Signale sahen alle in etwa wie in \cabb{A1/M3_1a} aus. 
+Dabei war die eingestelle Generatorfrequenz nicht relevant für die Halbwertszeit, der Kondensator hat sich mit derselben Geschwindigkeit geladen. Die Signale sahen alle in etwa wie in \cabb{A1/M3} aus. 
 Für die Bestimmung der Halbwertszeit wurde an den Plot im Oszilloskop die Zeitauflösung hochgestellt, dadurch konnten dann die Halbwertszeit abgelesen werden, indem die Zeitdifferenz vom Start des Aufladens bis zu dem Punkt, an dem das Signal die Nulllinie durchdringt, da das Signal zentriert ist, entspricht dies genau der Halbwertszeit. Das Vorhgehen ist der \cabb{A1/M3} zu entnehmen. Dasselbe wurde auch für den elektrischen Strom gemacht, nur dass das Signal hier anders herum verläuft, dies ist der \cabb{A1/M4} zu entnehmen.
 
 \img{A1/M3}{Beispielhates Aussehen eines Plots zur Bestimmung der Halbwetszeit der Spannung.}
@@ -39,23 +40,91 @@ Für die Bestimmung der Halbwertszeit wurde an den Plot im Oszilloskop die Zeita
 \img{A1/M4}{Herangezoomed zur Bestimmung der Halbwetszeit des Stromes.}
 
 Zur Bestimmung der wird sich an der Anleitung nach \csec{A0} gehalten. Dabei ist nur die Zeitauflösung relevant. Für erste Messung ist die Zeitauflösung auf $50 \mathrm{\mu s/div}$ gestellt gewesen, für die zwei weiteren Soannungsmessungen auf $5 \mathrm{\mu s/div}$. Für die Strommessung lag die Auflösung bei $20 \mathrm{\mu s/div}$.
-Daraus können nun die Halbwertszeiten der Aufbauten bestimmt werden:
-\imp[-8]{T_{1/2}^1}{3.76}{0.05}{s}
+Es wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} genutzt, um aus \ceq{rc_halbwertszeit} die Unegnauigkeit zu
 
-\imp[-7]{T_{1/2}^2}{3.12}{0.05}{s}
+\eq{err_rc_halbwertszeit}{
+    \Delta \tau_\text{exp} = \frac{\sqrt{\Delta {T_{1/2}}^{2}}}{\ln{\left(2 \right)}} \, .
+}
 
-\imp[-7]{T_{1/2}^3}{3.97}{0.05}{s}
+Darüberhinaus kann auch theoretisch zu erwartenden Zeitkonstanten
+\eq{tau_theo}{
+    \tau = C R, \qquad \Delta \tau_\text{exp} = \sqrt{C^{2} \Delta R^{2} + R^{2} \Delta C^{2}} \, ,
+}
 
-\imp[-7]{T_{1/2}^4}{3.02}{0.20}{s}
+dabei ist die Unegnauigkeit erneut via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt wurden. 
 
-Für die 
+Die Messergebnisse sind in \ctab{AT1} aufgelistet.
+
+\begin{table}
+    \centering
+    \caption{Experimentelle und theoretische Zeitkonstanten der Einzelmessungen.}
+    \label{tab:AT1}
+    \begin{tabular}{l || C C C | C C | C}
+    \toprule
+    Größe & C [10^{-9} F] & R [10^{3} \Omega] & T_{1/2} [10^{-6} s] & \tau_\text{exp} [10^{-6} s] & \tau_\text{theo} [10^{-6} s] & \text{Std.Abw } \sigma \\
+    \midrule
+        & 470 \pm 24 & 1.00 \pm 0.10 & 376  \pm 5   & 542 \pm 7     & 470 \pm 50 & 1.37 \\
+    U   & 4.70 \pm 0.24 & 10.0 \pm 1.0  & 31.2 \pm 0.5 & 45.0 \pm 0.7  & 47 \pm 5 & 0.37 \\
+        & 47.0 \pm 2.4  & 1.00 \pm 0.10 & 39.7 \pm 0.5 & 57.3 \pm 0.7  & 47 \pm 5 & 1.94 \\ 
+    \hline
+    I   & 47.0 \pm 2.4  & 1.00 \pm 0.10 & 30.2 \pm 2.0 & 44 \pm 3      & 47 \pm 5 & 0.57 \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Es wurde die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen den theoretischen und den experimentellen Werten bestimmt, keien Abweichung ist statistisch signifikant.
 
 
 \section{RC-Glied als Integrator und Differentiator}
 \label{sec:A2}
+Im Folgenden soll nun das RC-Glied und seine Funktion als Integrator bzw. Differentiator qualitativ an Beispeilen erläutert werden. Dabei stellt das lila Signal (CH2) immer das Referenzsignal, und das grüne Signal (CH1) das Integral bzw. Differenzial.
+
+\subsection*{Integrator}
+Zunächst sollen die Signal untersucht werden, für welche das Integral approximiert wurde. Dies wurde für insgesamt vier Signale gemacht.
+\wrap[.45]{R}{A2/Dreiceck_integral}{Beispielhaftes Integral des Dreieckssignals}
+\paragraph{Das Dreieckssignal} lässt sich als Wechsel von zwei linearen Funktionen verstehen, welche zwischen positiven und negativen Steigungen iterieren. Lineare Funktionen sind dabei Polynome ersten Grades, damit muss das Integral ein Polynom zweiten Grades sein. Und dies ist auch was in \cabb{A2/Dreiceck_integral} zu erkennen ist; eine Zusammenreihung von Parabeln. 
+Die Wendepunkte der Parabeln sind liegen an den Stellen der Extrema des Ausgangssignales, die Maxima beschreiben die maximale Rechtskrümmung des Integrals und die Minima die maximale Linkskrümmung. 
+Die Extrema des Integrals liegen immer zwischen zwei Extrema, bei negativer Steigung des Ausgangssignales ligen die Maxima des Integrals und bei positiver Steigung die Minima. Dies ergibt Sinn, da zwischen zwei Extreman die\afz{linearen Funktionen} die Nulllinie treffen, und dies einer Steigung von Null entspricht; einem Extremum des Integrals.
+
+\wrap[.45]{R}{A2/Ramp-dn_integral}{Beispielhaftes Integral des Rampensignals (down)}
+\paragraph{Das Rampensignal} ist vergleichbar zum Dreicecks Signlal, jedoch konvergieren die Steigung der positiven Steigung gegen Unendlich. Wir nehmen daher an, dass die Funktion kontinuirlich ist. Das Ausgangssignal ist somit die periodische Iteration von negativen linearen Funktionen auf einer festen Intervallbreite, wie es in \cabb{A2/Ramp-dn_integral} gezeigt ist.
+Die Argumentation ist grundlegend analog zu der des Dreieckssignales, jedoch mit kleinen Änderungen, da die positiven Steigungen wegfallen. Daher sind die urspünglichen Wendepunkte des Integrals nun die Minima des Integrals; also an den Stellen, an denen das Signal einen Sprung hat. Hier hat das Integral zugleich einen Knick. Die Maxima des Integrals liegen jedoch weiterhin an den Nullstellen des Ausgangssignales. Damit wird das Signal als Aneinanderkettung \emph{positiver} Parabeln integriert.
+
+\wrap[.45]{R}{A2/rechteck_integral}{Beispielhaftes Integral des Rechtecksignals}
+\paragraph{Das Rechtecksignal} besteht aus zwei linearen Funktionen, die erneut gegen Unendlich konvergieren. Diese bilden einen\afz{Rand} und werden erneut dazu führen, dass das Integral an dieser Stelle einen Knick haben wird. Zwischen den zwei Rändern wird dann jeweils eine konstante Gerade gelegt, ergo ein Polynom nullten Grades. Integriert man ein Polynom nullten Grades, so ergibt sich eine lienare Funktion mit der Steigung des konstanen Wertes. Da das Rechtecksignal zwischen zwei Konstanten iteriert (hier einer positiven und einer negativen gleichen betrages) stellt sich wie in \cabb{A2/rechteck_integral} ein.
+An den Sprüngen des Ausgangssignales sind die Extrema des Dreicecksignales, welche wie erwähnt einen Knick haben.
+
+\wrap[.45]{R}{A2/saw_integral}{Beispielhaftes Integral des Sägensignals}
+\paragraph{Das Sägensignal} beschreibt eine Zusammensetzung der vorherigen Signale, Das Ausgangssignal iteriert periodisch zwischen positiver Steigung, Sprung vom Positiven ins Negative, gefolgt von einer konstanten Gerade. 
+Somit iteriert das in \cabb{A2/saw_integral} gezeigt Signal ebenfalls periodisch, jedoch zwischen, Ausschnitt einer positiven Parabel, Maximum mit Knick anschließend negaiver Geraden, bis am Minimum dann das Signal sich periodisch wiederholt. Die Argumentation ist analog wie zuvor.
+
+\subsection*{Differentiator}
+Weiterführend sollen nun drei Signale unetrsucht werden, für welche das Differenzial gebildet wurde. Es soll erneut mit dem Dreiceckssignal begonnen werden, da aus dem Teil zuvor das Differenzial bekannt ist: Es ist das Rechtecksignal.
+\wrap[.45]{R}{A2/Dreieck_diff}{Beispielhaftes Differenzial des Dreieckssignals}
+\paragraph{Das Dreieckssignal} hat das Rechtecksignal als Differenzial, wie bereits bekannt. Dies ist auch pausibel, denn an den Knicken des Ausgangssignales ist die Steigung nicht definiert, daraus folgen die linien mit einer unendlichen Steigung. Das Signal ist der \cabb{A2/Dreieck_diff} dargestellt. Die linearen Teile haben eine konstane Steigung, und wechseln erneut zwischen positiv und negaiv. Somit ist auch zu erwarten, dass das Differenzial zwischen positiven und negativen Graden wechselt und die Abzissenbreite für die Iterationen gleichbreit sind. 
+Dies gilt für alle Signale, aber fällt hier besonders auf, die Integrale, sowie die Differenziale sind approximationen, weder das Ausgangssignal selbst sind \emph{perfekte} Signale noch die Operationssignale. Dies wird hier durch den knick des Differenzials in der Mitte eindeutig, welches eine art drittes Plateau in der Mitte darstellt, welches inkohärent mit der Theorie ist.
+
+\wrap[.45]{R}{A2/Rechteck_diff}{Beispielhaftes Differenzial des Rechtecksignal}
+\paragraph{Das Rechtecksignal} hat fast überall eine konstante Steigung von Null. Nur die Sprünge nicht, diese Steigungen konvergieren gegen unendlich, sind also sehr groß, daher sind an diesen Stellen Peaks des Differenzials zu erwarten, welche sich in \cabb{A2/Rechteck_diff} auch erkennen lassen. In der Theorie jedoch würde die Breite des Peaks gegen null konvergieren und die peaks gegen Unendlich, dies ist praktisch asu offensichtlichen Gründen nicht möglich.
+\\
+\\
+\\
+\\
+
+\wrap[.45]{R}{A2/Gauss_diff}{Beispielhaftes Differenzial des Rechtecksignal}
+\paragraph{Das Gauskurvensignal} ist in \cabb{A2/Gauss_diff} gezeigt. Die Normalverteilugn (Gauskruve) ist gemäß
+\eq{gaussianKurveBlaBla}{
+    f(x) = \frac{1}{\sigma\sqrt{2\pi}} \, e^{-\frac{1}{2}\left( \frac{x-\mu}{\sigma} \right)^{2}} , \quad x \in \mathbb{R}
+}
+definiert. Dies beschreibt den bekannten Verlauf von positiver Steigung, Maximum, negative Steigung. Wie die \ceq{gaussianKurveBlaBla} zeigt, handelt es sich um eine Exponentialfunktion, deren Differenzial wieder eine Exponentialfunktion mit anderem Vorfaktor ist. Dies ist kohärent mit der Beobachtung, an der maximalen Steigung, ergo dem Wendepunkt der Gauskruve liegt das Maximum des Diferenzials, am Maximum der Gauskruve liegt die Nullstelle und der Wendepunkt des Differenzials, bei der kleinsten bzw. maximal negativen Steigung liegt das Minimum des Differenzials. An den Rändern ist die Gauskruve aufgrund ihrer Exponentialcharakteristig annährend konstant, somit ist die Ableitung dies am Rand ebenfalls.
+
 
 \section{Frequenz- und Phasengang eines RC-Gliedes}
 \label{sec:A3}
+In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. Es wurden der Kondensator $C = (47 \pm 2.4)$nF geutzt, sowie der ohmsche Widerstand $R = (1.00 \pm 0.10)\mathrm{k\Omega}$. Die Analyse wurde in dem \emph{Circuit Analyzer} vorgenommen, und die Messung in Hoch-, und Tiefpass aufgeteilt.
+\subsection{Tiefpass}
+
+
 
 \section{Frequenzgang eines Serienschwingkreises}
 \label{sec:A4}
