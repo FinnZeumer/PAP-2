@@ -121,9 +121,33 @@ definiert. Dies beschreibt den bekannten Verlauf von positiver Steigung, Maximum
 
 \section{Frequenz- und Phasengang eines RC-Gliedes}
 \label{sec:A3}
-In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. Es wurden der Kondensator $C = (47 \pm 2.4)$nF geutzt, sowie der ohmsche Widerstand $R = (1.00 \pm 0.10)\mathrm{k\Omega}$. Die Analyse wurde in dem \emph{Circuit Analyzer} vorgenommen, und die Messung in Hoch-, und Tiefpass aufgeteilt.
-\subsection{Tiefpass}
+In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. Es wurden der Kondensator $C = (47 \pm 2.4)$nF geutzt, sowie der ohmsche Widerstand $R = (1.00 \pm 0.10)\mathrm{k\Omega}$. Die Analyse wurde in dem \emph{Circuit Analyzer} vorgenommen, und die Messung in Hoch-, und Tiefpass aufgeteilt. Die aufgenommenen Signale sind für den Phasengang in \cabb{plots/Phasengang_3a} und für den Frequenzgang in \cabb{plots/Frequenzgang-3a} darfestellt.
 
+Es zeigt sich klare Parallelen zwischen Tief- und Hochpass; der Phasengang beider Filter hat dieseleb Struktur, beide negmen mit zunhemneder Frequenz ab. Jedoch startet der Tiefpass bei $0^\circ$ und der Hochpass bei circa $90^\circ$ und beide verändern sich um $90^\circ$ über eine Frequenzänderung von $\Delta f = 10^3 \mathrm{Hz}$. 
+
+Mit hilfe des Plots des Frequentganges kann die Grenzfrequenz beider Filter bestimmt werden. Die Grenzfrequenzen werdne über 2 Geraden pro Filterpass bestimmt, eine wird am konstanten Teil, und die anderem am annährend linearen Teil angelegt und deren Schnittpunkt ist die Grenzfrequenz. Für die Unegnauigkeit werde erneut die Unegnauigkeit von 5 Steps angenommen, jedoch muss die logarithmische Skalierung betrachtet werden, daher wird immer der größere Wert für die Unegnauigkeit gewählt, um diese nicht zu unterschätzen und es können nicht die 50 STeps/div genutzt werden, da die Divs verschiedene Stepgrößen aufweisen.
+Dem \hyperref[ch:Protokoll]{Messprotokoll} sind die bestimmten Grenzfrequenzen $f_g$ bestimmtn, wobei die Einheit wälschlicherweise in Hz, anstatt von khz angegeben wurde. Dies lässt sich mit der Abbildung zeigen. 
+Damit ergibt sich die Unegnauigkeit für beide Grenzfrequenzen zu $\Delta f_g = 0.25 \mathrm{kHz}$, damit bestimmen sich die Grenzfrequenzen zu
+
+\res[-3]{f_{g,T}}{2.72}{0.25}{Hz}
+\res[-3]{f_{g,H}}{2.99}{0.25}{Hz}
+
+Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen den beiden Werten liegt somit bei 0.76$\sigma$ und ist nicht signifikant.
+
+Über die \ceq{rc_grenzfrequenz} kann die theoretische Grenzfrequenz via 
+\eq{theo_grenzfreq}{
+    f_\text{g,theo} = \frac{1}{2\pi \, RC} = \frac{1}{2\pi \, \tau} \, , \qquad \Delta f_\text{g,theo} = f_\text{g,theo} \cdot \sqrt{\frac{\Delta \tau^{2}}{\tau^{2}}}
+}
+
+bestimmt werden. Die Unegnauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt. Mit $\tau = (4.7 \pm 0.5) 10^{-7}s$ aus \csec{A1} ergibt sich somit für den theoretischen Wert:
+\res[-3]{f_\text{g,theo}}{3.4}{0.4}{Hz}
+
+Diese hat eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $1.44 \sigma$ gegenüber dem Tiefpassfilter und $0.87 \sigma$ gegenüber dem Hochpassfgilter. Keien der beiden Abweichungen ist signifikant.
+
+\img{plots/Phasengang_3a}{Phasengang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
+\img{plots/Frequenzgang-3a}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
+
+\img{plots/Phasengnag_3b}{Phasengang des Tefpasses via Werte der Tabelle M.3.2}
 
 
 \section{Frequenzgang eines Serienschwingkreises}
