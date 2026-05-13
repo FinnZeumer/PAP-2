@@ -60,7 +60,13 @@ Ein elektrischer Schwingkreis besteht aus einer Spule $L$, einem Kondensator $C$
 
 Die Beschreibung erfolgt über die Maschenregel $U_R + U_C + U_L = 0$. Mit $U_R = RI$, $U_C = Q/C$ und $U_L = -L\dot{I}$ sowie $I = \dot{Q}$ erhält man die Differentialgleichung für den Strom:
 \eq{rlc_diffgl}{L \ddot{I} + R \dot{I} + \frac{1}{C} I = 0}
-Im idealen Fall ohne Widerstand ($R=0$) reduziert sich dies auf den harmonischen Oszillator mit der Eigenfrequenz $\omega_0 = 1/\sqrt{LC}$. Mit Widerstand entsteht ein gedämpfter Oszillator. Für den Schwingfall ($R^2 < 4L/C$) lautet die Lösung:
+
+Im idealen Fall ohne Widerstand ($R=0$) reduziert sich dies auf den harmonischen Oszillator mit der Eigenfrequenz
+\eq{omega_0_the}{
+    \omega_0 = 1/\sqrt{LC}
+}
+ Mit Widerstand entsteht ein gedämpfter Oszillator. Für den Schwingfall ($R^2 < 4L/C$) lautet die Lösung:
+
 \eq{rlc_loesung}{I(t) = I_0 e^{-\delta t} \cos(\omega_f t + \varphi)}
 wobei $\delta = \frac{R}{2L}$ die Dämpfungskonstante und $\omega_f = \sqrt{\omega_0^2 - \delta^2}$ die gedämpfte Eigenfrequenz ist. Die Amplitude klingt mit $e^{-\delta t}$ ab. Das logarithmische Dekrement $\Lambda = \ln(A_n/A_{n+1}) = \delta T$ erlaubt die experimentelle Bestimmung der Dämpfung.
 

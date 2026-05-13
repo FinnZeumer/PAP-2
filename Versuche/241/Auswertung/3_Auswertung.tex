@@ -73,6 +73,7 @@ Die Messergebnisse sind in \ctab{AT1} aufgelistet.
 \end{table}
 
 Es wurde die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen den theoretischen und den experimentellen Werten bestimmt, keien Abweichung ist statistisch signifikant.
+\com{Signifikante Abweichung von U3 und I fehlt noch!}
 
 
 \section{RC-Glied als Integrator und Differentiator}
@@ -125,7 +126,7 @@ In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. 
 
 Es zeigt sich klare Parallelen zwischen Tief- und Hochpass; der Phasengang beider Filter hat dieseleb Struktur, beide negmen mit zunhemneder Frequenz ab. Jedoch startet der Tiefpass bei $0^\circ$ und der Hochpass bei circa $90^\circ$ und beide verändern sich um $90^\circ$ über eine Frequenzänderung von $\Delta f = 10^3 \mathrm{Hz}$. 
 
-Mit hilfe des Plots des Frequentganges kann die Grenzfrequenz beider Filter bestimmt werden. Die Grenzfrequenzen werdne über 2 Geraden pro Filterpass bestimmt, eine wird am konstanten Teil, und die anderem am annährend linearen Teil angelegt und deren Schnittpunkt ist die Grenzfrequenz. Für die Unegnauigkeit werde erneut die Unegnauigkeit von 5 Steps angenommen, jedoch muss die logarithmische Skalierung betrachtet werden, daher wird immer der größere Wert für die Unegnauigkeit gewählt, um diese nicht zu unterschätzen und es können nicht die 50 STeps/div genutzt werden, da die Divs verschiedene Stepgrößen aufweisen.
+Mit hilfe des Plots des Frequentganges kann die Grenzfrequenz beider Filter bestimmt werden. Die Grenzfrequenzen werdne über 2 Geraden pro Filterpass bestimmt, eine wird am konstanten Teil, und die anderem am annährend linearen Teil angelegt und deren Schnittpunkt ist die Grenzfrequenz. Für die Unegnauigkeit werde erneut die Unegnauigkeit von 5 Steps angenommen, jedoch muss die logarithmische Skalierung betrachtet werden, daher wird immer der größere Wert für die Unegnauigkeit gewählt, um diese nicht zu unterschätzen und es können nicht die 50 Steps/div genutzt werden, da die Divs verschiedene Stepgrößen aufweisen.
 Dem \hyperref[ch:Protokoll]{Messprotokoll} sind die bestimmten Grenzfrequenzen $f_g$ bestimmtn, wobei die Einheit wälschlicherweise in Hz, anstatt von khz angegeben wurde. Dies lässt sich mit der Abbildung zeigen. 
 Damit ergibt sich die Unegnauigkeit für beide Grenzfrequenzen zu $\Delta f_g = 0.25 \mathrm{kHz}$, damit bestimmen sich die Grenzfrequenzen zu
 
@@ -142,16 +143,25 @@ Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweic
 bestimmt werden. Die Unegnauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt. Mit $\tau = (4.7 \pm 0.5) 10^{-7}s$ aus \csec{A1} ergibt sich somit für den theoretischen Wert:
 \res[-3]{f_\text{g,theo}}{3.4}{0.4}{Hz}
 
-Diese hat eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $1.44 \sigma$ gegenüber dem Tiefpassfilter und $0.87 \sigma$ gegenüber dem Hochpassfgilter. Keien der beiden Abweichungen ist signifikant.
+Diese hat eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $1.44 \sigma$ gegenüber dem Tiefpassfilter und $0.87 \sigma$ gegenüber dem Hochpassfilter. Keie der beiden Abweichungen ist signifikant.
 
 \img{plots/Phasengang_3a}{Phasengang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
 \img{plots/Frequenzgang-3a}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
 
+\com{Ist der Plot Sinnvoll?}
 \img{plots/Phasengnag_3b}{Phasengang des Tefpasses via Werte der Tabelle M.3.2}
 
 
 \section{Frequenzgang eines Serienschwingkreises}
 \label{sec:A4}
+In dieser Sektion soll der RLC-Serienschwingkreis untersucht werden und verschiedene Parameter bestimmt werden.
+
+\subsection{Bestimmung der Induktivität}
+Zunächst soll die Induktivität der verwendeten Spule $L_1$ bestimmt werden. Diese berechnet sich via \ceq{omega_0_the} und ist somit abhänig von der Resonanzfrequenz $\omega_0$ und der Kapazität des Kondensators $C$. 
+Die Daten der Messung sind der Tabelle M.4.1 des \hyperref[ch:Protokolls]{Messprotokoll} zu entnehmen. Die Bauteile werden erneut mit ihrem prozentualen Fehler aus dem Messprotokoll versehen. Die Kreisfrequenz $\omega_\text{0}$ soll in $f_\text{0}$ umgerechnet werden, somit lautet die Gleichung für die Induktivität
+\eq{induktivitart_jetzt_fuer_diese_aufgabe}{
+    L_1 = \frac{1}{(2\pi \cdot \omega_0)^2 \, C} \, .
+}
 
 \section{Resonanzüberhöhung}
 \label{sec:A5}
