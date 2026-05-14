@@ -269,7 +269,7 @@ def tex_func(func):
 # --------------------------------------------------
 #   Papulation (Clac everything)
 # --------------------------------------------------
-def do_it(function, params, data, params_without_error=None, print_formula: bool = True):
+def do_it(function:sp, params, data, params_without_error=None, print_formula: bool = True):
     """
     Calculates values and uncertainties for a given SymPy function.
 

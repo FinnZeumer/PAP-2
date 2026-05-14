@@ -158,13 +158,97 @@ In dieser Sektion soll der RLC-Serienschwingkreis untersucht werden und verschie
 
 \subsection{Bestimmung der Induktivität}
 Zunächst soll die Induktivität der verwendeten Spule $L_1$ bestimmt werden. Diese berechnet sich via \ceq{omega_0_the} und ist somit abhänig von der Resonanzfrequenz $\omega_0$ und der Kapazität des Kondensators $C$. 
-Die Daten der Messung sind der Tabelle M.4.1 des \hyperref[ch:Protokolls]{Messprotokoll} zu entnehmen. Die Bauteile werden erneut mit ihrem prozentualen Fehler aus dem Messprotokoll versehen. Die Kreisfrequenz $\omega_\text{0}$ soll in $f_\text{0}$ umgerechnet werden, somit lautet die Gleichung für die Induktivität
+Die Daten der Messung sind der Tabelle M.4.1 des \hyperref[ch:Protokoll]{Messprotokolls} zu entnehmen. Die Bauteile werden erneut mit ihrem prozentualen Fehler aus dem Messprotokoll versehen. Die Kreisfrequenz $\omega_\text{0}$ soll in $f_\text{0}$ umgerechnet werden, somit lautet die Gleichung für die Induktivität
 \eq{induktivitart_jetzt_fuer_diese_aufgabe}{
-    L_1 = \frac{1}{(2\pi \cdot \omega_0)^2 \, C} \, .
+    L_1 = \frac{1}{(2\pi \cdot f_0)^2 \, C} \, .
 }
+
+Über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} berechnet sich die Unegnauigkeit zu
+\eq{err_saiudfh}{
+    \Delta L_1 = L_1 \cdot \sqrt{\frac{4 \Delta f_0^{2}}{f_0^{2}} + \frac{\Delta C^{2}}{C^{2}}} \, .
+}
+
+Die Ergebnisse sind der \ctab{messwerte_induk} zu entnehmen.
+
+\begin{table}
+    \caption{Messwerte und berechnete Induktivität mit einer Induktivität von (47 $\pm$ 4.7) nF.}
+    \label{tab:messwerte_induk}
+    \begin{tabular}{C | C | C | C}
+        \toprule
+        \text{Widerstand } R \ [\mathrm{\Ohm}] & \text{Resonanzfrequenz } f_0 \ [10^3 \mathrm{Hz}] & \text{Bandbreite } \Delta f \ [10^3 \mathrm{Hz}] & \text{Induktivität } L_1 \ [10^{-2} \mathrm{H}] \\
+        \midrule
+        1000 \pm 50 & 4.15 \pm 0.10 & 3.21 \pm 0.16 & 3.1 \pm 0.4 \\
+        220 \pm 11 & 4.06 \pm 0.10 & 0.80 \pm 0.04 & 3.3 \pm 0.5 \\
+        47.0 \pm 2.4 & 3.91 \pm 0.10 & 0.375 \pm 0.019 & 3.5 \pm 0.5 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Induktivitäten gebildet:
+\res[-2]{L_1}{3.3}{0.5}{H}
+
+\com{Die Unegnauigkeiten müssen noch sinnvoll gewählt und ggf. begrünet werden.}
+
+\subsection{Bestimmung des Gesamtwiderstandes und Verluste im Serienschwingkreis}
+Im Folgenden soll der Gesamtwiderstand bestimmt werden, dazu wurde der Verlustwiederstand $R_\text{V}$ in Serie geschaltet. Es gilt
+\eq{wasGiltDennNu}{
+    \Delta \omega = \frac{R + R_\text{V}}{L} \, ,
+}
+
+Stellt man diese Gleichung um, formuliert die Kreisfrequenz $\Delta\omega$ in die Bandbreite $\Delta f \equiv f_\text{band}$ um, so ergibt sich für den Gesamtwiderstand
+\eq{Gesamtwiderstand_gl}{
+    R_\text{ges} = R + R_\text{V} = L \cdot 2\pi \cdot f_\text{band} \, .
+}
+
+Die genutzen Werte sind erneut der Tabelle M.4.1 des \hyperref[ch:Protokoll]{Messprotokolls} zu entnehmen. Für die Bandbreite wurde das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der linken und der rechten Bandbreite berechnet. 
+
+Die Unegnauigkeit wird erneut vai \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu 
+\eq{gff_err_gesR}{
+    \Delta R_\text{ges} = 2 \pi \sqrt{L^{2} \Delta f_\text{band}^{2} + f_\text{band}^{2} \Delta L^{2}}
+}
+bestimmt. Stellt man \ceq{Gesamtwiderstand_gl} nach $R_\text{V}$ um, so kann der Verlustwiederstand via
+\eq{verlustWiderstand}{
+    R_\text{V} = R_\text{ges} - R \, , \quad \Delta R_\text{V} = \sqrt{\Delta R^{2} + \Delta R_\text{ges}^{2}} 
+}
+berechnet werden. Die Ergebnisse sind der \ctab{messwerte_widerstande} zu entnehmen.
+
+\begin{table}
+    \caption{Berechnung des Verlustwiderstands durch Bandbreite und Induktivität.}
+    \label{tab:messwerte_widerstande}
+    \begin{tabular}{C | C | C | C | C}
+    \toprule
+    \text{Bandbreite } f_\text{band} \ [10^3\mathrm{Hz}] & \text{Induktivität } L_1 \ [10^{-2}\mathrm{H}] & \text{Widerstand } R \ [\mathrm{\Ohm}] & R + R_\text{V} [\mathrm{\Ohm}] & R_\text{V} [\mathrm{\Ohm}] \\
+    \midrule
+3.21 \pm 0.16 & 3.1 \pm 0.4 & 1000 \pm 50 & 630 \pm 90 & -370 \pm 110 \\
+0.80 \pm 0.04 & 3.3 \pm 0.5 & 220 \pm 11 & 164 \pm 25 & -60 \pm 30 \\
+0.375 \pm 0.019 & 3.5 \pm 0.5 & 47.0 \pm 2.4 & 83 \pm 12 & 36 \pm 13 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\com{Ergeben die Ergebnisse Sinn?}
+
+
+Alternativ kann $R_\text{V}$ auch durch die Kirchhoffschen Regeln bestimmt werden, denn es gilt:
+\eq{krischhofffffffffffffffff}{
+    U_\text{A} = \frac{R}{R + R_\text{V}} \cdot U_\text{E} \, .
+}
+
+Diese kann nach $R_\text{V}$ aufgelöst werden:
+\eq{krischhofffffffffffffffff_R_Ver}{
+    R_\text{V} = R \left(\frac{U_\text{E}}{U_\text{A}} - 1\right)
+}
+
+Nutzt man die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zur Ungenauigkeitsbestimmung, so ergibt sich
+\eq{err_kirsuczdhsudhfsdfhg}{
+    \Delta R_\text{V} = 
+            R_\text{V} \cdot \sqrt{\frac{\Delta {U_\text{A}}^{2} {U_\text{E}}^{2}}{{U_\text{A}}^{2} \left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta {U_\text{E}}^{2}}{\left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta R^{2}}{R^{2}}}
+}
+\com{Die Eingangs- und Ausgangsspannung sind nicht gemessen wurden.
+Wenn gemacht, dann \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} nicht vergessen!!}
 
 \section{Resonanzüberhöhung}
 \label{sec:A5}
+
 
 \section{Aufgabe Bestimmung der Dämpfungskonstanten}
 \label{sec:A6}
