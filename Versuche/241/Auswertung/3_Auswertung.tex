@@ -122,7 +122,7 @@ definiert. Dies beschreibt den bekannten Verlauf von positiver Steigung, Maximum
 
 \section{Frequenz- und Phasengang eines RC-Gliedes}
 \label{sec:A3}
-In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. Es wurden der Kondensator $C = (47 \pm 2.4)$nF geutzt, sowie der ohmsche Widerstand $R = (1.00 \pm 0.10)\mathrm{k\Omega}$. Die Analyse wurde in dem \emph{Circuit Analyzer} vorgenommen, und die Messung in Hoch-, und Tiefpass aufgeteilt. Die aufgenommenen Signale sind für den Phasengang in \cabb{plots/Phasengang_3a} und für den Frequenzgang in \cabb{plots/Frequenzgang-3a} darfestellt.
+In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. Es wurden der Kondensator $C = (47 \pm 2.4)$nF geutzt, sowie der ohmsche Widerstand $R = (1.00 \pm 0.10)\mathrm{k\Omega}$. Die Analyse wurde in dem \emph{Circuit Analyzer} vorgenommen, und die Messung in Hoch-, und Tiefpass aufgeteilt. Die aufgenommenen Signale sind für den Phasengang in \cabb{plots/Phasengang_3a} und für den Frequenzgang in \cabb{plots/Frequenzgang_3a} darfestellt.
 
 Es zeigt sich klare Parallelen zwischen Tief- und Hochpass; der Phasengang beider Filter hat dieseleb Struktur, beide negmen mit zunhemneder Frequenz ab. Jedoch startet der Tiefpass bei $0^\circ$ und der Hochpass bei circa $90^\circ$ und beide verändern sich um $90^\circ$ über eine Frequenzänderung von $\Delta f = 10^3 \mathrm{Hz}$. 
 
@@ -146,7 +146,7 @@ bestimmt werden. Die Unegnauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzun
 Diese hat eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $1.44 \sigma$ gegenüber dem Tiefpassfilter und $0.87 \sigma$ gegenüber dem Hochpassfilter. Keie der beiden Abweichungen ist signifikant.
 
 \img{plots/Phasengang_3a}{Phasengang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
-\img{plots/Frequenzgang-3a}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
+\img{plots/Frequenzgang_3a}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
 
 \com{Ist der Plot Sinnvoll?}
 \img{plots/Phasengnag_3b}{Phasengang des Tefpasses via Werte der Tabelle M.3.2}
@@ -246,12 +246,39 @@ Nutzt man die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzu
 \com{Die Eingangs- und Ausgangsspannung sind nicht gemessen wurden.
 Wenn gemacht, dann \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} nicht vergessen!!}
 
+\com{Ich glaube, hier fehlt noch ein teil!!!!}
+
 \section{Resonanzüberhöhung}
 \label{sec:A5}
+In dieser Sektion wird erneut die Induktivität der Spule $L_1$ bestimmt, jedoch über die Frequenz der Resonanzüberhöhung über die Spule.
+Es kann erneut \ceq{omega_0_the} zur berechnung genutzt werden. Es wird lediglich eine andere Frequnez eingesetzt. DIe Kapazität des Kondensators wurde mit $(47.0 \pm 4.7)$nF gewählt und der Widerstand mit $(47.0 \pm 2.4)\Ohm$ gewählt.
+Die Berechnung wird analog zur \csec{A4} durchgeführt. Für die Spule ergibt sich eine Induktivität von
+\res[-2]{L_1}{3.2}{0.5}{H}
 
+Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Wert aus \csec{A4} wir zu $0.13\sigma$ bestimmt und ist somit nicht signifikant.
 
-\section{Aufgabe Bestimmung der Dämpfungskonstanten}
+\section{Bestimmung der Dämpfungskonstanten}
 \label{sec:A6}
+In dieser Sektion wird der gedämpfte RLC-Serienschwingkreis betrachtet. Am Frequenzgenerator wurde ein Rechtecksignal mit einer Frequenz von 280.00 Hz eingestellt. Es wurde erneut ein Kondensator mit einer Kapazität von $(47.0 \pm 4.7)$nF und ein ohmischer Widerstand mit $(47.0 \pm 2.4)\Ohm$ gewählt.
+
+\subsection{Bestimmung des logarithmischen Dekrements}
+Zunächst soll das logarithmische Dekrement $\Lambda$ bestimmt werden. Dieses kann via
+\eq{log_dek}{
+    \Lambda = \ln \left(\frac{A_n}{A_{n+1}}\right)
+}
+
+Nutzt man die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}, so ergibt sich die Ungenauigkeit zu
+\eq{err_log_dek}{
+    \Delta \Lambda = \sqrt{\left(\frac{\Delta A_n}{A_n}\right)^{2} + \left(\frac{\Delta A_{n+1}}{A_{n+1}}\right)^{2}}
+}
+
+Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} aller Einzeldekremente gebildet und es ergibt sich
+\res[1]{\Lambda}{4.5}{1.6}{}
+
+Dabei wurde erneut der Steperror genutzt, um die Genauigkeit der Spannungsmessung zu bestimmen.
+
+
+\img{A6/Zoom_ExpDecade_lol_haha_ROFL}{Gedämpftes Signal des Serienschwingkreises.}
 
 \section{Parallelschwingkreis}
 \label{sec:A7}
