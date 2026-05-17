@@ -148,8 +148,8 @@ Diese hat eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:sta
 \img{plots/Phasengang_3a}{Phasengang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
 \img{plots/Frequenzgang_3a}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
 
-\com{Ist der Plot Sinnvoll?}
-\img{plots/Phasengnag_3b}{Phasengang des Tefpasses via Werte der Tabelle M.3.2}
+% \com{Ist der Plot Sinnvoll?}
+% \img{plots/Phasengnag_3b}{Phasengang des Tefpasses via Werte der Tabelle M.3.2}
 
 
 \section{Frequenzgang eines Serienschwingkreises}
@@ -173,6 +173,7 @@ Die Ergebnisse sind der \ctab{messwerte_induk} zu entnehmen.
 \begin{table}
     \caption{Messwerte und berechnete Induktivität mit einer Induktivität von (47 $\pm$ 4.7) nF.}
     \label{tab:messwerte_induk}
+    \centering
     \begin{tabular}{C | C | C | C}
         \toprule
         \text{Widerstand } R \ [\mathrm{\Ohm}] & \text{Resonanzfrequenz } f_0 \ [10^3 \mathrm{Hz}] & \text{Bandbreite } \Delta f \ [10^3 \mathrm{Hz}] & \text{Induktivität } L_1 \ [10^{-2} \mathrm{H}] \\
@@ -215,9 +216,10 @@ berechnet werden. Die Ergebnisse sind der \ctab{messwerte_widerstande} zu entneh
 \begin{table}
     \caption{Berechnung des Verlustwiderstands durch Bandbreite und Induktivität.}
     \label{tab:messwerte_widerstande}
+    \centering
     \begin{tabular}{C | C | C | C | C}
     \toprule
-    \text{Bandbreite } f_\text{band} \ [10^3\mathrm{Hz}] & \text{Induktivität } L_1 \ [10^{-2}\mathrm{H}] & \text{Widerstand } R \ [\mathrm{\Ohm}] & R + R_\text{V} [\mathrm{\Ohm}] & R_\text{V} [\mathrm{\Ohm}] \\
+    \text{Bandbreite } f_\text{band} \ [10^3\mathrm{Hz}] & \text{Induktivität } L_1 \ [10^{-2}\mathrm{H}] & \text{Widerstand } R \ [\mathrm{\Ohm}] & R + R_\text{V} \ [\mathrm{\Ohm}] & R_\text{V} \ [\mathrm{\Ohm}] \\
     \midrule
 3.21 \pm 0.16 & 3.1 \pm 0.4 & 1000 \pm 50 & 630 \pm 90 & -370 \pm 110 \\
 0.80 \pm 0.04 & 3.3 \pm 0.5 & 220 \pm 11 & 164 \pm 25 & -60 \pm 30 \\
@@ -243,8 +245,31 @@ Nutzt man die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzu
     \Delta R_\text{V} = 
             R_\text{V} \cdot \sqrt{\frac{\Delta {U_\text{A}}^{2} {U_\text{E}}^{2}}{{U_\text{A}}^{2} \left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta {U_\text{E}}^{2}}{\left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta R^{2}}{R^{2}}}
 }
-\com{Die Eingangs- und Ausgangsspannung sind nicht gemessen wurden.
-Wenn gemacht, dann \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} nicht vergessen!!}
+
+Ein- und Ausgangsspannung waren nach Praktikumsskript zu notiren. Die Experimentatoren haben hier einen Fehler gemacht, und keine Spannung notiert. Jedoch ist dies kein Problem, die Eingangsspannung ist ein konstanter Wert, welcher geschätzt bei $U_\text{E} = (0.5000 \pm 0.0375)$V liegt. Diese Schätzung entspricht einem Viertel der $V_\text{pp} = 2$V Spannung und wurde mit einer Ungenauigkeit von $7.5\%$ versehen.
+und die Ausgangssannung lässt sich aus dem Messsignal im Circut Analyzer herausfinden. Dazu wurde in Python das Signal eingelesen, und die Extremstellen für alle drei Widerstände bestimmt. Die Maxima sind dabei die Amplituden in dBV und lassen sich via
+\eq{dBV_to_V}{
+    V = 10^{dBV / 20}
+}
+umrechnen. Der Plot ist der \cabb{plots/Frequenzgang_4b_mit_Maxima} zu entnehmen.
+\img{plots/Frequenzgang_4b_mit_Maxima}{Amplitudenplot des Serienschwingkreis für unterschiedliche Widerstände. Rot eingezeichnet sind die automatisch bestimmten Extrema.}
+
+Die bestimmten Werte sind der \ctab{py_py_py_s9iudhf} zu entnehmen. Keine der \hyperref[eq:standardabweichung]{Standardabweichungen (\ref*{eq:standardabweichung})} ist signifikant.
+
+\begin{table}
+    \caption{Berechnung Ausgangsamplituden mit geschätzten Fehlern.}
+    \label{tab:py_py_py_s9iudhf}
+    \centering
+    \begin{tabular}{C | C | C | C | C || C}
+    \toprule
+    \text{Widerstand } R \ [\Ohm] & \text{Frequenz } f \ [10^{3}\mathrm{Hz}] & \text{Amp. } A \ [\mathrm{dBV}] & \text{Amp. } A \ [\mathrm{V}] & R_\text{V} \ [\Ohm] & \text{Std. Abw. } \sigma\\
+    \midrule
+    1000 \pm 50  & 4.0 \pm 0.2 & - 7.64 \pm 0.03 & 0.42 \pm 0.05 & 200 \pm 170 & 2.84 \\
+     220 \pm 11  & 4.0 \pm 0.2 & - 9.75 \pm 0.03 & 0.33 \pm 0.05 & 120 \pm 60  & 2.71 \\
+    47.0 \pm 2.4 & 3.9 \pm 0.2 & -15.71 \pm 0.03 & 0.16 \pm 0.05 & 100 \pm 50  & 1.28 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
 \com{Ich glaube, hier fehlt noch ein teil!!!!}
 
@@ -277,11 +302,143 @@ Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:a
 
 Dabei wurde erneut der Steperror genutzt, um die Genauigkeit der Spannungsmessung zu bestimmen.
 
-
 \img{A6/Zoom_ExpDecade_lol_haha_ROFL}{Gedämpftes Signal des Serienschwingkreises.}
+
+\subsection{Ermittlung der Dämpfungskonstanten}
+Über das logarithmische Dekrement kann Weiterführend die Dämpfungskonstant $\delta$ des Serienschwingkreises bestimmt werden. Die Gleichung zur Berechnung der Dämpfungskonstanten und die GLeichung der Unegnauigkeit via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} lauten:
+\eq{die_krass_dampfung}{
+    \delta = 
+            \frac{\Lambda}{T} \, , \quad
+    \Delta \delta = 
+            \delta \sqrt{\frac{\Delta \Lambda^{2}}{\Lambda^{2}} + \frac{\Delta T^{2}}{T^{2}}} \, .      
+}
+
+Es ergibt sich für eine durchschnittliche Periodendauer $T = (0.260 \pm 0.021) \mathrm{ms}$ eine Dämpfung von 
+\res[-3]{\delta}{1.7}{0.6}{Hz}
+
+Die Unegnauigkeit für die Periodendauer $T$ ist über den \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} und den Steperror bestimmt wurden, wobei der Steperror von $0.02\mathrm{ms}$ vernachlässigbar ist. 
+
+\subsection{Berechnung des Gesamtwiderstandes des Serienschwingkreises}
+Über die Dämpfungskonstante $\delta$ kann der Gesamtwiderstand $R_\text{ges}$ berechnet werden. Die Gleichung lautet
+\eq{gesWid_erneut_lala}{
+    R_\text{ges} = 2 L \, \delta \, ,
+}
+
+wobei $L$ hier die mittlere Induktivität $L_1$ aus \csec{A4} und \csec{A5} nach dem \hyperref[eq:arithmetisches_mittel]{arithmetischen Mittel (\ref*{eq:arithmetisches_mittel})} ist und somit $L_1 = (3.3 \pm 0.7) \cdot 10^{-2}\mathrm{H}$ beträgt.
+
+Die Unegnauigkeit beträgt nach der \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'schen Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
+\eq{er_asuidhfzus}{
+    \Delta R_\text{ges} =
+            R_\text{ges} \cdot \sqrt{\frac{\Delta \delta^{2}}{\delta^{2}} + \frac{\Delta L^{2}}{L^{2}}}
+}
+
+Durch Einsetzen der bekannten Werte ergibt sich für den Gesamtwiderstand
+\res{R_\text{ges}}{110}{50}{\Ohm}
+
+Erneutes nutzen der \ceq{verlustWiderstand} führt zur Berechnung des Verlustwiderstandes $R_\text{V}$. Dabei wurde der Widerstand $R = (47.0 \pm 2.4) \Ohm$ verwendet. Somit beträgt der Verlustwiederstand
+\res{R_\text{V}}{70}{50}{\Ohm}
+
+Es wird ein Vergleich zu vorherigen Ergebnissen geführt, indem die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} berechnet wird.
+\begin{table}
+    \caption{Berechnung des Verlustwiderstands durch Bandbreite und Induktivität.}
+    \label{tab:alle_widerstande}
+    \centering
+    \begin{tabular}{C | C  C }
+    \toprule
+    \text{Widerstand } & \text{Bandbreite } & \text{Resonanzfall } \\
+    \midrule
+        R_\text{ges} & 0.61 \sigma & 1.17 \sigma \\
+        R_\text{V}   & 0.34 \sigma & 0.46 \sigma \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Berechnung der Resonanzfrequenz}
+Im letzten Teil dieser Sektion wird die Resonanzfrequenz $f_\text{reso}$ berechnet. Diese wird via
+\eq{iasudfhzusd8hfuishfuishuishguhdfiughdfug}{
+    f_\text{reso} = 
+            \frac{1}{T} \, , \quad
+    \Delta f_\text{reso} = 
+            \sqrt{\frac{\Delta T^{2}}{T^{4}}}
+}
+
+berechnet. Einsetzen der bekannten werte liefert:
+\res[3]{f_\text{reso}}{3.8}{0.3}{Hz}
+
+Der \ctab{messwerte_induk} sind die Werte der Resonanzfrequenz $f_0$ für den Widerstand $R = (47.0 \pm 2.4)\Ohm$ zu entnehmen. Die Berechnung der \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} liefert eine Abweichung von $0.2\sigma$. Diese Abweichung ist nicht signifikant.
 
 \section{Parallelschwingkreis}
 \label{sec:A7}
+In dieser Sektion wird erneut ein RLC-Schwingkreis betrachtet, dieses Mal sind Spule und Kondensator parallel geschaltet. Gemessen wurde eine Resonanzfrequenz von $4.00 \pm 0.04$kHz. Zum Vergleich wird die tehoretische Resonanzfrequenz
+\eq{theo_reso_freq}{
+    f_\text{teso} = \frac{1}{2\pi \, \sqrt{LC}}
+}
+bestimmt. Über die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} wird die Ungenauigkeit zu 
+\eq{err_asuidgf0suhfu9shfgdfg}{
+    \Delta f_\text{teso} =
+            f_\text{teso} \cdot \frac{1}{2} \sqrt{\frac{\Delta L^{2}}{L^{2}} + \frac{\Delta C^{2}}{C^{2}}}    
+}
+berechnet. Somit ergibt sich durch Einsetzen der bekannten Wetre eine theoretische Resonanzfrequenz von
+\res[3]{f_\text{teso}}{4.1}{0.4}{Hz}
+\img[1]{plots/Frequenzgang_Phasengang_Kombiniert_7a}{Signal zur Bestimmung der Resonanzfrequenz des Parallelschwingkreises.}
+
+Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} des Theoriewertes zum Wert aus der \csec{A6} beträgt $0.51\sigma$ und zu dem Wert $f_0$ aus der \csec{A4} $0.35\sigma$. Keine der beiden Abweichungen ist signifikant.
+
 
 \section{Anwendung von Filtern}
 \label{sec:A8}
+Für diese Sektion wurde ein Singal untersucht, welches elementar aus drei einzelnen Frequenzen besteht und deren Überlagerrung untersucht wurde. Die drei Grenzfrequenzen sind $0.1, 3.6, 8.0$ kHz.
+Das Signal im FFT-Raum ist der \cabb{plots/Frequenzgang_8a} zu entnhemen.
+Es wurden insgesamt fünf Filter eingebaut, der Hochpassfilter (HP), zwei Tiefpassfilter, einmal ein mit einem ohmischen Widerstand und einem Kondensator (RC TP) und einmal mit einer Spule und einem Kondensator (LC TP), zuletzt wurden zwei Bandfilter eingebaut, einmal mit einem ohmsichen Widerstand von 1K$\Ohm$ und einer mit $47\Ohm$.
+\img[0.8]{plots/Frequenzgang_8a}{FFT Signal ohne Filter.}
+
+Die Spannungen sind dem \hyperref[ch:Protokoll]{Messprotokoll} den Tabellen M.8 zu entnehmen, wobei die Spannungen in dBV gemessen wurden, diese müssen nach \ceq{dBV_to_V} in Volt umgerechnet werden. Die Umrechnungsergebnisse sind der \ctab{FFT_amps} zu entnehmen.
+
+\begin{table}
+    \centering
+    \caption{Messwerte der Amplituden in Volt bei verschiedenen Frequenzen unter Nutzung verschiedener Filter.}
+    \label{tab:FFT_amps}
+    \begin{tabular}{l || r | r r r r r r r r r r r}
+    \toprule
+    Frequenz [Hz] & Ohne Filter [V] & HP [V] & RC TP [V] & LC TP [V] & Bandf. 1k $\Ohm$ [V] & Bandf. 47 $\Ohm$ [V] \\
+    \midrule
+    $100  \pm  3$ & 0.812 & 0.028 & 0.812 & <0.001 & 0.028 & 0.001 \\
+    $3600 \pm 10$ & 0.425 & 0.296 & 0.266 & 3.141 & 0.404 & 0.132 \\
+    $8000 \pm 10$ & 0.410 & 0.355 & 0.144 & 0.519 & 0.244 & 0.014 \\
+    \toprule
+      &   & HP & RC TP & LC TP & Bandf. 1k $\Ohm$  & Bandf. 47 $\Ohm$ \\
+    \midrule
+     & -- & 0.034 & 1.000 & 0.001 & 0.035 & 0.001 \\
+     & -- & 0.698 & 0.627 & 7.396 & 0.952 & 0.312 \\
+     & -- & 0.866 & 0.352 & 1.268 & 0.596 & 0.033 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Der untere Teil der Tabelle sind hier die reliven Amplituden in relation zum Signal ohne Filter. 
+
+Im Folgenden wird geprüft, ob die gemessenen Amplitudenwerte und relativen Übertragungsfaktoren dem theoretischen Verhalten der jeweiligen Filteranordnungen entsprechen.
+
+\paragraph{Hochpass (HP)}
+Ein idealer Hochpass lässt hohe Frequenzen passieren und dämpft tiefe Frequenzen stark. Die Messwerte bestätigen dieses Verhalten qualitativ: Bei der tiefen Frequenz von 100 Hz beträgt die relative Amplitude nur noch 0.034, während bei 8000 Hz die relative Amplitude auf 0.866 ansteigt. Dies deutet darauf hin, dass die Grenzfrequenz des Filters im Bereich zwischen 100 Hz und 3600 Hz liegt. Auffällig ist jedoch, dass selbst bei 8000 Hz nicht die volle Amplitude (relativ 1.0) erreicht wird. Dies kann auf parasitäre Kapazitäten, Innenwiderstände der Quelle oder eine Grenzfrequenz liegen, die höher als 8000 Hz ist, sodass der Filter bei dieser Frequenz noch nicht vollständig durchgelassen hat. Insgesamt passt die Tendenz der Werte zur Erwartung eines Hochpasses.
+
+\img[.8]{plots/FFT_Vergleich_Hochpass_8c}{Vergleich Plot zum Signal ohne Filter: Hochpass.}
+
+
+\paragraph{Tiefpass (RC TP)}
+Ein RC-Tiefpass sollte tiefe Frequenzen unverändert durchlassen und hohe Frequenzen dämpfen. Die Messreihe zeigt bei 100 Hz eine relative Amplitude von 1.0, was exakt der Erwartung entspricht, da diese Frequenz weit unter der typischen Grenzfrequenz eines solchen Filters liegt. Mit steigender Frequenz nimmt die Amplitude ab: Bei 3600 Hz beträgt sie noch 0.627 und bei 8000 Hz sinkt sie auf 0.352. Dieser monoton fallende Verlauf ist charakteristisch für einen Tiefpass. Die Werte stimmen somit gut mit der theoretischen Erwartung überein.
+
+\paragraph{Tiefpass (LC TP)}
+Das Verhalten des LC-Tiefpasses weicht von dem eines einfachen RC-Filters ab, da Induktivitäten und Kapazitäten gemeinsam eine Resonanzfrequenz bilden können. Bei 100 Hz ist die relative Amplitude vernachlässigbar klein (0.001), was zunächst wie ein Hochpass wirkt oder auf eine sehr niedrige Grenzfrequenz hindeutet. Überraschend ist jedoch der Wert bei 3600 Hz: Hier wird eine relative Amplitude von 7.396 gemessen. Das bedeutet, dass das Ausgangssignal fast achtmal stärker ist als das Eingangssignal. Dies ist kein Verhalten eines passiven Tiefpasses im klassischen Sinne, sondern deutet stark auf eine \textbf{Resonanzüberhöhung} hin, bei der die Anregungsfrequenz nahe der Eigenresonanz des LC-Schwingkreises liegt. Bei 8000 Hz fällt die Amplitude dann wieder auf 1.268 ab, bleibt aber über 1.0. Die Werte passen also nicht zu einem idealen Tiefpass, sondern zeigen das typische Resonanzverhalten eines LC-Kreises, dessen Resonanzfrequenz im Bereich von ca. 3600 Hz liegt. Wie gezeigt liegt diese tatsächlich für den Aufbau bei ca. 3.900 Hz.
+
+\img[.8]{plots/FFT_Vergleich_Tiefpass_8c}{Vergleich Plot zum Signal ohne Filter: Tiefpass (LC).}
+
+
+\paragraph{Bandfilter 1000 $\mathbf{\Omega}$}
+Ein Bandpass sollte nur einen bestimmten Frequenzbereich durchlassen und sowohl tiefe als auch hohe Frequenzen dämpfen. Die Messwerte zeigen bei 100 Hz eine starke Dämpfung (relativ 0.035) und bei 8000 Hz ebenfalls eine deutliche Reduktion (relativ 0.596). Der maximale Durchlass liegt bei 3600 Hz mit einer relativen Amplitude von 0.952. Dies entspricht genau dem erwarteten Verhalten eines Bandfilters, dessen Mittenfrequenz im Bereich von 3600 Hz liegt. 
+
+\img[.8]{plots/FFT_Vergleich_1000_Ohm_8c}{Vergleich Plot zum Signal ohne Filter: Bandpass 1000 $\Omega$.}
+
+\paragraph{Bandfilter 47 $\mathbf{\Omega}$}
+Auch dieser Bandfilter zeigt das erwartete Frequenzselektionsverhalten, jedoch mit einer deutlich schärferen Charakteristik. Bei 100 Hz ist das Signal fast vollständig unterdrückt (relativ 0.001). Bei 3600 Hz erreicht es mit 0.312 zwar den Maximalwert der Reihe, ist aber im Vergleich zum 1k$\Omega$-Filter stark gedämpft. Bei 8000 Hz fällt der Wert extrem auf 0.033 ab. Der Vergleich der beiden Bandfilter zeigt, dass der Filter mit 47 $\Omega$ (vermutlich durch einen geringeren Widerstandswert bedingt) eine höhere Güte ($Q$-Faktor) und damit eine schmalere Bandbreite aufweist. Die Werte passen zur Erwartung eines Bandpasses mit schmalerer Durchlassbandbreite und stärkerer Dämpfung außerhalb des Passbandes im Vergleich zum 1k$\Omega$-Variant.
+\img[.8]{plots/FFT_Vergleich_47_Ohm_8c}{Vergleich Plot zum Signal ohne Filter: Bandpass 47 $\Omega$.}
