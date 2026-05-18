@@ -178,10 +178,9 @@ Die Ergebnisse sind der \ctab{messwerte_induk} zu entnehmen.
         \toprule
         \text{Widerstand } R \ [\mathrm{\Ohm}] & \text{Resonanzfrequenz } f_0 \ [10^3 \mathrm{Hz}] & \text{Bandbreite } \Delta f \ [10^3 \mathrm{Hz}] & \text{Induktivität } L_1 \ [10^{-2} \mathrm{H}] \\
         \midrule
-        1000 \pm 50 & 4.15 \pm 0.10 & 3.21 \pm 0.16 & 3.1 \pm 0.4 \\
-        220 \pm 11 & 4.06 \pm 0.10 & 0.80 \pm 0.04 & 3.3 \pm 0.5 \\
-        47.0 \pm 2.4 & 3.91 \pm 0.10 & 0.375 \pm 0.019 & 3.5 \pm 0.5 \\
-        \bottomrule
+        1000 \pm 50 & 4.15 \pm 0.10 & 6.4 \pm 0.3 & 3.1 \pm 0.4 \\
+        220 \pm 11 & 4.06 \pm 0.10 & 1.60 \pm 0.08 & 3.3 \pm 0.5 \\
+        47.0 \pm 2.4 & 3.91 \pm 0.10 & 0.75 \pm 0.04 & 3.5 \pm 0.5 \\        \bottomrule
     \end{tabular}
 \end{table}
 
@@ -221,10 +220,9 @@ berechnet werden. Die Ergebnisse sind der \ctab{messwerte_widerstande} zu entneh
     \toprule
     \text{Bandbreite } f_\text{band} \ [10^3\mathrm{Hz}] & \text{Induktivität } L_1 \ [10^{-2}\mathrm{H}] & \text{Widerstand } R \ [\mathrm{\Ohm}] & R + R_\text{V} \ [\mathrm{\Ohm}] & R_\text{V} \ [\mathrm{\Ohm}] \\
     \midrule
-3.21 \pm 0.16 & 3.1 \pm 0.4 & 1000 \pm 50 & 630 \pm 90 & -370 \pm 110 \\
-0.80 \pm 0.04 & 3.3 \pm 0.5 & 220 \pm 11 & 164 \pm 25 & -60 \pm 30 \\
-0.375 \pm 0.019 & 3.5 \pm 0.5 & 47.0 \pm 2.4 & 83 \pm 12 & 36 \pm 13 \\
-    \bottomrule
+6.4 \pm 0.3 & 3.1 \pm 0.4 & 1000 \pm 50 & 1260 \pm 190 & 260 \pm 200 \\
+1.60 \pm 0.08 & 3.3 \pm 0.5 & 220 \pm 11 & 330 \pm 50 & 110 \pm 50 \\
+0.75 \pm 0.04 & 3.5 \pm 0.5 & 47.0 \pm 2.4 & 166 \pm 25 & 120 \pm 30 \\    \bottomrule
     \end{tabular}
 \end{table}
 \com{Ergeben die Ergebnisse Sinn?}
@@ -246,10 +244,10 @@ Nutzt man die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzu
             R_\text{V} \cdot \sqrt{\frac{\Delta {U_\text{A}}^{2} {U_\text{E}}^{2}}{{U_\text{A}}^{2} \left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta {U_\text{E}}^{2}}{\left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta R^{2}}{R^{2}}}
 }
 
-Ein- und Ausgangsspannung waren nach Praktikumsskript zu notiren. Die Experimentatoren haben hier einen Fehler gemacht, und keine Spannung notiert. Jedoch ist dies kein Problem, die Eingangsspannung ist ein konstanter Wert, welcher geschätzt bei $U_\text{E} = (0.5000 \pm 0.0375)$V liegt. Diese Schätzung entspricht einem Viertel der $V_\text{pp} = 2$V Spannung und wurde mit einer Ungenauigkeit von $7.5\%$ versehen.
+Ein- und Ausgangsspannung waren nach Praktikumsskript zu notiren. Die Experimentatoren haben hier einen Fehler gemacht, und keine Spannung notiert. Jedoch ist dies kein Problem, die Eingangsspannung ist ein konstanter Wert, welcher geschätzt bei $U_\text{E} = (1.00 \pm 0.08)$V liegt. Diese Schätzung entspricht der Hälfte der $V_\text{pp} = 2$V Spannung und wurde mit einer Ungenauigkeit von $7.5\%$ versehen.
 und die Ausgangssannung lässt sich aus dem Messsignal im Circut Analyzer herausfinden. Dazu wurde in Python das Signal eingelesen, und die Extremstellen für alle drei Widerstände bestimmt. Die Maxima sind dabei die Amplituden in dBV und lassen sich via
 \eq{dBV_to_V}{
-    V = 10^{dBV / 20}
+    [\mathrm{V}] = 10^{[\mathrm{dBV}] / 20}
 }
 umrechnen. Der Plot ist der \cabb{plots/Frequenzgang_4b_mit_Maxima} zu entnehmen.
 \img{plots/Frequenzgang_4b_mit_Maxima}{Amplitudenplot des Serienschwingkreis für unterschiedliche Widerstände. Rot eingezeichnet sind die automatisch bestimmten Extrema.}
@@ -264,9 +262,9 @@ Die bestimmten Werte sind der \ctab{py_py_py_s9iudhf} zu entnehmen. Keine der \h
     \toprule
     \text{Widerstand } R \ [\Ohm] & \text{Frequenz } f \ [10^{3}\mathrm{Hz}] & \text{Amp. } A \ [\mathrm{dBV}] & \text{Amp. } A \ [\mathrm{V}] & R_\text{V} \ [\Ohm] & \text{Std. Abw. } \sigma\\
     \midrule
-    1000 \pm 50  & 4.0 \pm 0.2 & - 7.64 \pm 0.03 & 0.42 \pm 0.05 & 200 \pm 170 & 2.84 \\
-     220 \pm 11  & 4.0 \pm 0.2 & - 9.75 \pm 0.03 & 0.33 \pm 0.05 & 120 \pm 60  & 2.71 \\
-    47.0 \pm 2.4 & 3.9 \pm 0.2 & -15.71 \pm 0.03 & 0.16 \pm 0.05 & 100 \pm 50  & 1.28 \\
+    1000 \pm 50  & 4.0 \pm 0.2 & - 7.64 \pm 0.03 & 0.42 \pm 0.05 & 1400 \pm 300 & 2.87 \\
+     220 \pm 11  & 4.0 \pm 0.2 & - 9.75 \pm 0.03 & 0.33 \pm 0.05 & 460 \pm 120  & 2.71 \\
+    47.0 \pm 2.4 & 3.9 \pm 0.2 & -15.71 \pm 0.03 & 0.16 \pm 0.05 & 240 \pm 90  & 1.28 \\
     \bottomrule
     \end{tabular}
 \end{table}
