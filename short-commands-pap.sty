@@ -1,3 +1,7 @@
+\usepackage{subcaption}    % Required for subfigures
+\usepackage{float}
+\usepackage{xparse} % Add this to your preamble
+
 %%%%%%%%%%%%%%%%%%%%%%
 % Generelle Commands %
 %%%%%%%%%%%%%%%%%%%%%%
@@ -60,6 +64,36 @@
     \label{fig:#2}
   \end{figure}
 }
+
+% \iimg[Width left img]{Path left}{Path right}{Main Caption}
+\newcommand{\iimg}[4][0.6]{%
+  \begin{figure}[h!]
+      \centering
+      % --- Left Image ---
+      % We assume #1 defaults to 0.5 if empty, or use the passed value
+      \begin{subfigure}[c]{\dimexpr #1\textwidth - 0.1\textwidth\relax}
+          \centering
+          \includegraphics[width=\textwidth]{Versuche/\versuchsnummer/img/#2}
+          \caption{}
+          \label{fig:#2_a}
+      \end{subfigure}
+      \hfill 
+      % --- Right Image ---
+      % Calculate remaining width: 0.99\textwidth - (Left Width)
+      % Or simply: 1\textwidth - Left Width - gap
+      \begin{subfigure}[c]{\dimexpr 0.99\textwidth - (\dimexpr #1\textwidth - 0.1\textwidth\relax)\relax}
+          \centering
+          \includegraphics[width=\textwidth]{Versuche/\versuchsnummer/img/#3}
+          \caption{}
+          \label{fig:#2_b}
+      \end{subfigure}
+      
+      \caption{#4}
+      \label{fig:#2}
+  \end{figure}
+}
+
+
 
 % \wrap[Width]{Left or Right?}{Path}{Caption}{Label}
 \newcommand{\wrap}[4][0.25]{

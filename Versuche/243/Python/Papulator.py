@@ -634,8 +634,8 @@ def plot_fft_from_time_csv(filepath, save_path=None):
     magnitude_db = 20 * np.log10(magnitude + 1e-12)
     
     # Plot
-    plt.figure(figsize=(10, 6))
-    plt.semilogx(xf, magnitude_db, linewidth=2)
+    plt.figure(figsize=(8,5))
+    plt.semilogx(xf, magnitude_db, linewidth=1)
     plt.title("Frequenzgang (Berechnet aus Zeitbereich)")
     plt.xlabel("Frequenz [Hz]")
     plt.ylabel("Magnitude [dBV]")
@@ -713,18 +713,18 @@ def plot_general_csv(
         raise ValueError(f"Could not find column matching '{y_label}' in {filepath}. Available: {df.columns.tolist()}")
 
     # 4. Plotting
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(8, 5))
     
     # Determine plot type based on data content or user preference
     # If log_x is True, use semilogx. If log_y is True, use semilogy. If both, loglog.
     if log_x and log_y:
-        ax.loglog(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
+        ax.loglog(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
     elif log_x:
-        ax.semilogx(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
+        ax.semilogx(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
     elif log_y:
-        ax.semilogy(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
+        ax.semilogy(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
     else:
-        ax.plot(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
+        ax.plot(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
         ax.ticklabel_format(axis='both', style='sci', scilimits=(0,3))
 
 
