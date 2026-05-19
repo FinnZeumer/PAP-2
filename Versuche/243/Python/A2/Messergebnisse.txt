@@ -1,0 +1,42 @@
+Messung 5kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 2.4042 mV; Sigma Rauschspannung: 0.0093 mV
+
+Messung 5kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 2.4042 mV; Sigma Rauschspannung: 0.0093 mV
+
+Messung 10kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 3.1159 mV; Sigma Rauschspannung: 0.011 mV
+
+Messung 10kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 3.1159 mV; Sigma Rauschspannung: 0.011 mV
+
+Messung 15kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 3.6989 mV; Sigma Rauschspannung: 0.0149 mV
+
+Messung 15kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 3.6989 mV; Sigma Rauschspannung: 0.0149 mV
+
+Messung 20kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 4.201 mV; Sigma Rauschspannung: 0.0147 mV
+
+Messung 20kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 4.201 mV; Sigma Rauschspannung: 0.0147 mV
+
+Messung 25kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 4.6594 mV; Sigma Rauschspannung: 0.0173 mV
+
+Messung 25kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 4.6594 mV; Sigma Rauschspannung: 0.0173 mV
+
+Messung 30kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 5.0751 mV; Sigma Rauschspannung: 0.0188 mV
+
+Messung 30kOhm:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 5.0751 mV; Sigma Rauschspannung: 0.0188 mV
+
+Messung Eigenrauschen Verstärker:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 1.3702 mV; Sigma Rauschspannung: 0.0054 mV
+
+Messung Eigenrauschen Verstärker:
+Anzahl Messungen: 127; Mittelwert Rauschspannung: 1.3702 mV; Sigma Rauschspannung: 0.0054 mV
+

@@ -11,10 +11,6 @@ import sympy as sp
 from IPython.display import display, Math, Latex, HTML
 import string
 from enum import Enum
-import pandas as pd
-import matplotlib.pyplot as plt
-from cycler import cycler
-import os
 
 
 # ==================================================
@@ -513,6 +509,8 @@ class Colors(str, Enum):
 # ==================================================
 # Default Sytling
 def plot_me(title:str=None, xlabel:str=None, ylabel:str=None, safe_as:str=None):
+    from cycler import cycler
+    import matplotlib.pyplot as plt
 
     # Apply style
     plt.rcParams["axes.prop_cycle"] = cycler(
@@ -559,7 +557,6 @@ def plot_errorlines(
 ):
     import matplotlib.patches as patches
 
-
     # Error rectangles
     for x in x_val:
         rect = patches.Rectangle(
@@ -605,154 +602,3 @@ def plot_errorlines(
             )
 
     return ax
-
-
-def plot_fft_from_time_csv(filepath, save_path=None):
-    # Load
-    df = pd.read_csv(filepath, comment='#', engine='python')
-    df.columns = df.columns.str.strip()
-    
-    # Extract Time and Signal
-    time_col = next(c for c in df.columns if 'Time' in c)
-    sig_col = next(c for c in df.columns if 'Channel' in c or 'Voltage' in c)
-    
-    t = df[time_col].values
-    signal = df[sig_col].values
-    
-    # FFT Calculation
-    dt = t[1] - t[0]
-    fs = 1.0 / dt
-    N = len(signal)
-    
-    # Compute FFT
-    yf = np.fft.fft(signal)
-    xf = np.fft.fftfreq(N, dt)[:N//2] # Positive frequencies only
-    magnitude = 2.0/N * np.abs(yf[:N//2]) # Scale amplitude
-    
-    # Convert to dBV (20*log10(V))
-    # Add small epsilon to avoid log(0)
-    magnitude_db = 20 * np.log10(magnitude + 1e-12)
-    
-    # Plot
-    plt.figure(figsize=(10, 6))
-    plt.semilogx(xf, magnitude_db, linewidth=2)
-    plt.title("Frequenzgang (Berechnet aus Zeitbereich)")
-    plt.xlabel("Frequenz [Hz]")
-    plt.ylabel("Magnitude [dBV]")
-    plt.grid(True, which="both", linestyle="--", alpha=0.6)
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300)
-        print(f"Saved to {save_path}")
-    plt.show()
-
-
-def plot_general_csv(
-    filepath, 
-    x_label, 
-    y_label, 
-    title="Plot", 
-    xlabel="X-Axis", 
-    ylabel="Y-Axis", 
-    log_x=False, 
-    log_y=False, 
-    save_path=None,
-    show_plot=True
-):
-    """
-    Plots data from a CSV file given specific column headers for X and Y.
-    
-    Parameters:
-    - filepath (str): Path to the CSV file.
-    - x_label (str): The exact or partial header name for the X-axis column.
-    - y_label (str): The exact or partial header name for the Y-axis column.
-    - title (str): Title of the plot.
-    - xlabel (str): Label for the X-axis.
-    - ylabel (str): Label for the Y-axis.
-    - log_x (bool): Set X-axis to logarithmic scale.
-    - log_y (bool): Set Y-axis to logarithmic scale.
-    - save_path (str): Optional path to save the figure.
-    - show_plot (bool): Whether to display the plot.
-    """
-    
-    # 1. Load Data
-    try:
-        # Skip lines starting with '#' (common in instrument exports like Digilent)
-        df = pd.read_csv(filepath, comment='#', engine='python')
-    except Exception as e:
-        print(f"Error reading file {filepath}: {e}")
-        return
-
-    # 2. Clean Column Names
-    # Strip whitespace and convert to lowercase for flexible matching, 
-    # but keep original names for selection if needed.
-    df.columns = df.columns.str.strip()
-    
-    # 3. Find Columns
-    def find_column(df, target_name):
-        # Exact match first
-        if target_name in df.columns:
-            return target_name
-        
-        # Case-insensitive partial match
-        target_lower = target_name.lower()
-        matches = [col for col in df.columns if target_lower in col.lower()]
-        
-        if matches:
-            # Return the first match
-            return matches[0]
-        
-        return None
-
-    x_col = find_column(df, x_label)
-    y_col = find_column(df, y_label)
-
-    if not x_col:
-        raise ValueError(f"Could not find column matching '{x_label}' in {filepath}. Available: {df.columns.tolist()}")
-    if not y_col:
-        raise ValueError(f"Could not find column matching '{y_label}' in {filepath}. Available: {df.columns.tolist()}")
-
-    # 4. Plotting
-    fig, ax = plt.subplots(figsize=(10, 6))
-    
-    # Determine plot type based on data content or user preference
-    # If log_x is True, use semilogx. If log_y is True, use semilogy. If both, loglog.
-    if log_x and log_y:
-        ax.loglog(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
-    elif log_x:
-        ax.semilogx(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
-    elif log_y:
-        ax.semilogy(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
-    else:
-        ax.plot(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=2)
-        ax.ticklabel_format(axis='both', style='sci', scilimits=(0,3))
-
-
-    ax.set_title(title)
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
-    ax.legend()
-
-    # Apply style
-    plt.rcParams["axes.prop_cycle"] = cycler(
-        color=[c.value for c in Colors]
-    )
-    plt.rcParams["grid.linestyle"] = "--"
-    plt.rcParams["grid.alpha"] = 0.6
-    plt.rcParams["axes.grid"] = True
-
-    # Apply plot-specific settings
-    ax = plt.gca()
-
-    # Save if path provided
-    if save_path:
-        # Ensure directory exists
-        os.makedirs(os.path.dirname(save_path) if os.path.dirname(save_path) else '.', exist_ok=True)
-        plt.savefig(save_path, dpi=300)
-        print(f"Plot saved to {save_path}")
-
-    if show_plot:
-        plt.tight_layout()
-        plt.show()
-    else:
-        plt.close(fig)
