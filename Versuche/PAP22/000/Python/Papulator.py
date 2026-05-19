@@ -99,7 +99,7 @@ def round_err_sig(err, forceRoundDig: int = None):
 # --------------------------------------------------
 #   Rounding erros and a Value to Sig Position
 # --------------------------------------------------
-def round_sig_digs(err: float, val: float = None):
+def round_sig_digs(err:float, val:float = None):
     '''
     Function to round a value and its uncertainty to the significant digits of the error.
 
@@ -120,21 +120,21 @@ def round_sig_digs(err: float, val: float = None):
         Rounded error (numeric)
 
     **rounded_combined_str** : str
-        Formatted string "value ± error" with matching decimal places
+        Formatted string "value \pm error" with matching decimal places
     '''
 
     err_str, rounded_err, decimals = round_err_sig(err)
 
     # round value numerically
-    rounded_val = round(val, decimals)
+    rounded_val = np.round(val, decimals)
 
     # format value to match error precision
     if decimals > 0:
-        val_str = f"{rounded_val:.{decimals}f}"
+        val_str = fr"{rounded_val:.{decimals}f}"
     else:
         val_str = str(int(rounded_val))
 
-    rounded_combined_str = f"{val_str} \\pm {err_str}"
+    rounded_combined_str = fr"{val_str} \pm {err_str}"
 
     return rounded_val, rounded_err, rounded_combined_str
 
@@ -190,11 +190,11 @@ def gff(func, errPronePar):
 # --------------------------------------------------
 #   Standard Abweichung Sigma
 # --------------------------------------------------
-def std_abw(p1, p2, err_p1 = 0.0, err_p2 = 0.0):
+def std_abw(p1:float, p2:float, err_p1:float = 0.0, err_p2:float = 0.0):
     """
     Funktion zum berechnen der Sigma-Abweichugn von zwei Messwerten, oder einem Messwert und einem Literaturwert.
     """
-    return round(abs(p1 - p2)/(np.sqrt(err_p1**2 + err_p2**2)), 2)
+    return np.round(abs(p1 - p2)/(np.sqrt(err_p1**2 + err_p2**2)), 2)
 
 # --------------------------------------------------
 #   Berechnung von Wert und Fehler
@@ -269,7 +269,7 @@ def tex_func(func):
 # --------------------------------------------------
 #   Papulation (Clac everything)
 # --------------------------------------------------
-def do_it(function, params, data, params_without_error=None, print_formula: bool = True):
+def do_it(function:sp, params, data, params_without_error=None, print_formula: bool = True):
     """
     Calculates values and uncertainties for a given SymPy function.
 
