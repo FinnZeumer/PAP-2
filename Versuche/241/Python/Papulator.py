@@ -11,6 +11,7 @@ import sympy as sp
 from IPython.display import display, Math, Latex, HTML
 import string
 from enum import Enum
+import matplotlib.patches as patches
 
 
 # ==================================================
@@ -555,7 +556,6 @@ def plot_errorlines(
     add_label:bool=False,
     label:str='Messreihe'
 ):
-    import matplotlib.patches as patches
 
     # Error rectangles
     for x in x_val:
@@ -578,9 +578,9 @@ def plot_errorlines(
             label=label if (add_label and i == 0) else None
         )
 
+
     # Labels
     height_scale = [0.95, 0.85, 0.75, 0.65]
-
 
     if names != None:
         for i, (x, name) in enumerate(zip(x_val, names)):
@@ -590,7 +590,83 @@ def plot_errorlines(
                 name,
                 color='black',
                 ha='center',
-                va='top',
+                va='center',
+                fontsize=10,
+                bbox=dict(
+                    boxstyle='round',
+                    facecolor='white',
+                    edgecolor=color_line,
+                    alpha=0.9,
+                    pad=0.45
+                )
+            )
+
+    return ax
+
+
+def plot_errorlines(
+    ax,
+    x_val,
+    err,
+    y_min,
+    y_max,
+    names:str = None,
+    color_line=Colors.RED,
+    color_err=Colors.RED,
+    add_label:bool=False,
+    label:str='Messreihe'
+):
+    # Error rectangles
+    # Sicherstellen, dass x_val eine Liste/Array ist, falls nur ein Wert kommt
+    if not hasattr(x_val, '__iter__'):
+        x_val = [x_val]
+    
+    for x in x_val:
+        rect = patches.Rectangle(
+            (x - err, y_min),
+            2 * err,
+            y_max - y_min,
+            color=color_err,
+            alpha=0.5
+        )
+        ax.add_patch(rect)
+
+    # Vertical lines
+    for i, x in enumerate(x_val):
+        ax.axvline(
+            x,
+            color=color_line,
+            linestyle=':',
+            alpha=0.9,
+            label=label if (add_label and i == 0) else None
+        )
+
+    if names is not None:
+       
+        num_labels = len(names)
+        if num_labels == 0:
+            return ax
+        
+        margin = 0.05 * (y_max - y_min) # 5% Rand
+        effective_range = (y_max - y_min) - 2 * margin
+        
+        if effective_range <= 0:
+            # Fallback, wenn der Bereich zu klein ist
+            effective_range = y_max - y_min
+            margin = 0
+
+        for i, name in enumerate(names):
+            relative_pos = 1.0 - ((i + 0.5) / num_labels)
+            
+            y_pos = y_min + (y_max - y_min) * relative_pos
+
+            ax.text(
+                x,
+                y_pos,
+                name,
+                color='black',
+                ha='center',
+                va='center', 
                 fontsize=10,
                 bbox=dict(
                     boxstyle='round',

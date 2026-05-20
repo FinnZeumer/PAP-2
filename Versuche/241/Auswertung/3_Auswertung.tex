@@ -128,10 +128,10 @@ Es zeigt sich klare Parallelen zwischen Tief- und Hochpass; der Phasengang beide
 
 Mit hilfe des Plots des Frequentganges kann die Grenzfrequenz beider Filter bestimmt werden. Die Grenzfrequenzen werdne über 2 Geraden pro Filterpass bestimmt, eine wird am konstanten Teil, und die anderem am annährend linearen Teil angelegt und deren Schnittpunkt ist die Grenzfrequenz. Für die Unegnauigkeit werde erneut die Unegnauigkeit von 5 Steps angenommen, jedoch muss die logarithmische Skalierung betrachtet werden, daher wird immer der größere Wert für die Unegnauigkeit gewählt, um diese nicht zu unterschätzen und es können nicht die 50 Steps/div genutzt werden, da die Divs verschiedene Stepgrößen aufweisen.
 Dem \hyperref[ch:Protokoll]{Messprotokoll} sind die bestimmten Grenzfrequenzen $f_g$ bestimmtn, wobei die Einheit wälschlicherweise in Hz, anstatt von khz angegeben wurde. Dies lässt sich mit der Abbildung zeigen. 
-Damit ergibt sich die Unegnauigkeit für beide Grenzfrequenzen zu $\Delta f_g = 0.25 \mathrm{kHz}$, damit bestimmen sich die Grenzfrequenzen zu
+Damit ergibt sich die Unegnauigkeit für beide Grenzfrequenzen zu $\Delta f_g = 0.27 \mathrm{kHz}$, damit bestimmen sich die Grenzfrequenzen zu
 
-\res[-3]{f_{g,T}}{2.72}{0.25}{Hz}
-\res[-3]{f_{g,H}}{2.99}{0.25}{Hz}
+\res[-3]{f_{g,T}}{2.72}{0.27}{Hz}
+\res[-3]{f_{g,H}}{2.99}{0.27}{Hz}
 
 Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen den beiden Werten liegt somit bei 0.76$\sigma$ und ist nicht signifikant.
 
@@ -146,7 +146,7 @@ bestimmt werden. Die Unegnauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzun
 Diese hat eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $1.44 \sigma$ gegenüber dem Tiefpassfilter und $0.87 \sigma$ gegenüber dem Hochpassfilter. Keie der beiden Abweichungen ist signifikant.
 
 \img{plots/Phasengang_3a}{Phasengang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
-\img{plots/Frequenzgang_3a}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
+\img{plots/Frequenzgang_3a_mit_Asypmtoten}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
 
 % \com{Ist der Plot Sinnvoll?}
 % \img{plots/Phasengnag_3b}{Phasengang des Tefpasses via Werte der Tabelle M.3.2}
@@ -169,8 +169,7 @@ Die Daten der Messung sind der Tabelle M.4.1 des \hyperref[ch:Protokoll]{Messpro
 }
 
 Die Ergebnisse sind der \ctab{messwerte_induk} zu entnehmen.
-
-\begin{table}
+\begin{table}[h!]
     \caption{Messwerte und berechnete Induktivität mit einer Induktivität von (47 $\pm$ 4.7) nF.}
     \label{tab:messwerte_induk}
     \centering
@@ -183,11 +182,10 @@ Die Ergebnisse sind der \ctab{messwerte_induk} zu entnehmen.
         47.0 \pm 2.4 & 3.91 \pm 0.10 & 0.75 \pm 0.04 & 3.5 \pm 0.5 \\        \bottomrule
     \end{tabular}
 \end{table}
-
 Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Induktivitäten gebildet:
 \res[-2]{L_1}{3.3}{0.5}{H}
 
-\com{Die Unegnauigkeiten müssen noch sinnvoll gewählt und ggf. begrünet werden.}
+% \com{Die Unegnauigkeiten müssen noch sinnvoll gewählt und ggf. begrünet werden.}
 
 \subsection{Bestimmung des Gesamtwiderstandes und Verluste im Serienschwingkreis}
 Im Folgenden soll der Gesamtwiderstand bestimmt werden, dazu wurde der Verlustwiederstand $R_\text{V}$ in Serie geschaltet. Es gilt
@@ -212,7 +210,7 @@ bestimmt. Stellt man \ceq{Gesamtwiderstand_gl} nach $R_\text{V}$ um, so kann der
 }
 berechnet werden. Die Ergebnisse sind der \ctab{messwerte_widerstande} zu entnehmen.
 
-\begin{table}
+\begin{table}[h!]
     \caption{Berechnung des Verlustwiderstands durch Bandbreite und Induktivität.}
     \label{tab:messwerte_widerstande}
     \centering
@@ -222,11 +220,10 @@ berechnet werden. Die Ergebnisse sind der \ctab{messwerte_widerstande} zu entneh
     \midrule
 6.4 \pm 0.3 & 3.1 \pm 0.4 & 1000 \pm 50 & 1260 \pm 190 & 260 \pm 200 \\
 1.60 \pm 0.08 & 3.3 \pm 0.5 & 220 \pm 11 & 330 \pm 50 & 110 \pm 50 \\
-0.75 \pm 0.04 & 3.5 \pm 0.5 & 47.0 \pm 2.4 & 166 \pm 25 & 120 \pm 30 \\    \bottomrule
+0.75 \pm 0.04 & 3.5 \pm 0.5 & 47.0 \pm 2.4 & 166 \pm 25 & 120 \pm 30 \\    
+    \bottomrule
     \end{tabular}
 \end{table}
-\com{Ergeben die Ergebnisse Sinn?}
-
 
 Alternativ kann $R_\text{V}$ auch durch die Kirchhoffschen Regeln bestimmt werden, denn es gilt:
 \eq{krischhofffffffffffffffff}{
@@ -262,14 +259,14 @@ Die bestimmten Werte sind der \ctab{py_py_py_s9iudhf} zu entnehmen. Keine der \h
     \toprule
     \text{Widerstand } R \ [\Ohm] & \text{Frequenz } f \ [10^{3}\mathrm{Hz}] & \text{Amp. } A \ [\mathrm{dBV}] & \text{Amp. } A \ [\mathrm{V}] & R_\text{V} \ [\Ohm] & \text{Std. Abw. } \sigma\\
     \midrule
-    1000 \pm 50  & 4.0 \pm 0.2 & - 7.64 \pm 0.03 & 0.42 \pm 0.05 & 1400 \pm 300 & 2.87 \\
-     220 \pm 11  & 4.0 \pm 0.2 & - 9.75 \pm 0.03 & 0.33 \pm 0.05 & 460 \pm 120  & 2.71 \\
-    47.0 \pm 2.4 & 3.9 \pm 0.2 & -15.71 \pm 0.03 & 0.16 \pm 0.05 & 240 \pm 90  & 1.28 \\
+    1000 \pm 50  & 4.10 \pm 0.20 & - 7.64 \pm 0.03 & 0.42 \pm 0.05 & 1400 \pm 300 & 2.87 \\
+     220 \pm 11  & 4.08 \pm 0.20 & - 9.75 \pm 0.03 & 0.33 \pm 0.05 & 460 \pm 120  & 2.71 \\
+    47.0 \pm 2.4 & 3.88 \pm 0.20 & -15.71 \pm 0.03 & 0.16 \pm 0.05 & 240 \pm 90  & 1.28 \\
     \bottomrule
     \end{tabular}
 \end{table}
 
-\com{Ich glaube, hier fehlt noch ein teil!!!!}
+% \com{Ich glaube, hier fehlt noch ein teil!!!!}
 
 \section{Resonanzüberhöhung}
 \label{sec:A5}
@@ -431,7 +428,6 @@ Das Verhalten des LC-Tiefpasses weicht von dem eines einfachen RC-Filters ab, da
 
 \img[.8]{plots/FFT_Vergleich_Tiefpass_8c}{Vergleich Plot zum Signal ohne Filter: Tiefpass (LC).}
 
-
 \paragraph{Bandfilter 1000 $\mathbf{\Omega}$}
 Ein Bandpass sollte nur einen bestimmten Frequenzbereich durchlassen und sowohl tiefe als auch hohe Frequenzen dämpfen. Die Messwerte zeigen bei 100 Hz eine starke Dämpfung (relativ 0.035) und bei 8000 Hz ebenfalls eine deutliche Reduktion (relativ 0.596). Der maximale Durchlass liegt bei 3600 Hz mit einer relativen Amplitude von 0.952. Dies entspricht genau dem erwarteten Verhalten eines Bandfilters, dessen Mittenfrequenz im Bereich von 3600 Hz liegt. 
 
@@ -440,3 +436,21 @@ Ein Bandpass sollte nur einen bestimmten Frequenzbereich durchlassen und sowohl 
 \paragraph{Bandfilter 47 $\mathbf{\Omega}$}
 Auch dieser Bandfilter zeigt das erwartete Frequenzselektionsverhalten, jedoch mit einer deutlich schärferen Charakteristik. Bei 100 Hz ist das Signal fast vollständig unterdrückt (relativ 0.001). Bei 3600 Hz erreicht es mit 0.312 zwar den Maximalwert der Reihe, ist aber im Vergleich zum 1k$\Omega$-Filter stark gedämpft. Bei 8000 Hz fällt der Wert extrem auf 0.033 ab. Der Vergleich der beiden Bandfilter zeigt, dass der Filter mit 47 $\Omega$ (vermutlich durch einen geringeren Widerstandswert bedingt) eine höhere Güte ($Q$-Faktor) und damit eine schmalere Bandbreite aufweist. Die Werte passen zur Erwartung eines Bandpasses mit schmalerer Durchlassbandbreite und stärkerer Dämpfung außerhalb des Passbandes im Vergleich zum 1k$\Omega$-Variant.
 \img[.8]{plots/FFT_Vergleich_47_Ohm_8c}{Vergleich Plot zum Signal ohne Filter: Bandpass 47 $\Omega$.}
+
+\subsection{Vergleich der Grenzfrequenzen der RC-Glieder}
+Zuletzt soll das RC-Glied noch einmal betrachtet werden. Es wird das Signal, bzw. seine Dämpfung bei 100Hz betrachet. Es werden die Grenzfrequenzen für den Hoch- sowie Tiefpass bestimmt und mit den Ergebnissen aus \csec{A3} verglichen. Diese lagen bei $f_\text{g,T} = (2.72 \pm 0.27)$kHz und $f_\text{g,H} = (2.99 \pm 0.27)$kHz (vgl. \cssec{final_cite}).
+
+Zur theoretischen Bestimmung der Grenzfrequenz wird die maximale Amplitude $A_\text{Max}$ bestimmt und anschließend $3$dBV subtrahiert. Die $3$dBV rühren daher, dass dies einer Dämpfung von $A_\text{Max}/\sqrt{2}$ entspricht. Somit kann der gesuchte Amplitudenwert
+\eq{gesAmps}{
+    A_\text{ges} = A_\text{Max} - 3 [\mathrm{dBV}]
+}
+ermittelt werden. Um daraus eine Grenzfrequenz $f_\text{g}$ zu bestimmen, werden die Daten linear interpoliert. Diese kann via
+\eq{interpol}{
+    f_g = f_1 + \frac{A_1 - A_{cut}}{A_1 - A_2} \cdot (f_2 - f_1)
+}
+beschrieben werden. Dabei beschreibt der Indize 1 die Amplitude und Frequenz den Peak bei 100Hz, und der Indize 2 den Peak bei 3.6kHz. Somit kann die Resonanzfrequenz des Tiefpasses zu
+\res[-3]{f_\text{g,T}}{1.18}{0.12}{Hz}
+bestimmt werden, dieser weicht um $5.2\sigma$ ab, dies ist eine signifikante Abweichung. 
+Analog wird die Grenzfrequenz des Hochpassfilters zu
+\res[-3]{f_\text{g,H}}{3.36}{0.34}{Hz}
+errechnet. Auch hier wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} berechnet. Jene liegt bei $0.84\sigma$, diese Abweichung ist nicht signifikant, die Messergebnisse decken sich in diesem Fall mit den Werten der Aufgabe 3.
