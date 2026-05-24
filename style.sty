@@ -195,3 +195,9 @@
   separate-uncertainty = true
 }
 
+% Anpassen von Formattig der TOC und List of Figures
+\renewcommand{\numberline}[1]{#1~}
+
+\renewcommand*\l@figure{\@dottedtocline{1}{2.5em}{2.3em}}
+% \let\l@table\l@figure
+

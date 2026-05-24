@@ -19,9 +19,9 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \section{Definieren der Unegnauigkeiten}
 \label{sec:A0}
-Für die Bestimmung der meisten Werte wurde die Cursorfuntkion zum Vermessen der Plots verwendet. Für jede Messung wurden individuelle Einstellungen getreoffen. Daher ist das pauschale Abschätzen von Fehlern nicht direkt trivial. Stattdessen soll eine schematische Fehleranalyse vorgenommen werden. 
+Für die Bestimmung der meisten Werte wurde die Cursorfuntkion zum Vermessen der Plots verwendet. Für jede Messung wurden individuelle Einstellungen getroffen. Daher ist das pauschale Abschätzen von Fehlern nicht direkt trivial. Stattdessen soll eine schematische Fehleranalyse vorgenommen werden. 
 Daher wird die eine neue Größe definiert, der \afz{STEP}. Denn der Bereich eines Oszilloskopes wird in Divisions (kurz div) eingeteilt. Dieses Osziloskop hat $13 \times 8$ Divisions. Über die Divisions wird sowohl die Spannung und die Zeit eingestellt, welche aufgelöst werden soll. Diese Divisons wiederrum können in Steps eingeteilt werden, ein Step ist dabei der Diskrete Sprung, den der Cursor macht, also die kelisnt mögliche Cursorbewegung auf dem Screen. Ein Div ist dabei in $50 \times 32$ Steps aufgeteilt (Horizontal $\times$ Vertikal). Dies kann schematisch der \cabb{OSZI_STEPS} entnommen werden. Die Steps wurden auf unter der neusten Version der Software händisch abgezählt. \footnote{Ja, dafür habe ich die Software extra daheim herunetrgleaden, um mit 100DPI Mausempfindlichkeit und bei 5000\% Bilschirmgröße die Steps zu vermessen.}
-Dividiert man Auflösungen pro Div mit einem Step, so bekommt man die Auflösung pro Step heraus. Dies ist die größtmögliche Genauigkeit, welche überhaupt vermessen werden kann. Dazu wird noch eine ablese Unegnauigkeit eingebaut, daher wird der Fehler von Spannungswerten auf 3 Steps (vertical) und 5 Steps fpr die Zeit (horizontal).
+Dividiert man Auflösungen pro Div mit einem Step, so bet man die Auflösung pro Step heraus. Dies ist die größtmögliche Genauigkeit, welche überhaupt vermessen werden kann. Dazu wird noch eine ablese Unegnauigkeit eingebaut, daher wird der Fehler von Spannungswerten auf 3 Steps (vertical) und 5 Steps fpr die Zeit (horizontal).
 
 \img{OSZI_STEPS}{Begriffserklärung, DIV und STEPS.}
 
@@ -31,30 +31,28 @@ Die Genauigkeit der genutzten Bauteile werden nach Praktikumsskript mit $\Delta 
 \label{sec:A1}
 Ziel der ersten Aufgabe ist es die Zeitkonstante $\tau$ \ceq{rc_halbwertszeit} herauszufinden. Dazu wird der Versuchsaufbau mit verschiedenen Kombinationen aus Widerständen und Kondensatoren aufgebaut. Es wird zunächst die Spannung $U_C$ über den Kondensator abgegriffen. Die Halbwertszeit $T_{1/2}$ wurde über den Cursor gemessen. Die gemessenen Halbwetszeiten, sowie die genutzte Generatorfrequenz sind im \hyperref[ch:Protokoll]{Messprotokoll} der Tabelle M.1.1 aufgelistet.
 Dabei war die eingestelle Generatorfrequenz nicht relevant für die Halbwertszeit, der Kondensator hat sich mit derselben Geschwindigkeit geladen. Die Signale sahen alle in etwa wie in \cabb{A1/M3} aus. 
-Für die Bestimmung der Halbwertszeit wurde an den Plot im Oszilloskop die Zeitauflösung hochgestellt, dadurch konnten dann die Halbwertszeit abgelesen werden, indem die Zeitdifferenz vom Start des Aufladens bis zu dem Punkt, an dem das Signal die Nulllinie durchdringt, da das Signal zentriert ist, entspricht dies genau der Halbwertszeit. Das Vorhgehen ist der \cabb{A1/M3} zu entnehmen. Dasselbe wurde auch für den elektrischen Strom gemacht, nur dass das Signal hier anders herum verläuft, dies ist der \cabb{A1/M4} zu entnehmen.
+Für die Bestimmung der Halbwertszeit wurde an den Plot im Oszilloskop die Zeitauflösung hochgestellt, dadurch konnten dann die Halbwertszeit abgelesen werden, indem die Zeitdifferenz vom Start des Aufladens bis zu dem Punkt, an dem das Signal die Nulllinie durchdringt, da das Signal zentriert ist, entspricht dies genau der Halbwertszeit. Das Vorhgehen ist der \cabb{A1/M1} zu entnehmen. Dasselbe wurde auch für den elektrischen Strom gemacht, nur dass das Signal hier anders herum verläuft, dies ist der \cabb{A1/M4} zu entnehmen.
 
 \img{A1/M3}{Beispielhates Aussehen eines Plots zur Bestimmung der Halbwetszeit der Spannung.}
 
-\img{A1/M1}{Herangezoomed zur Bestimmung der Halbwetszeit der Spannung.}
+\img{A1/M1}{Höhre Zeitauflösung zur Bestimmung der Halbwetszeit der Spannung.}
 
-\img{A1/M4}{Herangezoomed zur Bestimmung der Halbwetszeit des Stromes.}
+\img{A1/M4}{Höhre Zeitauflösung zur Bestimmung der Halbwetszeit des Stromes.}
 
-Zur Bestimmung der wird sich an der Anleitung nach \csec{A0} gehalten. Dabei ist nur die Zeitauflösung relevant. Für erste Messung ist die Zeitauflösung auf $50 \mathrm{\mu s/div}$ gestellt gewesen, für die zwei weiteren Soannungsmessungen auf $5 \mathrm{\mu s/div}$. Für die Strommessung lag die Auflösung bei $20 \mathrm{\mu s/div}$.
+Zur Bestimmung der Ungenauigkeit wird sich an der Anleitung nach \csec{A0} gehalten. Dabei ist nur die Zeitauflösung relevant. Für erste Messung ist die Zeitauflösung auf $50 \mathrm{\mu s/div}$ gestellt gewesen, für die zwei weiteren Spannungsmessungen auf $5 \mathrm{\mu s/div}$. Für die Strommessung lag die Auflösung bei $20 \mathrm{\mu s/div}$.
 Es wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} genutzt, um aus \ceq{rc_halbwertszeit} die Unegnauigkeit zu
 
 \eq{err_rc_halbwertszeit}{
-    \Delta \tau_\text{exp} = \frac{\sqrt{\Delta {T_{1/2}}^{2}}}{\ln{\left(2 \right)}} \, .
+    \Delta \tau_\text{exp} = \frac{\sqrt{\Delta {T_{1/2}}^{2}}}{\ln{\left(2 \right)}}
 }
 
-Darüberhinaus kann auch theoretisch zu erwartenden Zeitkonstanten
+zubestimmen. Darüberhinaus kann auch die theoretisch zu erwartenden Zeitkonstante via
 \eq{tau_theo}{
-    \tau = C R, \qquad \Delta \tau_\text{exp} = \sqrt{C^{2} \Delta R^{2} + R^{2} \Delta C^{2}} \, ,
+    \tau = C R, \qquad \Delta \tau_\text{exp} = \sqrt{C^{2} \Delta R^{2} + R^{2} \Delta C^{2}}
 }
 
-dabei ist die Unegnauigkeit erneut via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt wurden. 
-
+errechnet werden, dabei ist die Unegnauigkeit erneut via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt wurden. 
 Die Messergebnisse sind in \ctab{AT1} aufgelistet.
-
 \begin{table}
     \centering
     \caption{Experimentelle und theoretische Zeitkonstanten der Einzelmessungen.}
@@ -71,42 +69,41 @@ Die Messergebnisse sind in \ctab{AT1} aufgelistet.
     \bottomrule
     \end{tabular}
 \end{table}
-
-Es wurde die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen den theoretischen und den experimentellen Werten bestimmt, keien Abweichung ist statistisch signifikant.
+Es wurde die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen den theoretischen und den experimentellen Werten bestimmt, keiene der Abweichungen ist statistisch signifikant.
 \com{Signifikante Abweichung von U3 und I fehlt noch!}
-
+Sowohl für die letzte Spannung, als auch für den Strom ist derselbe Wert der Zeitkonstanten zu erwartenden. Es wird auch hier für die Experimentwerte \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} bestimmt. Diese beläuft sich auf $4.32\sigma$, was eine statistisch signifikante Abweichung ist.
 
 \section{RC-Glied als Integrator und Differentiator}
 \label{sec:A2}
-Im Folgenden soll nun das RC-Glied und seine Funktion als Integrator bzw. Differentiator qualitativ an Beispeilen erläutert werden. Dabei stellt das lila Signal (CH2) immer das Referenzsignal, und das grüne Signal (CH1) das Integral bzw. Differenzial.
+Im Folgenden soll nun das RC-Glied und seine Funktion als Integrator bzw. Differentiator qualitativ an Beispeilen erläutert werden. Dabei stellt das lila Signal (CH2) immer das Referenzsignal, und das grüne Signal (CH1) das Integral bzw. Differenzial dar.
 
-\subsection*{Integrator}
+\subsection{Integrator}
 Zunächst sollen die Signal untersucht werden, für welche das Integral approximiert wurde. Dies wurde für insgesamt vier Signale gemacht.
 \wrap[.45]{R}{A2/Dreiceck_integral}{Beispielhaftes Integral des Dreieckssignals}
 \paragraph{Das Dreieckssignal} lässt sich als Wechsel von zwei linearen Funktionen verstehen, welche zwischen positiven und negativen Steigungen iterieren. Lineare Funktionen sind dabei Polynome ersten Grades, damit muss das Integral ein Polynom zweiten Grades sein. Und dies ist auch was in \cabb{A2/Dreiceck_integral} zu erkennen ist; eine Zusammenreihung von Parabeln. 
-Die Wendepunkte der Parabeln sind liegen an den Stellen der Extrema des Ausgangssignales, die Maxima beschreiben die maximale Rechtskrümmung des Integrals und die Minima die maximale Linkskrümmung. 
-Die Extrema des Integrals liegen immer zwischen zwei Extrema, bei negativer Steigung des Ausgangssignales ligen die Maxima des Integrals und bei positiver Steigung die Minima. Dies ergibt Sinn, da zwischen zwei Extreman die\afz{linearen Funktionen} die Nulllinie treffen, und dies einer Steigung von Null entspricht; einem Extremum des Integrals.
+Die Wendepunkte der Parabeln liegen an den Stellen der Extrema des Ausgangssignales, die Maxima beschreiben die maximale Rechtskrümmung des Integrals und die Minima die maximale Linkskrümmung. 
+Die Extrema des Integrals liegen immer zwischen zwei Extrema, bei negativer Steigung des Ausgangssignales ligen die Maxima des Integrals und bei positiver Steigung die Minima. Dies ergibt Sinn, da zwischen zwei Extrema die\afz{linearen Funktionen} die Nulllinie treffen, und dies einer Steigung von Null entspricht; einem Extremum des Integrals.
 
 \wrap[.45]{R}{A2/Ramp-dn_integral}{Beispielhaftes Integral des Rampensignals (down)}
-\paragraph{Das Rampensignal} ist vergleichbar zum Dreicecks Signlal, jedoch konvergieren die Steigung der positiven Steigung gegen Unendlich. Wir nehmen daher an, dass die Funktion kontinuirlich ist. Das Ausgangssignal ist somit die periodische Iteration von negativen linearen Funktionen auf einer festen Intervallbreite, wie es in \cabb{A2/Ramp-dn_integral} gezeigt ist.
+\paragraph{Das Rampensignal} ist vergleichbar zum Dreicecks Signal, jedoch konvergieren die Steigung der positiven Steigung gegen Unendlich. Wir nehmen daher an, dass die Funktion kontinuirlich ist. Das Ausgangssignal ist somit die periodische Iteration von negativen linearen Funktionen auf einer festen Intervallbreite, wie es in \cabb{A2/Ramp-dn_integral} gezeigt ist.
 Die Argumentation ist grundlegend analog zu der des Dreieckssignales, jedoch mit kleinen Änderungen, da die positiven Steigungen wegfallen. Daher sind die urspünglichen Wendepunkte des Integrals nun die Minima des Integrals; also an den Stellen, an denen das Signal einen Sprung hat. Hier hat das Integral zugleich einen Knick. Die Maxima des Integrals liegen jedoch weiterhin an den Nullstellen des Ausgangssignales. Damit wird das Signal als Aneinanderkettung \emph{positiver} Parabeln integriert.
 
 \wrap[.45]{R}{A2/rechteck_integral}{Beispielhaftes Integral des Rechtecksignals}
-\paragraph{Das Rechtecksignal} besteht aus zwei linearen Funktionen, die erneut gegen Unendlich konvergieren. Diese bilden einen\afz{Rand} und werden erneut dazu führen, dass das Integral an dieser Stelle einen Knick haben wird. Zwischen den zwei Rändern wird dann jeweils eine konstante Gerade gelegt, ergo ein Polynom nullten Grades. Integriert man ein Polynom nullten Grades, so ergibt sich eine lienare Funktion mit der Steigung des konstanen Wertes. Da das Rechtecksignal zwischen zwei Konstanten iteriert (hier einer positiven und einer negativen gleichen betrages) stellt sich wie in \cabb{A2/rechteck_integral} ein.
+\paragraph{Das Rechtecksignal} besteht aus zwei linearen Funktionen, die erneut gegen Unendlich konvergieren. Diese bilden einen\afz{Rand} und werden erneut dazu führen, dass das Integral an dieser Stelle einen Knick haben wird. Zwischen den zwei Rändern wird dann jeweils eine konstante Gerade gelegt, ergo ein Polynom nullten Grades. Integriert man ein Polynom nullten Grades, so ergibt sich eine lienare Funktion mit der Steigung des konstanen Wertes. Da das Rechtecksignal zwischen zwei Konstanten iteriert wird (hier einer Positiven und einer Negativen gleichen Betrages), stellt sich wie in \cabb{A2/rechteck_integral} lineare Funktionen abwehselnder positiver und negativer Steigung ein.
 An den Sprüngen des Ausgangssignales sind die Extrema des Dreicecksignales, welche wie erwähnt einen Knick haben.
 
 \wrap[.45]{R}{A2/saw_integral}{Beispielhaftes Integral des Sägensignals}
 \paragraph{Das Sägensignal} beschreibt eine Zusammensetzung der vorherigen Signale, Das Ausgangssignal iteriert periodisch zwischen positiver Steigung, Sprung vom Positiven ins Negative, gefolgt von einer konstanten Gerade. 
 Somit iteriert das in \cabb{A2/saw_integral} gezeigt Signal ebenfalls periodisch, jedoch zwischen, Ausschnitt einer positiven Parabel, Maximum mit Knick anschließend negaiver Geraden, bis am Minimum dann das Signal sich periodisch wiederholt. Die Argumentation ist analog wie zuvor.
 
-\subsection*{Differentiator}
+\subsection{Differentiator}
 Weiterführend sollen nun drei Signale unetrsucht werden, für welche das Differenzial gebildet wurde. Es soll erneut mit dem Dreiceckssignal begonnen werden, da aus dem Teil zuvor das Differenzial bekannt ist: Es ist das Rechtecksignal.
 \wrap[.45]{R}{A2/Dreieck_diff}{Beispielhaftes Differenzial des Dreieckssignals}
-\paragraph{Das Dreieckssignal} hat das Rechtecksignal als Differenzial, wie bereits bekannt. Dies ist auch pausibel, denn an den Knicken des Ausgangssignales ist die Steigung nicht definiert, daraus folgen die linien mit einer unendlichen Steigung. Das Signal ist der \cabb{A2/Dreieck_diff} dargestellt. Die linearen Teile haben eine konstane Steigung, und wechseln erneut zwischen positiv und negaiv. Somit ist auch zu erwarten, dass das Differenzial zwischen positiven und negativen Graden wechselt und die Abzissenbreite für die Iterationen gleichbreit sind. 
+\paragraph{Das Dreieckssignal} hat das Rechtecksignal als Differenzial, wie bereits bekannt. Dies ist auch plausibel, denn an den Knicken des Ausgangssignales ist die Steigung nicht definiert, daraus folgen die Linien mit einer unendlichen Steigung. Das Signal ist in der \cabb{A2/Dreieck_diff} dargestellt. Die linearen Teile haben eine konstane Steigung, und wechseln erneut zwischen positiv und negaiv. Somit ist auch zu erwarten, dass das Differenzial zwischen positiven und negativen Graden wechselt und die Abzissenbreite für die Iterationen gleichbreit sind. 
 Dies gilt für alle Signale, aber fällt hier besonders auf, die Integrale, sowie die Differenziale sind approximationen, weder das Ausgangssignal selbst sind \emph{perfekte} Signale noch die Operationssignale. Dies wird hier durch den knick des Differenzials in der Mitte eindeutig, welches eine art drittes Plateau in der Mitte darstellt, welches inkohärent mit der Theorie ist.
 
 \wrap[.45]{R}{A2/Rechteck_diff}{Beispielhaftes Differenzial des Rechtecksignal}
-\paragraph{Das Rechtecksignal} hat fast überall eine konstante Steigung von Null. Nur die Sprünge nicht, diese Steigungen konvergieren gegen unendlich, sind also sehr groß, daher sind an diesen Stellen Peaks des Differenzials zu erwarten, welche sich in \cabb{A2/Rechteck_diff} auch erkennen lassen. In der Theorie jedoch würde die Breite des Peaks gegen null konvergieren und die peaks gegen Unendlich, dies ist praktisch asu offensichtlichen Gründen nicht möglich.
+\paragraph{Das Rechtecksignal} hat fast überall eine konstante Steigung von Null. Nur die Sprünge nicht, diese Steigungen konvergieren gegen unendlich, sind also sehr groß, daher sind an diesen Stellen Peaks des Differenzials zu erwarten, welche sich in \cabb{A2/Rechteck_diff} auch erkennen lassen. In der Theorie jedoch würde die Breite des Peaks gegen null konvergieren und die Peaks gegen Unendlich, dies ist praktisch aus offensichtlichen Gründen nicht möglich.
 \\
 \\
 \\
@@ -117,17 +114,17 @@ Dies gilt für alle Signale, aber fällt hier besonders auf, die Integrale, sowi
 \eq{gaussianKurveBlaBla}{
     f(x) = \frac{1}{\sigma\sqrt{2\pi}} \, e^{-\frac{1}{2}\left( \frac{x-\mu}{\sigma} \right)^{2}} , \quad x \in \mathbb{R}
 }
-definiert. Dies beschreibt den bekannten Verlauf von positiver Steigung, Maximum, negative Steigung. Wie die \ceq{gaussianKurveBlaBla} zeigt, handelt es sich um eine Exponentialfunktion, deren Differenzial wieder eine Exponentialfunktion mit anderem Vorfaktor ist. Dies ist kohärent mit der Beobachtung, an der maximalen Steigung, ergo dem Wendepunkt der Gauskruve liegt das Maximum des Diferenzials, am Maximum der Gauskruve liegt die Nullstelle und der Wendepunkt des Differenzials, bei der kleinsten bzw. maximal negativen Steigung liegt das Minimum des Differenzials. An den Rändern ist die Gauskruve aufgrund ihrer Exponentialcharakteristig annährend konstant, somit ist die Ableitung dies am Rand ebenfalls.
+definiert. Dies beschreibt den bekannten Verlauf von positiver Steigung, Maximum, negativer Steigung. Wie die \ceq{gaussianKurveBlaBla} zeigt, handelt es sich um eine Exponentialfunktion, deren Differenzial wieder eine Exponentialfunktion mit anderem Vorfaktor ist. Dies ist kohärent mit der Beobachtung, an der maximalen Steigung, ergo dem Wendepunkt der Gauskruve, liegt das Maximum des Diferenzials. Am Maximum der Gauskruve liegt die Nullstelle und der Wendepunkt des Differenzials, bei der kleinsten bzw. maximal negativen Steigung liegt das Minimum des Differenzials. An den Rändern ist die Gauskruve aufgrund ihrer Exponentialcharakteristig annährend konstant, somit ist die Ableitung dies am Rand ebenfalls (und ist $\approx 0$).
 
 
 \section{Frequenz- und Phasengang eines RC-Gliedes}
 \label{sec:A3}
-In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. Es wurden der Kondensator $C = (47 \pm 2.4)$nF geutzt, sowie der ohmsche Widerstand $R = (1.00 \pm 0.10)\mathrm{k\Omega}$. Die Analyse wurde in dem \emph{Circuit Analyzer} vorgenommen, und die Messung in Hoch-, und Tiefpass aufgeteilt. Die aufgenommenen Signale sind für den Phasengang in \cabb{plots/Phasengang_3a} und für den Frequenzgang in \cabb{plots/Frequenzgang_3a} darfestellt.
+In dieser Sektion werden Frequenz-, sowie Phasengang des RC-Gliedes untersucht. Es wurden der Kondensator $C = (47 \pm 2.4)$nF geutzt, sowie der ohmsche Widerstand $R = (1.00 \pm 0.10)\mathrm{k\Omega}$. Die Analyse wurde in dem \emph{Circuit Analyzer} vorgenommen, und die Messung in Hoch-, und Tiefpass aufgeteilt. Die aufgenommenen Signale sind für den Phasengang in \cabb{plots/Phasengang_3a} und für den Frequenzgang in \cabb{plots/Frequenzgang_3a_mit_Asypmtoten} darfestellt.
 
-Es zeigt sich klare Parallelen zwischen Tief- und Hochpass; der Phasengang beider Filter hat dieseleb Struktur, beide negmen mit zunhemneder Frequenz ab. Jedoch startet der Tiefpass bei $0^\circ$ und der Hochpass bei circa $90^\circ$ und beide verändern sich um $90^\circ$ über eine Frequenzänderung von $\Delta f = 10^3 \mathrm{Hz}$. 
+Es zeigen sich klare Parallelen zwischen Tief- und Hochpass; der Phasengang beider Filter hat dieseleb Struktur, beide nehmen mit zunhemneder Frequenz im aufgenommenem Bereich ab. Jedoch startet der Tiefpass bei $0^\circ$ und der Hochpass bei circa $90^\circ$ und beide verändern sich um $90^\circ$ über eine Frequenzänderung von $\Delta f = 10^3 \mathrm{Hz}$. 
 
 Mit hilfe des Plots des Frequentganges kann die Grenzfrequenz beider Filter bestimmt werden. Die Grenzfrequenzen werdne über 2 Geraden pro Filterpass bestimmt, eine wird am konstanten Teil, und die anderem am annährend linearen Teil angelegt und deren Schnittpunkt ist die Grenzfrequenz. Für die Unegnauigkeit werde erneut die Unegnauigkeit von 5 Steps angenommen, jedoch muss die logarithmische Skalierung betrachtet werden, daher wird immer der größere Wert für die Unegnauigkeit gewählt, um diese nicht zu unterschätzen und es können nicht die 50 Steps/div genutzt werden, da die Divs verschiedene Stepgrößen aufweisen.
-Dem \hyperref[ch:Protokoll]{Messprotokoll} sind die bestimmten Grenzfrequenzen $f_g$ bestimmtn, wobei die Einheit wälschlicherweise in Hz, anstatt von khz angegeben wurde. Dies lässt sich mit der Abbildung zeigen. 
+Dem \hyperref[ch:Protokoll]{Messprotokoll} sind die bestimmten Grenzfrequenzen $f_g$ bestimmtn, wobei die Einheit fälschlicherweise in Hz, anstatt von kHz angegeben wurde. Dies lässt sich mit der Abbildung zeigen. 
 Damit ergibt sich die Unegnauigkeit für beide Grenzfrequenzen zu $\Delta f_g = 0.27 \mathrm{kHz}$, damit bestimmen sich die Grenzfrequenzen zu
 
 \res[-3]{f_{g,T}}{2.72}{0.27}{Hz}
@@ -140,13 +137,13 @@ Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweic
     f_\text{g,theo} = \frac{1}{2\pi \, RC} = \frac{1}{2\pi \, \tau} \, , \qquad \Delta f_\text{g,theo} = f_\text{g,theo} \cdot \sqrt{\frac{\Delta \tau^{2}}{\tau^{2}}}
 }
 
-bestimmt werden. Die Unegnauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt. Mit $\tau = (4.7 \pm 0.5) 10^{-7}s$ aus \csec{A1} ergibt sich somit für den theoretischen Wert:
+bestimmt werden. Die Unegnauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt. Mit $\tau = (4.7 \pm 0.5) 10^{-7}$s aus \csec{A1} ergibt sich somit für den theoretischen Wert:
 \res[-3]{f_\text{g,theo}}{3.4}{0.4}{Hz}
 
 Diese hat eine \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $1.44 \sigma$ gegenüber dem Tiefpassfilter und $0.87 \sigma$ gegenüber dem Hochpassfilter. Keie der beiden Abweichungen ist signifikant.
 
 \img{plots/Phasengang_3a}{Phasengang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
-\img{plots/Frequenzgang_3a_mit_Asypmtoten}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer.}
+\img{plots/Frequenzgang_3a_mit_Asypmtoten}{Frequnezgang von Hoch- und Tiefpass aus den Daten des Circut Analyzer mit eingezeichneten Resonanzfrequenzen inklusive deren Ungenauigkeit.}
 
 % \com{Ist der Plot Sinnvoll?}
 % \img{plots/Phasengnag_3b}{Phasengang des Tefpasses via Werte der Tabelle M.3.2}
@@ -170,7 +167,7 @@ Die Daten der Messung sind der Tabelle M.4.1 des \hyperref[ch:Protokoll]{Messpro
 
 Die Ergebnisse sind der \ctab{messwerte_induk} zu entnehmen.
 \begin{table}[h!]
-    \caption{Messwerte und berechnete Induktivität mit einer Induktivität von (47 $\pm$ 4.7) nF.}
+    \caption{Messwerte und berechnete Induktivitäten mit einer Kapazität von (47 $\pm$ 2.4) nF.}
     \label{tab:messwerte_induk}
     \centering
     \begin{tabular}{C | C | C | C}
@@ -188,9 +185,9 @@ Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:a
 % \com{Die Unegnauigkeiten müssen noch sinnvoll gewählt und ggf. begrünet werden.}
 
 \subsection{Bestimmung des Gesamtwiderstandes und Verluste im Serienschwingkreis}
-Im Folgenden soll der Gesamtwiderstand bestimmt werden, dazu wurde der Verlustwiederstand $R_\text{V}$ in Serie geschaltet. Es gilt
+Im Folgenden soll der Gesamtwiderstand bestimmt werden, dazu wurde der Verlustwiederstand $R_\text{V}$ als in Serie geschaltet angenommen. Es gilt:
 \eq{wasGiltDennNu}{
-    \Delta \omega = \frac{R + R_\text{V}}{L} \, ,
+    \Delta \omega = \frac{R + R_\text{V}}{L} \, .
 }
 
 Stellt man diese Gleichung um, formuliert die Kreisfrequenz $\Delta\omega$ in die Bandbreite $\Delta f \equiv f_\text{band}$ um, so ergibt sich für den Gesamtwiderstand
@@ -198,9 +195,9 @@ Stellt man diese Gleichung um, formuliert die Kreisfrequenz $\Delta\omega$ in di
     R_\text{ges} = R + R_\text{V} = L \cdot 2\pi \cdot f_\text{band} \, .
 }
 
-Die genutzen Werte sind erneut der Tabelle M.4.1 des \hyperref[ch:Protokoll]{Messprotokolls} zu entnehmen. Für die Bandbreite wurde das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der linken und der rechten Bandbreite berechnet. 
+Die genutzen Werte sind erneut der Tabelle M.4.1 des \hyperref[ch:Protokoll]{Messprotokolls} zu entnehmen. Für die Bandbreite wurde dieDifferenz der linken und der rechten Bandbreite berechnet. 
 
-Die Unegnauigkeit wird erneut vai \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu 
+Die Unegnauigkeit wird erneut via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu 
 \eq{gff_err_gesR}{
     \Delta R_\text{ges} = 2 \pi \sqrt{L^{2} \Delta f_\text{band}^{2} + f_\text{band}^{2} \Delta L^{2}}
 }
@@ -225,7 +222,7 @@ berechnet werden. Die Ergebnisse sind der \ctab{messwerte_widerstande} zu entneh
     \end{tabular}
 \end{table}
 
-Alternativ kann $R_\text{V}$ auch durch die Kirchhoffschen Regeln bestimmt werden, denn es gilt:
+Alternativ kann $R_\text{V}$ auch durch die Kirchhoff'schen Regeln bestimmt werden, denn es gilt:
 \eq{krischhofffffffffffffffff}{
     U_\text{A} = \frac{R}{R + R_\text{V}} \cdot U_\text{E} \, .
 }
@@ -238,7 +235,7 @@ Diese kann nach $R_\text{V}$ aufgelöst werden:
 Nutzt man die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zur Ungenauigkeitsbestimmung, so ergibt sich
 \eq{err_kirsuczdhsudhfsdfhg}{
     \Delta R_\text{V} = 
-            R_\text{V} \cdot \sqrt{\frac{\Delta {U_\text{A}}^{2} {U_\text{E}}^{2}}{{U_\text{A}}^{2} \left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta {U_\text{E}}^{2}}{\left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta R^{2}}{R^{2}}}
+            R_\text{V} \cdot \sqrt{\frac{\Delta {U_\text{A}}^{2} {U_\text{E}}^{2}}{{U_\text{A}}^{2} \left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta {U_\text{E}}^{2}}{\left({U_\text{A}} - {U_\text{E}}\right)^{2}} + \frac{\Delta R^{2}}{R^{2}}} \, .
 }
 
 Ein- und Ausgangsspannung waren nach Praktikumsskript zu notiren. Die Experimentatoren haben hier einen Fehler gemacht, und keine Spannung notiert. Jedoch ist dies kein Problem, die Eingangsspannung ist ein konstanter Wert, welcher geschätzt bei $U_\text{E} = (1.00 \pm 0.08)$V liegt. Diese Schätzung entspricht der Hälfte der $V_\text{pp} = 2$V Spannung und wurde mit einer Ungenauigkeit von $7.5\%$ versehen.
@@ -271,7 +268,7 @@ Die bestimmten Werte sind der \ctab{py_py_py_s9iudhf} zu entnehmen. Keine der \h
 \section{Resonanzüberhöhung}
 \label{sec:A5}
 In dieser Sektion wird erneut die Induktivität der Spule $L_1$ bestimmt, jedoch über die Frequenz der Resonanzüberhöhung über die Spule.
-Es kann erneut \ceq{omega_0_the} zur berechnung genutzt werden. Es wird lediglich eine andere Frequnez eingesetzt. DIe Kapazität des Kondensators wurde mit $(47.0 \pm 4.7)$nF gewählt und der Widerstand mit $(47.0 \pm 2.4)\Ohm$ gewählt.
+Es kann erneut \ceq{omega_0_the} zur Berechnung genutzt werden. Es wird lediglich eine andere Frequnez eingesetzt. DIe Kapazität des Kondensators wurde mit $(47.0 \pm 4.7)$nF gewählt und der Widerstand mit $(47.0 \pm 2.4)\Ohm$ gewählt.
 Die Berechnung wird analog zur \csec{A4} durchgeführt. Für die Spule ergibt sich eine Induktivität von
 \res[-2]{L_1}{3.2}{0.5}{H}
 
@@ -279,7 +276,7 @@ Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweic
 
 \section{Bestimmung der Dämpfungskonstanten}
 \label{sec:A6}
-In dieser Sektion wird der gedämpfte RLC-Serienschwingkreis betrachtet. Am Frequenzgenerator wurde ein Rechtecksignal mit einer Frequenz von 280.00 Hz eingestellt. Es wurde erneut ein Kondensator mit einer Kapazität von $(47.0 \pm 4.7)$nF und ein ohmischer Widerstand mit $(47.0 \pm 2.4)\Ohm$ gewählt.
+In dieser Sektion wird der gedämpfte RLC-Serienschwingkreis betrachtet. Am Frequenzgenerator wurde ein Rechtecksignal mit einer Frequenz von 280.00Hz eingestellt. Es wurden erneut ein Kondensator mit einer Kapazität von $(47.0 \pm 4.7)$nF und ein ohmischer Widerstand mit $(47.0 \pm 2.4)\Ohm$ gewählt.
 
 \subsection{Bestimmung des logarithmischen Dekrements}
 Zunächst soll das logarithmische Dekrement $\Lambda$ bestimmt werden. Dieses kann via
@@ -289,10 +286,10 @@ Zunächst soll das logarithmische Dekrement $\Lambda$ bestimmt werden. Dieses ka
 
 Nutzt man die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}, so ergibt sich die Ungenauigkeit zu
 \eq{err_log_dek}{
-    \Delta \Lambda = \sqrt{\left(\frac{\Delta A_n}{A_n}\right)^{2} + \left(\frac{\Delta A_{n+1}}{A_{n+1}}\right)^{2}}
+    \Delta \Lambda = \sqrt{\left(\frac{\Delta A_n}{A_n}\right)^{2} + \left(\frac{\Delta A_{n+1}}{A_{n+1}}\right)^{2}} \, .
 }
 
-Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} aller Einzeldekremente gebildet und es ergibt sich
+bestimmt werden. Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} aller Einzeldekremente gebildet und es ergibt sich
 \res[1]{\Lambda}{4.5}{1.6}{}
 
 Dabei wurde erneut der Steperror genutzt, um die Genauigkeit der Spannungsmessung zu bestimmen.
@@ -300,7 +297,7 @@ Dabei wurde erneut der Steperror genutzt, um die Genauigkeit der Spannungsmessun
 \img{A6/Zoom_ExpDecade_lol_haha_ROFL}{Gedämpftes Signal des Serienschwingkreises.}
 
 \subsection{Ermittlung der Dämpfungskonstanten}
-Über das logarithmische Dekrement kann Weiterführend die Dämpfungskonstant $\delta$ des Serienschwingkreises bestimmt werden. Die Gleichung zur Berechnung der Dämpfungskonstanten und die GLeichung der Unegnauigkeit via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} lauten:
+Über das logarithmische Dekrement kann Weiterführend die Dämpfungskonstant $\delta$ des Serienschwingkreises bestimmt werden. Die Gleichung zur Berechnung der Dämpfungskonstanten und die Gleichung der Ungenauigkeit via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} lauten:
 \eq{die_krass_dampfung}{
     \delta = 
             \frac{\Lambda}{T} \, , \quad
@@ -311,7 +308,7 @@ Dabei wurde erneut der Steperror genutzt, um die Genauigkeit der Spannungsmessun
 Es ergibt sich für eine durchschnittliche Periodendauer $T = (0.260 \pm 0.021) \mathrm{ms}$ eine Dämpfung von 
 \res[-3]{\delta}{1.7}{0.6}{Hz}
 
-Die Unegnauigkeit für die Periodendauer $T$ ist über den \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} und den Steperror bestimmt wurden, wobei der Steperror von $0.02\mathrm{ms}$ vernachlässigbar ist. 
+Die Unegnauigkeit für die Periodendauer $T$ ist über den \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} und den Steperror bestimmt wurden, wobei der Steperror von $0.020\mathrm{ms}$ vernachlässigbar ist. 
 
 \subsection{Berechnung des Gesamtwiderstandes des Serienschwingkreises}
 Über die Dämpfungskonstante $\delta$ kann der Gesamtwiderstand $R_\text{ges}$ berechnet werden. Die Gleichung lautet
@@ -324,7 +321,7 @@ wobei $L$ hier die mittlere Induktivität $L_1$ aus \csec{A4} und \csec{A5} nach
 Die Unegnauigkeit beträgt nach der \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'schen Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})}
 \eq{er_asuidhfzus}{
     \Delta R_\text{ges} =
-            R_\text{ges} \cdot \sqrt{\frac{\Delta \delta^{2}}{\delta^{2}} + \frac{\Delta L^{2}}{L^{2}}}
+            R_\text{ges} \cdot \sqrt{\frac{\Delta \delta^{2}}{\delta^{2}} + \frac{\Delta L^{2}}{L^{2}}} \, .
 }
 
 Durch Einsetzen der bekannten Werte ergibt sich für den Gesamtwiderstand
@@ -333,9 +330,9 @@ Durch Einsetzen der bekannten Werte ergibt sich für den Gesamtwiderstand
 Erneutes nutzen der \ceq{verlustWiderstand} führt zur Berechnung des Verlustwiderstandes $R_\text{V}$. Dabei wurde der Widerstand $R = (47.0 \pm 2.4) \Ohm$ verwendet. Somit beträgt der Verlustwiederstand
 \res{R_\text{V}}{70}{50}{\Ohm}
 
-Es wird ein Vergleich zu vorherigen Ergebnissen geführt, indem die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} berechnet wird.
-\begin{table}
-    \caption{Berechnung des Verlustwiderstands durch Bandbreite und Induktivität.}
+Es wird ein Vergleich zu vorherigen Ergebnissen geführt, indem die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} berechnet wird. Diese sind in der \ctab{alle_widerstande} aufgelistet.
+\begin{table}[h!]
+    \caption{Vergleich der bestimmten Gesamtwiderstände nach Methode.}
     \label{tab:alle_widerstande}
     \centering
     \begin{tabular}{C | C  C }
@@ -364,7 +361,7 @@ Der \ctab{messwerte_induk} sind die Werte der Resonanzfrequenz $f_0$ für den Wi
 
 \section{Parallelschwingkreis}
 \label{sec:A7}
-In dieser Sektion wird erneut ein RLC-Schwingkreis betrachtet, dieses Mal sind Spule und Kondensator parallel geschaltet. Gemessen wurde eine Resonanzfrequenz von $4.00 \pm 0.04$kHz. Zum Vergleich wird die tehoretische Resonanzfrequenz
+In dieser Sektion wird erneut ein RLC-Schwingkreis betrachtet, dieses Mal sind Spule und Kondensator parallel geschaltet. Gemessen wurde eine Resonanzfrequenz von $(4.00 \pm 0.04$)kHz. Zum Vergleich wird die tehoretische Resonanzfrequenz
 \eq{theo_reso_freq}{
     f_\text{teso} = \frac{1}{2\pi \, \sqrt{LC}}
 }
@@ -382,12 +379,12 @@ Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweic
 
 \section{Anwendung von Filtern}
 \label{sec:A8}
-Für diese Sektion wurde ein Singal untersucht, welches elementar aus drei einzelnen Frequenzen besteht und deren Überlagerrung untersucht wurde. Die drei Grenzfrequenzen sind $0.1, 3.6, 8.0$ kHz.
+Für diese Sektion wurde ein Singal untersucht, welches elementar aus drei einzelnen Frequenzen besteht und deren Überlagerrung untersucht wurde. Die drei Grenzfrequenzen sind $0.1, 3.6 \text{ und } 8.0$ kHz.
 Das Signal im FFT-Raum ist der \cabb{plots/Frequenzgang_8a} zu entnhemen.
-Es wurden insgesamt fünf Filter eingebaut, der Hochpassfilter (HP), zwei Tiefpassfilter, einmal ein mit einem ohmischen Widerstand und einem Kondensator (RC TP) und einmal mit einer Spule und einem Kondensator (LC TP), zuletzt wurden zwei Bandfilter eingebaut, einmal mit einem ohmsichen Widerstand von 1K$\Ohm$ und einer mit $47\Ohm$.
+Es wurden insgesamt fünf Filter eingebaut, der Hochpassfilter (HP), zwei Tiefpassfilter, einmal einer mit einem ohmischen Widerstand und einem Kondensator (RC TP) und einmal mit einer Spule und einem Kondensator (LC TP), zuletzt wurden zwei Bandfilter eingebaut, einmal mit einem ohmsichen Widerstand von 1K$\Ohm$ und einer mit $47\Ohm$.
 \img[0.8]{plots/Frequenzgang_8a}{FFT Signal ohne Filter.}
 
-Die Spannungen sind dem \hyperref[ch:Protokoll]{Messprotokoll} den Tabellen M.8 zu entnehmen, wobei die Spannungen in dBV gemessen wurden, diese müssen nach \ceq{dBV_to_V} in Volt umgerechnet werden. Die Umrechnungsergebnisse sind der \ctab{FFT_amps} zu entnehmen.
+Die Spannungen sind dem \hyperref[ch:Protokoll]{Messprotokoll} den Tabellen M.8.i zu entnehmen, wobei die Spannungen in dBV gemessen wurden, diese müssen nach \ceq{dBV_to_V} in Volt umgerechnet werden. Die Umrechnungsergebnisse sind der \ctab{FFT_amps} zu entnehmen.
 
 \begin{table}
     \centering
@@ -411,30 +408,29 @@ Die Spannungen sind dem \hyperref[ch:Protokoll]{Messprotokoll} den Tabellen M.8 
 \end{table}
 
 Der untere Teil der Tabelle sind hier die reliven Amplituden in relation zum Signal ohne Filter. 
-
 Im Folgenden wird geprüft, ob die gemessenen Amplitudenwerte und relativen Übertragungsfaktoren dem theoretischen Verhalten der jeweiligen Filteranordnungen entsprechen.
 
 \paragraph{Hochpass (HP)}
-Ein idealer Hochpass lässt hohe Frequenzen passieren und dämpft tiefe Frequenzen stark. Die Messwerte bestätigen dieses Verhalten qualitativ: Bei der tiefen Frequenz von 100 Hz beträgt die relative Amplitude nur noch 0.034, während bei 8000 Hz die relative Amplitude auf 0.866 ansteigt. Dies deutet darauf hin, dass die Grenzfrequenz des Filters im Bereich zwischen 100 Hz und 3600 Hz liegt. Auffällig ist jedoch, dass selbst bei 8000 Hz nicht die volle Amplitude (relativ 1.0) erreicht wird. Dies kann auf parasitäre Kapazitäten, Innenwiderstände der Quelle oder eine Grenzfrequenz liegen, die höher als 8000 Hz ist, sodass der Filter bei dieser Frequenz noch nicht vollständig durchgelassen hat. Insgesamt passt die Tendenz der Werte zur Erwartung eines Hochpasses.
+Ein idealer Hochpass lässt hohe Frequenzen passieren und dämpft tiefe Frequenzen stark. Die Messwerte bestätigen dieses Verhalten qualitativ: Bei der tiefen Frequenz von 100Hz beträgt die relative Amplitude nur noch 0.034, während bei 8000Hz die relative Amplitude noch bei $86.6\%$ lag. Dies deutet darauf hin, dass die Grenzfrequenz des Filters im Bereich zwischen 100Hz und 3600Hz liegt. Auffällig ist jedoch, dass selbst bei 8000Hz nicht die volle Amplitude erreicht wird. Dies kann auf parasitäre Kapazitäten, Innenwiderstände der Quelle oder eine Grenzfrequenz liegen, die höher als 8000Hz ist, sodass der Filter bei dieser Frequenz noch nicht vollständig durchgelassen hat. Insgesamt passt die Tendenz der Werte zur Erwartung eines Hochpasses.
 
 \img[.8]{plots/FFT_Vergleich_Hochpass_8c}{Vergleich Plot zum Signal ohne Filter: Hochpass.}
 
 
 \paragraph{Tiefpass (RC TP)}
-Ein RC-Tiefpass sollte tiefe Frequenzen unverändert durchlassen und hohe Frequenzen dämpfen. Die Messreihe zeigt bei 100 Hz eine relative Amplitude von 1.0, was exakt der Erwartung entspricht, da diese Frequenz weit unter der typischen Grenzfrequenz eines solchen Filters liegt. Mit steigender Frequenz nimmt die Amplitude ab: Bei 3600 Hz beträgt sie noch 0.627 und bei 8000 Hz sinkt sie auf 0.352. Dieser monoton fallende Verlauf ist charakteristisch für einen Tiefpass. Die Werte stimmen somit gut mit der theoretischen Erwartung überein.
+Ein RC-Tiefpass sollte tiefe Frequenzen unverändert durchlassen und hohe Frequenzen dämpfen. Die Messreihe zeigt bei 100Hz eine relative Amplitude von 1.0, was exakt der Erwartung entspricht, da diese Frequenz weit unter der typischen Grenzfrequenz eines solchen Filters liegt. Mit steigender Frequenz nimmt die Amplitude ab: Bei 3600Hz beträgt sie noch 0.627 und bei 8000Hz sinkt sie auf 0.352. Dieser monoton fallende Verlauf ist charakteristisch für einen Tiefpass. Die Werte stimmen somit gut mit der theoretischen Erwartung überein.
 
 \paragraph{Tiefpass (LC TP)}
-Das Verhalten des LC-Tiefpasses weicht von dem eines einfachen RC-Filters ab, da Induktivitäten und Kapazitäten gemeinsam eine Resonanzfrequenz bilden können. Bei 100 Hz ist die relative Amplitude vernachlässigbar klein (0.001), was zunächst wie ein Hochpass wirkt oder auf eine sehr niedrige Grenzfrequenz hindeutet. Überraschend ist jedoch der Wert bei 3600 Hz: Hier wird eine relative Amplitude von 7.396 gemessen. Das bedeutet, dass das Ausgangssignal fast achtmal stärker ist als das Eingangssignal. Dies ist kein Verhalten eines passiven Tiefpasses im klassischen Sinne, sondern deutet stark auf eine \textbf{Resonanzüberhöhung} hin, bei der die Anregungsfrequenz nahe der Eigenresonanz des LC-Schwingkreises liegt. Bei 8000 Hz fällt die Amplitude dann wieder auf 1.268 ab, bleibt aber über 1.0. Die Werte passen also nicht zu einem idealen Tiefpass, sondern zeigen das typische Resonanzverhalten eines LC-Kreises, dessen Resonanzfrequenz im Bereich von ca. 3600 Hz liegt. Wie gezeigt liegt diese tatsächlich für den Aufbau bei ca. 3.900 Hz.
+Das Verhalten des LC-Tiefpasses weicht von dem eines einfachen RC-Filters ab, da Induktivitäten und Kapazitäten gemeinsam eine Resonanzfrequenz bilden können. Bei 100Hz ist die relative Amplitude vernachlässigbar klein (0.001), was zunächst wie ein Hochpass wirkt oder auf eine sehr niedrige Grenzfrequenz hindeutet. Überraschend ist jedoch der Wert bei 3600 Hz: Hier wird eine relative Amplitude von 7.396 gemessen. Das bedeutet, dass das Ausgangssignal fast achtmal stärker ist als das Eingangssignal. Dies ist kein Verhalten eines passiven Tiefpasses im klassischen Sinne, sondern deutet stark auf eine \textbf{Resonanzüberhöhung} hin, bei der die Anregungsfrequenz nahe der Eigenresonanz des LC-Schwingkreises liegt. Bei 8000Hz fällt die Amplitude dann wieder auf 1.268 ab, bleibt aber über 1.0. Die Werte passen also nicht zu einem idealen Tiefpass, sondern zeigen das typische Resonanzverhalten eines LC-Kreises, dessen Resonanzfrequenz im Bereich von ca. 3600Hz liegt. Wie gezeigt liegt diese tatsächlich für den Aufbau bei ca. 3.900 Hz.
 
 \img[.8]{plots/FFT_Vergleich_Tiefpass_8c}{Vergleich Plot zum Signal ohne Filter: Tiefpass (LC).}
 
 \paragraph{Bandfilter 1000 $\mathbf{\Omega}$}
-Ein Bandpass sollte nur einen bestimmten Frequenzbereich durchlassen und sowohl tiefe als auch hohe Frequenzen dämpfen. Die Messwerte zeigen bei 100 Hz eine starke Dämpfung (relativ 0.035) und bei 8000 Hz ebenfalls eine deutliche Reduktion (relativ 0.596). Der maximale Durchlass liegt bei 3600 Hz mit einer relativen Amplitude von 0.952. Dies entspricht genau dem erwarteten Verhalten eines Bandfilters, dessen Mittenfrequenz im Bereich von 3600 Hz liegt. 
+Ein Bandpass sollte nur einen bestimmten Frequenzbereich durchlassen und sowohl tiefe als auch hohe Frequenzen dämpfen. Die Messwerte zeigen bei 100Hz eine starke Dämpfung (relativ 0.035) und bei 8000Hz ebenfalls eine deutliche Reduktion (relativ 0.596). Der maximale Durchlass liegt bei 3600Hz mit einer relativen Amplitude von 0.952. Dies entspricht genau dem erwarteten Verhalten eines Bandfilters, dessen Mittenfrequenz im Bereich von 3600Hz liegt. 
 
 \img[.8]{plots/FFT_Vergleich_1000_Ohm_8c}{Vergleich Plot zum Signal ohne Filter: Bandpass 1000 $\Omega$.}
 
 \paragraph{Bandfilter 47 $\mathbf{\Omega}$}
-Auch dieser Bandfilter zeigt das erwartete Frequenzselektionsverhalten, jedoch mit einer deutlich schärferen Charakteristik. Bei 100 Hz ist das Signal fast vollständig unterdrückt (relativ 0.001). Bei 3600 Hz erreicht es mit 0.312 zwar den Maximalwert der Reihe, ist aber im Vergleich zum 1k$\Omega$-Filter stark gedämpft. Bei 8000 Hz fällt der Wert extrem auf 0.033 ab. Der Vergleich der beiden Bandfilter zeigt, dass der Filter mit 47 $\Omega$ (vermutlich durch einen geringeren Widerstandswert bedingt) eine höhere Güte ($Q$-Faktor) und damit eine schmalere Bandbreite aufweist. Die Werte passen zur Erwartung eines Bandpasses mit schmalerer Durchlassbandbreite und stärkerer Dämpfung außerhalb des Passbandes im Vergleich zum 1k$\Omega$-Variant.
+Auch dieser Bandfilter zeigt das erwartete Frequenzselektionsverhalten, jedoch mit einer deutlich schärferen Charakteristik. Bei 100Hz ist das Signal fast vollständig unterdrückt (relativ 0.001). Bei 3600Hz erreicht es mit 0.312 zwar den Maximalwert der Reihe, ist aber im Vergleich zum 1k$\Omega$-Filter stark gedämpft. Bei 8000Hz fällt der Wert extrem auf 0.033 ab. Der Vergleich der beiden Bandfilter zeigt, dass der Filter mit 47 $\Omega$ (vermutlich durch einen geringeren Widerstandswert bedingt) eine höhere Güte ($Q$-Faktor) und damit eine schmalere Bandbreite aufweist. Die Werte passen zur Erwartung eines Bandpasses mit schmalerer Durchlassbandbreite und stärkerer Dämpfung außerhalb des Passbandes im Vergleich zum 1k$\Omega$-Variant.
 \img[.8]{plots/FFT_Vergleich_47_Ohm_8c}{Vergleich Plot zum Signal ohne Filter: Bandpass 47 $\Omega$.}
 
 \subsection{Vergleich der Grenzfrequenzen der RC-Glieder}
@@ -442,7 +438,7 @@ Zuletzt soll das RC-Glied noch einmal betrachtet werden. Es wird das Signal, bzw
 
 Zur theoretischen Bestimmung der Grenzfrequenz wird die maximale Amplitude $A_\text{Max}$ bestimmt und anschließend $3$dBV subtrahiert. Die $3$dBV rühren daher, dass dies einer Dämpfung von $A_\text{Max}/\sqrt{2}$ entspricht. Somit kann der gesuchte Amplitudenwert
 \eq{gesAmps}{
-    A_\text{ges} = A_\text{Max} - 3 [\mathrm{dBV}]
+    A_\text{cut} = A_\text{Max} - 3 [\mathrm{dBV}]
 }
 ermittelt werden. Um daraus eine Grenzfrequenz $f_\text{g}$ zu bestimmen, werden die Daten linear interpoliert. Diese kann via
 \eq{interpol}{
