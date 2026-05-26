@@ -8198,7 +8198,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sigma_abweichung</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">err_p1</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">err_p2</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Funktion zum berechnen der Sigma-Abweichugn von zwei Messwerten, oder einem Messwert und einem Literaturwert.</span>
+<span class="sd">    Funktion zum berechnen der Sigma-Abweichung von zwei Messwerten, oder einem Messwert und einem Literaturwert.</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">err_p1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">err_p2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 

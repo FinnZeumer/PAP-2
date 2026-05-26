@@ -7,12 +7,12 @@
 Ziel des Versuches war es die Grundbauteile Spule, Kondensator und ohmischer Widerstand zu untersuchen und deren Kombinationen.
 
 \subsection*{Zeitkonstante und RC-Verhalten}
-Zunächst wurde die Zeitkonstante $\tau$ für verschiedene Kombinationen von Kondensatoren und Widerständen bestimmt und mit den theoretischen Werten verglichen. Dies konnte sowohl für die Spannung- als auch für die Strommessung durchgeführt werden. Die Ergebnisse der \ctab{AT1} zeigen, dass keine der Abweichungen signifikant ist und somit die Theorie decken. Jedoch sollte die Letzte Spannungsmessung, sowie die Strommessung zum selben Wert kommen, jedoch weisen diese Werte eine signifikante Abweichugn von $4.32\sigma$. \com{Erklärung liefern}
+Zunächst wurde die Zeitkonstante $\tau$ für verschiedene Kombinationen von Kondensatoren und Widerständen bestimmt und mit den theoretischen Werten verglichen. Dies konnte sowohl für die Spannung- als auch für die Strommessung durchgeführt werden. Die Ergebnisse der \ctab{AT1} zeigen, dass keine der Abweichungen signifikant ist und somit die Theorie decken. Jedoch sollte die Letzte Spannungsmessung, sowie die Strommessung zum selben Wert kommen, jedoch weisen diese Werte eine signifikante Abweichung von $4.32\sigma$.
 
 In der \csec{A2} wurden die Eigenschaften des RC-Gliedes als Integrator, sowie Differentiator qualitativ untersucht und konnten bestätigt werden.
 
 \subsection*{Frequenz- und Phasengang des RC-Gliedes}
-zunächst wurden die Grenzfrequenzen für den Hoch- und Tiefpass des RC-Gliedes bestimmt. Für die Frequenzen ergab sich
+Zunächst wurden die Grenzfrequenzen für den Hoch- und Tiefpass des RC-Gliedes bestimmt. Für die Frequenzen ergab sich
 
 \res[-3]{f_{g,T}}{2.72}{0.27}{Hz}
 \res[-3]{f_{g,H}}{2.99}{0.27}{Hz}
@@ -28,7 +28,6 @@ Es wurde ein RLC-Serienschwingkreis aufgebaut und die Induktion bestimmt. Aus de
 \res[-2]{L_1}{3.3}{0.5}{H}
 
 bestimmt.
-
 Aus dieser konnte dann der Verlustwiderstand des Schwingkreises bestimmt werden. Für verschiedene Widerstände haben sich so verschiedene Verlustwiderstände herasgestellt. Diese sind über die Induktion zu den Werte in \ctab{messwerte_widerstande} bestimmt wurden.
 
 Im Vergleich dazu wurde eine analoge Rechnung durchgeführt. Dazu wurden die Ein- und Ausgangsspannung genutzt. Diese sind von den Experimentatoren nicht explizit gemessen wurden, sondern mussten im Nachhinein ermittelt werden. Die Ergebnisse sind der \ctab{py_py_py_s9iudhf} zu entnemen. Die Standardabweichung zu den Werten der Induktionsmessung wurden gebildet und keine hat sich als signifikant herausgestellt. Hier soll in der Analyse der Messwerte genauer drauf eingegangen werden.
@@ -68,7 +67,6 @@ Dieser weicht um $0.51\sigma$ vom vorherigen Wert ab und ist somit deckungsgleic
 
 \subsection*{Anwendung von Filtern}
 Zuletzt wurden die verschiedenen Filter auf ein Überlagerungssignal angewant, welches aus drei Grundfrequenzen bestand. Das Verhalten der meisten Filter war kohärent mit der Theorie bzw. der Erwartung. Nur der LC-Tiefpass wies eine Anomalie auf.
-
 Aus dem Signal wurden erneut die Grenzfrequenzen des Tief- und Hochpasses bestimmt, es ergibt sich
 
 \res[-3]{f_\text{g,T}}{1.18}{0.12}{Hz}
@@ -77,16 +75,36 @@ und
 
 \res[-3]{f_\text{g,H}}{3.36}{0.34}{Hz}
 
-Die Standardabweichungen zum vorherigen Wert liegen bei $5.2\sigma$ bzw. $0.84/sigma$. Somit weicht der Wert des Tiefpasses signifikant ab, während der Wert des Hochpasses im statistisch deckungsgleichen Bereich liegt.
+Die Standardabweichungen zum vorherigen Wert liegen bei $5.2\sigma$ bzw. $0.84\sigma$. Somit weicht der Wert des Tiefpasses signifikant ab, während der Wert des Hochpasses im statistisch deckungsgleichen Bereich liegt.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-\com{Erklärung für unterschied U und I Messung}
+\subsection*{Diskrepanz der Zeitkonstanten}
+Die signifikante Abweichung von $4.32\sigma$ zwischen der aus der Spannungsmessung und der aus der Strommessung ermittelten Zeitkonstante in \ctab{AT1} lässt sich durch die unterschiedliche Empfindlichkeit der Messmethoden gegenüber experimentellen Störgrößen erklären. Die Bestimmung der Halbwertszeit beim Ladevorgang der Spannung ist zwar prinzipiell präzise, jedoch kann bei flachen Signalflanken das Rauschen des Oszilloskops die exakte Lokalisierung des Halbwertspunkts erschweren. Umgekehrt ist die Strommessung, die indirekt über die Spannung am Vorwiderstand erfolgt, im Bereich kleiner Ströme besonders anfällig für das Signal-Rausch-Verhältnis und interne Offset-Werte des Messverstärkers. Zudem kann die endliche Bandbreite der Messkette bei den schnellen Anstiegsflanken des Stromsignals zu Verzerrungen führen, die die Bestimmung der Zeitkonstante verfälschen. Die Diskrepanz ist somit weniger ein Hinweis auf einen theoretischen Fehler, sondern vielmehr für die Grenzen der Messgenauigkeit bei der Erfassung des Stromverlaufs im Vergleich zum Spannungsverlauf.
 
-\com{Erklärung des Verlustwiderstandes}
+\subsection*{Analyse der Verlustwiderstände}
+Die in \ctab{messwerte_widerstande} und \ctab{py_py_py_s9iudhf} bestimmten Verlustwiderstände $R_V$, die je nach Methode Werte zwischen $70\,\Omega$ und $1400\,\Omega$ aufweisen, sind physikalisch möglich und resultieren aus mehreren Quellen, die in einem realen Schwingkreis unvermeidbar sind. Zwar ist keine der Abweichunngen signifikant, dies ist jedoch auf den groß geschätzten Fehler zurückzuführen. Betrachtet man \ctab{py_py_py_s9iudhf}, so steht die Vemutung nicht fern, dass hier die Gesamtwiderstände berechnet wurden. 
 
-\com{Die Annomalie des LC-TP erläutern.}
+\begin{table}[h!]
+    \caption{Berechnung Ausgangsamplituden mit geschätzten Fehlern.}
+    \label{tab:D1}
+    \centering
+    \begin{tabular}{C | C | C || C}
+    \toprule
+    \text{Widerstand } R \ [\Ohm] & \text{Bestimmter Verlustwiderstand } R_\text{V} \ [\Ohm] & \text{} R_\text{V} - R \ [\Ohm] &  \text{Std. Abw. } \sigma \\
+    \midrule
+    1000 \pm 50  & 1400 \pm 300 & 400 \pm 300 & 0.39 \\
+     220 \pm 11  & 460  \pm 120 & 240 \pm 120 & 0.08 \\
+    47.0 \pm 2.4 & 240  \pm 90  & 193 \pm 90  & 0.77 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
-\section{Kritik}
-\label{sec:Kritik}
+Für die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} wurden die Werte der \ctab{messwerte_widerstande} als Referenz genutzt. Aufgrund der großen Ungenauigkeiten sind die Standardabweichung weiterhin signifikant, es lässt sich jedoch der Trend beobachten, dass die Abweichungen kleiner ausfallen.
+Die werte sind physikalisch auch plausibeler, da hier der Verlustwiderstand nicht mehr größer ist als der eingebaute ohmische Widerstand.
+
+Jedoch ist diese Hypothese mathematisch nicht haltbar, da in der Berechnung kein Fehler gefunden werden konnte. Auch die nicht bestimmte Eingangsspannung stellt eine wichtige Fehlerquelle dar.
+
+\subsection*{Betrachtung des LC-Gliedes}
+Eine besondere Anomalie zeigte sich bei der Untersuchung des LC-Gliedes als Tiefpass in \csec{A8}, wo bei einer Frequenz von $100\text{kHz}$ eine relative Amplitude von $<0.001$ gemessen wurde. Dieses Verhalten widerspricht der Erwartung eines idealen Tiefpasses, der hohe Frequenzen dämpfen sollte, und die niedrigen Frequenzen durchlassen soll. Hier wird jedoch die Frequenz niedrigste Frequenz annährend vollständig geämpft, während die anderen beiden sogar verstärk werden. Die Stärkung der Signale ist auf die Resonanzüberhöhung zurückzuführen. Eine eindeutige Erklärung für das Verschwinden des Signales bei 100Hz ist anhand des \hyperref[ch:Protokoll]{Messprotokolls} nicht zuentnehmen und ist wahrscheinlich auf einen Messfehler zurückzuführen.

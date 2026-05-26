@@ -192,7 +192,7 @@ def gff(func, errPronePar):
 # --------------------------------------------------
 def std_abw(p1:float, p2:float, err_p1:float = 0.0, err_p2:float = 0.0):
     """
-    Funktion zum berechnen der Sigma-Abweichugn von zwei Messwerten, oder einem Messwert und einem Literaturwert.
+    Funktion zum berechnen der Sigma-Abweichung von zwei Messwerten, oder einem Messwert und einem Literaturwert.
     """
     return np.round(abs(p1 - p2)/(np.sqrt(err_p1**2 + err_p2**2)), 2)
 
