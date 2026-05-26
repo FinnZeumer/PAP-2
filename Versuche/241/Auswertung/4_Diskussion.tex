@@ -4,24 +4,89 @@
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
 
-Im Rahmen des Versuchs zu RLC-Gliedern wurden die dynamischen Eigenschaften von RC-Schaltungen sowie das Resonanzverhalten von Serien- und Parallelschwingkreisen untersucht. Ziel war es, theoretische Modelle wie die Zeitkonstante $\tau$, die Grenzfrequenz $f_g$ und die Resonanzfrequenz $f_0$ experimentell zu validieren und die Funktion von RC-Gliedern als Integratoren und Differentiatoren qualitativ zu verifizieren. Die Messungen umfassten die Bestimmung der Zeitkonstante über die Halbwertszeit, die Analyse von Frequenz- und Phasengängen mittels Circuit Analyzer sowie die Ermittlung von Induktivität, Verlustwiderstand und Dämpfungskonstante in RLC-Schwingkreisen.
+Ziel des Versuches war es die Grundbauteile Spule, Kondensator und ohmischer Widerstand zu untersuchen und deren Kombinationen.
 
-Die experimentellen Ergebnisse zeigen eine gute Übereinstimmung mit den theoretischen Vorhersagen. Die für die Induktivität der Spule $L_1$ ermittelten Werte aus verschiedenen Methoden (Resonanzfrequenz, Bandbreite, Resonanzüberhöhung) liegen innerhalb der statistischen Fehlergrenzen bei einem Mittelwert von etwa $3.3 \cdot 10^{-2}$ H. Auch die Bestimmung der Dämpfungskonstante $\delta$ und des logarithmischen Dekrements $\Lambda$ lieferte konsistente Ergebnisse, die auf einen realistischen Gesamtwiderstand des Schwingkreises hindeuten. Die qualitative Untersuchung der Filtereigenschaften bestätigte die erwarteten Verhaltensweisen: RC-Glieder fungierten als Hoch- und Tiefpass, wobei die Grenzfrequenzen mit den berechneten Werten übereinstimmten. Besonders auffällig war das Resonanzverhalten des LC-Tiefpasses, der bei der Anregungsfrequenz von 3.6 kHz eine deutliche Überhöhung zeigte, was die theoretische Erwartung einer Resonanz im Bereich von ca. 3.9 kHz stützt.
+\subsection*{Zeitkonstante und RC-Verhalten}
+Zunächst wurde die Zeitkonstante $\tau$ für verschiedene Kombinationen von Kondensatoren und Widerständen bestimmt und mit den theoretischen Werten verglichen. Dies konnte sowohl für die Spannung- als auch für die Strommessung durchgeführt werden. Die Ergebnisse der \ctab{AT1} zeigen, dass keine der Abweichungen signifikant ist und somit die Theorie decken. Jedoch sollte die Letzte Spannungsmessung, sowie die Strommessung zum selben Wert kommen, jedoch weisen diese Werte eine signifikante Abweichugn von $4.32\sigma$. \com{Erklärung liefern}
+
+In der \csec{A2} wurden die Eigenschaften des RC-Gliedes als Integrator, sowie Differentiator qualitativ untersucht und konnten bestätigt werden.
+
+\subsection*{Frequenz- und Phasengang des RC-Gliedes}
+zunächst wurden die Grenzfrequenzen für den Hoch- und Tiefpass des RC-Gliedes bestimmt. Für die Frequenzen ergab sich
+
+\res[-3]{f_{g,T}}{2.72}{0.27}{Hz}
+\res[-3]{f_{g,H}}{2.99}{0.27}{Hz}
+
+Die Abweichung der beiden Werte liegt bei 0.76$\sigma$ und ist nicht signifikant. Die Werte sind also Deckungsgleich, dies ist graphisch in der \cabb{plots/Frequenzgang_3a_mit_Asypmtoten} darestellt. 
+Die theoretische Grenzfrequenz wurde zu
+\res[-3]{f_\text{g,theo}}{3.4}{0.4}{Hz}
+bestimmt. Keine der beiden bestimmten Werte weicht signifikant ab ($\sigma_\text{T} = 1.44; \sigma_\text{H} = 0.87$).
+
+\subsection*{RLC-Schwingkreise und Induktivität}
+Es wurde ein RLC-Serienschwingkreis aufgebaut und die Induktion bestimmt. Aus der \ctab{messwerte_induk} wurde das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet und die Induktion zu
+
+\res[-2]{L_1}{3.3}{0.5}{H}
+
+bestimmt.
+
+Aus dieser konnte dann der Verlustwiderstand des Schwingkreises bestimmt werden. Für verschiedene Widerstände haben sich so verschiedene Verlustwiderstände herasgestellt. Diese sind über die Induktion zu den Werte in \ctab{messwerte_widerstande} bestimmt wurden.
+
+Im Vergleich dazu wurde eine analoge Rechnung durchgeführt. Dazu wurden die Ein- und Ausgangsspannung genutzt. Diese sind von den Experimentatoren nicht explizit gemessen wurden, sondern mussten im Nachhinein ermittelt werden. Die Ergebnisse sind der \ctab{py_py_py_s9iudhf} zu entnemen. Die Standardabweichung zu den Werten der Induktionsmessung wurden gebildet und keine hat sich als signifikant herausgestellt. Hier soll in der Analyse der Messwerte genauer drauf eingegangen werden.
+
+Auch über die Resonanzüberhöhung konnte die Induktivität der Spule bestimmt werden, diese wurde zu
+
+\res[-2]{L_1}{3.2}{0.5}{H}
+
+bestimmt. Diese weicht um $0.13\sigma$ vom vorherigen Induktivitätwert ab.
+
+\subsection*{Dämpfung}
+
+Es wurde weiterhin der RLC-Schwingkreis betrachet. Aufgrund des Abfalls der Spannung über die Zeit, kann eine Dämpfung $\delta$ bestimmt werden. Für diese wurde das logarithmischen Dekrement zu
+
+\res[1]{\Lambda}{4.5}{1.6}{}
+
+ermittel. Über diese konnte die Dämpfungskonstante zu 
+
+\res[-3]{\delta}{1.7}{0.6}{Hz}
+
+bestimmt werden. Auch aus diesen Werte wurde der Verlustwiderstand bestimmt, hier zu 
+
+\res{R_\text{V}}{70}{50}{\Ohm}
+
+Die Bestimmung der Standardabweichung wurde tabellarisch für alle bestimmten Verlust- sowie Gesamtwiderstände in \ctab{alle_widerstande} gelifert. Keine der Abweichungen ist signifikant.
+
+\subsection*{Resonanzfrequenzen}
+Es sollen erneut Resonanzfrequenzen bestimmt werden. Zunächst wird dies über die Periodendauer $T = (0.260 \pm 0.021) \mathrm{ms}$ gemacht, es ergibt sich:
+\res[3]{f_\text{reso}}{3.8}{0.3}{Hz}
+
+Diese hat eine Standardabweichung von $0.20\sigma$ zur Resonanzfrequenz, die zur Bestimmung der Induktivität genutzt wurde (vgl. \ctab{messwerte_induk}).
+
+Darüberhinaus wurde der Serienschwingkreis in einen Parallelschwingkreis umgebaut und die theoretische Resonanzfrequenz bestimmt, es ergab sich 
+\res[3]{f_\text{teso}}{4.1}{0.4}{Hz}
+
+Dieser weicht um $0.51\sigma$ vom vorherigen Wert ab und ist somit deckungsgleich zum bestimmten Wert.
+
+\subsection*{Anwendung von Filtern}
+Zuletzt wurden die verschiedenen Filter auf ein Überlagerungssignal angewant, welches aus drei Grundfrequenzen bestand. Das Verhalten der meisten Filter war kohärent mit der Theorie bzw. der Erwartung. Nur der LC-Tiefpass wies eine Anomalie auf.
+
+Aus dem Signal wurden erneut die Grenzfrequenzen des Tief- und Hochpasses bestimmt, es ergibt sich
+
+\res[-3]{f_\text{g,T}}{1.18}{0.12}{Hz}
+
+und 
+
+\res[-3]{f_\text{g,H}}{3.36}{0.34}{Hz}
+
+Die Standardabweichungen zum vorherigen Wert liegen bei $5.2\sigma$ bzw. $0.84/sigma$. Somit weicht der Wert des Tiefpasses signifikant ab, während der Wert des Hochpasses im statistisch deckungsgleichen Bereich liegt.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-Bei der Auswertung der Messdaten fiel auf, dass die experimentell bestimmten Zeitkonstanten $\tau_{\text{exp}}$ in den meisten Fällen leicht von den theoretisch erwarteten Werten $\tau_{\text{theo}} = RC$ abweichen. In Tabelle 4.I wurde für die Messreihe mit dem 470 nF Kondensator eine Standardabweichung von $1.37\sigma$ festgestellt, während andere Messungen deutlich näher am theoretischen Wert lagen. Diese Abweichungen lassen sich primär auf die Unsicherheiten bei der Bestimmung der Halbwertszeit $T_{1/2}$ zurückführen. Die verwendete Cursor-Methode auf dem Oszilloskop ist zwar präzise, jedoch limitiert durch die diskreten Schritte (Steps) der Software. Die definierte Unsicherheit von 3 Vertikal- und 5 Horizontal-Steps pro Messung erklärt einen Großteil der beobachteten Streuung. Dennoch sind keine der Abweichungen statistisch signifikant, was die Validität des Modells bestätigt.
+\com{Erklärung für unterschied U und I Messung}
 
-Ein interessantes Ergebnis lieferte die Analyse der Filtereigenschaften. Während der RC-Tiefpass das erwartete monotone Abfallen der Amplitude bei steigender Frequenz zeigte, wies der LC-Tiefpass bei 3.6 kHz eine relative Amplitude von 7.396 auf. Dies ist kein Fehler, sondern ein klassisches Zeichen der Resonanzüberhöhung, da die Anregungsfrequenz nahe der Eigenfrequenz des LC-Kreises lag. Im Gegensatz dazu dämpfte der Hochpass tiefe Frequenzen effektiv, erreichte bei 8 kHz jedoch nicht den vollen Wert von 1.0. Dies könnte auf parasitäre Kapazitäten im Aufbau oder eine Grenzfrequenz hindeuten, die höher liegt als die maximale Messfrequenz von 8 kHz.
+\com{Erklärung des Verlustwiderstandes}
 
-Die Bestimmung des Verlustwiderstands $R_V$ erfolgte über zwei unabhängige Methoden: einmal über die Bandbreite $\Delta f$ und einmal über die Spannungsteilerregel im Resonanzfall. Die Ergebnisse in Tabelle 4.III und 4.IV zeigen zwar große absolute Fehler (insbesondere bei kleinen Widerstandswerten), aber die Mittelwerte liegen im selben Größenordnungsbereich. Die Diskrepanz zwischen den Methoden (z. B. $R_V \approx 110 \, \Omega$ vs. $R_V \approx 1400 \, \Omega$ bei $R=1000 \, \Omega$) deutet darauf hin, dass bei der Spannungsmessung im Resonanzfall systematische Fehler vorliegen könnten, möglicherweise durch die Schätzung der Eingangsspannung $U_E = 1.00 \, \text{V}$, da keine direkten Messwerte protokolliert wurden.
+\com{Die Annomalie des LC-TP erläutern.}
 
 \section{Kritik}
 \label{sec:Kritik}
-
-Trotz der grundsätzlichen Bestätigung der physikalischen Modelle weist der Versuchsaufbau und die Datenerhebung einige Schwächen auf, die die Genauigkeit der Ergebnisse limitieren. Ein zentraler Kritikpunkt ist das Fehlen der protokollierten Ein- und Ausgangsspannungen für die Berechnung des Verlustwiderstands über die Spannungsteilerregel. Die Schätzung von $U_E$ als konstanter Wert von 1.00 V führt zwangsläufig zu einer ungenauen Fehlerfortpflanzung und macht die Ergebnisse dieser Methode weniger zuverlässig als die Berechnung über die Bandbreite. Für zukünftige Versuche ist es essenziell, alle Spannungspegel direkt am Oszilloskop oder mit einem Multimeter zu messen und zu dokumentieren.
-
-Des Weiteren war die Bestimmung der „Steps" des Oszilloskops-Cursors sehr aufwendig und fehleranfällig. Die manuelle Ermittlung der Auflösung durch Herunterzoomen und Zählen bei extremer Bildschirmvergrößerung ist zwar transparent, aber ineffizient. Eine direkte Angabe der Auflösung durch die Herstellerdokumentation oder eine Kalibrierungsfunktion der Software wäre präziser gewesen. Zudem blieb der Abschnitt zum Versuchsaufbau (3.2) unvollständig; eine detaillierte Beschreibung der Verkabelung und der genutzten Bauteilwerte inklusive Toleranzen hätte die Reproduzierbarkeit erhöht.
-
-Ein weiterer Punkt ist die Interpretation der Resonanzüberhöhung beim LC-Tiefpass. Obwohl das Phänomen korrekt als Resonanz identifiziert wurde, fehlt eine quantitative Analyse der Güte $Q$ für diesen spezifischen Filteraufbau. Die große Diskrepanz bei den berechneten Verlustwiderständen in Tabelle 4.IV (Standardabweichungen bis zu $2.87\sigma$) legt nahe, dass hier entweder die Messunsicherheiten unterschätzt wurden oder ein systematischer Fehler in der Signalverarbeitung (z. B. durch den Circuit Analyzer) vorliegt. Abschließend lässt sich festhalten, dass die Nutzung von KI-Tools wie Lumo für die sprachliche Ausarbeitung und Korrektur die Lesbarkeit des Dokuments verbessert hat, jedoch die inhaltliche Verantwortung und die Validierung der physikalischen Schlussfolgerungen vollständig beim Autor liegen mussten. Für eine vollständige Auswertung fehlen noch die signifikanten Abweichungen für die Strommessung in Tabelle 4.I sowie die finale Zusammenfassung der offenen Kommentare im Dokument.
