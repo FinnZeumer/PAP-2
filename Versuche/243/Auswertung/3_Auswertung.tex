@@ -20,21 +20,113 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 \section{Qualitative Untersuchung des Rauschspektrums eines ohmschen Widerstands}
 \label{sec:A1}
 In dieser Sektion soll qualitativ untersucht werden, wie sich die Widerstandabhänigkeit des weißen Rauschens sichtbar macht. Zudem soll der Bandpassfilter genutzt werden, und untersucht werden, wie dieser das Eingangsignal beeinflusst.
-
-
+Der \cabb{plots/Frequenzgang_5K} sind \cabb{plots/Frequenzgang_5K_a} der Plot des weißen Rauschens ohne Bandpassfilter und \cabb{plots/Frequenzgang_5K_b} mit Bandpassfilter zu entnemen.
+betrachtet man \cabb{plots/Frequenzgang_5K_a}, so fällt auf, dass das Signal kein ideales weißes Rauschendarstellt, dieses würde nämlcih nicht bei hohen Frequenzen abfallen. Jedoch ist dies hier zu beobachten. Dies ist auf die limitierte Bandbreite der Bau- und Messteile zurückzuführen, welche physikalisch endlich sein muss. Hier fungieren die Bauteile also als Tiefpassfiler.
 \iimg{plots/Frequenzgang_5K}{plots/Frequenzgang_Bandfliter-5K}{Vergleich des Frequenzganges mit und ohne Bandpassfilter am Beispiel des 5k$\Ohm$-Widestandes}
-
+Wird nun ein Bandpassfilter hinzugeschaltet, so wird der Effekt bei hohen Frequenzen besonders deutlich, diese werden noch stärker gedämpft. Beim Bandpassfilter ist jedoch auch zu erwarten, dass die hohen Frequenzen gedämpft werden (Hochpassverhalten). Dies konnte jedoch nicht beobachtet werden, betrachtet man \cabb{A1/30KOhm_100kHz-Spektrum_FFT_RefLinie_Frage3}, so sieht man im Bereich von 100kHz weißes Rauschen; keine der Frequenzen wird gedämpft. Es wurde die ungefähre Position des durschnittlichen Rauschens eingezeichnet. 
+Nun wurde der Bandpassfliter hinzugeschaltet. Die \cabb{A1/MitBandpass_30KOhm_100kHz-Spektrum_FFT_RefLinie_Frage3} zeigt, für kleine Frequenzen das Signal kaum vom Ursprungssignal abweicht, sondern erst im zweistelligen kHz-Bereich eine Dämpfung des Signal beobachtet werden kann. Dies ist nicht kohärent zur theorie eines hochpassfilters.
+\img[1]{A1/30KOhm_100kHz-Spektrum_FFT_RefLinie_Frage3}{Spektrum für den $30 \mathrm{k\Omega}$ Widerstand ohne Bandpassfilter. Rot eingezeichnet ist die ungefähre Nulllinie (Durschschnittslinie) des weißen Rauschens.}
+\img[1]{A1/MitBandpass_30KOhm_100kHz-Spektrum_FFT_RefLinie_Frage3}{Spektrum für den $30 \mathrm{k\Omega}$ Widerstand mit Bandpassfilter. Rot eingezeichnet ist die unveränderte Nulllinie des weißen Rauschens ohne Bandpass.}
 
 \section{Messung der Rauschspannung als Funktion des ohmschen Widerstands}
 \label{sec:A2}
 In dieser Sektion soll das Rauschen der ohmischen Widerstände quantitativ betrachtet werden, dazu werden die Messdaten der Aufgabe 2 aus dem \hyperref[ch:Protokoll]{Messprotokoll} entnommen.
-Hierfür wurden verschiedene Widerstandsstärken von 0 bis 30k$\Ohm$ in 5k$\Ohm$-Schritten untersucht. 
+Hierfür wurden verschiedene Widerstandsstärken von 0 bis 30k$\Ohm$ in 5k$\Ohm$-Schritten untersucht. Die Zimmertemperatur betrüg während der Ausführung dieses Versuchsteiles $T = (22.3 \pm 0.3)^\circ C$.
+\img{plots/Spann_va_Wid_2a}{Gemessene Spannungen für die Verschiedenen Widerstände. $0\mathrm{k\Omega}$ beschreibt hierbei das Eigenrauschen des Verstärkers.}
+Die Ergebnisse werden in \csec{A3} gebraucht. 
 
 
 \section{Messung des Frequenzgangs des Verstärkers und des Bandfilters}
 \label{sec:A3}
+\wrap[0.4]{R}{plots/Frequenzgang_3a}{Rohes aufgenommenes Signal des Frequenzganges zu Aufgabe 3.}
+In dieser Sektion werden die Frequenzgänge des Verstärkers und des Bandfilters betrachtet.
+Der \cabb{plots/Frequenzgang_3a} ist das Rohsignal der durchgeführten Messung zu entnhemen. 
+Für das Eingehende Signal wurde eine Sinuskruve der Frequenz $f_\text{e} = 200$Hz und der Amplitude $A_\text{e} = 500$mV gewählt. Das genutzte Dämpfungsgild weißt eine Dämpfung von $D = (0.001 \pm 0.2\%)$ auf.
+Es wird der Frequnezgang berechnet:
+\eq{freq_gang_now}{
+    g(f) = \frac{U_\text{aus}}{D} \, ,
+}
+wobei $U_\text{aus}$ die gemessene Ausgangsspannung beschreibt und $D$ die Dämpfung. 
 
-\img{plots/Frequenzgang_3a}{Rohes aufgenommenes Signal des Frequenzganges zu Aufgabe 3.}
+An diese Messdaten soll eine Regression angelegt werden. Analytisch wird dies via
+\eq{ant_freqGan}{
+    g(f) = \frac{V}{\sqrt{1 + 1/(f/\Omega_{1})^{2n_{1}}} \sqrt{1 + (f/\Omega_{2})^{2n_{2}}}}
+}
+beschrieben werden. 
+$V$ ist die maximale Systemverstärkung bei der entsprechenden Frequenz, $\Omega_1$ ist die untere Grenzfrequenz und $\Omega_2$ die obere Grenzfrequenz. $n_1$ beschreibt die Ordnung des Hochpassfilters und $n_2$ die Ordnung des Tiefpassfilters. Für $f \approx \sqrt{\Omega_1 \cdot \Omega_2}$ wird die Verstärkung maximal, da der Nenner minimal wird. Außerhalb der Grenzfrequenzen $\Omega_1$ und $\Omega_2$ wird das Signal stark abgeschwächt.
+Die Messdaten des Frequenzganges, sowie die Regression sind der \cabb{plots/Frequenzgang_Regression} zu entnehmen.
+\img{plots/Frequenzgang_Regression}{Messdaten mit Regressionsfunktion.}
+Allgemein lässt sich eine gute Annnährung erkennen. Es soll das Integral von der Regression berechnet werden
+\eq{reg_int_lol}{
+    B = \int_{0}^{\infty} g(f)^{2} \, \d{f}
+}
+Die Integration wird nummerisch in Python durchgeführt. $B$ beschreibt dabei die äquivalente Rauschbandbreite. Die Berechnung ergibt
+\res[10]{B}{4.72}{0.09}{Hz}
+Die Ungenauigkeit wurde dabei nach Praktikumsskript auf 2\% geschätzt. \cite{skriptPAP22}
+
+\subsection*{Bestimmung der Boltzmankonstanten}
+Mit den bisherigen Werten soll nun die Boltzmankonstante berechnet werden.
+Diese kann via 
+\eq{adfusfd}{
+    k_\text{B} =
+            \frac{a}{4 B G^{2} R T}
+}
+berechnet werden. Nutzung der \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'schen Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} ergibt sich die Ungenauigkeit zu
+\eq{err_zudgfzsd}{
+    \Delta k_\text{B} =
+            \sqrt{\frac{\Delta a^{2}}{a^{2}} + \frac{\Delta T^{2}}{T^{2}} + \frac{4 \Delta G^{2}}{G^{2}} + \frac{\Delta B^{2}}{B^{2}}}
+}
+
+Dabei beschreibt $T$ die Raumteperatur in Kelvin, $B$ äquivalente Rauschbandbreite, $R$ die ideale Gaskonstante und $G$ die Verstärkung des Sinussignals mit $G = (1000 \pm 0.2\%)$. Desweiteren wird $a$ im folgenden bestimmt.
+Dazu werden die Werte aus \csec{A2} genutz. Zudem wird Folgendes definiert:  
+\eq{afdsofsdfisdhfoshdf}{
+    U_\text{diff} = U_\text{aus}^2 - U_\text{V}^2
+}
+Auch hier wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zur Ungenauigkeitsbestimmung genutz, es ergibt
+\eq{err_BIAdiuf}{
+    \Delta V_\text{diff} = 
+            2 \sqrt{U_\text{V}^{2} \Delta U_\text{V}^{2} + U_\text{aus}^{2} \Delta U_\text{aus}^{2}}
+}
+Diese Differenz wird in Abhänigkeit des Widerstandes geplottet, dies ist der \cabb{plots/lin_reg_liest_das_hier_irgendwer} zu entnehmen. 
+\img{plots/lin_reg_liest_das_hier_irgendwer}{Spannungsdifferenz gegen den Genutzen Widerstand mit linerarer Regressionsfunktion, welche durch den Nullpunkt läuft.}
+
+Durch die Messdaten wurde eine lineare Regression gelegt, welche zwangsmäßig durch den Nullpunkt laufen, da hier kein weißes Rauschen gibt. Somit wurde lediglich die Steigung bestimmt. Diese ist der Legende zu entnehmen und wurde $a$ genannt.
+Die bestimmte Boltzmankonstante liegt somit bei 
+\res[-23]{k_\text{B}}{1.63}{0.08}{J/K}
+
+Die Ungenauigkeit kann zudem in einen statistischen und einen systemischen Fehler aufgeteilt werden. 
+Für den statistischen Fehler ergibt sich somit
+\eq{hdsfsdiufhdsuf}{
+    \Delta k_\text{stat} = 
+            k_\text{b} \cdot \sqrt{\frac{\Delta a^{2}}{a^{2}} + \frac{\Delta T^{2}}{T^{2}} + \frac{4 \Delta G^{2}}{G^{2}}}
+}
+und für den systemischen Fehler ergibt sich
+\eq{zadfizsd}{
+    \Delta k_\text{sys} = \frac{c}{4B^2T}\Delta B \,.
+}
+Diese Fehler können zu einem gesamt Fehler zusammengerechnet werden:
+\eq{ist_das_noch_spass}{
+    \Delta k_\text{ges} = \sqrt{\Delta k_\text{stat}^{2} + \Delta k_\text{sys}^{2}} \, .
+}
+Somit ergibt sich
+\eq{udfu}{
+    \Delta k_\text{ges} = \sqrt{(6.7 \cdot 10^{-25})^2 + (3.3 \cdot 10^{-25})^2} \, .
+}
+
+Es wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert von $k_\text{B,lit}= 1.380649 \cdot 10^{-23}$ bestimmt. Die Abweichung liegt bei $3.33\sigma$ und ist damit signifikant.
+
+\subsection*{Güte des Fits}
+Zum Abschluss dieser Sektion soll die Güte der Regression der \cabb{plots/lin_reg_liest_das_hier_irgendwer} bestimmt werden. 
+Um die Zuverlässigkeit der linearen Regression zur Bestimmung der Steigung $a$ zu quantifizieren, wurde die Güte des Fits mittels des reduzierten Chi-Quadrat-Kriteriums ($\chi^2_\text{red}$) analysiert. Wie in Gleichung~\eqref{eq:chi_red} dargestellt, ergibt sich ein Wert von:
+\eq{chi_red}{
+    \chi_\text{red} = 0.43
+}
+Ein Wert von $\chi^2_\text{red} \approx 1$ würde eine perfekte Übereinstimmung zwischen der Streuung der Messdaten und den geschätzten Fehlerbalken anzeigen. Der hier ermittelte Wert von $0.43$ liegt deutlich unterhalb von 1. Dies impliziert, dass die tatsächliche Streuung der Messpunkte um die Regressionsgerade geringer ist als durch die angegebenen Unsicherheiten $\sigma_{U_\text{diff}}$ vorhergesagt. Die gewählten Fehlerbalken waren somit konservativ (zu groß) gewählt, was auf eine sehr stabile Messung mit geringen statistischen Schwankungen hindeutet.
+Zur weiteren Absicherung wurde der p-Wert (Signifikanzniveau) berechnet, der die Wahrscheinlichkeit angibt, eine mindestens so große Abweichung zwischen Modell und Daten rein zufällig zu beobachten, sofern das lineare Modell korrekt ist. Gemäß Gleichung~\eqref{eq:wahrKeit} ergibt sich:
+\eq{wahrKeit}{
+    p = 82.72 \%
+}
+Da dieser Wert weit im Bereich der statistischen Akzeptanz liegt ($p > 5\,\%$), kann die Nullhypothese, dass die Daten einem linearen Zusammenhang folgen, nicht verworfen werden. Ein p-Wert von über 80\,\% bestätigt zudem, dass das lineare Modell die physikalische Beziehung zwischen der normierten Rauschspannung und dem Widerstand exzellent beschreibt. Zusammenfassend lässt sich festhalten, dass die Regression statistisch hochsignifikant ist und die daraus abgeleiteten Parameter (Steigung und Boltzmann-Konstante) auf einer soliden datentechnischen Basis beruhen.
 
 \section{Zusatzaufgabe: Temperatur-Widerstand}
 \label{sec:A4}

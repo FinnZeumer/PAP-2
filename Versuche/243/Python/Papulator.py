@@ -648,16 +648,17 @@ def plot_fft_from_time_csv(filepath, save_path=None):
 
 
 def plot_general_csv(
-    filepath, 
-    x_label, 
-    y_label, 
-    title="Plot", 
-    xlabel="X-Axis", 
-    ylabel="Y-Axis", 
-    log_x=False, 
-    log_y=False, 
+    filepath:str, 
+    x_label:str, 
+    y_label:str, 
+    title:str="Plot", 
+    xlabel:str="X-Axis", 
+    ylabel:str="Y-Axis",
+    label:str='', 
+    log_x:bool=False, 
+    log_y:bool=False, 
     save_path=None,
-    show_plot=True
+    show_plot:bool=True
 ):
     """
     Plots data from a CSV file given specific column headers for X and Y.
@@ -718,13 +719,13 @@ def plot_general_csv(
     # Determine plot type based on data content or user preference
     # If log_x is True, use semilogx. If log_y is True, use semilogy. If both, loglog.
     if log_x and log_y:
-        ax.loglog(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
+        ax.loglog(df[x_col], df[y_col], label=f"{label}", linewidth=1)
     elif log_x:
-        ax.semilogx(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
+        ax.semilogx(df[x_col], df[y_col], label=f"{label}", linewidth=1)
     elif log_y:
-        ax.semilogy(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
+        ax.semilogy(df[x_col], df[y_col], label=f"{label}", linewidth=1)
     else:
-        ax.plot(df[x_col], df[y_col], label=f"{x_label} vs {y_label}", linewidth=1)
+        ax.plot(df[x_col], df[y_col], label=f"{label}", linewidth=1)
         ax.ticklabel_format(axis='both', style='sci', scilimits=(0,3))
 
 

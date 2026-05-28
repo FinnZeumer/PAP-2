@@ -70,7 +70,6 @@
   \begin{figure}[h!]
       \centering
       % --- Left Image ---
-      % We assume #1 defaults to 0.5 if empty, or use the passed value
       \begin{subfigure}[c]{\dimexpr #1\textwidth - 0.1\textwidth\relax}
           \centering
           \includegraphics[width=\textwidth]{Versuche/\versuchsnummer/img/#2}
@@ -80,7 +79,6 @@
       \hfill 
       % --- Right Image ---
       % Calculate remaining width: 0.99\textwidth - (Left Width)
-      % Or simply: 1\textwidth - Left Width - gap
       \begin{subfigure}[c]{\dimexpr 0.99\textwidth - (\dimexpr #1\textwidth - 0.1\textwidth\relax)\relax}
           \centering
           \includegraphics[width=\textwidth]{Versuche/\versuchsnummer/img/#3}
