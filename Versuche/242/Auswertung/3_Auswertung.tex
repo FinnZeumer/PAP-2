@@ -1,0 +1,176 @@
+\chapter{Auswertung}
+\label{ch:Auswertung}
+% Liste der genutzer Formeln für die Fehlerrechnung
+\section*{Fehlerrechnung}
+Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größen definiert \cite{errorSkript25}:
+\begin{align}
+    \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetisches Mittel}} \label{eq:arithmetisches_mittel} \\
+    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Varianz}} \label{eq:Varianz} \\
+    \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
+    \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
+    \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
+    \Delta f &= \sqrt{(\Delta x)^2 + (\Delta y)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = x + y$}} \label{eq:fehler_summe} \\
+    \Delta f &= |a| \Delta x \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = ax$}} \label{eq:fehler_proportional} \\
+    \frac{\Delta f}{|f|} &= \sqrt{\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{relativer Fehler für $f = xy$ oder $f = x/y$}} \label{eq:relativer_fehler} \\
+    \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
+\end{align}
+
+\newpage
+
+\section{Verstärkung bei Gleich- und Wechselstrom}
+\label{sec:A1}
+In dieser Sektion soll die Auswirkun der Gegenkopplung auf den Operationsverstärker untersucht werden. Diese Sektion wird dabei in Gelich- und Wechselstrom eingeteilt.
+Zunächst wird nach \ceq{Verstaerkung} die theoretische Verstärkung berechnet. Unter Nutzung der \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'schen Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} berechnet sich die Ungenauigkeit zu
+\eq{err_THEO_What_ever}{
+    \Delta V'_\text{t} =
+            V'_\text{t} \cdot \sqrt{\frac{\Delta R_\text{g}^{2}}{R_\text{g}^{2}} + \frac{\Delta R_\text{E}^{2}}{R_\text{E}^{2}}}  .
+}
+Nach Praktikumsskript \cite{skriptPAP22} ist der relative Fehler der Widerstände $10\%$, bzw.:
+\eq{aiuf7df}{
+    0.1 = \frac{\Delta R_\text{g}}{R_\text{g}} = \frac{\Delta R_\text{E}}{R_\text{E}}
+}
+Wichtig ist, dass die Annahme gemacht wurde, dass die Verstärkung nur vom Gegenkopplungswiderstand $R_\text{g}$ und dem Eigenwiderstand $R_\text{E}$ abhängt. Dies ist möglich, da die Frequenz mit 1khz klein genug ist (vgl. \cabb{leerlauf_graph}). 
+Der Eigenwiderstand lag bei dieser Durchführung kosntant bei $R_\text{E} = (3.0 \pm 0.3) \mathrm{k\Omega}$, während der Gegenkopplungswiderstand variiert wurde.
+
+\subsection{Verstärkung unter Gleichstrom}
+Zunächst soll die Gleichspannung betrachtet werden. Für die Gegenkopplungswiderstände wurde $R_\text{g} = 48.7 \mathrm{k\Omega}$ bzw. $R_\text{g} = 274 \mathrm{k\Omega}$ genutzt. Die Ausgangsspannung wurde im Osziloskop gemessen und eine Ungenauigkeit auf $\Delta U_\text{A} = 0.01$V geschätzt. Die Eingangsspannung hat eine Ungenauigkeit von $\Delta U_\text{A} = 0.003$V.
+Durch die Messdaten wurde eine lineare Regression gelegt. Die Messdaten und die jeweilig Regressionsfunktion ist der \cabb{plots/gl_V_reg_1a} zu entnehmen. 
+\img[1]{plots/gl_V_reg_1a}{Ausgangsspannung gengen die Eingangsspannung unter nutzung verschiedener Rückkopplungswiderstände. Für $R_\text{g}=247\mathrm{k\Omega}$ wurde der Bereich der linearen Regression einbeschrängt, da der Graph hier in Sättigung ist.}
+Wichtig ist, dass für $R_\text{g} = 247 \mathrm{k\Omega}$ die ersten, sowie letzen drei Messwerte nicht für die lineare Regression berücksichtigt wurden, da diese Werte hier in Sättigung liegen. Der Regressionsbereich ist durch zwei vertikale Linien gekennzeichnet. Die Fitparameter der jeweiligen Regression sind der Legende zu entnehmen, dabei $a$ die Steigung und $b$ der Achsenabschnitt der Ordinate.
+Nach \ceq{Verstaerkung} ist die inverse Steigung der Regressions gleich der Verstärkungsspannung:
+\eq{iuagfdspiufhdsiufhsd}{
+    V = -a, \quad \Delta V = -\Delta a
+}
+
+Die Ergebnisse sind der \ctab{comparison} zu netnehmen. Es wurde die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} berechnet.
+\begin{table}[h!]
+    \centering
+    \caption{Vergleich der experimentellen und theoretischen Werte bei Gleichstrom.}
+    \label{tab:comparison}
+    \begin{tabular}{L | C C || C}
+        \toprule
+        R_\text{g} [\mathrm{k\Omega}] & V_{t} & \text{Steigung } a & \text{Std.Abw. } \sigma \\
+        \midrule
+        49 \pm 5 & 16.2 \pm 2.3 & 16.20 \pm 0.05 & 0.00 \\
+        270 \pm 30 & 91 \pm 13 & 90.3 \pm 0.5 & 0.05 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+keine der Abweichungen ist signifikant.
+
+
+\subsection{Verstärkung unter Wechselstrom}
+Analog soll die Rechnung für den Wechselstrom durchgefürht werden. Die Messdaten und die Regression sind der \cabb{plots/we_V_reg_1b} zu entnehmen. Die Fitparameter sind erneut in der Legende gelistet. 
+In diesem Fall tritt keine Sättigung auf, weder für $R_\text{g} = 274 \mathrm{k\Omega}$, noch für $R_\text{g} = 680 \mathrm{k\Omega}$, daher werden alle Messdaten zur bestimmung der linearen Regression genutzt.
+\img[1]{plots/we_V_reg_1b}{Ausgangsspannung gengen die Eingangsspannung unter nutzung verschiedener Rückkopplungswiderstände.}
+Die Messergebnisse sind der \ctab{comparison_WE} zu entnehmen. Es wurde erneut die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen experimentellen und theoretischen Werten bestimmt.
+\begin{table}
+    \centering
+    \caption{Vergleich der experimentellen und theoretischen Werte bei Wechselstrom.}
+    \label{tab:comparison_WE}
+    \begin{tabular}{L | C C || C}
+    \toprule
+    R_\text{g} [\mathrm{k\Omega}] & V_{t} & \text{Steigung } a & \text{Std.Abw. } \sigma \\
+    \midrule
+    680 \pm 70 & 230 \pm 30 & 208.7 \pm 0.8 & 0.78 \\
+    270 \pm 30 & 91 \pm 13 & 85.1 \pm 0.6 & 0.79 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+Erneut ist keine der Abweichungen signifikant.
+
+\section{Frequenzgänge}
+\label{sec:A2}
+In dieser Sektion soll nun die Frequenzabhänigkeit des Operationsverstärkers untersucht werden. Hierzu werden Gegenkopplungswiderstand $R_\text{g}$, ein parallel geschalteter Kondensator und der Eingangshochpass variiert. Normal liegt letzteres bei $C = 22\mathrm{\mu F}$.
+Die Ergebnisse sind der \cabb{plots/_Frequenzgang_2a} zu entnehmen.
+\img[1]{plots/_Frequenzgang_2a}{Verstärkung des Signales gegen die Frequenz geplottet; unter Nutzung vershciedener Widerstände und mit vergrößertem Eigenhochpass (standard $C = 22\mathrm{\mu F}$).}
+Eindeutig fällt auf, dass ein höhrer Gegenkopplungswiderstand auch eine größere Verstärkung bei kleinen Frequenzen aufweist. Bei höhren Frequenzen konvergieren alle Widerstände zu einem gemeinsemen Wert.
+Beides passt zur theoretischen Erwartung und ist kohärent mit der \cabb{leerlauf_graph}.
+
+Darüber hinaus besteht ein Zusammenhang zwischen der Höhe des Gegenkopplungswiderstandes und wann die Verstärkung abfllt, denn für große Gegenkopplungswiderstände fällt die Verstärkung bei geringeren Frequenzen bereits ab, während diese für kleinere Gegenkopplungswiderstände länger annährend konstant ist.
+
+Schaltet man einen Tiefpass in den Schaltkreis, so bleibt das Signal zubeginn annährend identisch, während es führ hohre Frequenzen stärker abnimmt. Dies ist genau die Erwartung, denn ein Tiefpass soll hohe Frequenzen filtern und Tiefe passieren lassen. 
+
+Wird zudem noch ein Hochpass vorgeschaltet, wrhält man einen Bandpass. Dieser wird hoche, sowie tiefe Frequenzen Filtern und wird nur eine Bandpassbreite an Signalen nicht stark beeinflussen. Dies ist dem Diagramm zu entnehmen, sowohl die Hohen als auch die Tiefen Frequenzen werden herausgefiltert. Der Verlauf ist nach der Bandbreite, die kaum verändert wird dann annährend zu dem Verlauf des Tiefpasses ohne extra Hochpassfilter.
+
+
+
+\section{Verstärkung von Rechtsecksignalen}
+\label{sec:A3}
+In diese Sektion wird analysiert, wie verschiedene Schaltungskonfigurationen auf Rechteckimpulse wirken. Die Form der Ausgangsspannung wird bei unterschiedlichen Gegenkopplungen und deren Frequenzabhängigkeit untersucht.
+Die Signale sind der \cabb{aiudhf} zu entnehmen.
+Die Kanten der Rechteckimpulse zeigen bei höherem Gegenkopplungswiderstand eine reduzierte Schärfe. Die Form der Ausgangsspannung entfernt sich mit steigendem Gegenkopplungswiderstand von der Form eines idealen Rechteckimpulses. Bei der Einstellung mit dem 22$\mu$F Eingangshochpass ist die Rechtecksform des Pulses weitgehend erkennbar, wobei die Kantenschärfe in Abhängigkeit vom Gegenkopplungswiderstand variiert. Für $R_g = 48.7\mathrm{k}\Omega$ ist ein Aufweichen der Kante feststellbar. Mit zunehmendem Gegenkopplungswiderstand nimmt die Kantenschärfe weiter ab.
+Dieses Verhalten lässt sich durch die frequenzabhängige Verstärkung erklären. Hohe Frequenzen werden schwächer verstärkt als niedrige Frequenzen. Ein größerer Gegenkopplungswiderstand erhöht die Verstärkung niedriger Frequenzen, während die Verstärkung hoher Frequenzen nahezu unverändert bleibt. Dadurch entsteht eine größere Diskrepanz in den Amplituden der einzelnen Frequenzanteile.
+
+Bei der Einstellung mit dem 47nF Eingangshochpass ist die Rechtecksform des Ausgangssignals nicht erkennbar. Niedrigere Frequenzen werden durch den Eingangshochpass stärker herausgefiltert als in der 22$\mu$F-Einstellung, da die Kapazität geringer ist. Der Rechteckspuls wird ohne die niedrigen Frequenzanteile ausgegeben. Eine Abhängigkeit von der Rückkopplungsschaltung ist ebenfalls feststellbar, da die frequenzabhängige Verstärkung weiterhin wirkt. Bei größtem Gegenkopplungswiderstand sind sowohl der Hochpasseffekt des Eingangskondensators als auch der Tiefpasseffekt des Operationsverstärkers beobachtbar. Die linke Flanke des Signals ist unscharf und das Signal fällt nach dem Maximum verfrüht ab.
+Bei Kondensatorschaltungen zeigt sich ein nahezu vertikaler Anstieg der Ausgangsspannung sowie ein exponentielles Abfallverhalten. Der Kondensator sperrt bei niedrigen Frequenzen den Stromfluss nahezu vollständig. Die Durchlässigkeit des Kondensators steigt an, bis er kurzschließt. Anschließend sinkt die Verstärkung, wodurch das Signal abfällt.
+Es zeigen sich unterschiedliche Darstellungen der Kantenformen bei verschiedenen Gegenkopplungswiderständen. Eine Überprüfung der Originalabbildungen kann zur Klärung dieser Darstellung erfolgen.
+Der Gegenkopplungswiderstand und die Kapazität des Eingangshochpasses beeinflussen die Kantenschärfe und die Form des Ausgangssignals. Ein Tiefpass in der Rückkopplung reduziert die Kantenschärfe zusätzlich.
+
+
+\begin{figure}[h!]
+    \centering
+    \caption{Betrachtete Sinale für Aufgabe 3. Gelb ist immer das eingehende Signal und blau das ausgehende Signal.}
+    \label{fig:aiudhf}
+    % Zeile 1
+    \hspace{-3.25cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0004}
+        \caption{S1: 2, S2: 1}
+    \end{subfigure}
+    \hspace{3.5cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0005}
+        \caption{S1: 2, S2: 2}
+    \end{subfigure}
+    
+    \vspace{0.5em}
+    
+    % Zeile 2
+    \hspace{-3.25cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0006}
+        \caption{S1: 2, S2: 3}
+    \end{subfigure}
+    \hspace{3.5cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0007}
+        \caption{S1: 2, S2: 4}
+    \end{subfigure}
+    
+    \vspace{0.5em}
+    
+    % Zeile 3
+    \hspace{-3.25cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0009}
+        \caption{S1: 3, S2: 3}
+    \end{subfigure}
+    \hspace{3.5cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0010}
+        \caption{S1: 3, S2: 4}
+    \end{subfigure}
+    
+    \vspace{0.5em}
+    
+    % Zeile 4
+    \hspace{-3.25cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0011}
+        \caption{S1: 3, S2: 1}
+    \end{subfigure}
+    \hspace{3.5cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, angle=-90]{Versuche/\versuchsnummer/img/A3/TEK0012}
+        \caption{S1: 3, S2: 2}
+    \end{subfigure}
+\end{figure}

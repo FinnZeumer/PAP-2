@@ -1,0 +1,45 @@
+\chapter{Einleitung} \label{ch:Einleitung}
+
+\section{Aufgabe und Motivation}
+\label{sec:AuM}
+
+In der Experimentalphysik und der Elektrotechnik spielen elektronische Messgeräte eine zentrale Rolle, da nahezu alle physikalischen Messgrößen letztlich in elektrische Signale umgewandelt werden. Häufig liegen diese Signale jedoch in Form sehr kleiner Spannungspulse vor, die ohne weitere Manipulation nicht präzise erfasst oder weiterverarbeitet werden können. Um diese Signale nutzbar zu machen, ohne ihren physikalischen Informationsgehalt zu verfälschen, bedarf es von Verstärkereinrichtungen.
+
+Der vorliegende Versuch hat zum Ziel, die Funktionsweise und die charakteristischen Eigenschaften eines Operationsverstärkers im invertierenden Betrieb zu untersuchen. Insbesondere steht die Analyse des Spannungsverstärkers im Fokus, der durch eine gezielte Gegenkopplung stabilisiert wird. Durch die Variation von Gegenkopplungswiderständen und die Untersuchung des Frequenzverhaltens soll verstanden werden, wie sich die Betriebsverstärkung einstellen lässt und welche Grenzen durch die Frequenzabhängigkeit des Bauteils sowie durch externe Filterelemente (Kondensatoren) gesetzt werden. Ein weiterer Aspekt ist die qualitative Beobachtung der Signalformverarbeitung, insbesondere bei Rechtecksignalen, um die Auswirkungen der frequenzabhängigen Verstärkung auf die Kantensteilheit zu analysieren.
+
+\section{Physikalische Grundlage}
+\label{sec:PhyBasics}
+
+Ein Operationsverstärker (OPV) besitzt zwei Eingänge - einen invertierenden und einen nichtinvertierenden - sowie einen Ausgang. Im Leerlauf verstärkt er die Differenz der Eingangsspannungen mit der sogenannten Leerlaufverstärkung
+\eq{Leerlauf}{
+V_0 = \frac{U_a}{U_e}.
+}
+Diese Größe ist stark frequenzabhängig und fällt bei realen OPVs mit zunehmender Frequenz ab.
+
+\img[.6]{leerlauf_graph}{eerlaufverstärkung in Abhängig von der Frequenz des Eingangssignals \cite{skriptPAP22}}
+
+Für praktische Anwendungen wird der OPV fast immer mit einer Gegenkopplung betrieben, da die Leerlaufverstärkung weder stabil noch exakt bekannt ist. Beim invertierenden Verstärker wird die Eingangsspannung an den negativen Eingang gelegt, während der Ausgang über einen Rückkopplungswiderstand 
+\eq{rueckWid}{
+    R_\text{g} = \frac{U_\text{a}}{I_\text{a}}
+}
+auf denselben Eingang zurückgeführt wird. Der Eingangswiderstand 
+\eq{rueckWid}{
+    R_\text{e} = \frac{U_\text{e}}{I_\text{e}}
+}
+liegt zwischen Eingangssignal und invertierendem Eingang.
+\img[.7]{invOPV}{Schaltkreis des invertierenden Operationsverstärkers \cite{skriptPAP22}.}
+Aus der Knotenregel am invertierenden Eingang folgt
+\eq{Knoten}{
+I_e = I_1 + I_2,
+}
+wobei aufgrund des hohen Eingangswiderstands des OPVs näherungsweise $I_e \approx 0$ gilt. Unter Verwendung des Ohmschen Gesetzes ergibt sich
+\eq{Strom}{
+\frac{U_e - U_1}{R_e} + \frac{U_a - U_1}{R_g} = 0.
+}
+Für große Leerlaufverstärkung $V_0$ und kleine Frequenzen gilt $U_1 \approx 0$, sodass sich die Betriebsverstärkung des invertierenden Verstärkers zu
+\eq{Verstaerkung}{
+V' = \frac{U_a}{U_e} = -\frac{R_g}{R_e}
+}
+vereinfacht. 
+
+Bei hohen Frequenzen ist die Näherung $U_1 \approx 0$ nicht mehr gültig, da die Leerlaufverstärkung abnimmt. Der Verstärker verhält sich dann wie ein Tiefpass. Durch Hinzufügen eines Kondensators parallel zu $R_g$ oder eines Hochpasses vor dem Eingang lässt sich das Frequenzverhalten gezielt verändern.

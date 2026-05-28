@@ -1,0 +1,42 @@
+\chapter{Durchführung} \label{ch:Durchfuehrung}
+
+\section{Messverfahren}
+\label{sec:Messverfahren}
+
+Die experimentelle Untersuchung gliedert sich in drei Hauptteile: Messung der Verstärkung bei Gleich- und Wechselspannung, Bestimmung des Frequenzgangs sowie Analyse der Verarbeitung von Rechtecksignalen.
+
+\subsection*{Verstärkung bei Gleichspannung}
+Für die DC-Messung wurde die Schaltung gemäß \cabb{gl_V-OPV} aufgebaut. Die Eingangsspannung $U_e$ wurde im Bereich von $-0.25\,\mathrm{V}$ bis $0.25\,\mathrm{V}$ variiert. Für zwei verschiedene Rückkopplungswiderstände $R_g$ wurden jeweils zwölf Wertepaare $(U_e, U_a)$ aufgenommen. 
+Die Spannungen wurden mit der Mittelwertfunktion des Oszilloskops bestimmt, wobei ein großer Mittelungszeitraum gewählt wurde, um Rauschen zu reduzieren. Die Verstärkung ergibt sich aus der Steigung der linearen Regression gemäß \ceq{Verstaerkung}.
+
+\img{gl_V-OPV}{Schaltkreis für die Gleichspannungsmessung \cite{skriptPAP22}.}
+
+\subsection*{Verstärkung bei Wechselspannung}
+Für die AC-Messung wurde die Schaltung aus \cabb{we_V_OPV} verwendet. Die Eingangsspannung wurde als sinusförmiges Signal mit $f = 1\,\mathrm{kHz}$ eingespeist. Die Peak-to-Peak-Spannungen von Ein- und Ausgang wurden automatisch vom Oszilloskop erfasst. Für jeden Rückkopplungswiderstand wurden sechs Messpunkte im Bereich $0.05$–$1\,\mathrm{V_{pp}}$ aufgenommen.
+
+\img{we_V_OPV}{Schaltkreis für die Wechselspannungsmessung \cite{skriptPAP22}.}
+
+Die Verstärkung ergibt sich aus dem Verhältnis der Peak-to-Peak-Werte:
+\eq{ACVerst}{
+V' = \frac{U_{a,\mathrm{pp}}}{U_{e,\mathrm{pp}}}.
+}
+
+\subsection*{Frequenzgang}
+
+Zur Bestimmung des Frequenzgangs wurde die Frequenz des Eingangssignals zwischen $100$ und $300\,\mathrm{kHz}$ variiert. Für jede Frequenz wurde die Ausgangsamplitude $U_{a,\mathrm{pp}}$ gemessen. Die Messung wurde für verschiedene Rückkopplungswiderstände sowie für Konfigurationen mit Tiefpass ($C \parallel R_g$) und Hochpass ($C_\text{HP}$ vor dem Eingang) wiederholt.
+
+Die Verstärkung wird als Funktion der Frequenz dargestellt:
+\eq{Freq}{
+V(f) = \frac{U_{a,\mathrm{pp}}(f)}{U_{e,\mathrm{pp}}(f)}.
+}
+
+\subsection*{Rechtecksignale}
+
+Abschließend wurde ein Rechtecksignal in den Verstärker eingespeist. Die Form des Ausgangssignals wurde für verschiedene Rückkopplungswiderstände sowie mit und ohne Hochpass qualitativ untersucht. Die beobachteten Effekte lassen sich über die frequenzabhängige Verstärkung und die Fourierzerlegung des Rechtecksignals 
+
+\section{Skizze des Versuchsaufbaus}
+\label{sec:Skizze}
+
+Der Versuchsaufbau besteht aus einem Schaltungskästchen mit dem Operationsverstärker-Typ $\mu$A 741, einem Sinus- bzw. Rechteckgenerator als Signalquelle und einem Zweikanal-Oszilloskop zur Messung von Eingangs- und Ausgangsspannung. Die Schaltung wird entsprechend der invertierenden Verstärker-Konfiguration aufgebaut, wobei die Widerstände $R_e$ und $R_g$ je nach Messaufgabe ausgetauscht oder durch Kondensatoren ergänzt werden.
+
+\img{V_aufb}{Schematischer Aufbau des invertierenden Operationsverstärkers mit Gegenkopplung \cite{skriptPAP22}.}

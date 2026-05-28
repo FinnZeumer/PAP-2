@@ -1,0 +1,21 @@
+\chapter{Diskussion}
+\label{ch:Diskussion}
+
+\section{Zusammenfassung}
+\label{sec:Zusammenfassung}
+In diesem Versuch wurde das Verhalten eines Operationsverstärkers in verschiedenen Konfigurationen untersucht. Im Fokus stand dabei die Abhängigkeit der Verstärkung vom Wert des Rückkopplungswiderstands sowie von der Frequenz des Eingangssignals. 
+Im ersten Teil des Versuchs wurde die Betriebsverstärkung für Gleich- und Wechselspannung in Abhängigkeit vom Gegenkopplungswiderstand gemessen. Die experimentellen Ergebnisse stimmen innerhalb der Fehlergrenzen mit der theoretischen Vorhersage überein. Die Ergebnisse sind in der \ctab{comparison} aufgelistet.
+Im zweiten Teil wurde die Frequenzabhängigkeit der Verstärkung für unterschiedliche Schaltungsvarianten analysiert, darunter Konfigurationen mit Tiefpass- und Hochpassfiltern. Es konnte gezeigt werden, dass die Gegenkopplung die Verstärkung bei niedrigen Frequenzen stabilisiert und deren Betrag über den Gegenkopplungswiderstand skaliert werden kann. Bei hohen Frequenzen hingegen wird die Verstärkung unabhängig vom Widerstandswert. Die Ergebnisse sind der \ctab{comparison_WE} zu entnehmen.
+Im abschließenden Teil wurde die Verarbeitung von Rechtecksignalen qualitativ untersucht. Dabei zeigte sich, dass die Form des Ausgangssignals durch die frequenzabhängige Verstärkung beeinflusst wird, was sich insbesondere in der Kantenschärfe und der Signalform widerspiegelt. Insgesamt konnten grundlegende Eigenschaften eines invertierenden Operationsverstärkers erfolgreich nachgewiesen werden.
+
+\section{Analyse der Messwerte}
+\label{sec:Analyse}
+Die experimentell bestimmten Verstärkungsfaktoren weichen nur geringfügig von den theoretisch erwarteten Werten ab. Diese Abweichungen sind allesamt nicht signifikant und lassen sich hauptsächlich auf die Ungenauigkeit der verwendeten Widerstandswerte zurückführen. Der relative Fehler der Widerstände beträgt laut Praktikumsanleitung 10\%, was zu einer erheblichen Unsicherheit in der theoretischen Berechnung führt. 
+Es ist anzunehmen, dass der Fehler der experimentell gemessenen Spannungen unterschätzt wurde, da ausschließlich ein Ablesefehler des Oszilloskops berücksichtigt wurde. Weitere potenzielle Fehlerquellen, wie etwa die Messgenauigkeit des Geräts, Temperaturdrift oder parasitäre Kapazitäten, wurden nicht explizit einbezogen. 
+Bei der Analyse der Frequenzgänge zeigte sich, dass die Verstärkung bei höheren Frequenzen unabhängig vom Gegenkopplungswiderstand wird, was mit dem erwarteten Tiefpassverhalten übereinstimmt. Die Einführung zusätzlicher Filterelemente (Tiefpass in der Gegenkopplung, Hochpass am Eingang) bestätigte die theoretischen Erwartungen qualitativ. Eine quantitative Auswertung wäre jedoch mit weiteren Messpunkten und unterschiedlichen Kondensatorwerten aussagekräftiger.
+
+\section{Kritik}
+\label{sec:Kritik}
+Obwohl die durchgeführten Messungen grundsätzlich die theoretischen Modelle bestätigen, bestehen einige Einschränkungen. Der untersuchte Parameterbereich war begrenzt auf Variationen des Gegenkopplungswiderstands und der Frequenz. Andere Einflussfaktoren wie Temperatur, Eingangsspannungsbereich oder Bauteiltoleranzen wurden nicht systematisch untersucht. 
+Insbesondere der Einfluss der Eingangsspannung auf das lineare Verhalten des Verstärkers wurde nur in einem sehr kleinen Bereich vermessen. Eine Erweiterung dieses Bereichs hätte Aufschluss darüber gegeben, wie robust der Verstärker gegenüber großen Signalen ist und wo die Grenzen der Linearität liegen. 
+Insgesamt bietet der Versuch jedoch eine solide Grundlage zum Verständnis der grundlegenden Eigenschaften von Operationsverstärkern und ihrer Anwendung in verschiedenen Schaltungskonfigurationen.
