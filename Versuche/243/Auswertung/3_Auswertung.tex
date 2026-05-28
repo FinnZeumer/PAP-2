@@ -92,7 +92,7 @@ Diese Differenz wird in Abhänigkeit des Widerstandes geplottet, dies ist der \c
 
 Durch die Messdaten wurde eine lineare Regression gelegt, welche zwangsmäßig durch den Nullpunkt laufen, da hier kein weißes Rauschen gibt. Somit wurde lediglich die Steigung bestimmt. Diese ist der Legende zu entnehmen und wurde $a$ genannt.
 Die bestimmte Boltzmankonstante liegt somit bei 
-\res[-23]{k_\text{B}}{1.63}{0.08}{J/K}
+\res[-24]{k_\text{B}}{1.79}{0.08}{J/K}
 
 Die Ungenauigkeit kann zudem in einen statistischen und einen systemischen Fehler aufgeteilt werden. 
 Für den statistischen Fehler ergibt sich somit
@@ -110,26 +110,29 @@ Diese Fehler können zu einem gesamt Fehler zusammengerechnet werden:
 }
 Somit ergibt sich
 \eq{udfu}{
-    \Delta k_\text{ges} = \sqrt{(6.7 \cdot 10^{-25})^2 + (3.3 \cdot 10^{-25})^2} \, .
+    \Delta k_\text{ges} = \sqrt{(7.6 \cdot 10^{-27})^2 + (3.6 \cdot 10^{-29})^2} \, .
 }
 
-Es wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert von $k_\text{B,lit}= 1.380649 \cdot 10^{-23}$ bestimmt. Die Abweichung liegt bei $3.33\sigma$ und ist damit signifikant.
+Es wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert von $k_\text{B,lit}= 1.380649 \cdot 10^{-23}$ bestimmt. Die Abweichung liegt bei $143.6\sigma$ und ist damit signifikant.
 
 \subsection*{Güte des Fits}
 Zum Abschluss dieser Sektion soll die Güte der Regression der \cabb{plots/lin_reg_liest_das_hier_irgendwer} bestimmt werden. 
-Um die Zuverlässigkeit der linearen Regression zur Bestimmung der Steigung $a$ zu quantifizieren, wurde die Güte des Fits mittels des reduzierten Chi-Quadrat-Kriteriums ($\chi^2_\text{red}$) analysiert. Wie in Gleichung~\eqref{eq:chi_red} dargestellt, ergibt sich ein Wert von:
+Um die Zuverlässigkeit der linearen Regression zur Bestimmung der Steigung $a$ zu quantifizieren, wurde die Güte des Fits mittels des reduzierten Chi-Quadrat-Kriteriums ($\chi^2_\text{red}$) analysiert. Wie in \ceq{chi_red} dargestellt, ergibt sich ein Wert von:
 \eq{chi_red}{
     \chi_\text{red} = 0.43
 }
 Ein Wert von $\chi^2_\text{red} \approx 1$ würde eine perfekte Übereinstimmung zwischen der Streuung der Messdaten und den geschätzten Fehlerbalken anzeigen. Der hier ermittelte Wert von $0.43$ liegt deutlich unterhalb von 1. Dies impliziert, dass die tatsächliche Streuung der Messpunkte um die Regressionsgerade geringer ist als durch die angegebenen Unsicherheiten $\sigma_{U_\text{diff}}$ vorhergesagt. Die gewählten Fehlerbalken waren somit konservativ (zu groß) gewählt, was auf eine sehr stabile Messung mit geringen statistischen Schwankungen hindeutet.
-Zur weiteren Absicherung wurde der p-Wert (Signifikanzniveau) berechnet, der die Wahrscheinlichkeit angibt, eine mindestens so große Abweichung zwischen Modell und Daten rein zufällig zu beobachten, sofern das lineare Modell korrekt ist. Gemäß Gleichung~\eqref{eq:wahrKeit} ergibt sich:
+Zur weiteren Absicherung wurde der p-Wert (Signifikanzniveau) berechnet, der die Wahrscheinlichkeit angibt, eine mindestens so große Abweichung zwischen Modell und Daten rein zufällig zu beobachten, sofern das lineare Modell korrekt ist. Gemäß \ceq{wahrKeit} ergibt sich:
 \eq{wahrKeit}{
     p = 82.72 \%
 }
-Da dieser Wert weit im Bereich der statistischen Akzeptanz liegt ($p > 5\,\%$), kann die Nullhypothese, dass die Daten einem linearen Zusammenhang folgen, nicht verworfen werden. Ein p-Wert von über 80\,\% bestätigt zudem, dass das lineare Modell die physikalische Beziehung zwischen der normierten Rauschspannung und dem Widerstand exzellent beschreibt. Zusammenfassend lässt sich festhalten, dass die Regression statistisch hochsignifikant ist und die daraus abgeleiteten Parameter (Steigung und Boltzmann-Konstante) auf einer soliden datentechnischen Basis beruhen.
+Da dieser Wert weit im Bereich der statistischen Akzeptanz liegt ($p > 5\,\%$), kann die Nullhypothese, dass die Daten einem linearen Zusammenhang folgen, nicht verworfen werden. Ein p-Wert von über 80\,\% bestätigt zudem, dass das lineare Modell die physikalische Beziehung zwischen der normierten Rauschspannung und dem Widerstand exzellent beschreibt. 
 
 \section{Zusatzaufgabe: Temperatur-Widerstand}
 \label{sec:A4}
+Zuletzt soll die Zusatzaufgabe Ausgewertet werden. Die Messergebnisse sind erneut dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. 
 
-
+Der \cabb{plots/Frequenzgang_4a.pdf} ist zu entnhemen, dass die Temperatur bei der $250^\circ$C-Einstellung konnte keine kontinuirliche Temperatur erreicht werden, dies liegt daran, dass wenn immer $\approx 250^\circ$C erreicht werden, das Heißen abgebrochen wird und das Heißglied sofort wieder abkühlt. Daher konnte hier kein exakter Wert vermessen werden.
 \img{plots/Frequenzgang_4a.pdf}{Schwankung der Temperatur bei am Heizwiderstand bei 250$^\circ$C.}
+
+\img{plots/Fit_durch_Ursprung_4a}{Graphen der linearen Regressionen mit dem Temperaturwiderstand.}
