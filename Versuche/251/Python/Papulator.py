@@ -139,8 +139,9 @@ def round_sig_digs(err:float, val:float = None):
         val_str = str(int(rounded_val))
 
     rounded_combined_str = fr"{val_str} \pm {err_str}"
+    rounded_combined_str_dollar = fr"{val_str} $\pm$ {err_str}"
 
-    return rounded_val, rounded_err, rounded_combined_str
+    return rounded_val, rounded_err, rounded_combined_str, rounded_combined_str_dollar
 
 
 # --------------------------------------------------

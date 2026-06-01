@@ -1,0 +1,61 @@
+\chapter{Einleitung} \label{ch:Einleitung}
+
+\section{Aufgabe und Motivation}
+\label{sec:AuM}
+
+Die Physik lässt sich nach aktuellem Stand der Forschung nicht deterministisch beschreiben. Dies ist insbesondere durch die statistische Natur der Quantenmechanik begründet. Ein grundlegendes Verständnis statistischer Prozesse ist daher essenziell, um fundierte Vorhersagen über die Verteilung von Messgrößen treffen zu können. Ein vergleichsweise einfaches Beispiel für ein nicht-deterministisches Phänomen stellt der radioaktive Zerfall dar.
+In diesem Versuch wird der radioaktive Zerfall untersucht, um ein grundlegendes Verständnis von statistischen Methoden in der Experimentalphysik zu gewinnen. Ziel ist es, die statistischen Verteilungen zu charakterisieren, die dem Zerfallsprozess zugrunde liegen, und die Anwendbarkeit verschiedener Wahrscheinlichkeitsmodelle wie der Binomial-, Poisson- und Gauß-Verteilung zu überprüfen. Darüber hinaus wird die Messunsicherheit quantifiziert und die Signifikanz von Messunterschieden bewertet.
+
+\section{Physikalische Grundlage}
+\label{sec:PhyBasics}
+
+Radioaktivität ist ein Prozess, bei dem durch Kernreaktionen ionisierende Strahlung ausgesendet wird. Dabei unterscheidet man verschiedene Strahlungsarten anhand der jeweils emittierten Teilchen: Bei $\alpha$-Strahlung werden Heliumkerne, bei $\beta$-Strahlung Elektronen (oder Positronen beim $\beta^+$-Zerfall) und bei $\gamma$-Strahlung Photonen ausgesendet. Wann ein einzelner Zerfall stattfindet, ist nicht vorhersagbar. Es kann lediglich die Wahrscheinlichkeit $p(t)$ angegeben werden, einen Zerfall in einem Zeitintervall $(0,t)$ zu beobachten, welche gegeben ist durch
+\eq{decay_prob}{
+    p(t) = 1 - e^{-\lambda t}
+}
+wobei $\lambda$ die materialabhängige Zerfallskonstante ist.
+Über Wahrscheinlichkeitsverteilungen lässt sich die Wahrscheinlichkeit für bestimmte Ereignisse bestimmen. Für Zufallsexperimente mit diskreter Ergebnismenge werden Wahrscheinlichkeitsverteilungen durch Zähldichten beschrieben, die jedem möglichen Ergebnis eine Wahrscheinlichkeit zuordnen. Ist die Ergebnismenge kontinuierlich, so greift man auf Wahrscheinlichkeitsdichten zurück, die integriert über ein Ereignis dessen Wahrscheinlichkeit angeben.
+
+Die Binomialverteilung beschreibt ein diskretes Zufallsexperiment mit genau zwei möglichen Ergebnissen. Führt man ein solches Experiment $n$-mal durch, wobei die jeweiligen Durchführungen unabhängig voneinander sind, so ist die Wahrscheinlichkeit, $k$-mal das erste Ergebnis zu erhalten, binomialverteilt mit den Parametern $n$ und $p$. Die Binomialverteilung ist gegeben durch
+\eq{binomial}{
+    B_{n,p}(k) = \binom{n}{k} p^k (1-p)^{n-k}
+}
+Die Binomialverteilung ist im Zusammenhang mit dem radioaktiven Zerfall relevant, da beim Betrachten von $n$ Kernen im Zeitintervall $(0,t)$ die Anzahl der Zerfälle $k$ $B_{n,p}(t)$-verteilt ist.
+Betrachtet man große $n$ und kleine $p$, so lässt sich die Binomialverteilung $B_{n,p}$ durch die Poissonverteilung $P_\lambda$ nähern:
+\eq{poisson}{
+    P_\lambda(k) = e^{-\lambda} \frac{\lambda^k}{k!}
+}
+Dabei ist der Parameter $\lambda$ der Poissonverteilung näherungsweise gegeben durch $\lambda = np$. Diese Verteilung beschreibt den radioaktiven Zerfall gut, da man in der Regel viele Kerne (großes $n$) und kleine Zerfallswahrscheinlichkeiten betrachtet. Die Kenngrößen der Poissonverteilung sind ihr Erwartungswert $\mu = \lambda$ und ihre Standardabweichung $\sigma = \sqrt{\lambda}$.
+
+Zuletzt betrachten wir die Gaußverteilung, die eine entscheidende Rolle in der Wahrscheinlichkeitstheorie und Statistik spielt. Ihre Dichte ist gegeben durch
+\eq{gauss}{
+    G_{\mu,\sigma}(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+}
+
+Die Verteilung ist eindeutig bestimmt durch ihren Erwartungswert $\mu$ und ihre Standardabweichung $\sigma$. Im Zusammenhang mit dem radioaktiven Zerfall ist relevant, dass sich die Poissonverteilung für große $\lambda$ durch eine Gaußverteilung mit $\mu = \sigma^2 = \lambda$ annähern lässt.
+
+In der Physik ist es essenziell, zu Messgrößen eine Unsicherheit anzugeben. Wir gehen davon aus, dass unsere Messwerte nach einer bestimmten Wahrscheinlichkeitsverteilung um den wahren Wert schwanken. Als Fehler $\Delta a$ einer Messgröße $a$ geben wir die Standardabweichung $\sigma_a$ der zugrundeliegenden Verteilung an. Da wir die zugrundeliegende Verteilung nicht kennen, müssen wir den Parameter $\sigma_a$ anhand unserer Messdaten schätzen. Dies tut man normalerweise über die empirische Standardabweichung
+\eq{empirical_std}{
+    \sigma = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n} (a_i - \bar{a})^2}
+}
+für $n$ Messwerte $a_i$. Liegt nur ein Messwert vor, so muss die Standardabweichung anders abgeschätzt werden. In diesem Versuch verwenden wir oft die Wurzel des Mittelwerts $\sigma = \sqrt{\mu}$, da wir unsere Messwerte als poissonverteilt annehmen.
+Eine wichtige Anwendung der Fehlerrechnung ist es, zu bestimmen, ob verschiedene Messwerte sich lediglich aufgrund von statistischen Schwankungen unterscheiden. Betrachten wir zwei Messwerte $a$ und $b$ mit Unsicherheiten $\Delta a$ und $\Delta b$. Mithilfe der Gauß'schen Fehlerfortpflanzung können wir den Fehler der Differenz $d = |a - b|$ bestimmen:
+\eq{error_diff}{
+    \Delta d = \sqrt{(\Delta a)^2 + (\Delta b)^2}
+}
+
+Nun kann man betrachten, um wie viele $\Delta d$ der Wert $d$ von Null abweicht. Man berechnet die Sigma-Abweichung nach
+\eq{sigma_dev}{
+    \frac{|a - b|}{\Delta(a - b)}
+}
+
+Mithilfe der Eigenschaften der Gaußverteilung kann man damit einschätzen, wie wahrscheinlich es ist, dass Null der wahre Wert der Differenz der Messgrößen ist. Meist spricht man ab einer Abweichung von $3\sigma$ von einem signifikanten Unterschied.
+Zur Bewertung der Güte von Anpassungen (Fits) an Messdaten wird die $\chi^2$-Summe verwendet:
+\eq{chisquare}{
+    \chi^2 = \sum_i \frac{(k_{fit,i} - k_i)^2}{(\Delta k_i)^2}
+}
+mit den Häufigkeiten $k_i$ und den Werten des Fits $k_{fit,i}$ für die jeweiligen Countzahlen. Für einen guten Fit sollte die reduzierte $\chi^2$-Summe
+\eq{chisquare_red}{
+    \chi^2_{red} = \frac{\chi^2}{f}
+}
+etwa gleich Eins sein, wobei $f$ die Anzahl der Freiheitsgrade des Fits ist, die sich als Differenz der Anzahl der Messpunkte und der Fit-Parameter berechnet.
