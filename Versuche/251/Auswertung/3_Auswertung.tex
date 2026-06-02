@@ -20,7 +20,6 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 \section{Plateaubereich des Zählrohrs}
 \label{sec:A1}
 In dieser Sektion soll das Platau des Geiger-Müller-Zählrohres genauer untersucht werden. Die Daten der für diese Auswertung sind dem \hyperref[ch:Protokoll]{Messprotokoll} den Tabellen II.1, sowie III.1 zu entnehmen. 
-
 Das bestimmte Pltau ist der \cabb{plots/Platau_1a} zu entnehmen. 
 \img[1]{plots/Platau_1a}{Anzahl an Counts in Abhängigkeit der Betriebsspannung und visualisierung des Plataus. Eingezeichnet ist die Zählerstromspannung $U_0$ in der Mite des Plateaus.}
 
@@ -32,11 +31,11 @@ Dabei kann sich zunutze gemacht werden, dasss die Messwerte (annährend) possion
 \eq{deltaNs}{
     \Delta n_i = \sqrt{n_i}
 }
-berechnen. Diese und folgende Ergebnisse sin der \ctab{A1_1} zu entnehmen. So soll auch das Signifikanzniveau $\zeta$ bestimmt werden, dieses kann via
+berechnen. Diese und folgende Ergebnisse sin der \ctab{A11} zu entnehmen. So soll auch das Signifikanzniveau $\zeta$ bestimmt werden, dieses kann via
 \eq{sigNiv}{
-    \zeta = \frac{D}[\Dleta D]
+    \zeta = \frac{D}{\Delta D} = \frac{\sqrt{n_0 + n_1}}{n_1 - n_0}
 }
-bestimmt werden. Die Ergebnisse sind der \ctab{A1_1} zu entnehmen, und zeigen, dass für die drei-, sowie die einminuten Messung die Steigung des Plateaus nicht signifikant war. Interessant ist, dass eine Verlängerung der Messzeit einen Trend zeigt, denn hier wird die Abweichung nochmal kleiner. Ob dies ein tatsächlicher Trend oder nur eine statistischer Zufall ist, wird in der \cch{Diskussion} diskutiert.
+bestimmt werden. Die Ergebnisse sind der \ctab{A11} zu entnehmen, und zeigen, dass für die drei-, sowie die einminuten Messung die Steigung des Plateaus nicht signifikant war. Interessant ist, dass eine Verlängerung der Messzeit einen Trend zeigt, denn hier wird die Abweichung nochmal kleiner. Ob dies ein tatsächlicher Trend oder nur eine statistischer Zufall ist, wird in der \cch{Diskussion} diskutiert.
 \com{Für die Diskussion; Eigentlich sollte die Standardabweichung für drei Minuten kleiner werden, da hier mehr Messungen und somit ein größerer prozentualer Fehler vorliegen. Dies ist also inkohärent mit der Theorie.}
 
 Neben dem Signifikanzniveau kann auch die prozentuale Abweichung $\varrho$ bestimmt werden.
@@ -50,11 +49,11 @@ berechnet. Beide Werte liegen bei $\approx 1\%$.
 
 \begin{table}[h!]
     \centering
-    \label{tab:A1_1}
     \caption{Resultate der Berechnung zu den Eigenschaften des Plauteaus.}
+    \label{tab:A11}
     \begin{tabular}{l | C C C}
         \toprule
-        Messzeit [s] & \text{Differenz } D & \text{Porzentuale Abweichung } n_0/n_1 [\%] & \text{Signifikanzniveau } \zeta [\sigma] \\
+        Messzeit [s] & \text{Differenz } D & \text{Porzentuale Abweichung } \varrho [\%] & \text{Signifikanzniveau } \zeta [\sigma] \\
         \midrule
          60 & 90 \pm 100 & 1.018 \pm 0.020 & 0.89 \\
         180 & 40 \pm 180 & 0.997 \pm 0.011 & 0.22 \\
@@ -62,7 +61,33 @@ berechnet. Beide Werte liegen bei $\approx 1\%$.
     \end{tabular}
 \end{table}
 
-\com{Hier ist noch etwas ausstehend. Es muss eine Messzeit $t$ bestimmt werden. Luca hat hier fancy Stuff gemacht, ist das pflicht oder doch nur Luca Nerd stuff? Und irgendwie Stuff um alle drei Sigma umgebungen, kp, muss du dir anschauen du noob.}
+Betrachtet man die Ergebnisse der \ctab{A11}, so fällt auf, dass die Ungenauigkeiten für die Differenz sehr groß sind -- Die Prozentuale Abweichung liegt jeweils bei über 100\%. Daher wird imfolgenden die Konstante $\kappa$ definiert, welche so bestimmt werden soll, dass der Plateauanstieg auf eine Ungenauigkeit von $1\%$ genau bestimmt werden kann. Dabei ist $\kappa \in \mathbb{R}$ und liegt im Intervall $\kappa \in (0,1)$. Mathematisch ausgedrckt wollen wir 
+\eq{mathKappa}{
+    \kappa = 0.01 = \zeta \, , \qquad \kappa \in (0,1)
+}
+bestimmen. Zudem wird die Annahme getroffen, dass die Häufigkeiten $n_i$ das Produkt der Messzeit $t$ und der Häufigkeitsrate $f_i$ ist:
+\eq{wierdesProdukt}{
+    n_i = f_i \cdot t \Rightarrow f_i = \frac{n_i}{t} \, .
+}
+Die Ungenauigkeit wird via 
+\eq{err_wierdesProdukt}{
+    \Delta f_i = \frac{\Delta n_i}{t}
+}
+bestimmt. Dabei wird die Messzeit als nicht fehlerbehfatet angenommen.
+Kombiniert man die \ceq{mathKappa} mit \ceq{wierdesProdukt} und stellt nach $t$ um, so kann die Gleichung
+\eq{gl_nach_t}{
+    t =  \frac{{f_0} + {f_1}}{\kappa^{2} \left({f_0} - {f_1}\right)^{2}}
+}
+bestimmt werden. Hier wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'schee Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} drauf angewendet, wobei $\kappa$ als fehlerfrei angenommen wird, es ergibt sich die Gleichung 
+\eq{err_t_lala}{
+    \Delta t =
+            \sqrt{\frac{1}{\kappa^{4} \left({f_0} - {f_1}\right)^{6}} \left(\Delta {f_0}^{2} \left({f_0} + 3 {f_1}\right)^{2} + \Delta {f_1}^{2} \left(3 {f_0} + {f_1}\right)^{2}\right)}
+}
+Die Messzeit müsste somit
+\res[5]{t}{3}{4}{s}
+betragen.
+
+\com{Es Fehlen noch die Sigmaumgebungen-> geht schnell}
 
 \section{Daten mit hoher mittlerer Ereigniszahl}
 \label{sec:A2}
@@ -73,11 +98,11 @@ Dieses muss dann noch reduziert werden, es ergibt sich via \ceq{chisquare_red} d
     \text{DoF} = n_\text{mess} - n_\text{par}
 }
 berechnet werden, dabei beschreibt $n_\text{mess}$ die Mächtigkeit der Messdaten und $n_\text{par}$ die Anzahl der Fitparameter -- Für die Gaussverteilung gilt also $n_\text{par,g} = 3$ und für die Possionverteilung $n_\text{par,p} = 2$.
-Der Zeilwert für einen guten Fit liegt bei rund um 1. Die Resultate sind in der \ctab{A2_1} eingetragen.
+Der Zeilwert für einen guten Fit liegt bei rund um 1. Die Resultate sind in der \ctab{A21} eingetragen.
 \begin{table}[h!]
     \centering
-    \label{tab:A2_1}
-    \caption{Bestimmung der Güte der Fits. Alle Werte auf zwei Dezimalstellen gerundet.}
+    \caption{Bestimmung der Güte der Fits. Alle Werte sind auf zwei Dezimalstellen gerundet.}
+    \label{tab:A21}
     \begin{tabular}{l | C C C}
         \toprule
         Regression & \chi^2 & \chi^2_\text{red} & \text{Prozentuale Abweichung } [\%] \\
@@ -87,7 +112,7 @@ Der Zeilwert für einen guten Fit liegt bei rund um 1. Die Resultate sind in der
         \bottomrule
     \end{tabular}
 \end{table}
-Zuletzt kann die Güte einer Regression noch über die Wahrscheinlichkeit eines Fits bestimmt werden. Diese Methode nimmt die bestimmten Regressionsparameter als wahr an und verteilt die Messwerte normal um den Mittelwert. Die Übereinstimmung der theoretischen und experimentellen Werte wird dann bestimmt. Auch diese Ergebnisse sind in der \ctab{A2_1} zu finden.
+Zuletzt kann die Güte einer Regression noch über die Wahrscheinlichkeit eines Fits bestimmt werden. Diese Methode nimmt die bestimmten Regressionsparameter als wahr an und verteilt die Messwerte normal um den Mittelwert. Die Übereinstimmung der theoretischen und experimentellen Werte wird dann bestimmt. Auch diese Ergebnisse sind in der \ctab{A21} zu finden.
 \img[1]{plots/histo2b}{Messdaten mit Regressionsfunktionen: Gauss- und Possionverteilungen bei 2500 Messungen.}
 
 Die Ergebnisse sollen genau in der Diskussion analyisert werden.
@@ -97,12 +122,12 @@ Die Ergebnisse sollen genau in der Diskussion analyisert werden.
 In dieser Sektion werden dieselben Werte wie in \csec{A2} bestimmt, jedoch ist der Versuchsaufbau so verändert worden, dass hier der Mittelwert sehr viel geringer ausfällt. Die \cabb{plots/histo3b} zeigt das Histogramm und die Regressionen. 
 \img[1]{plots/histo3b}{Histogramm von 6000 Messdaten mit Regressionsfunktionen: Gauss- und Possionverteilungen.}
 
-Für diese Sektion wurde die Torzeit auf 0.1s gestellt und es wurden 6000 Messungen durchgeführt. Die Ergebnisse der Rechnung sind der \ctab{A3_1} zu entnehmen.
+Für diese Sektion wurde die Torzeit auf 0.1s gestellt und es wurden 6000 Messungen durchgeführt. Die Ergebnisse der Rechnung sind der \ctab{A31} zu entnehmen.
 
 \begin{table}[h!]
     \centering
-    \label{tab:A3_1}
-    \caption{Bestimmung der Güte der Fits. Alle Werte auf zwei Dezimalstellen gerundet.}
+    \caption{Bestimmung der Güte der Fits. Alle Werte sind auf zwei Dezimalstellen gerundet.}
+    \label{tab:A31}
     \begin{tabular}{l | C C C}
         \toprule
         Regression & \chi^2 & \chi^2_\text{red} & \text{Prozentuale Abweichung } [\%] \\
