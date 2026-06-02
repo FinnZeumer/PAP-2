@@ -25,13 +25,13 @@ Die Binomialverteilung beschreibt ein diskretes Zufallsexperiment mit genau zwei
 Die Binomialverteilung ist im Zusammenhang mit dem radioaktiven Zerfall relevant, da beim Betrachten von $n$ Kernen im Zeitintervall $(0,t)$ die Anzahl der Zerfälle $k$ $B_{n,p}(t)$-verteilt ist.
 
 \subsection{Poissonverteilung}
+\wrap[0.45]{R}{BiPos}{Darstellung der Annährung der Binominalverteilung an die Possionverteilung. \cite{skriptPAP22}}
 Betrachtet man große $n$ und kleine $p$, so lässt sich die Binomialverteilung $B_{n,p}$ durch die Poissonverteilung $P_\lambda$ nähern:
 \eq{poisson}{
     P_\lambda(k) = e^{-\lambda} \frac{\lambda^k}{k!}
 }
 Dabei ist der Parameter $\lambda$ der Poissonverteilung näherungsweise gegeben durch $\lambda = np$. Diese Verteilung beschreibt den radioaktiven Zerfall gut, da man in der Regel viele Kerne (großes $n$) und kleine Zerfallswahrscheinlichkeiten betrachtet. Die Kenngrößen der Poissonverteilung sind ihr Erwartungswert $\mu = \lambda$ und ihre Standardabweichung $\sigma = \sqrt{\lambda}$.
 
-\wrap[0.45]{R}{BiPos}{Darstellung der Annährung der Binominalverteilung an die Possionverteilung. \cite{skriptPAP22}}
 
 \subsection{Gaussverteilung}
 Zuletzt betrachten wir die Gaußverteilung, die eine entscheidende Rolle in der Wahrscheinlichkeitstheorie und Statistik spielt. Ihre Dichte ist gegeben durch
@@ -59,19 +59,22 @@ Nun kann man betrachten, um wie viele $\Delta d$ der Wert $d$ von Null abweicht.
 }
 
 \subsection{Die Güte einer Regression}
+\label{sec:gutePlot}
 Mithilfe der Eigenschaften der Gaußverteilung kann man damit einschätzen, wie wahrscheinlich es ist, dass Null der wahre Wert der Differenz der Messgrößen ist. Meist spricht man ab einer Abweichung von $3\sigma$ von einem signifikanten Unterschied.
 Zur Bewertung der Güte von Anpassungen (Fits) an Messdaten wird die $\chi^2$-Summe verwendet:
 \eq{chisquare}{
-    \chi^2 = \sum_i \frac{(k_{fit,i} - k_i)^2}{(\Delta k_i)^2}
+    \chi^2 = \sum_i \frac{(k_{\text{fit},i} - k_i)^2}{(\Delta k_i)^2}
 }
-mit den Häufigkeiten $k_i$ und den Werten des Fits $k_{fit,i}$ für die jeweiligen Countzahlen. Für einen guten Fit sollte die reduzierte $\chi^2$-Summe
+mit den Häufigkeiten $k_i$ und den Werten des Fits $k_{\text{fit},i}$ für die jeweiligen Countzahlen. Für einen guten Fit sollte die reduzierte $\chi^2$-Summe
 \eq{chisquare_red}{
     \chi^2_{red} = \frac{\chi^2}{f}
 }
 etwa gleich Eins sein, wobei $f$ die Anzahl der Freiheitsgrade des Fits ist, die sich als Differenz der Anzahl der Messpunkte und der Fit-Parameter berechnet.
 
-\subsection{Das Giger-Müller-Zählrohr}
-
+\subsection{Das Geiger-Müller-Zählrohr}
 \img{GeigerZR}{Schematischer Aufbau des Geiger-Müller-Zählrohres. \cite{skriptPAP22}}
+Das Geiger-Müller-Zählrohr dient als Messgerät für ionisierende Strahlung. Sein Funktionsprinzip basiert auf der Ionisation von Gasatomen innerhalb des Rohrs: Trifft ein ionisierendes Teilchen auf das Füllgas, werden Gasteilchen ionisiert. Die dabei entstehenden freien Elektronen werden durch die anliegende Hochspannung beschleunigt und können durch Stoßionisation weitere Gasatome ionisieren. Dieser Prozess führt zu einer schnellen Vermehrung der Ladungsträger, einer sogenannten Elektronenlawine. Die Lawine erzeugt einen messbaren Strompuls, der verstärkt und von einem Zähler detektiert werden kann. Um sicherzustellen, dass die Elektronenlawine nach jedem Detektionsereignis wieder abklingt und das Zählrohr für das nächste Teilchen bereit ist, wird dem Füllgas ein sogenanntes Löschgas beigemischt.
 
-\img{PlateauZR}{}
+Die Anzahl der ionisierten Gasatome und damit die Amplitude des erzeugten Strompulses hängen von der Betriebsspannung des Zählrohrs ab. Da energiereichere einfallende Teilchen prinzipiell mehr Gasatome ionisieren, ließe sich theoretisch auf die Energie der Teilchen schließen. Für den vorliegenden Versuch ist jedoch ausschließlich die Bestimmung der Zerfallsanzahl von Interesse. Daher muss das Zählverhalten unabhängig von der Energie der einfallenden Teilchen sein. Dies wird erreicht, indem die Betriebsspannung so eingestellt wird, dass sich das Zählrohr im Plateaubereich seiner Kennlinie befindet. In diesem Bereich ist die Zählfrequenz weitgehend konstant und unempfindlich gegenüber Schwankungen der Spannung oder der Teilchenenergie.
+
+\img[0.5]{PlateauZR}{Schematisches Aussehen des Plataus. \cite{skriptPAP22}}
