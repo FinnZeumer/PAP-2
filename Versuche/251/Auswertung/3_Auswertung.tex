@@ -83,11 +83,17 @@ bestimmt werden. Hier wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'schee
     \Delta t =
             \sqrt{\frac{1}{\kappa^{4} \left({f_0} - {f_1}\right)^{6}} \left(\Delta {f_0}^{2} \left({f_0} + 3 {f_1}\right)^{2} + \Delta {f_1}^{2} \left(3 {f_0} + {f_1}\right)^{2}\right)}
 }
-Die Messzeit müsste somit
+Die Messzeit ergibt somit
 \res[5]{t}{3}{4}{s}
-betragen.
 
-\com{Es Fehlen noch die Sigmaumgebungen-> geht schnell}
+Zuletzt sollen noch die Sigmaumgebungen betrachtet werden, genauer wie weit ein Wert von $n_0$ abweichen darf, um dennoch in der $\sigma$-Umgebung zu liegen. Hier sollen die ein und zwei $\sigma$-Umgebungen betrachtet werden. 
+Die allgemeine (Un-)Gleichung lautet dabei
+\eq{unGlLalala}{
+    \left| n - n_0 \right| \leq s \cdot \sqrt{n_0} \, ,
+}
+wobei $n$ ein Messwert in der $s$-ten $\sigma$-Umgebung von $n_0$ liegt. Für den prozentualen Fehler muss diese Gleichung mit $n_0$ dividiert werden.
+Somit darf ein Wert um $(0.807 \pm 0.003)\%$ von $n_0 = 15350 \pm 120$ (drei Minuten) abweichen, um weiterhin in der 1$\sigma$-Umgebung zu liegen und um $(1.614 \pm 0.007)\%$ in der 1$\sigma$-Umgebung zu liegen.
+Analog kann für $n_0 = 5270 \pm 70$ (eine Minute) bestimmt werden, dass dieser Wert um $(1.378 \pm 0.009)\%$ abweichen darf, für die 1$\sigma$-Umgebung und für die 2$\sigma$-Umgebung um $(2.756 \pm 0.019)\%$.<
 
 \section{Daten mit hoher mittlerer Ereigniszahl}
 \label{sec:A2}
@@ -130,7 +136,7 @@ Für diese Sektion wurde die Torzeit auf 0.1s gestellt und es wurden 6000 Messun
     \label{tab:A31}
     \begin{tabular}{l | C C C}
         \toprule
-        Regression & \chi^2 & \chi^2_\text{red} & \text{Prozentuale Abweichung } [\%] \\
+        Regression & \chi^2 & \chi^2_\text{red} & \text{Abweichung } [\%] \\
         \midrule
         Possion & 19.63 & 1.51 & 10.48 \\
         Gauss  & 128.15 & 10.68 & 0.0 \\

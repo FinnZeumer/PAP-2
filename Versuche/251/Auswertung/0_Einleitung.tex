@@ -18,6 +18,7 @@ wobei $\lambda$ die materialabhängige Zerfallskonstante ist.
 Über Wahrscheinlichkeitsverteilungen lässt sich die Wahrscheinlichkeit für bestimmte Ereignisse bestimmen. Für Zufallsexperimente mit diskreter Ergebnismenge werden Wahrscheinlichkeitsverteilungen durch Zähldichten beschrieben, die jedem möglichen Ergebnis eine Wahrscheinlichkeit zuordnen. Ist die Ergebnismenge kontinuierlich, so greift man auf Wahrscheinlichkeitsdichten zurück, die integriert über ein Ereignis dessen Wahrscheinlichkeit angeben.
 
 \subsection{Binomialverteilung}
+\wrap[0.5]{R}{BiPos}{Darstellung der Annährung der Binominalverteilung an die Possionverteilung. \cite{skriptPAP22}}
 Die Binomialverteilung beschreibt ein diskretes Zufallsexperiment mit genau zwei möglichen Ergebnissen. Führt man ein solches Experiment $n$-mal durch, wobei die jeweiligen Durchführungen unabhängig voneinander sind, so ist die Wahrscheinlichkeit, $k$-mal das erste Ergebnis zu erhalten, binomialverteilt mit den Parametern $n$ und $p$. Die Binomialverteilung ist gegeben durch
 \eq{binomial}{
     B_{n,p}(k) = \binom{n}{k} p^k (1-p)^{n-k}
@@ -25,7 +26,6 @@ Die Binomialverteilung beschreibt ein diskretes Zufallsexperiment mit genau zwei
 Die Binomialverteilung ist im Zusammenhang mit dem radioaktiven Zerfall relevant, da beim Betrachten von $n$ Kernen im Zeitintervall $(0,t)$ die Anzahl der Zerfälle $k$ $B_{n,p}(t)$-verteilt ist.
 
 \subsection{Poissonverteilung}
-\wrap[0.45]{R}{BiPos}{Darstellung der Annährung der Binominalverteilung an die Possionverteilung. \cite{skriptPAP22}}
 Betrachtet man große $n$ und kleine $p$, so lässt sich die Binomialverteilung $B_{n,p}$ durch die Poissonverteilung $P_\lambda$ nähern:
 \eq{poisson}{
     P_\lambda(k) = e^{-\lambda} \frac{\lambda^k}{k!}
@@ -34,7 +34,7 @@ Dabei ist der Parameter $\lambda$ der Poissonverteilung näherungsweise gegeben 
 
 
 \subsection{Gaussverteilung}
-Zuletzt betrachten wir die Gaußverteilung, die eine entscheidende Rolle in der Wahrscheinlichkeitstheorie und Statistik spielt. Ihre Dichte ist gegeben durch
+Die Gaußverteilung spielt eine entscheidende Rolle in der Wahrscheinlichkeitstheorie und Statistik. Ihre Dichte ist gegeben durch
 \eq{gauss}{
     G_{\mu,\sigma}(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 }
@@ -43,17 +43,17 @@ Die Verteilung ist eindeutig bestimmt durch ihren Erwartungswert $\mu$ und ihre 
 \img{PosGau}{Darstellung der Annährung der Possionverteilung an die Gaussverteilung. \cite{skriptPAP22}}
 
 \subsection{Standardabweichung}
-In der Physik ist es essenziell, zu Messgrößen eine Unsicherheit anzugeben. Es wird davon ausgegangen, dass die Messwerte nach einer bestimmten Wahrscheinlichkeitsverteilung um den wahren Wert schwanken. Als Fehler $\Delta a$ einer Messgröße $a$ wird die Standardabweichung $\sigma_a$ der zugrundeliegenden Verteilung angegeben. Da die zugrundeliegende Verteilung nicht bekannt ist, muss der Parameter $\sigma_a$ anhand der Messdaten abgeschätzt werden. Dies tut man normalerweise über die empirische Standardabweichung
+In der Physik ist es essenziell, zu Messgrößen eine Unsicherheit anzugeben. Es wird davon ausgegangen, dass die Messwerte nach einer bestimmten Wahrscheinlichkeitsverteilung um den wahren Wert schwanken. Als Fehler $\Delta a$ einer Messgröße $a$ wird die Standardabweichung $\sigma_a$ der zugrundeliegenden Verteilung angegeben. Da die zugrundeliegende Verteilung nicht bekannt ist, muss der Parameter $\sigma_a$ anhand der Messdaten abgeschätzt werden. Dies erfolgt üblicherweise über die empirische Standardabweichung
 \eq{empirical_std}{
     \sigma = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n} (a_i - \bar{a})^2}
 }
-für $n$ Messwerte $a_i$. Liegt nur ein Messwert vor, so muss die Standardabweichung anders abgeschätzt werden. In diesem Versuch verwenden wir oft die Wurzel des Mittelwerts $\sigma = \sqrt{\mu}$, da wir unsere Messwerte als poissonverteilt annehmen.
-Eine wichtige Anwendung der Fehlerrechnung ist es, zu bestimmen, ob verschiedene Messwerte sich lediglich aufgrund von statistischen Schwankungen unterscheiden. Betrachten wir zwei Messwerte $a$ und $b$ mit Unsicherheiten $\Delta a$ und $\Delta b$. Mithilfe der Gauß'schen Fehlerfortpflanzung können wir den Fehler der Differenz $d = |a - b|$ bestimmen:
+für $n$ Messwerte $a_i$. Liegt nur ein Messwert vor, so muss die Standardabweichung alternativ abgeschätzt werden. In diesem Versuch wird häufig die Wurzel des Mittelwerts $\sigma = \sqrt{\mu}$ verwendet, da die Messwerte als poissonverteilt angenommen werden.
+Eine wichtige Anwendung der Fehlerrechnung besteht darin, zu bestimmen, ob verschiedene Messwerte sich lediglich aufgrund von statistischen Schwankungen unterscheiden. Für zwei Messwerte $a$ und $b$ mit Unsicherheiten $\Delta a$ und $\Delta b$ kann der Fehler der Differenz $D = |a - b|$ mithilfe der Gauß'schen Fehlerfortpflanzung bestimmt werden:
 \eq{error_diff}{
-    \Delta d = \sqrt{(\Delta a)^2 + (\Delta b)^2}
+    \Delta D = \sqrt{(\Delta a)^2 + (\Delta b)^2}
 }
 
-Nun kann man betrachten, um wie viele $\Delta d$ der Wert $d$ von Null abweicht. Man berechnet die Sigma-Abweichung nach
+Nun kann man betrachten, um wie viele $\Delta D$ der Wert $D$ von Null abweicht. Man berechnet die Sigma-Abweichung nach
 \eq{sigma_dev}{
     \frac{|a - b|}{\Delta(a - b)}
 }
