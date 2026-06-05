@@ -3,13 +3,13 @@
 \section{Aufgabe und Motivation}
 \label{sec:AuM}
 
-\subsection{Radioaktivität}
 Die Physik lässt sich nach aktuellem Stand der Forschung nicht deterministisch beschreiben. Dies ist insbesondere durch die statistische Natur der Quantenmechanik begründet. Ein grundlegendes Verständnis statistischer Prozesse ist daher essenziell, um fundierte Vorhersagen über die Verteilung von Messgrößen treffen zu können. Ein vergleichsweise einfaches Beispiel für ein nicht-deterministisches Phänomen stellt der radioaktive Zerfall dar.
-In diesem Versuch wird der radioaktive Zerfall untersucht, um ein grundlegendes Verständnis von statistischen Methoden in der Experimentalphysik zu gewinnen. Ziel ist es, die statistischen Verteilungen zu charakterisieren, die dem Zerfallsprozess zugrunde liegen, und die Anwendbarkeit verschiedener Wahrscheinlichkeitsmodelle wie der Binomial-, Poisson- und Gauß-Verteilung zu überprüfen. Darüber hinaus wird die Messunsicherheit quantifiziert und die Signifikanz von Messunterschieden bewertet.
+In diesem Versuch wird der radioaktive Zerfall untersucht, um ein grundlegendes Verständnis von statistischen Methoden in der Experimentalphysik zu gewinnen. Ziel ist es, die statistischen Verteilungen zu charakterisieren, die dem Zerfallsprozess zugrunde liegen, und die Anwendbarkeit verschiedener Wahrscheinlichkeitsmodelle wie der Poisson- und Gauß-Verteilung zu überprüfen.
 
 \section{Physikalische Grundlage}
 \label{sec:PhyBasics}
-
+\subsection{Radioaktivität}
+\wrap[0.5]{R}{BiPos}{Darstellung der Annährung der Binominalverteilung an die Possionverteilung. \cite{skriptPAP22}}
 Radioaktivität ist ein Prozess, bei dem durch Kernreaktionen ionisierende Strahlung ausgesendet wird. Dabei unterscheidet man verschiedene Strahlungsarten anhand der jeweils emittierten Teilchen: Bei $\alpha$-Strahlung werden Heliumkerne, bei $\beta$-Strahlung Elektronen (oder Positronen beim $\beta^+$-Zerfall) und bei $\gamma$-Strahlung Photonen ausgesendet. Wann ein einzelner Zerfall stattfindet, ist nicht vorhersagbar. Es kann lediglich die Wahrscheinlichkeit $p(t)$ angegeben werden, einen Zerfall in einem Zeitintervall $(0,t)$ zu beobachten, welche gegeben ist durch
 \eq{decay_prob}{
     p(t) = 1 - e^{-\lambda t}
@@ -18,7 +18,6 @@ wobei $\lambda$ die materialabhängige Zerfallskonstante ist.
 Über Wahrscheinlichkeitsverteilungen lässt sich die Wahrscheinlichkeit für bestimmte Ereignisse bestimmen. Für Zufallsexperimente mit diskreter Ergebnismenge werden Wahrscheinlichkeitsverteilungen durch Zähldichten beschrieben, die jedem möglichen Ergebnis eine Wahrscheinlichkeit zuordnen. Ist die Ergebnismenge kontinuierlich, so greift man auf Wahrscheinlichkeitsdichten zurück, die integriert über ein Ereignis dessen Wahrscheinlichkeit angeben.
 
 \subsection{Binomialverteilung}
-\wrap[0.5]{R}{BiPos}{Darstellung der Annährung der Binominalverteilung an die Possionverteilung. \cite{skriptPAP22}}
 Die Binomialverteilung beschreibt ein diskretes Zufallsexperiment mit genau zwei möglichen Ergebnissen. Führt man ein solches Experiment $n$-mal durch, wobei die jeweiligen Durchführungen unabhängig voneinander sind, so ist die Wahrscheinlichkeit, $k$-mal das erste Ergebnis zu erhalten, binomialverteilt mit den Parametern $n$ und $p$. Die Binomialverteilung ist gegeben durch
 \eq{binomial}{
     B_{n,p}(k) = \binom{n}{k} p^k (1-p)^{n-k}
@@ -55,13 +54,13 @@ Eine wichtige Anwendung der Fehlerrechnung besteht darin, zu bestimmen, ob versc
 
 Nun kann man betrachten, um wie viele $\Delta D$ der Wert $D$ von Null abweicht. Man berechnet die Sigma-Abweichung nach
 \eq{sigma_dev}{
-    \frac{|a - b|}{\Delta(a - b)}
+    \sigma = \frac{|a - b|}{\Delta(a - b)}
 }
 
 \subsection{Die Güte einer Regression}
 \label{sec:gutePlot}
 Mithilfe der Eigenschaften der Gaußverteilung kann man damit einschätzen, wie wahrscheinlich es ist, dass Null der wahre Wert der Differenz der Messgrößen ist. Meist spricht man ab einer Abweichung von $3\sigma$ von einem signifikanten Unterschied.
-Zur Bewertung der Güte von Anpassungen (Fits) an Messdaten wird die $\chi^2$-Summe verwendet:
+Zur Bewertung der Güte von Anpassungen (Fits oder Regressionen) an Messdaten wird die $\chi^2$-Summe verwendet:
 \eq{chisquare}{
     \chi^2 = \sum_i \frac{(k_{\text{fit},i} - k_i)^2}{(\Delta k_i)^2}
 }

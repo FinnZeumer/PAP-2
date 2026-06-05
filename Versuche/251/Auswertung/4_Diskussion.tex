@@ -1,13 +1,79 @@
 \chapter{Diskussion}
 \label{ch:Diskussion}
 
+% \section{Zusammenfassung}
+% \label{sec:Zusammenfassung}
+% In Aufgabe 1 (\csec{A1}) wurde das Plateau betrachtet. Das bestimmte Plateau ist der \cabb{plots/Platau_1a} zu entnehmen. Die Eigenschaften, sowohl für eine als auch drei Minuten sind der \ctab{A11} zu entnehmen. Keine der \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} ist signifikant.
+
+% Die Messzeit $t$, um den Anstieg auf 1\% genau zu bestimmen wurde zu 
+% \res[5]{t}{3}{4}{s}
+% bestimmt. Dies entspricht einer Messzeit von $(3 \pm 5)$ Tagen.
+
+
+% In der Aufgabe 2 (\csec{A2}) wurden 2500 Messdaten bei einem durchschnittlich hohen Mittelwert. Dieses Signal und die Fitparameter sind in der \cabb{plots/histo2b} dargestellt. 
+% Die Güte des Fittes ist in der \ctab{A21} genannt. Es zeigt sich, dass der radioaktive Zerfall statistisch präzise beschrieben werden kann.
+
+% In der Aufgabe 3 (\csec{A3}) wurde die Messung mit 6000 Einzelmesungen widerholt. Fitparameter und Plot sind der \cabb{plots/histo3b} zu entnehmen.
+% Die Güte der Regressionen ist der \ctab{A31} zu entnehmen. 
+
+% \section{Analyse der Messwerte}
+% \label{sec:Analyse}
+% % Die Messdaten sollen betrachtet werden und es soll geklärt werden, welche Messdaten sinn ergeben und welche nicht stringent mit der Theorie sind. 
+% % In der Aufgabe 1 sind die Daten alle zufroiedenstellend. Jedoch ist die etwas komisch:
+% % Für die Diskussion; Eigentlich sollte die Standardabweichung für drei Minuten kleiner werden, da hier mehr Messungen und somit ein größerer prozentualer Fehler vorliegen. Dies ist also inkohärent mit der Theorie. Dies sollte aber in der statistischen Erwartung liegen.
+
+% % Für Aufgabe 2 ist auch alles strigent. Die theorie des Radioaktiven Zerfalls konnte gezeigt werden. In dieser Sektion soll nochmal ausführlich auf das Chi-Quadrat eingeganen werdne und was dieses aussagt und wieso dies auch sagt, dass sowohl gauss als auch possion den Zerfall präzise beschreiben
+
+% % Aufgabe 3 stellt den unterschied zwischen Posion und Gauss heraus. Hier wird ersichtlich, dass auch bei kleinem Mittelwert die Possionverteilung die experimentellen daten beschreibt, währned der Gauss hier unzuverlässige Ergebnisse liefert. Damit ist gezeigt, dass die Gaussregression nur für genügend große Mittelwerte zuverlässig ist. 
+
+
+% \com{Die Fitparameter sind in Python leicht anders als im Protokoll} % Ein Kommentar
+
+% \section{Kritik}
+% \label{sec:Kritik}
+% % Mehr messdaten würden Ergebnisse verbessern.
+
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
+
+In diesem Versuch wurde die Statistik des radioaktiven Zerfalls experimentell untersucht und verschiedene Wahrscheinlichkeitsverteilungen auf ihre Anwendbarkeit getestet. Die Ergebnisse werden im Folgenden zusammengefasst und diskutiert.
+Die Betriebsspannung wurde auf
+\[
+    U_0 = (570 \pm 10) \mathrm{V}
+\]
+bestimmt und genutzt.
+
+In Aufgabe 1 (\csec{A1}) wurde das Plateau des Geiger-Müller-Zählrohrs betrachtet. Das bestimmte Plateau ist \cabb{plots/Platau_1a} zu entnehmen. Die Eigenschaften sowohl für eine als auch drei Minuten Messdauer sind der \ctab{A11} zu entnehmen. Keine der \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} ist signifikant, was zeigt, dass das Zählrohr im gewählten Spannungsbereich stabil arbeitet.
+
+Die Messzeit $t$, um den Anstieg des Plateaus auf 1\,\% genau zu bestimmen, wurde zu 
+\[
+t = (3 \pm 4) \cdot 10^5\,\mathrm{s}
+\]
+bestimmt. Dies entspricht einer Messzeit von $(3 \pm 5)$ Tagen. Diese lange benötigte Zeit verdeutlicht die Schwierigkeit, kleine Steigungen mit hoher Präzision zu messen.
+
+In Aufgabe 2 (\csec{A2}) wurden 2500 Messdaten bei einem durchschnittlich hohen Mittelwert aufgenommen. Dieses Signal und die Fitparameter sind in \cabb{plots/histo2b} dargestellt. Die Güte der Fits ist in \ctab{A21} genannt. Es zeigt sich, dass der radioaktive Zerfall statistisch präzise beschrieben werden kann – sowohl durch die Poisson- als auch durch die Gauß-Verteilung (\ctab{A21}, $\chi^2_{\mathrm{red}} \approx 1$).
+
+In Aufgabe 3 (\csec{A3}) wurde die Messung mit 6000 Einzelmessungen wiederholt, jedoch bei deutlich geringerem Mittelwert. Fitparameter und Plot sind \cabb{plots/histo3b} zu entnehmen. Die Güte der Regressionen ist \ctab{A31} zu entnehmen. Hier zeigt sich ein deutlicher Unterschied zwischen beiden Verteilungen.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-\com{Die Fitparameter sind in Python leicht anders als im Protokoll}
+Die Auswertung der Messdaten erlaubt fundierte Aussagen über die Gültigkeit der verschiedenen statistischen Modelle. Im Folgenden werden die zentralen Ergebnisse interpretiert und mit theoretischen Erwartungen verglichen.
 
-\section{Kritik}
-\label{sec:Kritik}
+\subsection*{Plateaubereich des Zählrohrs (Aufgabe 1)}
+
+Die Analyse des Plateaus ergab zufriedenstellende Resultate. Wie \ctab{A11} zeigt, sind die Signifikanzniveaus sowohl für die ein- als auch die dreiminütige Messung unter 3$\sigma$. Nach üblichem Konventionen ab einer Abweichung von 3$\sigma$ von einem signifikanten Unterschied gesprochen wird, lässt sich schließen, dass keine signifikante Steigung vorliegt. Dies bestätigt die Wahl der Betriebsspannung im Plateaubereich.
+Interessanterweise zeigt sich jedoch eine leichte Abweichung von der theoretischen Erwartung. Eigentlich sollte die Standardabweichung für drei Minuten Messdauer kleiner werden, da hier mehr Messungen durchgeführt werden und damit der prozentuale Fehler sinken sollte. Tatsächlich ist das Gegenteil zu beobachten: Bei einer Minute beträgt das Signifikanzniveau $\sigma = 0.89\,\sigma$, während es bei drei Minuten nur $\sigma = 0.22\,\sigma$ liegt. Dies erscheint zunächst inkohärent mit der Theorie. Allerdings bleibt dies innerhalb der statistischen Erwartung und könnte auf systematische Einflüsse oder zufällige Schwankungen zurückzuführen sein.
+Betrachtet man die prozentuale Abweichung $\varrho$, so liegen beide Werte bei ungefähr 1\,\%, was auf eine gute Übereinstimmung hinweist. Die große Ungenauigkeit der Differenz ($>100\,\%$) macht deutlich, warum die Bestimmung der notwendigen Messzeit für eine 1\,\%-Genauigkeit so lang ausfällt.
+
+\subsection*{Hoher versus niedriger Mittelwert (Aufgabe 2 und 3)}
+
+Die zentrale Aussage dieses Versuches liegt im Vergleich der beiden Verteilungen bei unterschiedlichen Mittelwerten. Bei hohem Mittelwert (Aufgabe 2, $\mu \approx 72$) liefern sowohl die Poisson- als auch die Gauß-Verteilung nahezu identische Ergebnisse. Tabelle~\ref{tab:A21} zeigt reduzierte Chi-Quadrat-Werte von $\chi^2_{\mathrm{red}} = 1.00$ (Poisson) bzw. $1.07$ (Gauß), was beide Modelle als gleichwertig gut beschreibt kennzeichnet. Dies steht in Einklang mit der theoretischen Vorhersage, dass sich die Poisson-Verteilung für große $\lambda$ durch eine Gauß-Verteilung approximieren lässt.
+Bei kleinerem Mittelwert (Aufgabe 3, $\mu \approx 4.2$) hingegen divergieren die Ergebnisse erheblich. Die Poisson-Verteilung liefert weiterhin einen akzeptablen Fit mit $\chi^2_{\mathrm{red}} = 1.51$, während die Gauß-Verteilung versagt ($\chi^2_{\mathrm{red}} = 10.68$). Dieser Befund demonstriert klar, dass die Gauß-Regression nur für genügend große Mittelwerte zuverlässige Ergebnisse liefert. Der Grund liegt in der diskreten Natur der Poisson-Verteilung: Bei kleinen Ereigniszahlen ist die Kontinuitätsannahme der Gauß-Verteilung nicht länger gültig.\footnote{Gauß-Verteilung als Grenzfall der Poisson-Verteilung für $\mu > 20\text{--}30$}
+Damit ist gezeigt, dass die Poisson-Verteilung die exakte Beschreibung des radioaktiven Zerfalls darstellt, während die Gauß-Verteilung lediglich eine Näherung für große Mittelwerte ist. Für präzise Analysen, insbesondere bei schwacher Strahlung oder kurzen Torzeiten, sollte daher stets die Poisson-Verteilung verwendet werden.
+
+Ein ergänzender Aspekt der Auswertung betrifft die statistischen Fit-Wahrscheinlichkeiten, die auf Basis der $\chi^2$-Verteilung berechnet wurden. Diese Werte geben an, mit welcher Wahrscheinlichkeit die beobachteten Abweichungen zwischen Messwerten und Modell rein zufälliger Natur sind. Für die Messung mit hohem Mittelwert (Aufgabe 2) zeigen sich beide Modelle als gleichwertig geeignet: Die Poisson-Verteilung erreicht eine Übereinstimmungswahrscheinlichkeit von $46{,}60\,\%$, während die Gauß-Verteilung mit $33{,}63\,\%$ ebenfalls einen sehr guten Fit liefert. Diese hohen Werte bestätigen, dass bei großen Ereigniszahlen die Gauß-Approximation funktioniert. Im starken Kontrast dazu fällt bei der Messung mit geringerem Mittelwert (Aufgabe 3) das Urteil eindeutig aus: Während die Poisson-Verteilung weiterhin eine akzeptable Wahrscheinlichkeit von $10{,}48\,\%$ aufweist, bricht die Trefferwahrscheinlichkeit der Gauß-Verteilung auf $0{,}0\,\%$ ab. Dieser drastische Unterschied quantifiziert eindrücklich, dass die Gauß-Verteilung bei kleinen mittleren Ereigniszahlen systematisch versagt und die diskrete Poisson-Statistik für eine präzise Beschreibung des radioaktiven Zerfalls unverzichtbar bleibt.
+
+\section{Kritik} \label{sec:Kritik}
+
+Trotz der erfolgreichen Charakterisierung der statistischen Natur des radioaktiven Zerfalls und der experimentellen Überprüfung der Anwendungsgrenzen verschiedener Wahrscheinlichkeitsmodelle lassen sich einige kritische Aspekte für eine zukünftige Verbesserung der Arbeit identifizieren. Zum einen hätte eine größere Anzahl an Einzelmessungen die statistische Aussagekraft insbesondere in Aufgabe 3 erhöht, wo die Diskrepanz zwischen den Verteilungen zwar deutlich wurde, aber durch mehr Daten noch präziser hätten quantifiziert werden können. Ferner verdeutlicht die berechnete Messzeit von mehreren Tagen, um die Plateaupneigung auf 1\% genau zu bestimmen, die Grenzen der aktuellen Messkonfiguration; hier wären eine höhere Aktivität des Präparats oder ein effizienteres Detektorsystem vorteilhaft gewesen. Zudem ist auffällig, dass die in Python ermittelten Fitparameter leicht von den dokumentierten Werten abweichen, was wahrscheinlich auf Rundungsunterschiede oder verschiedene Optimierungsalgorithmen zurückzuführen ist. Jeodch lagen hier alle Werte im vergleichbaren Bereichen. Schließlich blieben mögliche systematische Fehlerquellen wie Umgebungsstrahlung oder Schwankungen der Hochspannungsversorgung unberücksichtigt, deren Quantifizierung für eine vollständige Fehleranalyse wichtig gewesen wäre.

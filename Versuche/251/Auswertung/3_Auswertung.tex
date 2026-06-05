@@ -20,7 +20,7 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 \section{Plateaubereich des Zählrohrs}
 \label{sec:A1}
 In dieser Sektion soll das Platau des Geiger-Müller-Zählrohres genauer untersucht werden. Die Daten der für diese Auswertung sind dem \hyperref[ch:Protokoll]{Messprotokoll} den Tabellen II.1, sowie III.1 zu entnehmen. 
-Das bestimmte Pltau ist der \cabb{plots/Platau_1a} zu entnehmen. 
+Das bestimmte Plteau ist der \cabb{plots/Platau_1a} zu entnehmen. 
 \img[1]{plots/Platau_1a}{Anzahl an Counts in Abhängigkeit der Betriebsspannung und visualisierung des Plataus. Eingezeichnet ist die Zählerstromspannung $U_0$ in der Mite des Plateaus.}
 
 Zunächst soll die Differenz $D$ zwischen den Ereignissen $n_0$ bei $U_0 = (470 \pm 10)$V und $n_1$ bei $U_1 = (U_0 + 100)$V bestimmt werden. Die Ungenaugkeit der Differenz setzt sich aus den Ungenauigkeitden der Ereignisse wie folgt zusammen:
@@ -31,12 +31,12 @@ Dabei kann sich zunutze gemacht werden, dasss die Messwerte (annährend) possion
 \eq{deltaNs}{
     \Delta n_i = \sqrt{n_i}
 }
-berechnen. Diese und folgende Ergebnisse sin der \ctab{A11} zu entnehmen. So soll auch das Signifikanzniveau $\zeta$ bestimmt werden, dieses kann via
+berechnen. Diese und folgende Ergebnisse sind der \ctab{A11} zu entnehmen. So soll auch das Signifikanzniveau $\sigma$ bestimmt werden, dieses kann via \ceq{sigma_dev} zu
 \eq{sigNiv}{
-    \zeta = \frac{D}{\Delta D} = \frac{\sqrt{n_0 + n_1}}{n_1 - n_0}
+    \sigma = \frac{D}{\Delta D} = \frac{\sqrt{n_0 + n_1}}{n_1 - n_0}
 }
-bestimmt werden. Die Ergebnisse sind der \ctab{A11} zu entnehmen, und zeigen, dass für die drei-, sowie die einminuten Messung die Steigung des Plateaus nicht signifikant war. Interessant ist, dass eine Verlängerung der Messzeit einen Trend zeigt, denn hier wird die Abweichung nochmal kleiner. Ob dies ein tatsächlicher Trend oder nur eine statistischer Zufall ist, wird in der \cch{Diskussion} diskutiert.
-\com{Für die Diskussion; Eigentlich sollte die Standardabweichung für drei Minuten kleiner werden, da hier mehr Messungen und somit ein größerer prozentualer Fehler vorliegen. Dies ist also inkohärent mit der Theorie.}
+bestimmt werden. Die Ergebnisse sind der \ctab{A11} zu entnehmen, und zeigen, dass für die drei-, sowie die einminüte Messung die Steigung des Plateaus nicht signifikant abweicht. Interessant ist, dass eine Verlängerung der Messzeit einen Trend zeigt, denn hier wird die Abweichung nochmal kleiner. Ob dies ein tatsächlicher Trend oder nur eine statistischer Zufall ist, wird in dem \cch{Diskussion} diskutiert.
+% \com{Für die Diskussion; Eigentlich sollte die Standardabweichung für drei Minuten kleiner werden, da hier mehr Messungen und somit ein größerer prozentualer Fehler vorliegen. Dies ist also inkohärent mit der Theorie.}
 
 Neben dem Signifikanzniveau kann auch die prozentuale Abweichung $\varrho$ bestimmt werden.
 Die Formel für die prozentuale Abweichung wurde mit der \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'schern Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} versehen und wird via
@@ -53,7 +53,7 @@ berechnet. Beide Werte liegen bei $\approx 1\%$.
     \label{tab:A11}
     \begin{tabular}{l | C C C}
         \toprule
-        Messzeit [s] & \text{Differenz } D & \text{Porzentuale Abweichung } \varrho [\%] & \text{Signifikanzniveau } \zeta [\sigma] \\
+        Messzeit [s] & \text{Differenz } D & \text{Porzentuale Abweichung } \varrho [\%] & \text{Signifikanzniveau } \sigma [\sigma] \\
         \midrule
          60 & 90 \pm 100 & 1.018 \pm 0.020 & 0.89 \\
         180 & 40 \pm 180 & 0.997 \pm 0.011 & 0.22 \\
@@ -63,7 +63,7 @@ berechnet. Beide Werte liegen bei $\approx 1\%$.
 
 Betrachtet man die Ergebnisse der \ctab{A11}, so fällt auf, dass die Ungenauigkeiten für die Differenz sehr groß sind -- Die Prozentuale Abweichung liegt jeweils bei über 100\%. Daher wird imfolgenden die Konstante $\kappa$ definiert, welche so bestimmt werden soll, dass der Plateauanstieg auf eine Ungenauigkeit von $1\%$ genau bestimmt werden kann. Dabei ist $\kappa \in \mathbb{R}$ und liegt im Intervall $\kappa \in (0,1)$. Mathematisch ausgedrckt wollen wir 
 \eq{mathKappa}{
-    \kappa = 0.01 = \zeta \, , \qquad \kappa \in (0,1)
+    \kappa = 0.01 = \sigma \, , \qquad \kappa \in (0,1)
 }
 bestimmen. Zudem wird die Annahme getroffen, dass die Häufigkeiten $n_i$ das Produkt der Messzeit $t$ und der Häufigkeitsrate $f_i$ ist:
 \eq{wierdesProdukt}{
@@ -73,7 +73,7 @@ Die Ungenauigkeit wird via
 \eq{err_wierdesProdukt}{
     \Delta f_i = \frac{\Delta n_i}{t}
 }
-bestimmt. Dabei wird die Messzeit als nicht fehlerbehfatet angenommen.
+bestimmt. Dabei wird die Messzeit als nicht fehlerbehaftet angenommen.
 Kombiniert man die \ceq{mathKappa} mit \ceq{wierdesProdukt} und stellt nach $t$ um, so kann die Gleichung
 \eq{gl_nach_t}{
     t =  \frac{{f_0} + {f_1}}{\kappa^{2} \left({f_0} - {f_1}\right)^{2}}
@@ -91,19 +91,19 @@ Die allgemeine (Un-)Gleichung lautet dabei
 \eq{unGlLalala}{
     \left| n - n_0 \right| \leq s \cdot \sqrt{n_0} \, ,
 }
-wobei $n$ ein Messwert in der $s$-ten $\sigma$-Umgebung von $n_0$ liegt. Für den prozentualen Fehler muss diese Gleichung mit $n_0$ dividiert werden.
+wobei $n$ ein Messwert in der $s$-ten $\sigma$-Umgebung von $n_0$ ist (mit $s \in \mathbb{R}^+$). Für den prozentualen Fehler muss diese Gleichung mit $n_0$ dividiert werden.
 Somit darf ein Wert um $(0.807 \pm 0.003)\%$ von $n_0 = 15350 \pm 120$ (drei Minuten) abweichen, um weiterhin in der 1$\sigma$-Umgebung zu liegen und um $(1.614 \pm 0.007)\%$ in der 1$\sigma$-Umgebung zu liegen.
-Analog kann für $n_0 = 5270 \pm 70$ (eine Minute) bestimmt werden, dass dieser Wert um $(1.378 \pm 0.009)\%$ abweichen darf, für die 1$\sigma$-Umgebung und für die 2$\sigma$-Umgebung um $(2.756 \pm 0.019)\%$.<
+Analog kann für $n_0 = 5270 \pm 70$ (eine Minute) bestimmt werden, dass dieser Wert um $(1.378 \pm 0.009)\%$ abweichen darf, für die 1$\sigma$-Umgebung und für die 2$\sigma$-Umgebung um $(2.756 \pm 0.019)\%$.
 
 \section{Daten mit hoher mittlerer Ereigniszahl}
 \label{sec:A2}
-Diese Sektion wertet das Histogramm für einen Hohenmittelwert von Ereignissen aus. Dabei wurden hier 2500 Messungen durchgeführt (Dies ist im \hyperref[ch:Protokoll]{Messprotokoll} flasch notiert). Die Torzeit wurde auf 0.5s gesetzt. Es wurden die ersten 5 und die letzten 8 Messwerte heruasgeommen, da diese eine Häufigkeit von 0 hatten und dies die Regression erschwert/verfälscht, da so die Konvergenz gegen null nicht ordentlich dargestellt werden kann. 
+Diese Sektion wertet das Histogramm für einen Hohenmittelwert von Ereignissen aus. Dabei wurden hier 2500 Messungen durchgeführt (dies ist im \hyperref[ch:Protokoll]{Messprotokoll} flasch notiert). Die Torzeit wurde auf 0.5s gesetzt. Es wurden die ersten 5 und die letzten 8 Bins heruasgeommen, da diese eine Häufigkeit von 0 hatten und dies die Regression erschwert/verfälscht, da so die Konvergenz gegen null nicht ordentlich dargestellt werden kann. 
 Die Messdaten, sowie die Regressionen der Possion- und der Gaussverteilung sind der \cabb{plots/histo2b} zu entnehmen. Die Possionverteilung wird gestrichelt dargestellt, da diese nicht kontinuirlich ist. Die Fitparameter für beide Verteilungen sind ebenfalls dem Plot zu entnehmen. Zum Prüfen, wie gut diese Regressionen die Messdaten wieder spiegeln wird nach \csec{gutePlot} die Güte der Plots über das $\chi^2$ nach \ceq{chisquare} bestimmt. 
 Dieses muss dann noch reduziert werden, es ergibt sich via \ceq{chisquare_red} das reduzierte Chi-Quadrat $\chi^2_\text{red}$. Zum reduzieren werden die Freiheitsgrade des jeweiligen Fits benötigt. Die Freiheitsgrade können via
 \eq{DoF}{
-    \text{DoF} = n_\text{mess} - n_\text{par}
+    \text{DoF\footnote{DoF = Degrees of Freedom}} = n_\text{mess} - n_\text{par}
 }
-berechnet werden, dabei beschreibt $n_\text{mess}$ die Mächtigkeit der Messdaten und $n_\text{par}$ die Anzahl der Fitparameter -- Für die Gaussverteilung gilt also $n_\text{par,g} = 3$ und für die Possionverteilung $n_\text{par,p} = 2$.
+berechnet werden, dabei beschreibt $n_\text{mess}$ die Mächtigkeit der Messdaten und $n_\text{par}$ die Mächtigkeit der Fitparameter -- Für die Gaussverteilung gilt also $n_\text{par,g} = 3$ und für die Possionverteilung $n_\text{par,p} = 2$.
 Der Zeilwert für einen guten Fit liegt bei rund um 1. Die Resultate sind in der \ctab{A21} eingetragen.
 \begin{table}[h!]
     \centering
@@ -132,7 +132,7 @@ Für diese Sektion wurde die Torzeit auf 0.1s gestellt und es wurden 6000 Messun
 
 \begin{table}[h!]
     \centering
-    \caption{Bestimmung der Güte der Fits. Alle Werte sind auf zwei Dezimalstellen gerundet.}
+    \caption{Bestimmung der Güte der Fits bei kleinem Durschschnittswert. Alle Werte sind auf zwei Dezimalstellen gerundet.}
     \label{tab:A31}
     \begin{tabular}{l | C C C}
         \toprule
