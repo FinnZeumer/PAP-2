@@ -139,8 +139,10 @@ def round_sig_digs(err:float, val:float = None):
         val_str = str(int(rounded_val))
 
     rounded_combined_str = fr"{val_str} \pm {err_str}"
+    rounded_combined_str_latex = fr"{val_str} $\pm$ {err_str}"
 
-    return rounded_val, rounded_err, rounded_combined_str
+
+    return rounded_val, rounded_err, rounded_combined_str,rounded_combined_str_latex
 
 
 # --------------------------------------------------
@@ -198,7 +200,7 @@ def std_abw(p1:float, p2:float, err_p1:float = 0.0, err_p2:float = 0.0):
     """
     Funktion zum berechnen der Sigma-Abweichung von zwei Messwerten, oder einem Messwert und einem Literaturwert.
     """
-    return np.round(abs(p1 - p2)/(np.sqrt(err_p1**2 + err_p2**2)), 2)
+    return np.round((abs(p1 - p2))/(np.sqrt(err_p1**2 + err_p2**2)), 2)
 
 # --------------------------------------------------
 #   Berechnung von Wert und Fehler
