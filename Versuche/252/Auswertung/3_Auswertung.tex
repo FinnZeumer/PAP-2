@@ -17,7 +17,7 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \newpage
 
-\section{Bestimmung der Halbwertszeit von Silber-Isotropen}
+\section{Bestimmung der Halbwertszeit von Silber-Isotopen}
 \label{sec:A1}
 \subsection{Untergrundsstrahlung bei der Silbermessung}
 In dieser Sektion soll der Zerfall des Silbers betrachtet werden. Dafür wurde zunächst ohne Probe die Untergrundsstrahlung bestimmt. Dazu wurde für die Torzeit 10s und für die Messzeit 500s engestellt. Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} und seine Ungenauigkeit über den \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} bestimmt. 
@@ -31,47 +31,46 @@ Die vier Messreihen werden aufsummiert umd eine Gesamtmessreihe zu erhalten. Die
 \eq{reg_ag}{
    f(x) = A_1 e^{-\lambda_1 x} + A_2 e^{-\lambda_2 x} + y_0 \, . 
 } 
-gelegt. Dass es eine Summation aus zwei Exponentialfunktionen entspricht liegt daran, dass zwei Isotrope von Silber natürlich vorkommen. 
-Der Index 1 soll das Isotrop $^{110}\mathrm{Ag}$ beschreiben und der Index 2 das Isotrop $^{108}\mathrm{Ag}$. Der Term $y_0$ beschreibt die Untergrundsstrahlung.
+gelegt. Dass es eine Summation aus zwei Exponentialfunktionen entspricht liegt daran, dass zwei Isotope von Silber natürlich vorkommen. 
+Der Index 1 soll das Isotop $^{110}\mathrm{Ag}$ beschreiben und der Index 2 das Isotop $^{108}\mathrm{Ag}$. Der Term $y_0$ beschreibt die Untergrundsstrahlung.
 Die Messdaten mit der Regression sind der \cabb{plots/Regression_der_Messdaten_1a} zu entnehmen. 
 \img{plots/Regression_der_Messdaten_1a}{Bestimmte Regressionen für die Silbermessung.}
 
 Es werden zwei weitere Fits erstellt, welche dazu dienen, eine präzisere Ungenauigkeit der Untergrundsmessung zu bestimmen. Dazu wird der Untergrund über- und unterschätzt, so ergeben sich ein Maximal- und ein Minimalwert. Aus denen wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet, dies entsprcht der Ungenauigkeit der gemessenen Untergrundsstrahlung.
-Es gilt also die Differenzen $|\lambda - \lambda_\text{min}|$ und $|\lambda - \lambda_\text{max}|$ zu bestimmen. Aus diesen wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet. 
+Es gilt also die Differenzen $\sigma^- = |\lambda - \lambda_\text{min}|$ und $\sigma^+ = |\lambda + \lambda_\text{max}|$ zu bestimmen. Aus diesen wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet. 
 Nach \ceq{fehler_summe} können nun die Ungenauigkeit der Untergrundsmessung und dem \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} verrechnet werden. Dies ist der Gesamtfehler der Zerfallskonstanten $\Delta \lambda$.
 
 Die Fitparameter beider Regressionen und die Regression selsbt sind der \cabb{plots/Regression_der_Messdaten_1b} zu entnehmen.
 % \com{Juan hat hier eine advanst Fehler bestimmung gemacht --> Nachvollziehen und klauen}
 \img{plots/Regression_der_Messdaten_1b}{Bestimmte Regressionen mit Unter- und Überschätzung für die Silbermessung.}
 
-
-
 Aus der Zefallskosntanten lassen sich die Halbwertszeit $T_{1/2}$ nach \ceq{halbwertszeit} und die Lebensdauer $\tau$ nach \ceq{lebensdauer} bestimmen. Die Ergebnisse sind der \ctab{AT1} zu entnehmen.
+
 \begin{table}[h!]
     \centering
-    \caption{Messergebnisse der Silbermessung mit \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert nach \cabb{Nuklioide}.}
+    \caption{Messergebnisse der Silbermessung.}
     \label{tab:AT1}
-    \begin{tabular}{L | C | C | C | C | C}
-    \toprule
-    \text{Größe} &
-    \text{Gesamt} &
-    \overline{N_\text{UG,Ag}} &
-    \overline{N_\text{UG,Ag}} + \Delta \overline{N_\text{UG,Ag}} &
-    \overline{N_\text{UG,Ag}} - \Delta \overline{N_\text{UG,Ag}} \\
-    \midrule
-    \lambda_1 [s^-1] & 0.0315 \pm 0.0003 &  &  &  \\
-    \lambda_2 [s^-1] & 0.0048 \pm 0.0004 &  &  &  \\
-    T_{1/2}^1 [s]    & 22.04 \pm 0.21 &  &  &  \\
-    T_{1/2}^2 [s]    & 145 \pm 11 &  &  &  \\
-    \tau_1    [s]    & 31.8 \pm 0.3 &  &  &  \\
-    \tau_2    [s]    & 209 \pm 16 &  &  &  \\ 
-    \bottomrule
+    \begin{tabular}{L | C | C | C | C}
+        \toprule
+        \text{Größe} &
+        \overline{N_\text{UG,Ag}} \, [\mathrm{s^{-1}}] &
+        \sigma^- \, [\mathrm{s^{-1}}] &
+        \sigma^+ \, [\mathrm{s^{-1}}] &
+        \text{Gesamt} \\
+        \midrule
+        \lambda_1 \, \cdot 10^{-2} \, [s^-1] & 3.1 \pm 0.4 & 0.027 & 0.032 & 3.15 \pm 0.03 \\
+        \lambda_2 \, \cdot 10^{-3} \, [s^-1] & 4.8 \pm 1.0 & 0.35 & 0.40 & 4.8 \pm 0.4 \\
+        T_{1/2}^1 [s]    &   &  &  & 22.04 \pm 0.21 \\
+        T_{1/2}^2 [s]    &   &  &  & 145 \pm 11 \\
+        \tau_1    [s]    &   &  &  & 31.8 \pm 0.3 \\
+        \tau_2    [s]    &   &  &  & 209 \pm 16 \\ 
+        \bottomrule
     \end{tabular}
 \end{table}
 
-\section{Bestimmung der Halbwertszeit von Indium-Isotropen}
+\section{Bestimmung der Halbwertszeit von Indium-Isotopen}
 \label{sec:A2}
-Analog zur Auswerung des Silbers in der \csec{A1} soll hier die Indiumprobe untersucht werden. Hier ist nur ein Isotrop relevant, denn $^{116m}In$ hat eine Halbwertszeit von $T_{1/2} = 14$s, wohingegen $^{116}In$ eine Halbwertszeit von $T_{1/2} = 54$min hat. Da dir Torzeit auf 10s gestellt ist, muss der erste Messwert herausgenommen werden, da deiser den Zerfall von $^{116}In$ im großen Maße mit gemessen hat. 
+Analog zur Auswerung des Silbers in der \csec{A1} soll hier die Indiumprobe untersucht werden. Hier ist nur ein Isotop relevant, denn $^{116m}In$ hat eine Halbwertszeit von $T_{1/2} = 14$s, wohingegen $^{116}In$ eine Halbwertszeit von $T_{1/2} = 54$min hat. Da dir Torzeit auf 10s gestellt ist, muss der erste Messwert herausgenommen werden, da deiser den Zerfall von $^{116}In$ im großen Maße mit gemessen hat. 
 Die Regression für die Indiummessung ergitb nach \ceq{aktivitaet_decay} sich zu
 \eq{reg_in}{
    f(x) = A_0 e^{-\lambda_1 x} + y_0 \, . 
@@ -94,35 +93,35 @@ Auch hier soll der Untergrund genauer bestimmt werden, es werden wieder eine Max
     \centering
     \caption{Messergebnisse der Indiummessung.}
     \label{tab:AT2}
-    \begin{tabular}{L | C | C | C | C | C}
-    \toprule
-    \text{Größe} &
-    \text{Gesamt} &
-    \overline{N_\text{UG,In}} &
-    \overline{N_\text{UG,In}} + \Delta \overline{N_\text{UG,In}} &
-    \overline{N_\text{UG,In}} - \Delta \overline{N_\text{UG,In}} \\
-    \midrule
-    \lambda  \cdot 10^{-4} [s^-1]   & 2.677 \pm 0.019 &  &  &  \\
-    T_{1/2} [s]                     & 2589 \pm 19 &  &  &  \\
-    \tau    [s]                     & 3730 \pm 30 &  &  &  \\
-    \bottomrule
+    \begin{tabular}{L | C | C | C | C}
+        \toprule
+        \text{Größe} &
+        \overline{N_\text{UG,In}} &
+        \sigma^- \, [\mathrm{s^{-1}}] &
+        \sigma^+ \, [\mathrm{s^{-1}}] &
+        \text{Gesamt} \\
+        \midrule
+        \lambda  \cdot 10^{-4} [s^{-1}]   & (2.68 \pm 0.13) & 0.0190 & 0.0193 & 2.677 \pm 0.019 \\
+        T_{1/2} [s]                     &  &  &  & 2589 \pm 19 \\
+        \tau    [s]                     &  &  &  & 3730 \pm 30 \\
+        \bottomrule
     \end{tabular}
 \end{table}
 
 \section{Bestimmung der Güte der Regressionen}
 \label{sec:A3}
 Zuletzt sollen die bestimmten Regressionen auf ihre Güte geprüft werden. Dazu wird zu nächst das Chi-Quadrat ($\chi^2$) bestimmt. Zudem wird dieses via Division mit den Freiheitsgraden dividert. Ist das $\chi_\text{red}^2 \approx 1$\footnote{Ein Wert von $=1$ wäre ein optimaler Fit.}, ist der Fit als sinnvoll zu erachten.
-Die Freiheitsgrade können via
+Die Freiheitsgrade (DoF) können via
 \eq{DoF}{
-    \text{DoF\footnote{DoF = Degrees of Freedom}} = n_\text{mess} - n_\text{par}
+    \text{DoF} = n_\text{mess} - n_\text{par}
 }
-bestimmt werden.
+bestimmt werden. Mit der Anzahl der Messungen $n_\text{mess}$ und der Anzahl der freien Parameter $n_\text{par}$. 
 Zuletzt kann die Güte einer Regression noch über die Wahrscheinlichkeit eines Fits bestimmt werden. Diese Methode nimmt die bestimmten Regressionsparameter als wahr an und verteilt die Messwerte normal um den Mittelwert. Die Übereinstimmung der theoretischen und experimentellen Werte wird dann bestimmt.
 Die bestimmten Werte sind der \ctab{AT3} zu entnehmen.
 
 \begin{table}[h!]
     \centering
-    \caption{Messergebnisse der Indiummessung mit \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert nach \cabb{Nuklioide}.}
+    \caption{Ergebnisse der Güte der Regressionen für Indium und Silber.}
     \label{tab:AT3}
     \begin{tabular}{L | C | C}
     \toprule
