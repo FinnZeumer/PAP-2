@@ -22,9 +22,8 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 \subsection{Untergrundsstrahlung bei der Silbermessung}
 In dieser Sektion soll der Zerfall des Silbers betrachtet werden. Dafür wurde zunächst ohne Probe die Untergrundsstrahlung bestimmt. Dazu wurde für die Torzeit 10s und für die Messzeit 500s engestellt. Es wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} und seine Ungenauigkeit über den \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} bestimmt. 
 Zusätzlich wird die Messung mit einem Faktor $n$ multiplizietr, wobei $n$ die Anzahl der Messreihen ist. Für diese Silbermessung gilt $n=4$ 
-
 \eq{avg_unter_ag}{
-    \overline{N_\text{UG,Ag}} = () s^{-1}
+    \overline{N_\text{UG,Ag}} = (13.0 \pm 1.1) s^{-1}
 }
 
 \subsection{Bestimmung der Halbwertszeit}
@@ -58,15 +57,14 @@ Aus der Zefallskosntanten lassen sich die Halbwertszeit $T_{1/2}$ nach \ceq{halb
     \text{Gesamt} &
     \overline{N_\text{UG,Ag}} &
     \overline{N_\text{UG,Ag}} + \Delta \overline{N_\text{UG,Ag}} &
-    \overline{N_\text{UG,Ag}} - \Delta \overline{N_\text{UG,Ag}} &
-    \text{Std.Abw.} \sigma \\ 
+    \overline{N_\text{UG,Ag}} - \Delta \overline{N_\text{UG,Ag}} \\
     \midrule
-    \lambda_1 [s^-1] &  &  &  &  &  \\
-    \lambda_2 [s^-1] &  &  &  &  &  \\
-    T_{1/2}^1 [s]    &  &  &  &  &  \\
-    T_{1/2}^2 [s]    &  &  &  &  &  \\
-    \tau_1    [s]    &  &  &  &  &  \\
-    \tau_2    [s]    &  &  &  &  &  \\ 
+    \lambda_1 [s^-1] & 0.0315 \pm 0.0003 &  &  &  \\
+    \lambda_2 [s^-1] & 0.0048 \pm 0.0004 &  &  &  \\
+    T_{1/2}^1 [s]    & 22.04 \pm 0.21 &  &  &  \\
+    T_{1/2}^2 [s]    & 145 \pm 11 &  &  &  \\
+    \tau_1    [s]    & 31.8 \pm 0.3 &  &  &  \\
+    \tau_2    [s]    & 209 \pm 16 &  &  &  \\ 
     \bottomrule
     \end{tabular}
 \end{table}
@@ -79,9 +77,10 @@ Die Regression für die Indiummessung ergitb nach \ceq{aktivitaet_decay} sich zu
    f(x) = A_0 e^{-\lambda_1 x} + y_0 \, . 
 } 
 Dabei sind die Variablen wie in \ceq{reg_ag} zu interpretieren. Auch hier muss der Untergrund betrachtet werden. Da dieses Mal die Torzeit auf 120s gestellt wurde, muss das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Untergrundsmessung mit 12 multipilziert werden.
+Wichtig zu betonen ist, das zwei Versuchsaufbauten parallel betrieben wurden.
 Es ergibt sich:
 \eq{avg_unter_in}{
-    \overline{N_\text{UG,In}} = () s^{-1}
+    \overline{N_\text{UG,In}} = (35.52 \pm 0.25) s^{-1}
 }
 Die Messdaten, sowie die Regression sind der \cabb{plots/Regression_der_Messdaten_2a} zu entnehmen. 
 \img{plots/Regression_der_Messdaten_2a}{Bestimmte Regressionen für die Indiummessung.}
@@ -93,7 +92,7 @@ Auch hier soll der Untergrund genauer bestimmt werden, es werden wieder eine Max
 
 \begin{table}[h!]
     \centering
-    \caption{Messergebnisse der Indiummessung mit \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert nach \cabb{Nuklioide}.}
+    \caption{Messergebnisse der Indiummessung.}
     \label{tab:AT2}
     \begin{tabular}{L | C | C | C | C | C}
     \toprule
@@ -101,12 +100,11 @@ Auch hier soll der Untergrund genauer bestimmt werden, es werden wieder eine Max
     \text{Gesamt} &
     \overline{N_\text{UG,In}} &
     \overline{N_\text{UG,In}} + \Delta \overline{N_\text{UG,In}} &
-    \overline{N_\text{UG,In}} - \Delta \overline{N_\text{UG,In}} &
-    \text{Std.Abw.} \sigma \\ 
+    \overline{N_\text{UG,In}} - \Delta \overline{N_\text{UG,In}} \\
     \midrule
-    \lambda [s^-1] &  &  &  &  &  \\
-    T_{1/2} [s]    &  &  &  &  &  \\
-    \tau    [s]    &  &  &  &  &  \\
+    \lambda  \cdot 10^{-4} [s^-1]   & 2.677 \pm 0.019 &  &  &  \\
+    T_{1/2} [s]                     & 2589 \pm 19 &  &  &  \\
+    \tau    [s]                     & 3730 \pm 30 &  &  &  \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -132,9 +130,9 @@ Die bestimmten Werte sind der \ctab{AT3} zu entnehmen.
     \text{Silber} &
     \text{Indium} \\
     \midrule
-    \chi^2                      &  &  \\
-    \chi^2_\text{red}           &  &  \\
-    \text{Wahrscheinlichkeit}   &  &  \\
+    \chi^2                          & 36.71 & 39.37  \\
+    \chi^2_\text{red}               & 1.02  & 1.71   \\
+    \text{Wahrscheinlichkeit} [\%]  & 44.0  & 2.0 \% \\
     \bottomrule
     \end{tabular}
 \end{table}
