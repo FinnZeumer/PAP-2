@@ -27,22 +27,21 @@ Zusätzlich wird die Messung mit einem Faktor $n$ multiplizietr, wobei $n$ die A
 }
 
 \subsection{Bestimmung der Halbwertszeit}
-Die vier Messreihen werden aufsummiert umd eine Gesamtmessreihe zu erhalten. Diese wird gegend die Zeit geplottet. Durch die Messdaten wird eine Regression der Form
+Die vier Messreihen werden aufsummiert umd eine Gesamtmessreihe zu erhalten. Diese wird gegen die Zeit geplottet. Durch die Messdaten wird eine Regression der Form
 \eq{reg_ag}{
    f(x) = A_1 e^{-\lambda_1 x} + A_2 e^{-\lambda_2 x} + y_0 \, . 
 } 
-gelegt. Dass es eine Summation aus zwei Exponentialfunktionen entspricht liegt daran, dass zwei Isotope von Silber natürlich vorkommen. 
+gelegt. Dass die Regression einer Summation aus zwei Exponentialfunktionen entspricht liegt daran, dass zwei Isotope von Silber natürlich vorkommen. 
 Der Index 1 soll das Isotop $^{110}\mathrm{Ag}$ beschreiben und der Index 2 das Isotop $^{108}\mathrm{Ag}$. Der Term $y_0$ beschreibt die Untergrundsstrahlung.
 Die Messdaten mit der Regression sind der \cabb{plots/Regression_der_Messdaten_1a} zu entnehmen. 
-\img{plots/Regression_der_Messdaten_1a}{Bestimmte Regressionen für die Silbermessung.}
+\img[1]{plots/Regression_der_Messdaten_1a}{Bestimmte Regressionen für die Silbermessung.}
 
 Es werden zwei weitere Fits erstellt, welche dazu dienen, eine präzisere Ungenauigkeit der Untergrundsmessung zu bestimmen. Dazu wird der Untergrund über- und unterschätzt, so ergeben sich ein Maximal- und ein Minimalwert. Aus denen wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet, dies entsprcht der Ungenauigkeit der gemessenen Untergrundsstrahlung.
 Es gilt also die Differenzen $\sigma^- = |\lambda - \lambda_\text{min}|$ und $\sigma^+ = |\lambda + \lambda_\text{max}|$ zu bestimmen. Aus diesen wird das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} gebildet. 
 Nach \ceq{fehler_summe} können nun die Ungenauigkeit der Untergrundsmessung und dem \hyperref[eq:fehler_mittelwert]{Fehler des Mittelwertes (\ref*{eq:fehler_mittelwert})} verrechnet werden. Dies ist der Gesamtfehler der Zerfallskonstanten $\Delta \lambda$.
-
 Die Fitparameter beider Regressionen und die Regression selsbt sind der \cabb{plots/Regression_der_Messdaten_1b} zu entnehmen.
 % \com{Juan hat hier eine advanst Fehler bestimmung gemacht --> Nachvollziehen und klauen}
-\img{plots/Regression_der_Messdaten_1b}{Bestimmte Regressionen mit Unter- und Überschätzung für die Silbermessung.}
+\img[1]{plots/Regression_der_Messdaten_1b}{Bestimmte Regressionen mit Unter- und Überschätzung für die Silbermessung.}
 
 Aus der Zefallskosntanten lassen sich die Halbwertszeit $T_{1/2}$ nach \ceq{halbwertszeit} und die Lebensdauer $\tau$ nach \ceq{lebensdauer} bestimmen. Die Ergebnisse sind der \ctab{AT1} zu entnehmen.
 
@@ -75,19 +74,19 @@ Die Regression für die Indiummessung ergitb nach \ceq{aktivitaet_decay} sich zu
 \eq{reg_in}{
    f(x) = A_0 e^{-\lambda_1 x} + y_0 \, . 
 } 
-Dabei sind die Variablen wie in \ceq{reg_ag} zu interpretieren. Auch hier muss der Untergrund betrachtet werden. Da dieses Mal die Torzeit auf 120s gestellt wurde, muss das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Untergrundsmessung mit 12 multipilziert werden.
-Wichtig zu betonen ist, das zwei Versuchsaufbauten parallel betrieben wurden.
+Dabei sind die Variablen wie in \ceq{reg_ag} zu interpretieren. Auch hier muss der Untergrund betrachtet werden. Da dieses Mal die Torzeit auf 120s gestellt wurde, muss das \hyperref[eq:arithmetisches_mittel]{arithmetische Mittel (\ref*{eq:arithmetisches_mittel})} der Untergrundsmessung mit $n=12$ multipilziert werden.
+Wichtig zu betonen ist, das zwei Versuchsaufbauten parallel betrieben wurden und somit verschiedene Untergründe gemessen wurden.
 Es ergibt sich:
 \eq{avg_unter_in}{
     \overline{N_\text{UG,In}} = (35.52 \pm 0.25) s^{-1}
 }
 Die Messdaten, sowie die Regression sind der \cabb{plots/Regression_der_Messdaten_2a} zu entnehmen. 
-\img{plots/Regression_der_Messdaten_2a}{Bestimmte Regressionen für die Indiummessung.}
+\img[1]{plots/Regression_der_Messdaten_2a}{Bestimmte Regressionen für die Indiummessung.}
 
-Auch hier soll der Untergrund genauer bestimmt werden, es werden wieder eine Maximal- und Minimalabschätzung unternommen. Die Regressionen und deren Fitparameter sind der \cabb{plots/Regression_der_Messdaten_2b} zu entnehmen.
+Auch hier soll der Untergrund genauer bestimmt werden, es wird wieder eine Maximal- und Minimalabschätzung unternommen. Die Regressionen und deren Fitparameter sind der \cabb{plots/Regression_der_Messdaten_2b} zu entnehmen.
+Die Messergebnisse sind in der \ctab{AT2} gelistet. 
 
-
-\img{plots/Regression_der_Messdaten_2b}{Bestimmte Regressionen mit Unter- und Überschätzung für die Indiummessung.}
+\img[1]{plots/Regression_der_Messdaten_2b}{Bestimmte Regressionen mit Unter- und Überschätzung für die Indiummessung.}
 
 \begin{table}[h!]
     \centering
@@ -110,7 +109,7 @@ Auch hier soll der Untergrund genauer bestimmt werden, es werden wieder eine Max
 
 \section{Bestimmung der Güte der Regressionen}
 \label{sec:A3}
-Zuletzt sollen die bestimmten Regressionen auf ihre Güte geprüft werden. Dazu wird zu nächst das Chi-Quadrat ($\chi^2$) bestimmt. Zudem wird dieses via Division mit den Freiheitsgraden dividert. Ist das $\chi_\text{red}^2 \approx 1$\footnote{Ein Wert von $=1$ wäre ein optimaler Fit.}, ist der Fit als sinnvoll zu erachten.
+Zuletzt sollen die bestimmten Regressionen auf ihre Güte geprüft werden. Dazu wird zunächst das Chi-Quadrat ($\chi^2$) bestimmt. Zudem wird dieses via Division mit den Freiheitsgraden dividert. Ist das $\chi_\text{red}^2 \approx 1$\footnote{Ein Wert von $=1$ wäre ein optimaler Fit.}, ist der Fit als sinnvoll zu erachten.
 Die Freiheitsgrade (DoF) können via
 \eq{DoF}{
     \text{DoF} = n_\text{mess} - n_\text{par}
