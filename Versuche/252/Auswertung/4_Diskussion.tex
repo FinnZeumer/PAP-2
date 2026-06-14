@@ -1,22 +1,101 @@
+% \chapter{Diskussion}
+% \label{ch:Diskussion}
+
+% \section{Zusammenfassung}
+% \label{sec:Zusammenfassung}
+% Im Rahmen dieses Versuchs wurden die Halbwertszeiten radioaktiver Isotope durch Aktivierung stabiler Kerne mit thermischen Neutronen bestimmt. Ziel war die experimentelle Ermittlung der Zerfallskonstanten und daraus folgend der Halbwertszeiten der Silberisotope $^{108}\text{Ag}$ und $^{110}\text{Ag}$ sowie des Indiumisotops $^{116}\text{In}$. 
+
+% Die Aktivierung erfolgte mittels einer Am/Be-Neutronenquelle, deren schnelle Neutronen durch einen Paraffinblock thermalisiert wurden. Die anschließende Zählrate wurde über definierte Zeitintervalle mit einem Geiger-Müller-Zählrohr erfasst. Die Auswertung der Zerfallskurven erfolgte durch nichtlineare Regression unter Berücksichtigung der Untergrundstrahlung.
+
+% Die experimentell bestimmten Werte stimmen für $^{108}\text{Ag}$ innerhalb der Fehlergrenzen gut mit Literaturwerten überein. Im Gegensatz dazu zeigen die Messwerte für $^{110}\text{Ag}$ und insbesondere für $^{116}\text{In}$ signifikante Abweichungen, was im Folgenden detailliert diskutiert wird.
+
+% \section{Analyse der Messwerte}
+% \label{sec:Analyse}
+
+% Die ermittelten Halbwertszeiten werden in Tabelle \ref{tab:vgl} den entsprechenden Literaturwerten gegenübergestellt. Zur Quantifizierung der Übereinstimmung dient neben dem relativen Fehler auch die \hyperref[eq:standardabweichung]{Sigmaabweichung (\ref*{eq:standardabweichung})}, welche angibt, um wie viele Standardabweichungen sich Mess- und Literaturwert unterscheiden.
+
+% \begin{table}[h!]
+%     \centering
+%     \caption{Vergleich der gemessenen Halbwertszeiten $T_{1/2}$ mit Literaturwerten. Die Spalte $\sigma$ gibt die Anzahl der Standardabweichungen an, um die sich die Werte unterscheiden.}
+%     \label{tab:vgl}
+%     \begin{tabular}{L | C | C | C | C}
+%     \toprule
+%     \text{Isotop} &
+%     T_{1/2}^{\text{gem}} [s] &
+%     T_{1/2}^{\text{lit}} [s] &
+%     \delta_{\text{rel}} [\%] &
+%     \sigma \\
+%     \midrule
+%     ^{108}\text{Ag} & 145 \pm 11  & 143.4 & 7.8\%  & 0.11 \\
+%     ^{110}\text{Ag} & 22 \pm 3  & 24.56  & 12\% & 0.92 \\
+%     ^{116}\text{In} & 2590 \pm 130     & 3240  & 5.1\% & 4.91 \\
+%     \bottomrule
+%     \end{tabular}
+% \end{table}
+
+% \textbf{Silber-Isotope:}
+% Für das langlebige Isotop $^{108}\text{Ag}$ ergibt sich eine Halbwertszeit von $(145 \pm 11)$s. Dieser Wert stimmt fast exakt mit dem Literaturwert von 144,6 s überein. Die Signifikanzabweichung von $\sigma = 0.01$ bestätigt eine hervorragende Übereinstimmung innerhalb der statistischen Unsicherheit. Es ist jedoch anzumerken, dass hier auch die größte relative Ungenauigkeit, was sich positiv auf die Sigmaabweichung auswirkt.
+
+% Das kurzlebige $^{110}\text{Ag}$ lieferte hingegen eine Halbwertszeit von $(22.04 \pm 0.21)$s, während der Literaturwert bei 24,6 s liegt. Da der relative Fehler klein ausfällt, zeigt die große Signifikanzabweichung von $\sigma \approx 12.5$, dass die Diskrepanz nicht zufällig ist. Mögliche Ursachen hierfür könnten sein:
+% \begin{itemize}
+%     \item \textit{Überlagerung durch andere Isotope}: Auch nach 400 Sekunden Messzeit könnte ein geringerer Anteil anderer Silver-Isotope (wie $^{111}\text{Ag}$ mit 7,4 Tagen, falls vorhanden, oder Unvollkommenheiten im Trennprozess) den frühen Zerfall beeinflusst haben.
+%     \item \textit{Systematische Fehler bei kurzen Zeiten}: Da $^{110}\text{Ag}$ sehr schnell zerfällt, ist der Einfluss von Totzeiteffekten des Zählers oder Verzögerungen beim Transport des Präparats relativ größer als bei längeren Halbwertszeiten.
+%     \item \textit{Aktivierungsbedingungen}: Falls die Aktivierungszeit nicht exakt gleichmäßig verlief oder die Sättigung nicht vollständig erreicht wurde, kann dies den Fit der zwei exponentiellen Komponenten verzerren.
+% \end{itemize}
+
+
+
+% \textbf{Indium-Isotope:}
+% Bei Indium wurde nur der Grundzustand $^{116}\text{In}$ betrachtet, wobei der erste Messpunkt aufgrund der kurzlebigen Isomerie $^{116m}\text{In}$ ($T_{1/2} \approx 14$s) verworfen wurde. Der ermittelte Wert von $(2589 \pm 19)$s weicht jedoch stark vom Literaturwert von 3240s ab. Die extrem hohe Signifikanzabweichung von $\sigma \approx 35$ deutet auf ein systematisches Problem hin.
+% Ein möglicher Grund ist die Annahme eines einphasigen Zerfalls. Wenn der metastabile Zustand $^{116m}\text{In}$ langsamer abklingt als angenommen oder wenn eine Kontamination mit anderen Indium-Isotopen vorliegt, verzerrt dies den linearen Verlauf im Halblogarithmischen Plot und führt zu einer falschen Steigung ($\lambda$). Zudem könnte die lange Messdauer von 50 Minuten anfällig für Drifterscheinungen im Detektor oder Änderungen der Untergrundstrahlung sein.
+
+% \section{Betrachtung der Fit-Güte}
+% \label{sec:Fitauswertung}
+
+% Die Qualität der angepassten Regressionen wurde mittels des reduzierten Chi-Quadrat-Wertes $\chi^2_{\text{red}}$ und der zugehörigen Wahrscheinlichkeit $P(\chi^2)$ bewertet.
+
+% \begin{enumerate}
+%     \item \textbf{Silbermessung:} 
+%     Hier ergab sich ein $\chi^2_{\text{red}} = 1.02$ mit einer Wahrscheinlichkeit von $44.0\%$. Ein Wert nahe 1 und eine hohe Wahrscheinlichkeit bestätigen, dass das verwendete Modell (Superposition zweier Exponentialfunktionen plus konstanter Untergrund) die Messdaten hervorragend beschreibt. Die Residuen verteilen sich erwartungsgemäß normal um Null. Dies untermauert die Zuverlässigkeit des Ergebnisses für $^{108}\text{Ag}$, auch wenn die Abweichung bei $^{110}\text{Ag}$ systematisch bedingt sein muss.
+    
+%     \item \textbf{Indiummessung:} 
+%     Im Gegensatz dazu lieferte die Indiumanalyse ein $\chi^2_{\text{red}} = 1.71$ mit einer lediglich $2.0\%$ igen Wahrscheinlichkeit. Statistisch gesehen ist es extrem unwahrscheinlich, dass ein solch schlechter Fit bei korrektem Modell und realistischen Fehlern zustande kommt. Dies spricht dafür, dass entweder:
+%     \begin{itemize}
+%         \item die zugrundeliegenden Fehlerbars ($\sigma_N = \sqrt{N}$) unterschätzt wurden (z.B. durch zusätzliche Systematik),
+%         \item oder das gewählte Modell $A(t) = A_0 e^{-\lambda t} + y_0$ unzureichend ist (z.B. bleibt ein kleiner Anteil des Isomers übrig, oder es liegt eine schwache zweite Komponente vor).
+%     \end{itemize}
+%     Der hohe $\chi^2_{\text{red}}$ erklärt teilweise die Diskrepanz zwischen Mess- und Literaturwert; der Fit zwingt die Kurve zwar an die Datenpunkte, aber da die Daten selbst nicht dem reinen Ein-Komponenten-Zerfall folgen, ist das Ergebnis physikalisch fragwürdig.
+% \end{enumerate}
+
+% \section{Fazit}
+% Zusammenfassend lässt sich sagen, dass die Methode der Aktivierung mit thermischen Neutronen prinzipiell geeignet ist, Halbwertszeiten zu bestimmen, was am Beispiel von $^{108}\text{Ag}$ deutlich wird. Die starken Abweichungen bei $^{110}\text{Ag}$ und $^{116}\text{In}$ sowie die geringe Fit-Güte bei Indium deuten jedoch auf spezifische Limitierungen des Versuchsaufbaus oder der Auswertungsannahmen hin, insbesondere bei kurzlebigen Isotopen oder Isomerengemischen. Eine genauere Betrachtung der Transportsystematik, der Totzeitkorrektur und der Reinheit der Proben wäre für zukünftige Versuche notwendig, um diese Diskrepanzen zu minimieren.
+
+
+
+
+
+
+% \footnote{Während des Versuches: Hallo, heute haben wir den Versuch 252 ausgeführt. Es hat ganz viel Spaßßßßß gemacht. Besonders toll fand ich die lange Wartezeit, da ich ein sehr geduldiger Mensch bin. Die Ergebnisse sind eigentlich auch ganz dolle geworden, also beschweren kann man sich da normalerweise eher weniger.}
+
+
 \chapter{Diskussion}
 \label{ch:Diskussion}
 
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
 Im Rahmen dieses Versuchs wurden die Halbwertszeiten radioaktiver Isotope durch Aktivierung stabiler Kerne mit thermischen Neutronen bestimmt. Ziel war die experimentelle Ermittlung der Zerfallskonstanten und daraus folgend der Halbwertszeiten der Silberisotope $^{108}\text{Ag}$ und $^{110}\text{Ag}$ sowie des Indiumisotops $^{116}\text{In}$. 
-
 Die Aktivierung erfolgte mittels einer Am/Be-Neutronenquelle, deren schnelle Neutronen durch einen Paraffinblock thermalisiert wurden. Die anschließende Zählrate wurde über definierte Zeitintervalle mit einem Geiger-Müller-Zählrohr erfasst. Die Auswertung der Zerfallskurven erfolgte durch nichtlineare Regression unter Berücksichtigung der Untergrundstrahlung.
 
-Die experimentell bestimmten Werte stimmen für $^{108}\text{Ag}$ innerhalb der Fehlergrenzen gut mit Literaturwerten überein. Im Gegensatz dazu zeigen die Messwerte für $^{110}\text{Ag}$ und insbesondere für $^{116}\text{In}$ signifikante Abweichungen, was im Folgenden detailliert diskutiert wird.
+Wie die Analyseergebnisse zeigen, stimmen die für $^{108}\text{Ag}$ ermittelten Werte innerhalb der statistischen Fehlergrenzen hervorragend mit den Literaturwerten überein. Im Gegensatz dazu weisen die Messwerte für $^{110}\text{Ag}$ zwar eine akzeptable relative Übereinstimmung auf, jedoch deuten Abweichungen auf systematische Einflüsse hin, während die Ergebnisse für $^{116}\text{In}$ signifikant vom etablierten Literaturwert abweichen. Diese Diskrepanzen werden im Folgenden detailliert diskutiert.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-Die ermittelten Halbwertszeiten werden in Tabelle \ref{tab:vgl} den entsprechenden Literaturwerten gegenübergestellt. Zur Quantifizierung der Übereinstimmung dient neben dem relativen Fehler auch die Signifikanzabweichung $\sigma$ (gemäß Gl. \ref{eq:signifikanz}), welche angibt, um wie viele Standardabweichungen sich Mess- und Literaturwert unterscheiden.
+Die in Tabelle \ref{tab:vgl} zusammengefassten Ergebnisse illustrieren die Qualität der experimentellen Bestimmung. Neben dem relativen Fehler $\delta_{\text{rel}}$ dient die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} $\sigma$ als Maß für die statistische Signifikanz der Übereinstimmung zwischen Mess- und Literaturwert.
 
 \begin{table}[h!]
     \centering
-    \caption{Vergleich der gemessenen Halbwertszeiten $T_{1/2}$ mit Literaturwerten. Die Spalte $\sigma$ gibt die Anzahl der Standardabweichungen an, um die sich die Werte unterscheiden (Gl. \ref{eq:signifikanz}).}
+    \caption{Vergleich der gemessenen Halbwertszeiten $T_{1/2}$ mit Literaturwerten. Die Spalte $\sigma$ gibt die Anzahl der Standardabweichungen an, um die sich die Werte unterscheiden.}
     \label{tab:vgl}
     \begin{tabular}{L | C | C | C | C}
     \toprule
@@ -26,51 +105,49 @@ Die ermittelten Halbwertszeiten werden in Tabelle \ref{tab:vgl} den entsprechend
     \delta_{\text{rel}} [\%] &
     \sigma \\
     \midrule
-    ^{108}\text{Ag} & 145 \pm 11  & 144.6 & 0.3\,\%  & 0.01 \\
-    ^{110}\text{Ag} & 22.04 \pm 0.21  & 24.6  & 10.4\,\% & 12.48 \\
-    ^{116}\text{In} & 2589 \pm 19     & 3240  & 20.1\,\% & 35.13 \\
+    ^{108}\text{Ag} & 145 \pm 11  & 143.4 & 7.8  & 0.11 \\
+    ^{110}\text{Ag} & 22 \pm 3  & 24.56  & 12 & 0.92 \\
+    ^{116}\text{In} & 2590 \pm 130     & 3240  & 5.1 & 4.91 \\
     \bottomrule
     \end{tabular}
 \end{table}
 
-\textbf{Silber-Isotope:}
-Für das langlebige Isotop $^{108}\text{Ag}$ ergibt sich eine Halbwertszeit von $(145 \pm 11)$ s. Dieser Wert stimmt fast exakt mit dem Literaturwert von 144,6 s überein (relativer Fehler 0,3\%). Die Signifikanzabweichung von $\sigma = 0.01$ bestätigt eine hervorragende Übereinstimmung innerhalb der statistischen Unsicherheit.
+Bei den Silber-Isotopen zeigt sich ein interessantes Bild. Für das langlebige Isotop $^{108}\text{Ag}$ ergibt sich eine Halbwertszeit von $(145 \pm 11)$s. Dieser Wert liegt sehr nahe am Literaturwert von 143.4s. Die extrem geringe Signifikanzabweichung von $\sigma = 0.11$ bestätigt, dass die Messunsicherheit den Abstand zum Literaturwert vollständig erklärt und somit keine systematische Abweichung vorliegt.
 
-Das kurzlebige $^{110}\text{Ag}$ lieferte hingegen eine Halbwertszeit von $(22.04 \pm 0.21)$ s, während der Literaturwert bei 24,6 s liegt. Obwohl der relative Fehler zunächst moderat wirkt (ca. 10\%), zeigt die große Signifikanzabweichung von $\sigma \approx 12.5$, dass die Diskrepanz nicht zufällig ist. Mögliche Ursachen hierfür könnten sein:
-\begin{itemize}
-    \item \textit{Überlagerung durch andere Isotope}: Auch nach 400 Sekunden Messzeit könnte ein geringerer Anteil anderer Silver-Isotope (wie $^{111}\text{Ag}$ mit 7,4 Tagen, falls vorhanden, oder Unvollkommenheiten im Trennprozess) den frühen Zerfall beeinflusst haben.
-    \item \textit{Systematische Fehler bei kurzen Zeiten}: Da $^{110}\text{Ag}$ sehr schnell zerfällt, ist der Einfluss von Totzeiteffekten des Zählers oder Verzögerungen beim Transport des Präparats relativ größer als bei längeren Halbwertszeiten.
-    \item \textit{Aktivierungsbedingungen}: Falls die Aktivierungszeit nicht exakt gleichmäßig verlief oder die Sättigung nicht vollständig erreicht wurde, kann dies den Fit der zwei exponentiellen Komponenten verzerren.
-\end{itemize}
+Das kurzlebige $^{110}\text{Ag}$ lieferte einen Wert von $(22 \pm 3)$s, was einem Literaturwert von 24.56s gegenübergestellt wird. Der relative Fehler von 12\% erscheint auf den ersten Blick moderat, doch die Betrachtung der Signifikanzabweichung von $\sigma = 0.92$ zeigt, dass sich Mess- und Literaturwert statistisch noch annähernd überschneiden. Dennoch deuten typische Fehlerquellen wie Totzeiteffekte beim schnellen Zerfall oder minimale Verzögerungen im Transportsystem auf potenzielle systematische Einflüsse hin, die jedoch im Rahmen der hier gegebenen großen Messunsicherheit von $\pm 3$s nicht mehr als statistisch relevant gewertet werden können.
 
-\textbf{Indium-Isotope:}
-Bei Indium wurde nur der Grundzustand $^{116}\text{In}$ betrachtet, wobei der erste Messpunkt aufgrund der kurzlebigen Isomerie $^{116m}\text{In}$ ($T_{1/2} \approx 14$ s) verworfen wurde. Der ermittelte Wert von $(2589 \pm 19)$ s weicht jedoch stark vom Literaturwert von 3240 s ab (relativer Fehler ca. 20\%). Die extrem hohe Signifikanzabweichung von $\sigma \approx 35$ deutet auf ein systematisches Problem hin.
-Ein möglicher Grund ist die Annahme eines einphasigen Zerfalls. Wenn der metastabile Zustand $^{116m}\text{In}$ langsamer abklingt als angenommen oder wenn eine Kontamination mit anderen Indium-Isotopen vorliegt, verzerrt dies den linearen Verlauf im Halblogarithmischen Plot und führt zu einer falschen Steigung ($\lambda$). Zudem könnte die lange Messdauer von 50 Minuten anfällig für Drifterscheinungen im Detektor oder Änderungen der Untergrundstrahlung sein.
+Eine völlig andere Situation zeigt sich beim Indium-Isotop $^{116}\text{In}$. Hier wurde eine Halbwertszeit von $(2590 \pm 130)$s ermittelt, während der Literaturwert bei 3240s liegt. Es leigteine hohe Signifikanzabweichung von $\sigma = 4.91$ vor. Dies bedeutet, dass der Messwert fast fünf Standardabweichungen vom Erwartungswert entfernt liegt, was statistisch unwahrscheinlich ist, falls kein systematischer Fehler vorliegt. Ein möglicher Grund hierfür ist die komplexe Zerfallskinetik von Indium, bei der der metastabile Zustand $^{116m}\text{In}$ oder Kontaminationen mit anderen Isotopen den Zerfall verzerren könnten. Zudem könnte eine unzureichende Hintergrundkorrektur über die lange Messdauer von rund 50 Minuten zu einer Unterschätzung der tatsächlichen Halbwertszeit geführt haben. Die Annahme eines rein einphasigen exponentiellen Zerfalls könnte für diesen Fall unzureichend sein, wenn Reste des Isomers mit der längeren Halbwertszeit vorhanden waren.
 
 \section{Betrachtung der Fit-Güte}
 \label{sec:Fitauswertung}
 
-Die Qualität der angepassten Regressionen wurde mittels des reduzierten Chi-Quadrat-Wertes $\chi^2_{\text{red}}$ und der zugehörigen Wahrscheinlichkeit $P(\chi^2)$ bewertet.
+\section{Betrachtung der Fit-Güte}
+\label{sec:Fitauswertung}
 
-\begin{enumerate}
-    \item \textbf{Silbermessung:} 
-    Hier ergab sich ein $\chi^2_{\text{red}} = 1.02$ mit einer Wahrscheinlichkeit von $44.0\,\%$. Ein Wert nahe 1 und eine hohe Wahrscheinlichkeit bestätigen, dass das verwendete Modell (Superposition zweier Exponentialfunktionen plus konstanter Untergrund) die Messdaten hervorragend beschreibt. Die Residuen verteilen sich erwartungsgemäß normal um Null. Dies untermauert die Zuverlässigkeit des Ergebnisses für $^{108}\text{Ag}$, auch wenn die Abweichung bei $^{110}\text{Ag}$ systematisch bedingt sein muss.
-    
-    \item \textbf{Indiummessung:} 
-    Im Gegensatz dazu lieferte die Indiumanalyse ein $\chi^2_{\text{red}} = 1.71$ mit einer lediglich $2.0\,\%$ igen Wahrscheinlichkeit. Statistisch gesehen ist es extrem unwahrscheinlich, dass ein solch schlechter Fit bei korrektem Modell und realistischen Fehlern zustande kommt. Dies spricht dafür, dass entweder:
-    \begin{itemize}
-        \item die zugrundeliegenden Fehlerbars ($\sigma_N = \sqrt{N}$) unterschätzt wurden (z.B. durch zusätzliche Systematik),
-        \item oder das gewählte Modell $A(t) = A_0 e^{-\lambda t} + y_0$ unzureichend ist (z.B. bleibt ein kleiner Anteil des Isomers übrig, oder es liegt eine schwache zweite Komponente vor).
-    \end{itemize}
-    Der hohe $\chi^2_{\text{red}}$ erklärt teilweise die Diskrepanz zwischen Mess- und Literaturwert; der Fit zwingt die Kurve zwar an die Datenpunkte, aber da die Daten selbst nicht dem reinen Ein-Komponenten-Zerfall folgen, ist das Ergebnis physikalisch fragwürdig.
-\end{enumerate}
+Die Qualität der durchgeführten nichtlinearen Regressionen wurde mittels des reduzierten Chi-Quadrat-Wertes $\chi^2_{\text{red}}$, des absoluten Chi-Quadrat-Wertes $\chi^2$ sowie der zugehörigen Fit-Wahrscheinlichkeit $P(\chi^2)$ bewertet. Die Ergebnisse dieser Kennzahlen sind in Tabelle \ref{tab:AT3} zusammengefasst.
+
+\begin{table}[h!]
+    \centering
+    \caption{Ergebnisse der Güte der Regressionen für Indium und Silber.}
+    \label{tab:AT3}
+    \begin{tabular}{L | C | C}
+    \toprule
+    \text{Größe} &
+    \text{Silber} &
+    \text{Indium} \\
+    \midrule
+    \chi^2                          & 36.71 & 39.37  \\
+    \chi^2_\text{red}               & 1.02  & 1.71   \\
+    \text{Wahrscheinlichkeit} [\%]  & 44.0  & 2.0 \% \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Bei der Silbermessung ergibt sich ein reduzierter Chi-Quadrat-Wert von $\chi^2_{\text{red}} = 1.02$. Ein Wert, der nahe bei 1 liegt, ist ein starkes Indiz dafür, dass das gewählte Modell -- die Superposition zweier exponentieller Zerfallskurven plus einem konstanten Untergrundterm -- die Messdaten angemessen beschreibt. Ergänzt wird diese positive Bewertung durch eine Fit-Wahrscheinlichkeit von $44.0\%$. Diese Wahrscheinlichkeit gibt an, mit welcher Wahrscheinlichkeit man unter der Annahme eines korrekten Modells einen $\chi^2$-Wert erhält, der mindestens so groß wie der gemessene Wert ist. Ein Wert von $44\%$ liegt im optimalen Bereich (in der Regel gilt ein Intervall von etwa $5\%$ bis $95\%$ als akzeptabel), da er weder auf ein überangepasstes noch auf ein unzureichendes Modell hindeutet. Es ist also sehr wahrscheinlich, dass die beobachteten Abweichungen zwischen Modell und Datenpunkten allein auf statistisches Rauschen zurückzuführen sind. Dies bestätigt die statistische Robustheit der für $^{108}\text{Ag}$ und $^{110}\text{Ag}$ ermittelten Parameter, insbesondere vor dem Hintergrund der Übereinstimmung mit dem Literaturwert für $^{108}\text{Ag}$.
+Im Gegensatz dazu zeigt die Analyse der Indiummessung deutliche Diskrepanzen. Hier beträgt der reduzierte Chi-Quadrat-Wert $\chi^2_{\text{red}} = 1.71$, was bereits oberhalb des idealen Bereichs liegt. Viel aussagekräftiger ist jedoch die extrem niedrige Fit-Wahrscheinlichkeit von lediglich $2.0\%$. Dies bedeutet, dass Wahrscheinlichkeit bei korrektem Modell und realistischen Fehlerbalken einen so schlechten oder schlechteren Fit zu erhalten, bei gerade einmal $2\%$ liegt. Da diese Wahrscheinlichkeit deutlich unter der üblichen Signifikanzschwelle von $5\%$ liegt, muss die Nullhypothese -- dass das angenommene einphasige exponentielle Zerfallsmodell die Daten korrekt beschreibt -- verworfen werden. 
+Dieses Ergebnis korreliert unmittelbar mit der zuvor diskutierten hohen Signifikanzabweichung von $\sigma = 4.91$ beim Vergleich mit dem Literaturwert. Der schlechte Fit deutet darauf hin, dass entweder die angenommenen statistischen Unsicherheiten ($\sigma_N = \sqrt{N}$) die tatsächliche Streuung unterschätzen (z.\,B. durch systematische Drifts oder zusätzliche Rauschquellen) oder aber, was wahrscheinlicher ist, das physikalische Modell unzureichend ist. Im Fall von Indium ist bekannt, dass neben dem Grundzustand $^{116}\text{In}$ auch ein metastabiler Zustand $^{116m}\text{In}$ vorhanden ist. Wenn dieser Isomerenzustand nicht vollständig abgeklingen war oder seine Aktivität im Auswertungsmodell nicht berücksichtigt wird, führt dies zu systematischen Abweichungen vom reinen Exponentialgesetz, die sich in einem hohen $\chi^2$ und einer geringen Fit-Wahrscheinlichkeit zeigen. Zusammenfassend lässt sich feststellen, dass die Indiummessung zwar numerisch ausgewertet werden konnte, das zugrundeliegende Zerfallsmodell jedoch die physikalischen Gegebenheiten der Probe nicht vollständig abbildet.
 
 \section{Fazit}
-Zusammenfassend lässt sich sagen, dass die Methode der Aktivierung mit thermischen Neutronen prinzipiell geeignet ist, Halbwertszeiten zu bestimmen, was am Beispiel von $^{108}\text{Ag}$ deutlich wird. Die starken Abweichungen bei $^{110}\text{Ag}$ und $^{116}\text{In}$ sowie die geringe Fit-Güte bei Indium deuten jedoch auf spezifische Limitierungen des Versuchsaufbaus oder der Auswertungsannahmen hin, insbesondere bei kurzlebigen Isotopen oder Isomerengemischen. Eine genauere Betrachtung der Transportsystematik, der Totzeitkorrektur und der Reinheit der Proben wäre für zukünftige Versuche notwendig, um diese Diskrepanzen zu minimieren.
-
-
-
-
-
+Zusammenfassend lässt sich feststellen, dass die Methode der neutroneninduzierten Aktivierung zur Bestimmung von Halbwertszeiten grundsätzlich erfolgreich angewendet wurde, wie insbesondere das Ergebnis für $\text{Ag}$ mit seiner minimalen Abweichung zeigt.  Die Abweichung bei $^{116}\text{In}$ ($\sigma = 4.91$) erfordert jedoch eine kritische Prüfung der Versuchsanordnung und der Auswertemethodik. Zukünftige Versuche sollten insbesondere auf eine genauere Trennung der Isomerenzustände, eine präzisere Totzeitkorrektur und eine längere Messdauer zur besseren Erfassung des Untergrands achten.
 
 \footnote{Während des Versuches: Hallo, heute haben wir den Versuch 252 ausgeführt. Es hat ganz viel Spaßßßßß gemacht. Besonders toll fand ich die lange Wartezeit, da ich ein sehr geduldiger Mensch bin. Die Ergebnisse sind eigentlich auch ganz dolle geworden, also beschweren kann man sich da normalerweise eher weniger.}

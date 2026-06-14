@@ -31,8 +31,8 @@ Nun wurde der Bandpassfliter hinzugeschaltet. Die \cabb{A1/MitBandpass_30KOhm_10
 \section{Messung der Rauschspannung als Funktion des ohmschen Widerstands}
 \label{sec:A2}
 In dieser Sektion soll das Rauschen der ohmischen Widerstände quantitativ betrachtet werden, dazu werden die Messdaten der Aufgabe 2 aus dem \hyperref[ch:Protokoll]{Messprotokoll} entnommen.
-Hierfür wurden verschiedene Widerstandsstärken von 0 bis 30k$\Ohm$ in 5k$\Ohm$-Schritten untersucht. Die Zimmertemperatur betrüg während der Ausführung dieses Versuchsteiles $T = (22.3 \pm 0.3)^\circ C$.
-\img{plots/Spann_va_Wid_2a}{Gemessene Spannungen für die Verschiedenen Widerstände. $0\mathrm{k\Omega}$ beschreibt hierbei das Eigenrauschen des Verstärkers.}
+Hierfür wurden verschiedene Widerstandsstärken von $0\mathrm{k\Ohm}$  bis $30\mathrm{k\Ohm}$ in $5\mathrm{k\Ohm}$-Schritten untersucht. Die Zimmertemperatur betrug während der Ausführung dieses Versuchsteiles $T = (22.3 \pm 0.3)^\circ C$.
+\img[1]{plots/Spann_va_Wid_2a}{Gemessene Spannungen für die Verschiedenen Widerstände. $0\mathrm{k\Omega}$ beschreibt hierbei das Eigenrauschen des Verstärkers.}
 Die Ergebnisse werden in \csec{A3} gebraucht. 
 
 
@@ -52,10 +52,11 @@ An diese Messdaten soll eine Regression angelegt werden. Analytisch wird dies vi
 \eq{ant_freqGan}{
     g(f) = \frac{V}{\sqrt{1 + 1/(f/\Omega_{1})^{2n_{1}}} \sqrt{1 + (f/\Omega_{2})^{2n_{2}}}}
 }
-beschrieben werden. 
+beschrieben. 
 $V$ ist die maximale Systemverstärkung bei der entsprechenden Frequenz, $\Omega_1$ ist die untere Grenzfrequenz und $\Omega_2$ die obere Grenzfrequenz. $n_1$ beschreibt die Ordnung des Hochpassfilters und $n_2$ die Ordnung des Tiefpassfilters. Für $f \approx \sqrt{\Omega_1 \cdot \Omega_2}$ wird die Verstärkung maximal, da der Nenner minimal wird. Außerhalb der Grenzfrequenzen $\Omega_1$ und $\Omega_2$ wird das Signal stark abgeschwächt.
 Die Messdaten des Frequenzganges, sowie die Regression sind der \cabb{plots/Frequenzgang_Regression} zu entnehmen.
 \img{plots/Frequenzgang_Regression}{Messdaten mit Regressionsfunktion.}
+
 Allgemein lässt sich eine gute Annnährung erkennen. Es soll das Integral von der Regression berechnet werden
 \eq{reg_int_lol}{
     B = \int_{0}^{\infty} g(f)^{2} \, \d{f}
@@ -64,7 +65,7 @@ Die Integration wird nummerisch in Python durchgeführt. $B$ beschreibt dabei di
 \res[10]{B}{4.72}{0.09}{Hz}
 Die Ungenauigkeit wurde dabei nach Praktikumsskript auf 2\% geschätzt. \cite{skriptPAP22}
 
-\subsection*{Bestimmung der Boltzmankonstanten}
+\subsection{Bestimmung der Boltzmankonstanten}
 Mit den bisherigen Werten soll nun die Boltzmankonstante berechnet werden.
 Diese kann via 
 \eq{adfusfd}{
@@ -88,11 +89,11 @@ Auch hier wird die \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'sche Fehlerfortpf
             2 \sqrt{U_\text{V}^{2} \Delta U_\text{V}^{2} + U_\text{aus}^{2} \Delta U_\text{aus}^{2}}
 }
 Diese Differenz wird in Abhänigkeit des Widerstandes geplottet, dies ist der \cabb{plots/lin_reg_liest_das_hier_irgendwer} zu entnehmen. 
-\img{plots/lin_reg_liest_das_hier_irgendwer}{Spannungsdifferenz gegen den Genutzen Widerstand mit linerarer Regressionsfunktion, welche durch den Nullpunkt läuft.}
+\img[1]{plots/lin_reg_liest_das_hier_irgendwer}{Spannungsdifferenz gegen den Genutzen Widerstand mit linerarer Regressionsfunktion, welche durch den Nullpunkt läuft.}
 
 Durch die Messdaten wurde eine lineare Regression gelegt, welche zwangsmäßig durch den Nullpunkt laufen, da hier kein weißes Rauschen gibt. Somit wurde lediglich die Steigung bestimmt. Diese ist der Legende zu entnehmen und wurde $a$ genannt.
 Die bestimmte Boltzmankonstante liegt somit bei 
-\res[-24]{k_\text{B}}{1.79}{0.08}{J/K}
+\res[-23]{k_\text{B}}{1.44}{0.10}{J/K}
 
 Die Ungenauigkeit kann zudem in einen statistischen und einen systemischen Fehler aufgeteilt werden. 
 Für den statistischen Fehler ergibt sich somit
@@ -110,18 +111,18 @@ Diese Fehler können zu einem gesamt Fehler zusammengerechnet werden:
 }
 Somit ergibt sich
 \eq{udfu}{
-    \Delta k_\text{ges} = \sqrt{(7.6 \cdot 10^{-27})^2 + (3.6 \cdot 10^{-29})^2} \, .
+    \Delta k_\text{ges} = \sqrt{(9.6 \cdot 10^{-26})^2 + (2.9 \cdot 10^{-28})^2} \, .
 }
 
-Es wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert von $k_\text{B,lit}= 1.380649 \cdot 10^{-23}$ bestimmt. Die Abweichung liegt bei $143.6\sigma$ und ist damit signifikant.
+Es wird die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zum Literaturwert von $k_\text{B,lit}= 1.380649 \cdot 10^{-23}$ bestimmt. Die Abweichung liegt bei $0.58\sigma$ und ist damit signifikant.
 
-\subsection*{Güte des Fits}
+\subsection{Güte des Fits}
 Zum Abschluss dieser Sektion soll die Güte der Regression der \cabb{plots/lin_reg_liest_das_hier_irgendwer} bestimmt werden. 
 Um die Zuverlässigkeit der linearen Regression zur Bestimmung der Steigung $a$ zu quantifizieren, wurde die Güte des Fits mittels des reduzierten Chi-Quadrat-Kriteriums ($\chi^2_\text{red}$) analysiert. Wie in \ceq{chi_red} dargestellt, ergibt sich ein Wert von:
 \eq{chi_red}{
-    \chi_\text{red} = 0.43
+    \chi_\text{red}^2 = 0.43
 }
-Ein Wert von $\chi^2_\text{red} \approx 1$ würde eine perfekte Übereinstimmung zwischen der Streuung der Messdaten und den geschätzten Fehlerbalken anzeigen. Der hier ermittelte Wert von $0.43$ liegt deutlich unterhalb von 1. Dies impliziert, dass die tatsächliche Streuung der Messpunkte um die Regressionsgerade geringer ist als durch die angegebenen Unsicherheiten $\sigma_{U_\text{diff}}$ vorhergesagt. Die gewählten Fehlerbalken waren somit konservativ (zu groß) gewählt, was auf eine sehr stabile Messung mit geringen statistischen Schwankungen hindeutet.
+Ein Wert von $\chi^2_\text{red} \approx 1$ würde eine perfekte Übereinstimmung zwischen der Streuung der Messdaten und den geschätzten Fehlerbalken anzeigen. Der hier ermittelte Wert von $0.43$ liegt deutlich unterhalb von 1. Dies impliziert, dass die tatsächliche Streuung der Messpunkte um die Regressionsgerade geringer ist als durch die angegebenen Unsicherheiten $\Delta {U_\text{diff}}$ vorhergesagt. Die gewählten Fehlerbalken waren somit konservativ (zu groß) gewählt, was auf eine sehr stabile Messung mit geringen statistischen Schwankungen hindeutet.
 Zur weiteren Absicherung wurde der p-Wert (Signifikanzniveau) berechnet, der die Wahrscheinlichkeit angibt, eine mindestens so große Abweichung zwischen Modell und Daten rein zufällig zu beobachten, sofern das lineare Modell korrekt ist. Gemäß \ceq{wahrKeit} ergibt sich:
 \eq{wahrKeit}{
     p = 82.72 \%
@@ -132,7 +133,27 @@ Da dieser Wert weit im Bereich der statistischen Akzeptanz liegt ($p > 5\,\%$), 
 \label{sec:A4}
 Zuletzt soll die Zusatzaufgabe Ausgewertet werden. Die Messergebnisse sind erneut dem \hyperref[ch:Protokoll]{Messprotokoll} zu entnehmen. 
 
-Der \cabb{plots/Frequenzgang_4a.pdf} ist zu entnhemen, dass die Temperatur bei der $250^\circ$C-Einstellung konnte keine kontinuirliche Temperatur erreicht werden, dies liegt daran, dass wenn immer $\approx 250^\circ$C erreicht werden, das Heißen abgebrochen wird und das Heißglied sofort wieder abkühlt. Daher konnte hier kein exakter Wert vermessen werden.
-\img{plots/Frequenzgang_4a.pdf}{Schwankung der Temperatur bei am Heizwiderstand bei 250$^\circ$C.}
+Der \cabb{plots/Frequenzgang_4a.pdf} ist zu entnhemen, dass die Temperatur bei der $250^\circ$C-Einstellung keine kontinuirliche Temperatur erreichen konnte, dies liegt daran, dass wenn immer $\approx 250^\circ$C erreicht wurden, das Heißen abgebrochen wird und das Heißglied sofort wieder abkühlt. Daher konnte hier kein exakter Wert vermessen werden.
+\img[1]{plots/Frequenzgang_4a.pdf}{Schwankung der Temperatur am Heizwiderstand bei 250$^\circ$C.}
 
-\img{plots/Fit_durch_Ursprung_4a}{Graphen der linearen Regressionen mit dem Temperaturwiderstand.}
+Über die Gleichung 
+\eq{finalEQ}{
+    y = \frac{(U^{2}_{aus} - U^{2}_{V})}{R} = (4 k_B B)T
+}
+kann die Boltzmankonstante hereleitet werden:
+\eq{kBNeuushdfu}{
+    y /(4 \cdot B) = k_B \, .
+}
+
+Die Messdaten aus dem \hyperref[ch:Protokoll]{Messprotokoll} wurden mit zwei linearen Regressionen versehen. Die eine wird durch den Ursprung gelegt, da hier der absolute Tmperaturnullpunkt von 0K erreicht ist. Die zweite Regression wird mit zwei freien Parametern versheen, so lässt sich hier auch der Abssolute Nullpunkt bestimmen, bzw. sollte der bekannte bestätigt werden. Messdaten, sowie beide Regressionen sind der \cabb{plots/Fit_durch_Ursprung_4c} zu entnehmen. Die bestimmten Steigungen sind der Legende zu entnehemn.
+\img[]{plots/Fit_durch_Ursprung_4c}{Graphen der linearen Regressionen mit dem Temperaturwiderstand.}
+
+Aus der Regression durch den Ursprung soll die Boltzmankonstante bestimmt werden, diese berechnet sich zu 
+\res[-23]{k_\text{B,2}}{1.8}{0.3}{J/K}
+
+Diese weicht um $1.39\sigma$ vom Literaturwert ab. Von dem zuvor bestimmten Wert weicht dieser um $1.2\sigma$ ab.
+
+Aus der Regression mit zwei freien Parametern wurde der Ordinatenachsenabschnitt bestimmt -- der dazugehörige Abzissenwert entspricht dem bestimmten Nullpunkt. Diese wird zu 
+\res{T_0}{-266}{17}{K}
+bestimmt.
+Erwartet wäre eine Temperatur von $0$K, jedoch liegt hier die Standardabweichung bei $15.82\sigma$. 

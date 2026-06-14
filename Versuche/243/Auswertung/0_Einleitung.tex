@@ -3,7 +3,7 @@
 \section{Aufgabe und Motivation}
 \label{sec:AuM}
 
-Das Ziel dieses Versuchs ist die Bestimmung der Boltzmann-Konstante $k_B$ durch Messung des thermischen Rauschens in ohmschen Widerständen. Da die Rauschspannungen im Mikrovolt-Bereich liegen, ist ein rauscharmer Verstärker notwendig, dessen Eigenrauschen separat bestimmt und vom Gesamtsignal abgezogen werden muss. Thermisches Rauschen begrenzt zwar die Genauigkeit elektrischer Messungen, findet aber auch gezielte Anwendung, etwa in Rauschthermometern.
+Ziel dieses Versuchs ist die Bestimmung der Boltzmann-Konstante $k_B$ durch Messung des thermischen Rauschens in ohmschen Widerständen. Da die Rauschspannungen im Mikrovolt-Bereich liegen, ist ein rauscharmer Verstärker notwendig, dessen Eigenrauschen separat bestimmt und vom Gesamtsignal abgezogen werden muss. Thermisches Rauschen begrenzt zwar die Genauigkeit elektrischer Messungen, findet aber auch gezielte Anwendung, etwa in Rauschthermometern.
 
 \section{Physikalische Grundlage}
 \label{sec:PhyBasics}
@@ -24,11 +24,11 @@ Bei der Untersuchung des Frequenzspektrums einer solchen thermischen Rauschquell
 
 In dieser Gleichung stellt $k_B$ die gesuchte Boltzmann-Konstante dar und $R$ die allgemeine Gaskonstante. Die Bandbreite $\Delta f$ bezieht sich hierbei auf die Bandbreite der verwendeten Messelektronik (Verstärker, Filter, Messgerät). Da das Rauschen frequenzunabhängig ist, trägt jeder Frequenzbereich gleichermaßen zur gesamten Rauschleistung bei; eine größere Bandbreite führt somit zu einer höheren gemessenen Rauschspannung.
 
-Da die Rauschspannung bei Zimmertemperatur und typischen Widerstandswerten (z. B. einige k$\Omega$) und Bandbreiten nur im Bereich von Mikrovolt liegt, ist eine direkte Messung ohne Verstärkung nicht möglich. Ein rauscharmer Verstärker mit einer Verstärkung $V$ (im Versuch ca. 1000-fach bzw. 60 dB) wird daher eingesetzt. Allerdings stellt der Verstärker selbst eine weitere Rauschquelle dar. Die Rauschbeiträge des Widerstands $\langle U_R^2 \rangle$ und des Verstärkers $\langle U_V^2 \rangle$ addieren sich quadratisch, da sie statistisch unabhängig voneinander sind und ihre Mittelwerte null sind:
+Da die Rauschspannung bei Zimmertemperatur und typischen Widerstandswerten und Bandbreiten nur im Bereich von Mikrovolt liegt, ist eine direkte Messung ohne Verstärkung nicht möglich. Ein rauscharmer Verstärker mit einer Verstärkung $V$ (im Versuch ca. 1000-fach bzw. 60 dB) wird daher eingesetzt. Allerdings stellt der Verstärker selbst eine weitere Rauschquelle dar. Die Rauschbeiträge des Widerstands $\langle U_R^2 \rangle$ und des Verstärkers $\langle U_V^2 \rangle$ addieren sich quadratisch, da sie statistisch unabhängig voneinander sind und ihre Mittelwerte null sind:
 
 \eq{total_noise}{\langle U_{R+V}^2 \rangle = \langle (U_R + U_V)^2 \rangle = \langle U_R^2 \rangle + \langle U_V^2 \rangle.}
 
-Um die Boltzmann-Konstante bestimmen zu können, muss das Eigenrauschen des Verstärkers $\langle U_V^2 \rangle$ experimentell ermittelt werden, indem der Verstärkereingang kurzgeschlossen wird (Nullmessung), und später von der Gesamtmessung subtrahiert werden. Zudem wird zur präzisen Bestimmung der effektiven Bandbreite ein Bandfilter verwendet, das aus einem Hochpass- und einem Tiefpassfilter besteht. Der Hochpass unterdrückt niederfrequente Störungen wie das 50-Hz-Netzbrummen, während der Tiefpass hochfrequentes Rauschen filtert und eine scharfe Begrenzung der oberen Grenzfrequenz ermöglicht.
+Um die Boltzmann-Konstante bestimmen zu können, muss das Eigenrauschen des Verstärkers $\langle U_V^2 \rangle$ experimentell ermittelt werden, indem der Verstärkereingang kurzgeschlossen wird (Nullmessung), und später von der Gesamtmessung subtrahiert werden. Zudem wird zur präzisen Bestimmung der effektiven Bandbreite ein Bandfilter verwendet, das aus einem Hochpass- und einem Tiefpassfilter besteht. Der Hochpass unterdrückt niederfrequente Störungen, während der Tiefpass hochfrequentes Rauschen filtert und eine scharfe Begrenzung der oberen Grenzfrequenz ermöglicht.
 
 Der Frequenzgang $g(f)$ des gesamten Messsystems (Verstärker plus Bandfilter) ist definiert als das Verhältnis der Ausgangsspannung zur Eingangsspannung bei einer bestimmten Frequenz $f$:
 

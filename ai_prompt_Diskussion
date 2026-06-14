@@ -1,0 +1,57 @@
+Dies ist meine Ausarbeitung. Mir fehlt noch die Diskussion. Diese soll nachdem Schema:
+\chapter{Diskussion}
+\label{ch:Diskussion}
+
+\section{Zusammenfassung}
+\label{sec:Zusammenfassung}
+
+\section{Analyse der Messwerte}
+\label{sec:Analyse}
+
+\section{Kritik}
+\label{sec:Kritik}
+
+
+Aufgebaut werden. Schereibe alles als Fließtext und gib mir den Latex code wieder. 
+In der Zusammenfassung soll genannt werden, was das Ziel des Verusches war und ob dies grundsätzlich erreicht wurde. 
+
+In der Analyse der Messwerte soll dann besonders auf die Sigmaabweichungen und Fehler eingenangen werden; sind diese gut? So decken diese die Theorie. Wichen diese AB? wieso tuen sie es? Was sind mögliche Fehlerquellen? 
+
+In der Kritik soll dann genannt werden, wie der Messaubbau optimiert werden kann, um die Ergebnise zu verbessern.
+
+Es sind folgende Funktionen in latex defineirt:
+% Die Eingabe ist das vergebene Label, z.B. \cabb{label} für eine Abbildung, \ctab{label} für eine Tabelle, \cdig{label} für ein Diagramm und \ceq{label} für eine Gleichung
+\newcommand{\cabb}[1]{\hyperref[fig:#1]{Abbildung \ref{fig:#1}}} % Abbildung zitieren
+\newcommand{\ctab}[1]{\hyperref[tab:#1]{Tabelle \ref{tab:#1}}} % Tabelle zitieren
+\newcommand{\cdig}[1]{\hyperref[dia:#1]{Diagramm \ref{dia:#1}}} % Diagramm zitieren
+\newcommand{\ceq}[1]{\hyperref[eq:#1]{Gleichung \ref{eq:#1}}} % Gleichung zitieren
+\newcommand{\cch}[1]{\hyperref[ch:#1]{Kapitel \ref{ch:#1}}} % Kaapitel zitieren
+\newcommand{\csec}[1]{\hyperref[sec:#1]{Sektion \ref{sec:#1}}} % Sektion zitieren
+\newcommand{\cssec}[1]{\hyperref[ssec:#1]{Sektion \ref{ssec:#1}}} % Subektion zitieren
+
+\newcommand{\res}[5][0]{
+  \begin{equation}
+    % \label{eq:#2}
+    \boxed{
+        #2 =
+      {(#3 \pm #4)}
+        \ifthenelse{#1=0}{
+            \,
+          }{
+          \cdot 10^{#1} \,
+        }
+        \mathrm{#5}
+      }
+  \end{equation}
+}
+
+\newcommand{\eq}[2]{
+   \begin{equation}
+    \label{eq:#1}
+    #2
+  \end{equation}
+}
+
+
+Alle ergebnisse, die in der Auswertung eingeboxed sind (\res), sollen genau so (mit \res) auch in der Diskussion stehen. Auch die standardabweichungen sollen 1:1 wieder gegeben werden. Es sollen keine Zahlenwerte verändert werden, also auch nicht gerundet.
+Bei Bezug auf Tabellen oder Abbildungen sollen die Citierungen oben genutzt werden.

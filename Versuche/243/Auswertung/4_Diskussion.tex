@@ -4,8 +4,31 @@
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
 
+Der vorliegende Versuch hatte zum Ziel, die Boltzmann-Konstante $k_\text{B}$ durch Messung des thermischen Rauschens in ohmschen Widerständen zu bestimmen. Da die Rauschspannungen typischerweise im Mikrovolt-Bereich liegen, wurde ein rauscharmer Verstärker mit einer Verstärkung von $G = (1000 \pm 0,2)\%$ eingesetzt. Zusätzlich wurde die äquivalente Rauschbandbreite $B$ über eine detaillierte Frequenzgangsmessung bestimmt und das Eigenrauschen des Verstärkers durch Kurzschlussmessung separat quantifiziert. Die experimentelle Bestimmung erfolgte mittels linearer Regression der Spannungsdifferenz $U_\text{diff}$ gegen den Widerstandswert $R$.
+
+Insgesamt wurde das Versuchsziel grundsätzlich erreicht. Der ermittelte Wert für die Boltzmann-Konstante liegt bei
+\res[-23]{k_\text{B}}{1.44}{0,10}{J/K}
+und weicht nur um $0.58\sigma$ vom Literaturwert von $k_\text{B,lit}= 1.380649 \cdot 10^{-23}\mathrm{J/K}$ ab. Diese Abweichung liegt innerhalb der statistischen Unsicherheit, sodass die Messung als erfolgreich gewertet werden kann. Auch die Zusatzuntersuchung zur Temperaturabhängigkeit des thermischen Rauschens bestätigte qualitativ die theoretische Erwartung, obwohl die quantitative Übereinstimmung hier weniger präzise war.
+
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
 
-\section{Kritik}
-\label{sec:Kritik}
+Die Analyse der Messergebnisse zeigt eine insgesamt gute Übereinstimmung zwischen Theorie und Experiment. Die zentrale Messgröße, nämlich die Boltzmann-Konstante aus der Widerstandsreihe, weicht nur um $0.58\sigma$ vom Literaturwert ab. Dieser geringe Abstand deutet darauf hin, dass die Fehlerbalken realistisch gewählt wurden und keine signifikanten systematischen Fehler das Ergebnis dominieren. Der reduzierte Chi-Quadrat-Wert von
+\eq{chi_red_disc}{
+    \chi_\text{red} = 0.43
+}
+liegt deutlich unterhalb von $1$, was impliziert, dass die tatsächliche Streuung der Messpunkte geringer ist als durch die angegebenen Unsicherheiten vorhergesagt. Die konservativ gewählten Fehlerbalken sprechen für eine sehr stabile Messung mit geringen statistischen Schwankungen. Dies wird weiterhin durch den p-Wert von
+\eq{wahrKeit_disc}{
+    p = 82.72\%
+}
+bestätigt, der weit im Bereich der statistischen Akzeptanz ($p > 5\%$) liegt und somit die Nullhypothese bestätigt, dass die Daten einem linearen Zusammenhang folgen.
+
+Bei der Zusatzaufgabe zur Temperaturabhängigkeit zeigen sich hingegen größere Abweichungen. Der Wert
+\res[-23]{k_\text{B,2}}{1.8}{0.3}{J/K}
+weicht um $1.39\sigma$ vom Literaturwert ab. Zwar bleibt dies noch im Rahmen statistisch akzeptabler Abweichungen, aber die Unsicherheit ist hier größer als bei der Hauptmessung. Besonders auffällig ist die Extrapolation des absoluten Nullpunkts, die einen Wert von
+\res{T_0}{-266}{17}{K}
+liefert. Dieser weicht um $15.82\sigma$ vom erwarteten Wert von $0\mathrm{K}$ ab. Eine solche Diskrepanz lässt sich nicht durch statistische Schwankungen erklären und weist auf systematische Effekte hin.
+
+Mögliche Fehlerquellen lassen sich in mehrere Kategorien unterteilen. Zunächst besteht Unsicherheit bei der Bandbreitenbestimmung. Das Integral $B = \int_0^\infty g(f)^2\d{f}$ wurde numerisch aus der Regressionsfunktion berechnet, wobei eine Ungenauigkeit von $2\%$ geschätzt wurde (\csec{A3}). Abweichungen der tatsächlichen Frequenzgangeigenschaften vom analytischen Modell könnten diese Schätzung verfälschen. Zweitens beeinflusst die Temperaturmessung das Ergebnis direkt gemäß \ceq{adfusfd}. Bei $T = (22.3 \pm 0.3)^\circ\mathrm{C}$ entspricht dies einer relativen Unsicherheit von etwa $0.1\%$, die jedoch durch Temperaturschwankungen während der Messdauer erhöht sein könnte. Drittens spielen parasitäre Kapazitäten und Induktivitäten der Leitungen eine Rolle, die besonders bei hohen Frequenzen die effektive Bandbreite verändern. Viertens konnte bei der Temperaturmessung bei $250^\circ\mathrm{C}$ keine kontinuierliche Temperatur erreicht werden, wie \cabb{plots/Frequenzgang_4a.pdf} zeigt. Das Heißglied schaltete sich immer wieder ab, was die Datengrundlage für diese Temperaturstufe erheblich schwächt.
+
+Des Weiteren ist anzumerken, dass die Annahme ideal ohmscher Widerstände nicht vollständig zutreffend sein muss. Reale Widerstände zeigen frequenzabhängiges Verhalten und zusätzliches Rauschen (z.B. $1/f$-Rauschen bei niedrigen Frequenzen), das nicht im Nyquist-Gleichgewichtsrauschen enthalten ist. Der Verstärker selbst kann ebenfalls nicht-lineare Verzerrungen oder Drift-Effekte aufweisen, die trotz der Nullmessung Restfehler hinterlassen.
