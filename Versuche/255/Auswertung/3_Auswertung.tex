@@ -1,33 +1,50 @@
-\chapter{Auswertung}
+\chapter{Evaluation}
 \label{ch:Auswertung}
 % Liste der genutzer Formeln für die Fehlerrechnung
-\section*{Fehlerrechnung}
-Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größen definiert \cite{errorSkript25}:
+\section*{Uncertanty Calculation}
+For the statistical evaluation of $n$ messurments $x_i$, the follwoing equations are defined: \cite{errorSkript25}:
 \begin{align}
-    \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetisches Mittel}} \label{eq:arithmetisches_mittel} \\
-    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Varianz}} \label{eq:Varianz} \\
-    \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
-    \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
-    \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
-    \Delta f &= \sqrt{(\Delta x)^2 + (\Delta y)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = x + y$}} \label{eq:fehler_summe} \\
-    \Delta f &= |a| \Delta x \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = ax$}} \label{eq:fehler_proportional} \\
-    \frac{\Delta f}{|f|} &= \sqrt{\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{relativer Fehler für $f = xy$ oder $f = x/y$}} \label{eq:relativer_fehler} \\
-    \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
+    \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetic Mean}} \label{eq:arithmetic_mean} \\
+    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Variance}} \label{eq:variance} \\
+    \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standard Deviation}} \label{eq:standard_deviation} \\
+    \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Uncertainty of the Mean}} \label{eq:uncertainty_mean} \\
+    \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gaussian Error Propagation for $f(x,y)$}} \label{eq:gauss_error_prop} \\
+    \Delta f &= \sqrt{(\Delta x)^2 + (\Delta y)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Uncertainty for $f = x + y$}} \label{eq:error_sum} \\
+    \Delta f &= |a| \Delta x \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Uncertainty for $f = ax$}} \label{eq:error_proportional} \\
+    \frac{\Delta f}{|f|} &= \sqrt{\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Relative Uncertainty for $f = xy$ or $f = x/y$}} \label{eq:relative_error} \\
+    \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Significant Deviation Calculation}} \label{eq:significant_deviation}
 \end{align}
 
 \newpage
 
-\section{Aufgabe 1: }
+\section{X-Ray Spectrum with Lithium-Florid}
 \label{sec:A1}
+In the first part, the X-Ray spectrum with the mounted Lithium-Florid (LiF) cirstal is being evaluated. This spectrum is used to estimate Planck's constant $h$, evaluate the wavelengths for the peaks -- the characteristic lines -- and find the influence the acceleration voltage has on the estimated Planck's constant.
 
-\section{Aufgabe 2: }
+\subsection{Calculating the Plank's Constant}
+In this section, the paper will use the messurment data, and set a regression to the (nearly) linear part on the beginning.
+For the angle an uncertainty of $\Delta \vartheta = 0.05^\circ$ and for the Counts we use equation \ref{eq:standard_deviation}.
+The linear regression $f(\vartheta)= m \cdot \vartheta + b$ has a slope $m$ and corsses the ordinate-axis at $b$. Both values can be found in the plot \ref{fig:plots/hohle_spectrum_and_slope_1a}.
+
+\img[1]{plots/hohle_spectrum_and_slope_1a}{Messurment data interpolated along side the linear regression.}
+
+By setting the linear regression equal to zero and solve for $\vartheta$, we reseve the critical angle:
+\eq{crit_angle}{
+    \vartheta_\text{crit} = -\frac{b}{a}, \quad 
+            \Delta \vartheta_\text{crit} = \vartheta_\text{crit} \cdot \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta b^{2}}{b^{2}}}        
+}
+
+Using equation \ref{eq:bragg}, using $n =1$, $d=201.4$pm and the just calculated angle $\vartheta_\text{crit}$ the wavelength is calculated to be
+\eq{wavLeng1}{
+    \lambda = 
+}
+
+\subsection{Evaluation of the K-Lines}
+
+\subsection{Counts in dependence of the acceleration voltage}
+
+\section{X-Ray Spectrum with Sodium-Chlorid}
 \label{sec:A2}
+\subsection{Lattice of the NaCl Cristal}
 
-\section{Aufgabe 3: }
-\label{sec:A3}
-
-\section{Aufgabe 4: }
-\label{sec:A4}
-
-\section{Aufgabe 5: }
-\label{sec:A5}
+\subsection{Evaluation of the Avogadro-Number}
