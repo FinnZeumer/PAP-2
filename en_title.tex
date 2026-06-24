@@ -1,0 +1,34 @@
+% Kopfzeile für Versuchs 223 - Sonst ignorieren und kommentiren/löschen
+% \chead{\raisebox{0.1cm}[0pt][0pt]{Brownsche Bewegung}} % Versuchsname ist zu lang
+
+
+\begin{titlepage}
+\vspace*{2cm} 
+  
+  \centering
+    
+  % Versuchs-Titel
+  {\LARGE\bfseries Protocol for the Experiment \\[0.2cm]
+  \textit{\versuchsname{\versuchsnummer}} \\[0.5cm] % Vielleicht wieder Anführungszeichen hinzufügen, leider Problem, da ein Leerzeichen falsch hinzugefügt wird.
+  {\large (Experiment {\versuchsnummer})}
+  \vspace{1cm}}
+
+  % Tabelle mit Metadaten
+  {\large
+  \begin{tabular}{@{}rl@{}}
+    Author:                  & Finn Zeumer \orcidlink{0009-0002-4800-760X} \\
+    Experimental Partner:        & Annika Künstle\\[0.5em]
+    Tutor:      & {\begleiter{\versuchsnummer}}\\[0.5em]
+    Date of the experiment:   & {\durchfuehrungsdatum{\versuchsnummer}}\\
+    \small{Hand-in Date:}    & \small{\today}\\
+  \end{tabular}
+  }
+  \vfill
+
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[opacity=1,inner sep=0] at (current page.center)
+      {\includegraphics[width=\paperwidth,height=\paperheight]{BG_Titelseite.pdf}};
+  \end{tikzpicture}
+  
+\end{titlepage}
