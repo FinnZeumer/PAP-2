@@ -25,7 +25,6 @@ In the first part, the X-Ray spectrum with the mounted Lithium-Florid (LiF) cirs
 In this section, the paper will use the messurment data, and set a regression to the (nearly) linear part on the beginning.
 For the angle an uncertainty of $\Delta \vartheta = 0.05^\circ$ and for the Counts we use equation \ref{eq:standard_deviation}.
 The linear regression $f(\vartheta)= m \cdot \vartheta + b$ has a slope $m$ and corsses the ordinate-axis at $b$. Both values can be found in the plot \ref{fig:plots/hohle_spectrum_and_slope_1a}.
-
 \img[1]{plots/hohle_spectrum_and_slope_1a}{Messurment data interpolated along side the linear regression.}
 
 By setting the linear regression equal to zero and solve for $\vartheta$, we reseve the critical angle:
@@ -33,18 +32,117 @@ By setting the linear regression equal to zero and solve for $\vartheta$, we res
     \vartheta_\text{crit} = -\frac{b}{a}, \quad 
             \Delta \vartheta_\text{crit} = \vartheta_\text{crit} \cdot \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta b^{2}}{b^{2}}}        
 }
+Thus the critical value can be expressed as 
+\imp{\vartheta_\text{crit}}{4.7}{0.3}{^\circ}
+Using equation \ref{eq:bragg} and rearranging it to get
+\eq{cirt_lam}{
+    \lambda_\text{crit} = \frac{2 d}{n} \sin{\left(\vartheta \right)}\, , \quad 
+    \Delta \lambda_\text{crit} = \lambda_\text{crit} \cdot \sqrt{\frac{\Delta x^{2}}{\tan^{2}{\left(\vartheta \right)}}} \, .   
+}
+Using the values $n =1$ and $d=201.4$pm as well as the calculated angle $\vartheta_\text{crit}$ the wavelength is calculated to be
+\imp[-13]{\lambda_\text{crit}}{3.30}{0.21}{m}
 
-Using equation \ref{eq:bragg}, using $n =1$, $d=201.4$pm and the just calculated angle $\vartheta_\text{crit}$ the wavelength is calculated to be
-\eq{wavLeng1}{
-    \lambda = 
+Having the critical wavelength mean, that by using equation \ref{eq:grenzwelle} and rearainging it, Planck's constant can be calculated by teh formula
+\eq{planksEQ}{
+    h = \frac{U_B \lambda_\text{{crit}}}{c} e \, , \quad
+    \Delta h = h \cdot \sqrt{\frac{\Delta \lambda_\text{{crit}}^{2}}{\lambda_\text{{crit}}^{2}} + \frac{\Delta {U_B}^{2}}{{U_B}^{2}}}     
 }
 
+Having the constant $e$ as well as $c$ in the script, $\lambda_\text{crit}$ calculated and $U_B = (35.00 \pm 0.05)$kW set manually, Planck's constant can be calculated to \cite{skriptPAP22}
+\res[-34]{h}{6.2}{0.4}{J s}
+
+This value has a standard deviation from the literary value $h = 6.62607015 \cdot 10^{-34}$J\,s of $1.07\sigma$ and is therefore not significant.
+
+Furthermore, it is possible to estimate the beginning of the second order. Again equation \ref{eq:bragg} is used. The angle of the second order can be calculated by 
+\eq{sizudfh}{
+    \vartheta_\text{2ord} = \operatorname{asin}{\left(\frac{\lambda_\text{{crit}}}{d} \right)} \, , \quad
+    \Delta \vartheta_\text{2ord} = 
+           \vartheta_\text{2ord} \cdot \sqrt{- \frac{\Delta \lambda_\text{{crit}}^{2}}{\left(\lambda_\text{{crit}}^{2} - d^{2}\right) \operatorname{asin}^{2}{\left(\frac{\lambda_\text{{crit}}}{d} \right)}}}
+}
+Plotting the known values into teh equation, the angle can be calculated to 
+\res{\vartheta_\text{2ord}}{9.4}{0.6}{^\circ}
+Meaning, the second order K-Lines will start about $(9.4 \pm 0.6)^\circ$ after the first one started.
+
 \subsection{Evaluation of the K-Lines}
+Next, this paper will focus on the K-Lines them self in order to find the $K_\alpha$-, and $K_\beta$-Lines for Mo. Both orders were messured with a higher resulution in order to improve the results. The plot \ref{fig:plots/first_order_LiF_2a} shows the spectrums being alysed in this section.
+\iimg{plots/first_order_LiF_2a}{plots/second_order_LiF_2b}{(a) Showing the high-reselution spectrum for the first ordered, and (b) for the secodn orderd K-Lines}
+
+All for peaks will be fitted by using a gaussiian regression, thus the angle of each peak an be calculated quite precisley. For the plot \ref{fig:plots/first_order_LiF_FWHM2c} the original data from \ref{fig:plots/first_order_LiF_2a_a} shows the gaussian regression for the first orderd peaks.
+The parameters for teh gaussian regressions are also in the plot -- they can be found in the ledgend unter each regression. $\mu$ is here the angle of the peak. Using equation \ref{eq:cirt_lam} and plot the engles from the gaussian regression in, the wavelength for each K-Line can be calculated.
+The results can be found in table \ref{tab:weird_tale_label}.
+\img[1]{plots/first_order_LiF_FWHM2c}{First order X-Ray spectrum of Mo using a LiF Cristal.} 
+
+Furthermore, using the gaussian regression, the halfe-width (FWHM\footnote{"FWHM" stands for "Full Width at Halfe Maximum"}) can be calulated by the formula
+\eq{FWHM}{
+    \text{FWHM} = 2 \sqrt{2 \log{\left(2 \right)}}\sigma\, , \quad
+    \Delta \text{FWHM} = \text{FWHM} \cdot \sqrt{\frac{\Delta \sigma^{2}}{\sigma^{2}}} \, .
+}
+The results are also listed in the table \ref{tab:weird_tale_label}.
+
+\img[1]{plots/second_order_LiF_FWHM2d}{Second order X-Ray spectrum of Mo using a LiF Cristal.} 
+For the second orded peaks, the data from the plot \ref{fig:plots/first_order_LiF_2a_b} is being used. The gaussian regression as well as the parameters can be found in the figure \ref{fig:plots/second_order_LiF_FWHM2d}.
+
+\begin{table}[ht!]
+    \caption{Results for the second Task. The literary values $\lambda_\alpha = 71.1$ and $\lambda_\beta = 63.1$ were used. \cite{skriptPAP22}}
+    \centering
+    \label{tab:weird_tale_label}
+    \begin{tabular}{L | C | C | C || C | C}
+        \toprule
+        \text{K-Line} & \text{angle [deg]} & \lambda_\text{Mo} \; [\mathrm{pm}] & \text{Standard Deviation }\sigma & \text{FWHM} \, [\mathrm{deg}] & \text{FWHM} \, [\mathrm{pm}] \\
+        \midrule
+        \alpha_1 & 10.129 \pm 0.007 & 71.3 \pm 0.3      & 0.66 & 0.272 \pm 0.014 & 1.91 \pm 0.10 \\
+        \alpha_2 & 20.6214 \pm 0.0017 & 70.86 \pm 0.16  & 1.50 & 0.298 \pm 0.003 & 2.49 \pm 0.24 \\
+        \alpha &  & 71.1 \pm 0.4                        & 0.00 & 0.285 \pm 0.014 & 2.20 \pm 0.26 \\
+        \midrule
+        \beta_1  &  8.988 \pm 0.016 & 63.0 \pm 0.3      & 0.33 & 0.35 \pm 0.03 & 1.048 \pm 0.012 \\
+        \beta_2  & 18.230 \pm 0.021 & 63.24 \pm 0.17    & 0.82 & 0.39 \pm 0.05 & 1.38 \pm 0.17 \\
+        \beta  &  & 63.1 \pm 0.4                        & 0.00 & 0.37 \pm 0.06 & 1.21 \pm 0.17 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+None of the standard deviation for all wavelength is significant from the literary values. Even though not shown in the table, but non of the standard diviations between two K-Lines is significant. The standard diviation for $\alpha_1$ and $\alpha_2$ is $2.23\sigma$, and for teh $\beta$ K-Lines it is $1.95\sigma$. 
+Statistically, it can be assumed that the first and second order K-Lines have the same halfe-width.
 
 \subsection{Counts in dependence of the acceleration voltage}
+In this section, the impact of the acceleration voltage $U_B$ is being evaluated. Therefore, the counts per second are plotted against the voltage $U_B$ as shwon in the plot \ref{fig:plots/Against_U_B_3a}. 
+
+\img[1]{plots/Against_U_B_3a}{}
+
+\imp[4]{U_E}{2.325}{0.006}{V}
+
+
+Using equation \ref{eq:planksEQ}, but insted of $U_B$ use $U_E$.
+
+\res[-34]{h}{6.53}{0.05}{J\,s}
+
+Standard diviation $2.02 \sigma$. Not significant.
 
 \section{X-Ray Spectrum with Sodium-Chlorid}
 \label{sec:A2}
+
+Netx, the cristal is changed into a Sodium-Chlorid cristal. The raw signal can be found in figure \ref{fig:plots/NaCl_4z}.
+
+\img{plots/NaCl_4z}{}
+
 \subsection{Lattice of the NaCl Cristal}
+
+\begin{table}[ht!]
+    \caption{X-ray Diffraction Analysis Results. For the expected wave length, the literary value $g_\text{NaCl} = 564$pm was used. Source: https://de.wikipedia.org/wiki/Natriumchlorid}
+    \centering
+    \label{tab:xray_analysis}
+    \begin{tabular}{L | C | C | C | C }
+        \toprule
+        \text{K-Line} & \text{angle [deg]} & \text{Expected } \lambda_\text{Mo} \; [\mathrm{pm}] & \text{Lattice constant NaCl } [\mathrm{pm}] & \text{Standard Deviation }\sigma  \\
+        \midrule
+        \alpha_1 & 7.17 \pm 0.16 & 70.3 \pm 1.5 & 570 \pm 13 & 0.47 \\
+        \beta_1 & 6.3 \pm 0.3 & 62 \pm 3 & 640 \pm 30 & 2.33 \\
+        \alpha_2 & 14.51 \pm 0.15 & 70.7 \pm 0.7 & 567 \pm 7 & 0.54 \\
+        \beta_2 & 12.8 \pm 0.4 & 62.6 \pm 2.0 & 641 \pm 20 & 3.78 \\
+        \midrule
+        \text{Mean} &  &  & 606 \pm 19 & 2.25 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Evaluation of the Avogadro-Number}
