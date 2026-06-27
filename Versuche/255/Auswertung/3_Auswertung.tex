@@ -17,73 +17,71 @@ For the statistical evaluation of $n$ messurments $x_i$, the follwoing equations
 
 \newpage
 
-\section{X-Ray Spectrum with Lithium-Florid}
+\section{X-Ray Spectrum with Lithium Fluoride}
 \label{sec:A1}
-In the first part, the X-Ray spectrum with the mounted Lithium-Florid (LiF) cirstal is being evaluated. This spectrum is used to estimate Planck's constant $h$, evaluate the wavelengths for the peaks -- the characteristic lines -- and find the influence the acceleration voltage has on the estimated Planck's constant.
+In the first part, the X-ray spectrum obtained with the mounted Lithium Fluoride (LiF) crystal is evaluated. This spectrum is used to estimate Planck's constant $h$, determine the wavelengths corresponding to the peak positions -- the characteristic lines -- and investigate the influence of the acceleration voltage on the estimated Planck's constant.
 
-\subsection{Calculating the Plank's Constant}
-In this section, the paper will use the messurment data, and set a regression to the (nearly) linear part on the beginning.
-For the angle an uncertainty of $\Delta \vartheta = 0.05^\circ$ and for the Counts we use equation \ref{eq:standard_deviation}.
-The linear regression $f(\vartheta)= m \cdot \vartheta + b$ has a slope $m$ and corsses the ordinate-axis at $b$. Both values can be found in the plot \ref{fig:plots/hohle_spectrum_and_slope_1a}.
-\img[1]{plots/hohle_spectrum_and_slope_1a}{Messurment data interpolated along side the linear regression.}
+\subsection{Calculating Planck's Constant}
+In this section, we use the measurement data and apply a regression to the nearly linear portion at the beginning. 
+For the angle, we use an uncertainty of $\Delta \vartheta = 0.05^\circ$, and for the counts, we use Equation~\ref{eq:standard_deviation}.
+The linear regression $f(\vartheta)= m \cdot \vartheta + b$ has a slope $m$ and crosses the y-axis at $b$. Both values can be found in Plot~\ref{fig:plots/hohle_spectrum_and_slope_1a}.
+\img[0.9]{plots/hohle_spectrum_and_slope_1a}{Measurement data interpolated alongside the linear regression.}
 
-By setting the linear regression equal to zero and solve for $\vartheta$, we reseve the critical angle:
+Setting the linear regression equal to zero and solving for $\vartheta$, we obtain the critical angle:
 \eq{crit_angle}{
     \vartheta_\text{crit} = -\frac{b}{a}, \quad 
             \Delta \vartheta_\text{crit} = \vartheta_\text{crit} \cdot \sqrt{\frac{\Delta m^{2}}{m^{2}} + \frac{\Delta b^{2}}{b^{2}}}        
 }
-Thus the critical value can be expressed as 
+Thus, the critical angle can be expressed as 
 \imp{\vartheta_\text{crit}}{4.7}{0.3}{^\circ}
-Using equation \ref{eq:bragg} and rearranging it to get
+Using Equation~\ref{eq:bragg} and rearranging it to get
 \eq{cirt_lam}{
     \lambda_\text{crit} = \frac{2 d}{n} \sin{\left(\vartheta \right)}\, , \quad 
-    \Delta \lambda_\text{crit} = \lambda_\text{crit} \cdot \sqrt{\frac{\Delta x^{2}}{\tan^{2}{\left(\vartheta \right)}}} \, .   
+    \Delta \lambda_\text{crit} = \lambda_\text{crit} \cdot \sqrt{\frac{\Delta \vartheta^{2}}{\tan^{2}{\left(\vartheta \right)}}} \, .   
 }
-Using the values $n =1$ and $d=201.4$pm as well as the calculated angle $\vartheta_\text{crit}$ the wavelength is calculated to be
-\imp[-13]{\lambda_\text{crit}}{3.30}{0.21}{m}
+Using the values $n =1$ and $d=201.4$\,pm as well as the calculated angle $\vartheta_\text{crit}$, the wavelength is calculated to be
+\imp[-11]{\lambda_\text{crit}}{3.30}{0.21}{m}
 
-Having the critical wavelength mean, that by using equation \ref{eq:grenzwelle} and rearainging it, Planck's constant can be calculated by teh formula
+With the critical wavelength determined, we use Equation~\ref{eq:grenzwelle} and rearrange it to calculate Planck's constant using the formula
 \eq{planksEQ}{
     h = \frac{U_B \lambda_\text{{crit}}}{c} e \, , \quad
     \Delta h = h \cdot \sqrt{\frac{\Delta \lambda_\text{{crit}}^{2}}{\lambda_\text{{crit}}^{2}} + \frac{\Delta {U_B}^{2}}{{U_B}^{2}}}     
 }
 
-Having the constant $e$ as well as $c$ in the script, $\lambda_\text{crit}$ calculated and $U_B = (35.00 \pm 0.05)$kW set manually, Planck's constant can be calculated to \cite{skriptPAP22}
+Given the constants $e$ and $c$ from the script \cite{skriptPAP22}, the calculated $\lambda_\text{crit}$, and $U_B = (35.00 \pm 0.05)$\,kV set manually, Planck's constant can be calculated to 
 \res[-34]{h}{6.2}{0.4}{J s}
 
-This value has a standard deviation from the literary value $h = 6.62607015 \cdot 10^{-34}$J\,s of $1.07\sigma$ and is therefore not significant.
-
-Furthermore, it is possible to estimate the beginning of the second order. Again equation \ref{eq:bragg} is used. The angle of the second order can be calculated by 
+This value differs from the accepted literature value $h = 6.62607015 \cdot 10^{-34}$\,J\,s by $1.07\sigma$ and is therefore statistically consistent.
+Furthermore, it is possible to estimate the onset of the second order. Again, Equation~\ref{eq:bragg} is used. The angle for the second order can be calculated by
 \eq{sizudfh}{
     \vartheta_\text{2ord} = \operatorname{asin}{\left(\frac{\lambda_\text{{crit}}}{d} \right)} \, , \quad
     \Delta \vartheta_\text{2ord} = 
            \vartheta_\text{2ord} \cdot \sqrt{- \frac{\Delta \lambda_\text{{crit}}^{2}}{\left(\lambda_\text{{crit}}^{2} - d^{2}\right) \operatorname{asin}^{2}{\left(\frac{\lambda_\text{{crit}}}{d} \right)}}}
 }
-Plotting the known values into teh equation, the angle can be calculated to 
+Substituting the known values into the equation, the angle is calculated to be
 \res{\vartheta_\text{2ord}}{9.4}{0.6}{^\circ}
-Meaning, the second order K-Lines will start about $(9.4 \pm 0.6)^\circ$ after the first one started.
+meaning the second-order K-lines will begin approximately $(9.4 \pm 0.6)^\circ$ beyond where the first order starts.
 
 \subsection{Evaluation of the K-Lines}
-Next, this paper will focus on the K-Lines them self in order to find the $K_\alpha$-, and $K_\beta$-Lines for Mo. Both orders were messured with a higher resulution in order to improve the results. The plot \ref{fig:plots/first_order_LiF_2a} shows the spectrums being alysed in this section.
-\iimg{plots/first_order_LiF_2a}{plots/second_order_LiF_2b}{(a) Showing the high-reselution spectrum for the first ordered, and (b) for the secodn orderd K-Lines}
+Next, we focus on the K-lines themselves in order to identify the $K_\alpha$- and $K_\beta$-lines for Mo. Both orders were measured with a higher resolution in order to improve the results. Figure~\ref{fig:plots/first_order_LiF_2a} shows the spectra being analyzed in this section.
+\iimg{plots/first_order_LiF_2a}{plots/second_order_LiF_2b}{(a) High-resolution spectrum of the first-order and (b) second-order K-lines.}
 
-All for peaks will be fitted by using a gaussiian regression, thus the angle of each peak an be calculated quite precisley. For the plot \ref{fig:plots/first_order_LiF_FWHM2c} the original data from \ref{fig:plots/first_order_LiF_2a_a} shows the gaussian regression for the first orderd peaks.
-The parameters for teh gaussian regressions are also in the plot -- they can be found in the ledgend unter each regression. $\mu$ is here the angle of the peak. Using equation \ref{eq:cirt_lam} and plot the engles from the gaussian regression in, the wavelength for each K-Line can be calculated.
-The results can be found in table \ref{tab:weird_tale_label}.
-\img[1]{plots/first_order_LiF_FWHM2c}{First order X-Ray spectrum of Mo using a LiF Cristal.} 
+All four peaks are fitted using a Gaussian regression, allowing the angle of each peak to be determined quite precisely. In Figure~\ref{fig:plots/first_order_LiF_FWHM2c}, the original data from \ref{fig:plots/first_order_LiF_2a_a} is shown alongside the Gaussian regression for the first-order peaks.
+The parameters for the Gaussian regressions are also displayed in the plot -- they can be found in the legend under each regression curve. Here, $\mu$ corresponds to the angle of the peak. By substituting the angles obtained from the Gaussian regression into Equation~\ref{eq:cirt_lam}, the wavelength for each K-line can be calculated.
+The results are presented in Table~\ref{tab:weird_tale_label}.
+\img[0.9]{plots/first_order_LiF_FWHM2c}{First-order X-ray spectrum of Mo using a LiF crystal.} 
 
-Furthermore, using the gaussian regression, the halfe-width (FWHM\footnote{"FWHM" stands for "Full Width at Halfe Maximum"}) can be calulated by the formula
+Furthermore, using the Gaussian regression, the half-width (FWHM\footnote{"FWHM" stands for "Full Width at Half Maximum"}) can be calculated using the formula
 \eq{FWHM}{
     \text{FWHM} = 2 \sqrt{2 \log{\left(2 \right)}}\sigma\, , \quad
     \Delta \text{FWHM} = \text{FWHM} \cdot \sqrt{\frac{\Delta \sigma^{2}}{\sigma^{2}}} \, .
 }
-The results are also listed in the table \ref{tab:weird_tale_label}.
-
-\img[1]{plots/second_order_LiF_FWHM2d}{Second order X-Ray spectrum of Mo using a LiF Cristal.} 
-For the second orded peaks, the data from the plot \ref{fig:plots/first_order_LiF_2a_b} is being used. The gaussian regression as well as the parameters can be found in the figure \ref{fig:plots/second_order_LiF_FWHM2d}.
+These results are also listed in Table~\ref{tab:weird_tale_label}.
+For the second-order peaks, the data from Figure~\ref{fig:plots/first_order_LiF_2a_b} is used. The Gaussian regression as well as the parameters can be found in Figure~\ref{fig:plots/second_order_LiF_FWHM2d}. Analogous to the calculations for the first-order K-lines, the angles of the second-order K-lines are evaluated. Those result can also be found in the Table~\ref{tab:weird_tale_label}.
+\img[0.9]{plots/second_order_LiF_FWHM2d}{Second-order X-ray spectrum of Mo using a LiF crystal.} 
 
 \begin{table}[ht!]
-    \caption{Results for the second Task. The literary values $\lambda_\alpha = 71.1$ and $\lambda_\beta = 63.1$ were used. \cite{skriptPAP22}}
+    \caption{Results for the second task. The literature values $\lambda_\alpha = 71.1$ and $\lambda_\beta = 63.1$ were used. \cite{skriptPAP22}}
     \centering
     \label{tab:weird_tale_label}
     \begin{tabular}{L | C | C | C || C | C}
@@ -92,48 +90,56 @@ For the second orded peaks, the data from the plot \ref{fig:plots/first_order_Li
         \midrule
         \alpha_1 & 10.129 \pm 0.007 & 71.3 \pm 0.3      & 0.66 & 0.272 \pm 0.014 & 1.91 \pm 0.10 \\
         \alpha_2 & 20.6214 \pm 0.0017 & 70.86 \pm 0.16  & 1.50 & 0.298 \pm 0.003 & 2.49 \pm 0.24 \\
-        \alpha &  & 71.1 \pm 0.4                        & 0.00 & 0.285 \pm 0.014 & 2.20 \pm 0.26 \\
+        \alpha_\text{avg} &  & 71.1 \pm 0.4                        & 0.00 & 0.285 \pm 0.014 & 2.20 \pm 0.26 \\
         \midrule
         \beta_1  &  8.988 \pm 0.016 & 63.0 \pm 0.3      & 0.33 & 0.35 \pm 0.03 & 1.048 \pm 0.012 \\
         \beta_2  & 18.230 \pm 0.021 & 63.24 \pm 0.17    & 0.82 & 0.39 \pm 0.05 & 1.38 \pm 0.17 \\
-        \beta  &  & 63.1 \pm 0.4                        & 0.00 & 0.37 \pm 0.06 & 1.21 \pm 0.17 \\
+        \beta_\text{avg}  &  & 63.1 \pm 0.4                        & 0.00 & 0.37 \pm 0.06 & 1.21 \pm 0.17 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-None of the standard deviation for all wavelength is significant from the literary values. Even though not shown in the table, but non of the standard diviations between two K-Lines is significant. The standard diviation for $\alpha_1$ and $\alpha_2$ is $2.23\sigma$, and for teh $\beta$ K-Lines it is $1.95\sigma$. 
-Statistically, it can be assumed that the first and second order K-Lines have the same halfe-width.
+None of the standard deviations for any wavelength deviate significantly from the literature values. Although not shown in the table, none of the standard deviations for teh FWHM values (pm) between two K-lines are significant either. The standard deviation between $\alpha_1$ and $\alpha_2$ is $2.23\sigma$, and for the $\beta$ K-lines it is $1.95\sigma$. 
+Statistically, it can be assumed that the first- and second-order K-lines have the same half-width.
 
-\subsection{Counts in dependence of the acceleration voltage}
-In this section, the impact of the acceleration voltage $U_B$ is being evaluated. Therefore, the counts per second are plotted against the voltage $U_B$ as shwon in the plot \ref{fig:plots/Against_U_B_3a}. 
+\subsection{Counts as a Function of Acceleration Voltage}
+In this section, the impact of the acceleration voltage $U_B$ is evaluated. To this end, the counts per second are plotted against the voltage $U_B$, as shown in Figure~\ref{fig:plots/Against_U_B_3a}. A linear regression was applied to the nearly linear region; the regression line as well as its fit parameters can be found in the plot.
+\img[0.75]{plots/Against_U_B_3a}{Linear regression through the increasing part of the data points.}
 
-\img[1]{plots/Against_U_B_3a}{}
-
+By determining the intersection of the background rate $n_U = (54 \pm 7) \mathrm{s^{-1}}$ with the linear regression, the operating voltage $U_E$ can be determined. The uncertainty is calculated by propagating the uncertainty of the background rate and recomputing the intersection accordingly. Finally, the operating voltage is determined to be
 \imp[4]{U_E}{2.325}{0.006}{V}
-
-
-Using equation \ref{eq:planksEQ}, but insted of $U_B$ use $U_E$.
-
+Using Equation~\ref{eq:planksEQ}, but replacing $U_B$ with the calculated $U_E$, Planck's constant can be calculated to be
 \res[-34]{h}{6.53}{0.05}{J\,s}
+The standard deviation from the literature value is $2.02\sigma$ and is thus not statistically significant.
 
-Standard diviation $2.02 \sigma$. Not significant.
-
-\section{X-Ray Spectrum with Sodium-Chlorid}
+\section{X-Ray Spectrum with Sodium Chloride}
 \label{sec:A2}
-
-Netx, the cristal is changed into a Sodium-Chlorid cristal. The raw signal can be found in figure \ref{fig:plots/NaCl_4z}.
-
-\img{plots/NaCl_4z}{}
+\wrap[0.5]{R}{plots/NaCl_4z}{Raw X-Ray spectrum for NaCl.}
+Next, the crystal is replaced with a Sodium Chloride (NaCl) crystal. The raw signal is shown in Figure~\ref{fig:plots/NaCl_4z}.
+As before, the plot displays four peaks corresponding to two orders each: the $K_\alpha$ and $K_\beta$ K-lines are again clearly visible.
+In this section, two primary objectives are accomplished through the utilization of these measurements: first, determination of the lattice constant $g$ for NaCl using Bragg's law, and second, calculation of Avogadro's number based on the known density and molar mass of sodium chloride. By analyzing the diffraction angles obtained from the measured K-line positions and applying the same analytical framework established for the LiF crystal, structural parameters characteristic of the NaCl crystal structure can be extracted. 
 
 \subsection{Lattice of the NaCl Cristal}
+To analyze this signal properly, a Gaussian regression is used once more, allowing the angle of each peak to be determined.
+Figure~\ref{fig:plots/NaCl_4a} shows each Gaussian regression along with the corresponding fit parameters.
+The angles as well as further results can be found in Table~\ref{tab:xray_analysis}. The angles correspond to the $\mu$-values with an uncertainty of $\sqrt{\sigma}$. 
+The expected wavelengths are included to verify that the general magnitude of the angles is consistent with the previous results. These were calculated using the literature value for the lattice constant $g$.
+Determining the lattice constant from the measurement data can be done using the equation
+\eq{lattice_g}{
+    g = \frac{\lambda n}{\sin{\left(\vartheta \right)}} \, , \quad
+    \Delta g = g \cdot \sqrt{\frac{\Delta \vartheta^{2}}{\tan^{2}{\left(\vartheta \right)}} + \frac{\Delta \lambda^{2}}{\lambda^{2}}} \, .
+}
+Here, $\lambda$ denotes the wavelength of Mo calculated in Section~\ref{sec:A1}, namely $\lambda_\alpha = (71.1 \pm 0.4)$\,pm and $\lambda_\beta = (63.1 \pm 0.4)$\,pm.
+The angles $\vartheta$ are those listed in the table. Each individual lattice constant is also given in the table. The mean is calculated using Equation~\ref{eq:arithmetic_mean}.
+\img[0.9]{plots/NaCl_4a}{Sodium chloride spectrum with a Gaussian regression through each K-line.}
 
 \begin{table}[ht!]
-    \caption{X-ray Diffraction Analysis Results. For the expected wave length, the literary value $g_\text{NaCl} = 564$pm was used. Source: https://de.wikipedia.org/wiki/Natriumchlorid}
+    \caption{X-ray diffraction analysis results. For the expected wavelength, the literature value $g_\text{NaCl} = 564$\,pm was used. Source: https://de.wikipedia.org/wiki/Natriumchlorid}
     \centering
     \label{tab:xray_analysis}
     \begin{tabular}{L | C | C | C | C }
         \toprule
-        \text{K-Line} & \text{angle [deg]} & \text{Expected } \lambda_\text{Mo} \; [\mathrm{pm}] & \text{Lattice constant NaCl } [\mathrm{pm}] & \text{Standard Deviation }\sigma  \\
+        \text{K-Line} & \text{angle } \vartheta \; [\mathrm{deg}] & \text{Expected } \lambda_\text{Mo} \; [\mathrm{pm}] & \text{Lattice constant NaCl } [\mathrm{pm}] & \text{Standard Deviation }\sigma  \\
         \midrule
         \alpha_1 & 7.17 \pm 0.16 & 70.3 \pm 1.5 & 570 \pm 13 & 0.47 \\
         \beta_1 & 6.3 \pm 0.3 & 62 \pm 3 & 640 \pm 30 & 2.33 \\
@@ -144,5 +150,17 @@ Netx, the cristal is changed into a Sodium-Chlorid cristal. The raw signal can b
         \bottomrule
     \end{tabular}
 \end{table}
+The standard deviation is calculated according to Equation~\ref{eq:significant_deviation}. Only the deviation for $\beta_2$ is significant. In general, the $\beta$-lines exhibit a trend of larger deviations. The results will be discussed in Chapter~\ref{ch:Diskussion}.
 
-\subsection{Evaluation of the Avogadro-Number}
+\subsection{Evaluation of the Avogadro Number}
+Finally, the lattice constant can be used for the determination of the Avogadro number $N_A$. Equation~\ref{eq:avogadro} is employed:
+\eq{s9udhf}{
+    N_A = \frac{4 M_{mol}}{\rho g^{3}} \, , \quad
+    \Delta N_A = 3 N_A \cdot \sqrt{\frac{\Delta g^{2}}{g^{2}}} \, .
+}
+Using the mean for the lattice constant, as well as $\rho = 2.146 \, \mathrm{g/cm^3}$ and $M = 58.44\,$g, yields the Avogadro number:
+\res[23]{N_A}{4.9}{0.4}{\frac{1}{mol}}
+The literature value is $N_A = 6.02214076 \cdot 10^{23}$; hence, the standard deviation is $2.60\sigma$ and thus not statistically significant.
+Since the values for the $K_\alpha$-lines showed higher accuracy, the Avogadro number is also calculated for $\alpha_1$ as a reference:
+\res[23]{{N_A}_\alpha}{5.8}{0.4}{\frac{1}{mol}}
+Here, the standard deviation is only $0.48\sigma$, which is likewise not statistically significant but closer to the literature value.

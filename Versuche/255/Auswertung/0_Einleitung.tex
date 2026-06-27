@@ -13,7 +13,11 @@ The generation of X-ray radiation in this experiment takes place via an X-ray tu
 \eq{energie}{
     E = e U
     }
-where $e$ represents the elementary charge. Upon impact with the anode, the electrons are decelerated in the Coulomb field of the atomic nuclei. This braking process leads to the emission of a continuous spectrum of electromagnetic radiation, known as the bremsstrahlung spectrum. The maximum energy of an emitted photon is reached when an electron converts its entire kinetic energy into a single photon. This results in a minimum possible wavelength $\lambda_{gr}$, the cutoff wavelength (or short-wavelength limit), which is described by conservation of energy:
+where $e$ represents the elementary charge. 
+Upon impact with the anode, the electrons are decelerated in the Coulomb field of the atomic nuclei. This braking process leads to the emission of a continuous spectrum of electromagnetic radiation, known as the bremsstrahlung spectrum.
+\img[0.7]{X_Ray_Sensor}{Creating X-Ray. \cite{skriptPAP22}}
+
+The maximum energy of an emitted photon is reached when an electron converts its entire kinetic energy into a single photon. This results in a minimum possible wavelength $\lambda_{gr}$, the cutoff wavelength (or short-wavelength limit), which is described by conservation of energy:
 \eq{grenzwelle}{
     e U = h \nu_{gr} = \frac{hc}{\lambda_{gr}}
     }
@@ -24,11 +28,13 @@ Here, $h$ is Planck's quantum of action and $c$ is the speed of light. In additi
 Here, $R_\infty$ denotes the Rydberg constant, $Z$ the atomic number of the anode material (here molybdenum), and $A$ a shielding constant, which is approximately $A \approx 1$ for $K_\alpha$ radiation ($n=2 \to m=1$).
 
 \subsection{Bragg Reflection}
+\wrap[0.5]{R}{B_scattering}{Idea of Bragg scattering. \cite{skriptPAP22}}
 To measure the wavelengths of the generated X-ray radiation, crystals are used as diffraction gratings. Since the wavelengths of X-ray radiation are of the same order of magnitude as the interatomic distances in crystals, constructive interference occurs at the lattice planes of the crystal. This phenomenon is called Bragg reflection. An incident ray is reflected at various parallel lattice planes. For these reflected rays to overlap constructively, the path difference $\Delta s$ must be an integer multiple of the wavelength $\lambda$. Bragg's Law describes this relationship:
 \eq{bragg}{
     2 d \sin(\vartheta) = n \lambda, \quad n \in \mathbb{N}
-    }
+}
 Here, $d$ is the distance between adjacent lattice planes, $\vartheta$ is the angle of incidence (glancing angle), and $n$ is the order of reflection. By varying the angle $\vartheta$ and measuring the intensity, the X-ray spectrum can be recorded.
+
 
 \subsection{Crystals and Lattice Structure}
 The LiF and NaCl crystals used in the experiment both possess a face-centered cubic structure. In this structure, a unit cell repeats periodically in space. There are four atoms (or ion pairs) per unit cell. For a cut along the principal planes, the lattice plane spacing $d$ in terms of the lattice constant $a$ is given by:
@@ -46,3 +52,4 @@ In the evaluation, the statistical nature of radioactive or count-rate-like even
     \sigma = \sqrt{M}
     }
 This value is used to incorporate the uncertainty of the measured intensities into the error propagation.
+\img{Lattice_Structure}{Structure of the crystals in use; Here NaCl. \cite{skriptPAP22}}
