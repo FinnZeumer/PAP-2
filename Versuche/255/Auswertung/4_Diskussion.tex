@@ -3,65 +3,25 @@
 
 \section{Summary}
 \label{sec:Zusammenfassung}
-In this experiment, several key quantities were determined and evaluated. In the first part, Planck's constant was estimated using the critical angle obtained from the X-ray spectrum of the LiF crystal. The result
+In this experiment, several key quantities were determined and evaluated using X-ray diffraction on lithium fluoride (LiF) and sodium chloride (NaCl) crystals. The measurement procedure employed the rotating crystal method for spectrometry, wherein a crystal holder equipped with the respective detection crystal was positioned in the X-ray beam path, and a Geiger-Müller counter tube served as the detector for intensity-measured X-ray radiation. The crystal and counter tube moved synchronously according to the Bragg angle, so that the detector always captured the reflected beam. Measurements were conducted across multiple stages: initial coarse scans covered broad angular ranges with larger step sizes (0.2°), followed by detailed high-resolution scans in regions of expected maxima with reduced step sizes (0.1°) to precisely capture peak shapes.
+
+In the first part, Planck's constant was estimated using the critical angle obtained from the bremsstrahlung spectrum of the LiF crystal. The result
 \res[-34]{h}{6.2}{0.4}{J s}
 yields a standard deviation of $1.07\sigma$ from the literature value and is therefore not statistically significant. Additionally, the onset of the second diffraction order was estimated to occur at
 \res{\vartheta_\text{2ord}}{9.4}{0.6}{^\circ}
 beyond the starting point of the first order.
-The wavelengths of the molybdenum $K_\alpha$- and $K_\beta$-lines were determined to be
+The wavelengths of the molybdenum $K_\alpha$- and $K_\beta$-lines were determined through Gaussian regression fitting of the measured peaks, resulting in
 \res[-11]{K_\alpha}{7.11}{0.04}{m}
 \res[-11]{K_\beta}{6.31}{0.04}{m}
-with a standard deviation of $0.00\sigma$ for both lines, indicating excellent agreement with the literature values. Furthermore, the full width at half maximum (FWHM) was calculated for the $K_\alpha$-line, yielding
+with a standard deviation of $0.00\sigma$\footnote{Note, that this might not be totally true, since one important error soruce is the so called "Floating-point arithmetic", resulting in calculation errors when ever using computers. Still, the deviation should still be counsidered quite small, like $\approx 0.01\sigma$.} for both lines, indicating excellent agreement with the literature values. Furthermore, the full width at half maximum (FWHM) was calculated for the $K_\alpha$-line using the fitted Gaussian parameters, yielding
 \res[-12]{\alpha_1}{1.91}{0.10}{m}
 for the first-order $\alpha_1$-peak. The results for all FWHM values are summarized in Table~\ref{tab:weird_tale_label}. None of the standard deviations are significant, as discussed in more detail in Section~\ref{sec:Analyse}.
-In addition, Planck's constant was independently estimated using the operating voltage $U_E$ instead of the acceleration voltage, resulting in
+In addition, Planck's constant was independently estimated using the operating voltage $U_E$ instead of the acceleration voltage $U_B$, derived from the intersection of background rate with linear regression of count rates versus voltage. This yielded
 \res[-34]{h}{6.53}{0.05}{J\,s}
 with a standard deviation of $2.02\sigma$, which is likewise not statistically significant.
 Upon replacing the crystal with NaCl, the lattice constant was determined to be
 \res[-10]{g}{6.06}{0.19}{m}
-with a standard deviation of $2.25\sigma$. Based on this lattice constant, Avogadro's number was calculated as
-\res[23]{N_A}{4.9}{0.4}{\frac{1}{mol}}
-
-\section{Analysis of the Data}
-\label{sec:Analyse}
-Several observations can be made regarding the quality and consistency of the obtained results. Regarding the FWHM, it is noteworthy that the values for $\alpha_1$ and $\alpha_2$ as well as the $\beta_1$ and $\beta_2$ are statistically compatible with one another, suggesting that the first- and second-order measurements yield comparable peak widths.
-A notable discrepancy is observed in the lattice constant results for NaCl. The $\beta$-lines consistently yield lower-quality results than the $\alpha$-lines. All values overestimate the literature value for the lattice constant, and the $\beta$-lines exhibit both lower accuracy and lower precision, as reflected in their higher uncertainties. This behavior was anticipated when examining the expected wavelengths, since all of them are smaller than the literature values for Mo, indicating a systematic offset that particularly affects the $\beta$-line measurements.
-A similar trend is observed in the calculation of Avogadro's number. When using the mean lattice constant -- which includes all four K-lines -- the standard deviation amounts to $2.60\sigma$. However, when the calculation is restricted to the $\alpha_1$-line, the standard deviation drops to only $0.48\sigma$:
-\res[23]{{N_A}_\alpha}{5.8}{0.4}{\frac{1}{mol}}
-This substantial improvement suggests the presence of a systematic problem that disproportionately affects the $\beta$-line measurements, likely linked to the aforementioned discrepancies in the expected wavelengths.
-
-One reason might be that the reselution of the sepctrum for the NaCl was quite low, increasing the Gate-Time might already fix the systematic problem.
-
-\section{Criticism}
-\label{sec:Kritik}
-Some of the uncertainties obtained in this experiment are notably small, implying a high degree of precision. However, this apparent precision is likely unrealistic, as several error sources were neglected in the analysis. In particular, the actual measurement precision of the apparatus itself was not taken into account. Instead, the uncertainty was estimated solely on the basis of the number of digits displayed on the instrument, with the simplifying assumption that this corresponds to the readout error divided by two as well as statistical errors. Additional contributing factors, such as mechanical positioning accuracy of the goniometer, temperature drift, and counting statistics at low count rates, were omitted entirely and may lead to an underestimation of the true uncertainties.
-
-However, this would not affect the accuracy of the results, hence all calculated values where already statistically relevant and reflect\footnote{pan intended} the theory quite well, and would still do so after a more complex uncertainty calculation. 
-
-Still, an improvment of the messurment apparatus would increase the accuracy as well. And so would more messurments do as well.
-
-\chapter{Discussion}
-\label{ch:Diskussion}
-
-\section{Summary}
-\label{sec:Zusammenfassung}
-In this experiment, several key quantities were determined and evaluated. In the first part, Planck's constant was estimated using the critical angle obtained from the X-ray spectrum of the LiF crystal. The result
-\res[-34]{h}{6.2}{0.4}{J s}
-yields a standard deviation of $1.07\sigma$ from the literature value and is therefore not statistically significant. Additionally, the onset of the second diffraction order was estimated to occur at
-\res{\vartheta_\text{2ord}}{9.4}{0.6}{^\circ}
-beyond the starting point of the first order.
-The wavelengths of the molybdenum $K_\alpha$- and $K_\beta$-lines were determined to be
-\res[-11]{K_\alpha}{7.11}{0.04}{m}
-\res[-11]{K_\beta}{6.31}{0.04}{m}
-with a standard deviation of $0.00\sigma$ for both lines, indicating excellent agreement with the literature values. Furthermore, the full width at half maximum (FWHM) was calculated for the $K_\alpha$-line, yielding
-\res[-12]{\alpha_1}{1.91}{0.10}{m}
-for the first-order $\alpha_1$-peak. The results for all FWHM values are summarized in Table~\ref{tab:weird_tale_label}. None of the standard deviations are significant, as discussed in more detail in Section~\ref{sec:Analyse}.
-In addition, Planck's constant was independently estimated using the operating voltage $U_E$ instead of the acceleration voltage, resulting in
-\res[-34]{h}{6.53}{0.05}{J\,s}
-with a standard deviation of $2.02\sigma$, which is likewise not statistically significant.
-Upon replacing the crystal with NaCl, the lattice constant was determined to be
-\res[-10]{g}{6.06}{0.19}{m}
-with a standard deviation of $2.25\sigma$. Based on this lattice constant, Avogadro's number was calculated as
+with a standard deviation of $2.25\sigma$. Based on this lattice constant and utilizing the known density and molar mass of sodium chloride, Avogadro's number was calculated as
 \res[23]{N_A}{4.9}{0.4}{\frac{1}{mol}}
 
 \section{Analysis of the Data}
@@ -72,12 +32,11 @@ A similar trend is observed in the calculation of Avogadro's number. When using 
 \res[23]{{N_A}_\alpha}{5.8}{0.4}{\frac{1}{mol}}
 This substantial improvement suggests the presence of a systematic problem that disproportionately affects the $\beta$-line measurements, likely linked to the aforementioned discrepancies in the expected wavelengths.
 
-One possible explanation is that the resolution of the NaCl spectrum was relatively low. Increasing the gate time during measurement could potentially resolve this systematic issue.
+One possible explanation is that the resolution of the NaCl spectrum was relatively low. Increasing the gate time during measurement could potentially resolve this systematic issue. If not, a wrong experimental setup or a brocken apparatus are likly reasons.
 
 \section{Criticism}
 \label{sec:Kritik}
 Some of the uncertainties obtained in this experiment are notably small, implying a high degree of precision. However, this apparent precision is likely unrealistic, as several error sources were neglected in the analysis. In particular, the actual measurement precision of the apparatus itself was not taken into account. Instead, the uncertainty was estimated solely on the basis of the number of digits displayed on the instrument, with the simplifying assumption that this corresponds to the readout error divided by two, as well as statistical errors. Additional contributing factors, such as mechanical positioning accuracy of the goniometer, temperature drift, and counting statistics at low count rates, were omitted entirely and may lead to an underestimation of the true uncertainties.
 
 However, this would not affect the accuracy of the results, as all calculated values were already statistically consistent and reflect\footnote{pun intended} the theory quite well, and would continue to do so under a more rigorous uncertainty calculation.
-
 Nevertheless, an improvement of the measurement apparatus would increase the accuracy as well. Similarly, conducting additional measurements would further enhance the reliability of the results.
