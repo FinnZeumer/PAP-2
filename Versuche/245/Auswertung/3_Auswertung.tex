@@ -19,20 +19,101 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \section{Rotierende Spule im konstanten Magnetfeld}
 \label{sec:A1}
-
-Daten aus \hyperref[ch:Protokoll]{Messprotokoll} Tabelle 2.1 und 2.2
-
-Frequenzen in Kreisfrequenzen umgerechnet
+In dieser Sektion wird eine rotierende Spule inerhalb der Helmholtzspule analysiert. Die Messdaten für diese Sektion sind den Tabellen 2.1 und 2.2 des \hyperref[ch:Protokoll]{Messprotokolles} zu entnehmen.
+Die Frequenzen werden dabei in Kreisfrequenzen umgerechnet:
 \eq{frqToKreisfreq}{
-    \omega = 2\pi f
+    \omega = 2\pi f \, .
 }
+Zudem wurden die Spannungen Spitze-Spitze gemessen und müssen daher mit zwei dividiert werden.
 
-Spannungen in Spitze spitze gemessen, daher mit 2 dividiert.
+In dieser Sektion werden sowohl die Frequenzabhänigkeit, als auch die Stromstärneknabhänigkeit untersucht.
 
 \subsection{Abhänigkeit von der Frequenzen}
+Zunächst wird das System bei konstantem Betriebsstrom der Helmholtzspule $I_H = (4 \pm 0.05) A$. Dazu wird \ceq{voltage_rotating} genutzt und nach $B$ umgestellt, um die Stärke des induzierten Magnetfeldes zu bestimmen. 
+Es werden die gemessenen Spannungen gegen die Drehfrequenz geplottet und eine lineare Regression durch die Daten gefittet. Der Plot ist der \cabb{plots/Induk_durhc_Freq} zu entnehmen.
+\img[1]{plots/Induk_durhc_Freq}{Induktionsspannung in Abhänigkeit der Drehfrequenz.}
+
+Die Steigung $m$ der Geraden wird bestimmt und ergibt sich zu
+\imp[2]{m}{6.21}{0.19}{Vs}
+Das Magnetfeld kann somit via
+\eq{B_Feld_Hier}{
+    B = \frac{m}{A_I N_I} \, , \qquad
+    \Delta B = B \cdot \sqrt{\frac{\Delta m^{2}}{m^{2}}} \, .
+}
+Die Ungenauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt. Für die Fläche der Induktionsspule wurde $A_I = 41.7 \mathrm{cm^2}$ genutzt und für die Windungen $N_I = 4000$.
+Einsetzten aller Werte ergibt
+\res[3]{B}{3.72}{0.11}{T}
+
+Es soll ein Referenzwert über eine zweite Methode bestimmt werden. Es wird \ceq{helmholtz_field} genutzt. Hier wird das Magnetfeld $B_H$ in der Helmholtzspule bestimmt. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt und wird durch
+\eq{err_B_H}{
+    \Delta B_H = B_H \cdot \sqrt{\frac{\Delta \mu^{2}}{\mu^{2}} + \frac{\Delta I^{2}}{I^{2}}}
+}
+berechnet. Mit dem Radius $R_H = 0.1475$m und der Windungszahl $N_I = 127$ kann der Betrag des Magnetfeldes somit zu
+\res[3]{B_H}{3.10}{0.04}{T}
+Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen diesen beiden Werten liegt bei $5.28\sigma$ und ist somit signifikant.
+Die naheliegenste Urschae ist vermutlich, dass die Selbsinduktion der Induktionsspule hier nicht berücksichtigt wurde, was zur Überschätzung des bestimmten Magnetfeldes führt.
+
+\subsection{Abhänigkeit von der Stromstärke}
+Weiter wird die Messreihe bei unterschiedlicher Stromstärke betrachtet. Die Daten werden erneut geplottet und mit einer linearen Regression versehen.
+Dies ist der \cabb{plots/Induk_durcg_Strom} zu entnehmen.
+\img[1]{plots/Induk_durcg_Strom}{Induzierte Spannung in Stromstärkenabhänigkeit mit linearer Regression.}
+
+Es wurde eine konstante Drehfrequenz von $f =(10.10 \pm 0.20)$Hz eingestellt. Es zeigt sich, die lineare Regression fittet die Daten sehr gut, der lineare Verlauf konnte somit gezeigt werden.
 
 \section{Spule im periodischen Magnetfeld}
 \label{sec:A2}
+Wie zu vor werden die Frequenzen $f$ in Drehfrequenzen $\omega$ umgerechnet und die Spitze-Spitze--Spannungen mit zwei dividiert. Die gemessenen Stromstärken werden zudem mit dem Faktor $\sqrt{2}$ korrigiert.
+
+\subsection{Abhänigkeit vom Winkel}
+Zunächst wird die Winkelabhängigkeit der Induzzierten Spannung betrachtet. Der Winkel $\alpha$ ist dabei als Winkel zwischen der Querschnittsfläche der Innespule und dem B-Feld definiert. Nach Betrachtung der \ceq{rotating_area} lässt sich eine Struktur des Verlaufes der Form
+\eq{reg_cos}{
+    U_\text{ind}(\alpha, A, \phi, d) = A|\cos(\alpha - \phi)| + b
+}
+vermuten. Diese soll durch die Messdaten gefittet werden. Dies ist der \cabb{plots/Induk_durch_Winkel} zu entnehmen.
+\img[1]{plots/Induk_durch_Winkel}{Induzierte Spannung in Abhänigkeit des Winkels.}
+
+Es fallen zwei ungereimheiten auf, denn in der Theorie ist bei $\alpha = 90^\circ$ eine Spannung von $0$V zu erwarten. Jedoch ist weder das Minimum der Regression bei $90^\circ$ noch bei $0$V. Daher wurden die "Offset"-Variablen $\phi$ und $b$ eingebaut. Die Phasenverschiebung betragt somit
+\imp{\phi}{-2}{5}{^\circ}
+und
+\imp[2]{b}{2.0}{2.4}{V}
+
+Viesuell scheint die Regression die Messdaten widerzuspiegeln, jedoch zeigen die Offsetzs und deren großen Ungenauigkeiten, dass die Regression nicht optimal ist. Um dies genauer zu überprüfen wird das reduzierte Chiquadrat bestimmt, um die Güte der Regression abzuschätzen;
+\eq{red_chi}{
+    \chi^2_\text{red} = 0.0322 \, .
+}
+
+Dies zeigt eindeutig, dass die Regression nicht optimal ist -- ein reduziertes Chiquadrat von eins entspricht einem optimalen Fit, gute Regressionen sollten zwischen 0.8 und 1.2 leien. Da das Chiquadrat besonders klein ist wird hier bermutlich die Ungenauigkeit der gemessenen induzierten Spannung überschätzt.
+Multipilziert man die bestimmten Ungenauigkeiten der Regression mit dem reduzierten Chiquadrat, so lässt sich abschätzen, wie groß die Ungenauigkeit realistisch wäre -- annahme ist, das die Theorie stimmt und keine weiteren Fehler die Ursache sein können. Die Ungenauigkeit der Spannung dürfte somit jedoch nicht größer als
+\eq{theo_err}{
+    \Delta U_\text{ind} > 0.004 \mathrm{V}
+}
+sein. Dieser Wert ist über 10 mal kleiner als die bestimmte Ungenauigkeit von $\Delta U_\text{ind} = 0.05 \mathrm{V}$. Diese Ungenauigkeit wurde aufgrund der limitierten Anzeige des Messgerätes gewählt und ist somit als sinvoll anzunehmen. 
+Somit scheint hier ein Widerspruch mit der Theorie oder ein starkes Indiz, dass die Messugn nicht einwandfrei lief.
+
+\subsection{Lufttransformator}
+In dieser Sektion wird die Magnetischekopplung zwischen Primär- und Sekundärspule untersucht, also das Transformationsverhalten. Daher wird das Verhältnis zwischen der Spannung in der Helmholtzspule $U_H$ und in der Induktionsspule $U_I$ gebildet. 
+Die Verhältnisse sind graphisch der \cabb{plots/Kennlinie_Luft} zu entnehmen und wurden gegen die Frequenz der Wechselspannung geplottet.
+\img[1]{plots/Kennlinie_Luft}{erhältnis von Induktionsspannung und Spannung an der Helmholtzspule in Abhängigkeit von der Frequenz des Wechselstroms.}
+
+Es zeigt sich, dass bei hohen Frequenzen (hier ab über 2000Hz) die Verhältnisse ein linearers/konstantes Plateau erreichen. Bei niedrigen Frequenzen nehmen die Verhältnisse stark ab.
+Die Ungenauigkeit der Verhältnisse wurde via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt;
+\eq{err_ver}{
+    \Delta \left(\frac{U_\text{ind}}{U_H}\right) = \sqrt{\frac{1}{U_{H}^{4}} \left(U_{H}^{2} \Delta U_\text{ind}^{2} + U_\text{ind}^{2} \Delta U_{H}^{2}\right)}\, .
+}
+
+\subsection{Bestimmung der Induktivität}
+Es soll die Induktivität in der Helmholtzspule bestimmt werden. Dazu wird der Eigenwiderstand $R_H$ der Helmholtzspule benötigt. Dieser kann via
+\eq{widstandHIhdf}{
+    R_H = \frac{U_H}{I_H} \, , \qquad
+    \Delta R_H = \sqrt{\frac{1}{I_H^{4}} \left(I_H^{2} \Delta U_H^{2} + U_H^{2} \Delta I_H^{2}\right)} \, .
+}
+Diese werden benötigt, um die Induktivität $L_H$ nach \ceq{impedance_realpart} zu bestimmen.
+Die bestimmten Widerstände werden geplottet. Dies kann der \cabb{plots/Widerstand} entnommen werden.
+\img[1]{plots/Widerstand}{Bestimmt Eigenwiderstände in Abhänigkeit der Frequenz.}
+
+Die Daten lassen einen linearen Verlauf vermuten; es wird eine lineare Regression an die Daten gefittet. Die bestimmte Steigung entspricht dann der Induktivität $L_H$ der Helmholtzspule. Es werden dabei die ersten 3 Messpunkte ignoriert, da hier der elektrische Widerstand nicht vernachlässigt werden kann. 
+\res[4]{L_H}{1.944}{0.010}{H}
 
 \section{Erdmagnetfeld}
 \label{sec:A3}
+In der letzten Sektion wird das Erdmagnetfeld betrachtet.

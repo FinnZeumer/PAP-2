@@ -490,12 +490,12 @@ class Sympy_Symbols:
 class Colors(str, Enum):
     LIGHT_GREEN = "#1ba97f"
 
-    ORANGE = "#D56A11"
     BLUE = "#073984"
     PINK = "#B42B6F"
-    MINT = "#67DAB8"
     TEAL = "#106E7D"
     YELLOW = "#FFC107"
+    ORANGE = "#D56A11"
+    MINT = "#67DAB8"
     DARK_PURPLE = "#4B2D83"
     PEACH = "#FEA75F"
     LIGHT_BLUE = "#3485FD"
