@@ -34,7 +34,7 @@ Es werden die gemessenen Spannungen gegen die Drehfrequenz geplottet und eine li
 \img[1]{plots/Induk_durhc_Freq}{Induktionsspannung in Abhänigkeit der Drehfrequenz.}
 
 Die Steigung $m$ der Geraden wird bestimmt und ergibt sich zu
-\imp[2]{m}{6.21}{0.19}{Vs}
+\imp[-2]{m}{6.21}{0.19}{Vs}
 Das Magnetfeld kann somit via
 \eq{B_Feld_Hier}{
     B = \frac{m}{A_I N_I} \, , \qquad
@@ -42,14 +42,14 @@ Das Magnetfeld kann somit via
 }
 Die Ungenauigkeit wurde via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt. Für die Fläche der Induktionsspule wurde $A_I = 41.7 \mathrm{cm^2}$ genutzt und für die Windungen $N_I = 4000$.
 Einsetzten aller Werte ergibt
-\res[3]{B}{3.72}{0.11}{T}
+\res[-3]{B}{3.72}{0.11}{T}
 
 Es soll ein Referenzwert über eine zweite Methode bestimmt werden. Es wird \ceq{helmholtz_field} genutzt. Hier wird das Magnetfeld $B_H$ in der Helmholtzspule bestimmt. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt und wird durch
 \eq{err_B_H}{
     \Delta B_H = B_H \cdot \sqrt{\frac{\Delta \mu^{2}}{\mu^{2}} + \frac{\Delta I^{2}}{I^{2}}}
 }
 berechnet. Mit dem Radius $R_H = 0.1475$m und der Windungszahl $N_I = 127$ kann der Betrag des Magnetfeldes somit zu
-\res[3]{B_H}{3.10}{0.04}{T}
+\res[-3]{B_H}{3.10}{0.04}{T}
 Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} zwischen diesen beiden Werten liegt bei $5.28\sigma$ und ist somit signifikant.
 Die naheliegenste Urschae ist vermutlich, dass die Selbsinduktion der Induktionsspule hier nicht berücksichtigt wurde, was zur Überschätzung des bestimmten Magnetfeldes führt.
 
@@ -75,9 +75,9 @@ vermuten. Diese soll durch die Messdaten gefittet werden. Dies ist der \cabb{plo
 Es fallen zwei ungereimheiten auf, denn in der Theorie ist bei $\alpha = 90^\circ$ eine Spannung von $0$V zu erwarten. Jedoch ist weder das Minimum der Regression bei $90^\circ$ noch bei $0$V. Daher wurden die "Offset"-Variablen $\phi$ und $b$ eingebaut. Die Phasenverschiebung betragt somit
 \imp{\phi}{-2}{5}{^\circ}
 und
-\imp[2]{b}{2.0}{2.4}{V}
+\imp[-2]{b}{2.0}{2.4}{V}
 
-Viesuell scheint die Regression die Messdaten widerzuspiegeln, jedoch zeigen die Offsetzs und deren großen Ungenauigkeiten, dass die Regression nicht optimal ist. Um dies genauer zu überprüfen wird das reduzierte Chiquadrat bestimmt, um die Güte der Regression abzuschätzen;
+Visuell scheint die Regression die Messdaten widerzuspiegeln, jedoch zeigen die Offsetzs und deren großen Ungenauigkeiten, dass die Regression nicht optimal ist. Um dies genauer zu überprüfen wird das reduzierte Chiquadrat bestimmt, um die Güte der Regression abzuschätzen;
 \eq{red_chi}{
     \chi^2_\text{red} = 0.0322 \, .
 }
@@ -111,9 +111,46 @@ Diese werden benötigt, um die Induktivität $L_H$ nach \ceq{impedance_realpart}
 Die bestimmten Widerstände werden geplottet. Dies kann der \cabb{plots/Widerstand} entnommen werden.
 \img[1]{plots/Widerstand}{Bestimmt Eigenwiderstände in Abhänigkeit der Frequenz.}
 
-Die Daten lassen einen linearen Verlauf vermuten; es wird eine lineare Regression an die Daten gefittet. Die bestimmte Steigung entspricht dann der Induktivität $L_H$ der Helmholtzspule. Es werden dabei die ersten 3 Messpunkte ignoriert, da hier der elektrische Widerstand nicht vernachlässigt werden kann. 
-\res[4]{L_H}{1.944}{0.010}{H}
+Die Daten lassen einen linearen Verlauf vermuten; es wird eine lineare Regression an die Daten gefittet. Die bestimmte Steigung entspricht dann der Induktivität $L_H$ der Helmholtzspule. Es werden dabei die ersten Messpunkte ignoriert, da hier der elektrische Widerstand nicht vernachlässigt werden kann. 
+\res[-4]{L_H}{1.944}{0.010}{H}
 
 \section{Erdmagnetfeld}
 \label{sec:A3}
-In der letzten Sektion wird das Erdmagnetfeld betrachtet.
+In der letzten Sektion wird das Erdmagnetfeld betrachtet. Dazu werden die Daten aus dem \hyperref[ch:Protokoll]{Messprotokoll} übernommen.
+
+\subsection{Absolute Magnetfeldstärke}
+Es soll zunächst die absolute Feldstärke des Induzierten Magnetfeldes ohne Kompensation bestimmt werden, dazu wird \ceq{voltage_rotating} genutzt.
+Die Maße der Induktionsspule werden erneut dem Praktiumsskript entnommen. Die Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} zu
+\eq{ggsuidfhgusdfg}{
+    B_\text{abs} = \frac{U_\text{ind}}{A_I N_I \omega} \, , \qquad   
+    \Delta B_\text{abs} = B_\text{abs} \cdot \sqrt{\frac{\Delta \omega^{2}}{\omega^{2}} + \frac{\Delta U_\text{ind}^{2}}{U_\text{ind}^{2}}}
+}
+bestimmt. Die Drehfrequenz liegt bei $\omega = (69.1 \pm 0.3)$Hz. Einsetzen der restlichen bekannten Werte liefter
+\res[-5]{B_\text{abs}}{5.6}{2.2}{T}
+
+Der heidelberger Literaturwert ligt bei $\approx 49 \mathrm{\mu T}$. Dies entspricht einer \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} von $0.34\sigma$ und ist damit nicht signifikant. 
+Die tendenzielle Überschätzung ist vermutlich auf die Selbsinduktion der Spule zurückzuführen.
+
+\subsection{Bestimmung des Inklinationswinkels}
+Zuletzt soll der Inklinationswinkel $\alpha$ für Heidelberg bestimmt werden. Der Literaturwert liegt bei $\alpha_\text{lit} = 65^\circ$. 
+Dazu wird sowohl die Horizontal- und die Vertikalkomponente bestimmt, um die Inklination zu bestimmen. 
+Es ist ein Fehler in dem Messprotokoll anzumerken, hier wurde für den Kompensationsstrom $I_T = (69.90 \pm 0.05)$A vermerkt, jedoch sollten es hier mA sein. 
+% Es wurde zudem keine Periodendauer $T$ gemessen, diese kann via 
+% \eq{periodDauer}{
+%     T = \frac{1}{f} = \frac{1}{11} [~\mathrm{s}] \, , \qquad \Delta T = \Delta f = 0.05 [~\mathrm{s}]
+% }
+% bestimmt werden.
+Zunächst wird die vertikale Komponente $B_\text{ver}$ bestimmt. Dazu werden die bekannten Daten in \ceq{helmholtz_field} eingesetzt, wobei die Stromsäke hier $I_T$ ist. Es ergibt sich 
+\res[-5]{B_\text{ver}}{5.412}{0.004}{T}
+Die horizontale Komponente wird via via \ceq{inclination} bestimmt. Einsetzen der bekannten Werte liefert
+\res[-5]{B_\text{hor}}{2.5}{0.4}{T}
+Zum überprüfen der Werte wird der Absolutbetrag über die beiden eintelkomponenten via \ceq{earth_field_absolute} bestimmt.
+\res[-5]{B_\text{abs,2}}{6.0}{0.4}{T}
+Deiser Wert weicht um $0.15\sigma$ zum Wert $B_\text{abs}$ ab. Die \ceq{inclination} nach $\alpha$ aufgelöst und via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} wird die Ungenauigkeit bestimmt:
+\eq{final_wik}{
+    \alpha = \arctan\left( \frac{B_\text{vert}}{B_\text{hor}} \right) \, , \qquad
+    \Delta \alpha = \sqrt{\frac{B_\text{hor}^{2} \Delta B_\text{ver}^{2} + B_\text{ver}^{2} \Delta B_\text{hor}^{2}}{(B_\text{hor}^{2} + B_\text{ver}^{2})^{2}}} \, .
+}
+Einsetzen der Werte liefert einen Inklinationswinekl von
+\res{\alpha}{65}{4}{^\circ}
+Dieser weicht um $\approx 0.00\sigma$ vom Literaturwert ab. Die Werte sind damit statistisch deckungsgleich.

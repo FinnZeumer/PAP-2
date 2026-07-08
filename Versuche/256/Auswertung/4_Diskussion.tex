@@ -1,11 +1,45 @@
-\chapter{Diskussion}
+\chapter{Discussion}
 \label{ch:Diskussion}
 
-\section{Zusammenfassung}
+\section{Summary}
 \label{sec:Zusammenfassung}
 
-\section{Analyse der Messwerte}
+The aim of this experiment was to investigate the characteristic X-ray fluorescence spectra of different elements and to verify Moseley's law. After calibrating the detector using the characteristic emission lines of iron and molybdenum, the characteristic $K_\alpha$ and $K_\beta$ lines of several elements were measured. From these measurements, the Rydberg energy and the corresponding screening constants were determined by linear regression according to Moseley's law. In addition, the fluorescence spectra of several unknown alloys were analyzed in order to identify their elemental composition by comparison with expected characteristic emission lines.
+
+Overall, the measured data are in good agreement with the theoretical predictions. The fitted Rydberg energies obtained from both the $K_\alpha$ and $K_\beta$ series agree with the literature value within their experimental uncertainties. Furthermore, the composition analysis of the unknown alloys produced plausible results, although the identification procedure was limited by the manual evaluation of the spectra.
+
+\section{Analysis of the Data}
 \label{sec:Analyse}
 
-\section{Kritik}
+The evaluation of the $K_\alpha$ lines yielded a Rydberg energy of
+\[
+E_R = (13.83 \pm 0.17)\,\mathrm{eV},
+\]
+which differs from the literature value by only $1.3\sigma$. Since this deviation is statistically insignificant, the experimental data confirm Moseley's law within the measurement uncertainty. Likewise, the fitted screening constant
+\[
+\sigma_{12} = (1.05 \pm 0.23)
+\]
+is fully consistent with the commonly used approximation $\sigma_{12}\approx1$. This demonstrates that the simplified form of Moseley's law provides an accurate description of the measured $K_\alpha$ transitions.
+
+For the $K_\beta$ lines, the obtained Rydberg energy
+\[
+E_R = (13.51 \pm 0.24)\,\mathrm{eV}
+\]
+also agrees with the literature value, exhibiting a deviation of only $0.39\sigma$. Although the determination of the Rydberg energy remains reliable, the fitted screening constant
+\[
+\sigma_{13} = (1.7 \pm 0.3)
+\]
+shows a considerably larger deviation from the approximation $\sigma_{13}=1$. Its relative deviation exceeds $70\%$, indicating that this approximation is not suitable for quantitative analyses of the $K_\beta$ transitions.
+
+Several factors may explain this behaviour. First, the $K_\beta$ emission lines possess significantly lower intensities than the corresponding $K_\alpha$ lines, making them more susceptible to statistical fluctuations, detector noise, and background radiation. Secondly, Moseley's law assumes a constant screening parameter for a given transition. In reality, the screening depends on the electronic structure of the atom and therefore cannot generally be treated as a universal constant. Consequently, deviations are expected to become more pronounced for the $K_\beta$ transitions.
+
+The analysis of the unknown alloys was performed by comparing the measured fluorescence spectra with the expected characteristic emission lines of possible constituent elements. This approach yielded convincing results for alloys with relatively simple compositions, where the characteristic peaks could be assigned unambiguously. More complex spectra, however, contained overlapping peaks or unexplained features that prevented a unique identification of all elements. Nevertheless, the proposed compositions are physically reasonable and consistent with the measured spectra.
+
+\section{Criticism}
 \label{sec:Kritik}
+
+Several sources of uncertainty influenced the accuracy of the experiment. The energy calibration directly affects all subsequent measurements, so even small calibration errors propagate into the determination of the Rydberg energy and the screening constants. In addition, the finite energy resolution of the detector limited the separation of closely spaced spectral lines, especially for weaker $K_\beta$ transitions.
+
+The identification of the unknown alloys represents another important limitation. Since the elemental composition was determined by manually comparing measured spectra with expected characteristic lines, the analysis is inherently subjective. A more rigorous approach would involve automated peak fitting together with a quantitative least-squares analysis or comparison with reference spectra. Such methods would significantly reduce the influence of personal interpretation and improve the reproducibility of the results.
+
+Overall, despite these experimental limitations, the obtained results are in good agreement with the theoretical expectations. The experiment successfully verifies Moseley's law within the experimental uncertainty and demonstrates the suitability of X-ray fluorescence spectroscopy for qualitative elemental analysis.

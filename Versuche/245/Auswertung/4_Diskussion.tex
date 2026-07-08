@@ -3,9 +3,57 @@
 
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
+Ziel dieses Versuches war die experimentelle Überprüfung des Induktionsgesetzes in verschiedenen physikalischen Szenarien sowie die Bestimmung charakteristischer Größen wie der Induktivität der verwendeten Helmholtzspule und des Erdmagnetfeldes in Heidelberg. Grundsätzlich konnte das Induktionsgesetz in allen betrachteten Konfigurationen bestätigt werden. Der lineare Zusammenhang zwischen induzierter Spannung und Drehfrequenz zeigte sich in \cabb{plots/Induk_durhc_Freq}, ebenso wie die proportionale Abhängigkeit von der Stromstärke laut \cabb{plots/Induk_durcg_Strom}. Auch die Winkelabhängigkeit folgt theoretisch erwarteten Mustern, wenngleich mit Abweichungen in den Offset-Parametern. Die bestimmte Induktivität der Helmholtzspule und der Inklinationswinkel stimmen innerhalb der Fehlergrenzen mit Literaturwerten überein. Somit wurden die gestellten Ziele grundsätzlich erreicht, wobei einzelne Ergebnisse deutliche systematische Abweichungen aufweisen, die weitergehende Ursachenanalysen erfordern.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
+Bei der Analyse der Messwerte fallen verschiedene Abweichungen und Übereinstimmungen mit der Theorie auf, die im Folgenden detailliert betrachtet werden.
+
+In \csec{A1} wurde das Magnetfeld der Helmholtzspule mit zwei unterschiedlichen Methoden bestimmt. Über die Frequenzabhängigkeit der induzierten Spannung ergab sich 
+\res[-3]{B}{3.72}{0.11}{T}
+während die direkte Berechnung über die Helmholtz-Formel 
+\res[-3]{B_H}{3.10}{0.04}{T} 
+lieferte. Die Standardabweichung zwischen diesen beiden Werten liegt bei 
+$5.28\sigma$ und ist damit statistisch signifikant. Die naheliegendste Erklärung für diese Diskrepanz ist die Nichtberücksichtigung der Selbstinduktion der Induktionsspule, was zu einer Überschätzung des über die Induktion bestimmten Magnetfeldes führt. Ein weiterer Faktor könnte die begrenzte Homogenität des Magnetfeldes sein, die in der idealisierten Helmholtz-Formel vorausgesetzt wird, aber im Experiment nur näherungsweise erfüllt ist.
+Die Abhängigkeit der induzierten Spannung von der Stromstärke zeigt hingegen einen sehr guten linearen Fit, was den proportionalen Zusammenhang aus \ceq{rotating_area} validiert. Die Streuung der Datenpunkte um die Regressionsgerade liegt deutlich innerhalb der angegebenen Fehlerbalken.
+
+Im Abschnitt \csec{A2} zur winkelabhängigen Induktion treten interessante Ungereimtheiten auf. Theoretisch wäre bei einem Winkel von $90^\circ$ eine induzierte Spannung von 0V zu erwarten. Weder das Minimum der Regression liegt bei $90^\circ$ noch bei 0V. Die bestimmten Offset-Parameter 
+\imp{\phi}{-2}{5}{^\circ}
+und 
+\imp[-2]{b}{2.0}{2.4}{V}
+zeigen große Unsicherheiten, was auf einen suboptimalen Fit hindeutet. Das reduzierte Chi-Quadrat von $\chi^2_\text{red} = 0.0322$ bestätigt diese Beobachtung: Ein Wert von eins entspricht einem optimalen Fit, Werte zwischen 0.8 und 1.2 gelten als gut. Ein so kleiner Wert von 0.0322 deutet darauf hin, dass die Unsicherheit der gemessenen induzierten Spannung überschätzt wurde. Unter der Annahme, dass die Theorie korrekt ist und keine weiteren systematischen Fehler vorliegen, würde eine Skalierung der Unsicherheiten mit dem reduzierten Chi-Quadrat ergeben, dass die reale Unsicherheit der Spannung nicht größer als 
+\eq{theo_err}{
+    \Delta U_\text{ind} =  0.004 \mathrm{V}
+}
+sein dürfte. Dieser Wert ist über zehnmal kleiner als die gewählte Unsicherheit von $0.05$V, welche aufgrund der limitierten Auflösung des Messgerätes gewählt wurde. Dies stellt entweder einen Widerspruch zur Theorie oder ein starkes Indiz dar, dass die Messung nicht einwandfrei ablief. Mögliche Ursachen wären Vibrationen der Spule, Temperaturschwankungen oder eine nicht perfekte Ausrichtung der Spulennormalen.
+Beim Lufttransformator (\cabb{plots/Kennlinie_Luft}) zeigt sich das erwartete Verhalten: Bei niedrigen Frequenzen nimmt das Übersetzungsverhältnis stark ab, während bei Frequenzen oberhalb von \SI{2000}{\Hz} ein konstantes Plateau erreicht wird. Dieses Verhalten ist konsistent mit dem frequenzabhängigen Verhalten der Impedanz und der magnetischen Kopplung.
+Die bestimmte Induktivität der Helmholtzspule beträgt 
+\res[-4]{L_H}{1.944}{0.010}{H}
+Der lineare Verlauf der Widerstandsfrequenzabhängigkeit, nachdem die ersten Messpunkte aufgrund nicht vernachlässigbarer elektrischer Widerstände ausgeschlossen wurden, spricht für eine valide Bestimmungsmethode.
+
+Im Bereich des Erdmagnetfeldes (\csec{A3}) ergeben sich sowohl bestätigende als auch problematische Ergebnisse. Der absolute Wert des Erdmagnetfeldes ohne Kompensation wurde zu \res[-5]{B_\text{abs}}{5.6}{2.2}{T} bestimmt. Der Heidelberger Literaturwert liegt bei ungefähr $49\mathrm{\mu T}$, was einer Standardabweichung von $0.34\sigma$ entspricht und damit statistisch nicht signifikant ist. Die tendenzielle Überschätzung lässt sich wiederum vermutlich auf die Selbstinduktion der Spule zurückführen.
+Bei der Bestimmung des Inklinationswinkels wurde zudem ein Fehler im Messprotokoll festgestellt: Der Kompensationsstrom wurde ursprünglich mit \SI{69.90}{\ampere} vermerkt, sollte jedoch \SI{69.90}{\milli\ampere} betragen. Nach Korrektur ergibt sich für die vertikale Komponente 
+\res[-5]{B_\text{ver}}{5.412}{0.004}{T}
+und für die horizontale Komponente 
+\res[-5]{B_\text{hor}}{2.5}{0.4}{T}
+Der daraus berechnete Inklinationswinkel von 
+\res{\alpha}{65}{4}{^\circ}
+weicht um $0.00\sigma$ vom Literaturwert von $65^\circ$ ab. Die Werte sind damit statistisch deckungsgleich. Eine wichtige Konsistenzprüfung erfolgt über den Absolutbetrag aus beiden Komponenten, der zu 
+\res[-5]{B_\text{abs,2}}{6.0}{0.4}{T}
+führt. Dieser Wert weicht lediglich um $0.15\sigma$ vom direkt bestimmten Wert $B_\text{abs}$ ab, was die innere Konsistenz der Messungen unterstreicht.
 
 \section{Kritik}
 \label{sec:Kritik}
+Der Versuchsaufbau weist mehrere Schwachstellen auf, die zukünftig optimiert werden könnten, um die Ergebnisqualität zu verbessern.
+
+Ein zentrales Problem ist die mangelnde Genauigkeit bei der Winkelmessung. Die große Unsicherheit in der Winkelabhängigkeit von $2.5^\circ$ trägt erheblich zur Streuung der Daten bei. Ein präziserer Drehtisch würde die Reproduzierbarkeit deutlich erhöhen.
+
+Die Bestimmung der Nordrichtung für das Erdmagnetfeld erfolgte visuell entlang bekannter Gebäudeachsen, da kein zuverlässiger Kompass verfügbar war. Dies führt zu einer systematischen Unsicherheit in der Ausrichtung der Spule.
+
+Das verrauschte Signal bei der Erdmagnetfeldmessung erforderte die Einschaltung eines Tiefpassfilters, welcher zwar das Signal glättete, aber zugleich die gemessene induzierte Spannung signifikant reduzierte. Ein hochwertigeres Filterdesign oder digitale Nachverarbeitung der Rohdaten mittels Software-Filtern würde hier eine bessere Kompromisslösung zwischen Glättung und Signalverlust ermöglichen.
+
+Die Selbstinduktion der Induktionsspule wurde in keiner der Auswertungen explizit berücksichtigt. Eine Modellierung dieses Effekts durch Einbeziehung der Spuleninduktivität in die Berechnungsformeln würde die systematischen Abweichungen zwischen den verschiedenen Bestimmungsmethoden des Magnetfeldes verringern.
+
+Die begrenzte Auflösung des Oszilloskops führte zur Wahl einer relatativ großen Unsicherheit von $0.05$V für die induzierte Spannung. Ein Messgerät mit höherer Auflösung oder die Mittelung über mehrere Messzyklen würde die statistische Unsicherheit reduzieren und damit präzisere Fits ermöglichen.
+
+Des Weiteren lief der Motor im vermessenen Frequenzbereich nicht vollständig gleichmäßig, was zu Schwankungen in der Drehfrequenz führte. Ein geregeltes Antriebssystem mit konstanter Drehzahlregelung würde diese Fehlerquelle eliminieren und die Präzision der Frequenzabhängigkeitsmessungen steigern.

@@ -1,33 +1,79 @@
-\chapter{Auswertung}
+\chapter{Evaluation}
 \label{ch:Auswertung}
 % Liste der genutzer Formeln für die Fehlerrechnung
-\section*{Fehlerrechnung}
-Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größen definiert \cite{errorSkript25}:
+\section*{Uncertanty Calculation}
+For the statistical evaluation of $n$ messurments $x_i$, the follwoing equations are defined: \cite{errorSkript25}:
 \begin{align}
-    \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetisches Mittel}} \label{eq:arithmetisches_mittel} \\
-    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Varianz}} \label{eq:Varianz} \\
-    \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standardabweichung}} \label{eq:standardabweichung} \\
-    \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler des Mittelwerts}} \label{eq:fehler_mittelwert} \\
-    \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gauß’sches Fehlerfortpflanzungsgesetz für $f(x,y)$}} \label{eq:gauss_fehlfortpflanzung} \\
-    \Delta f &= \sqrt{(\Delta x)^2 + (\Delta y)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = x + y$}} \label{eq:fehler_summe} \\
-    \Delta f &= |a| \Delta x \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Fehler für $f = ax$}} \label{eq:fehler_proportional} \\
-    \frac{\Delta f}{|f|} &= \sqrt{\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{relativer Fehler für $f = xy$ oder $f = x/y$}} \label{eq:relativer_fehler} \\
-    \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Berechnung der signifikanten Abweichung}} \label{eq:signifikante_abweichung}
+    \bar{x} &= \frac{1}{n} \sum_{i=1}^{n} x_i \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Arithmetic Mean}} \label{eq:arithmetic_mean} \\
+    \sigma^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Variance}} \label{eq:variance} \\
+    \sigma &= \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Standard Deviation}} \label{eq:standard_deviation} \\
+    \Delta \bar{x} &= \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n(\bar x - x_i)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Uncertainty of the Mean}} \label{eq:uncertainty_mean} \\
+    \Delta f &= \sqrt{\left(\frac{\partial f}{\partial x} \Delta x\right)^2 + \left(\frac{\partial f}{\partial y} \Delta y\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Gaussian Error Propagation for $f(x,y)$}} \label{eq:gauss_error_prop} \\
+    \Delta f &= \sqrt{(\Delta x)^2 + (\Delta y)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Uncertainty for $f = x + y$}} \label{eq:error_sum} \\
+    \Delta f &= |a| \Delta x \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Uncertainty for $f = ax$}} \label{eq:error_proportional} \\
+    \frac{\Delta f}{|f|} &= \sqrt{\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Relative Uncertainty for $f = xy$ or $f = x/y$}} \label{eq:relative_error} \\
+    \sigma &= \frac{|a_{lit} - a_{gem}|}{\sqrt{\Delta a_{lit}^2 + \Delta a_{gem}^2}} \vphantom{\sqrt{\sum_i^n}^2} && \text{\textcolor{gray}{Significant Deviation Calculation}} \label{eq:significant_deviation}
 \end{align}
 
 \newpage
 
-\section{Aufgabe 1: }
+% For this protocoll eight different elements have been evaluated. All eight elements and ther messured spectrum can be found in in figure \ref{fig:Bild_alle}
+
+% \img[0.9]{Bild_alle}{All elements and ther spectrums.}
+
+% The messured elements are (Fr, Mo, Ag, Cu, Ni, Ti, Zn, Zr) -- with their atomic number $Z = (26, 42, 47, 29, 28, 22, 30, 40)$.
+
+\section{Evaluation of the alpha lines}
 \label{sec:A1}
+In this section the aim is to verify Mosely's Law by evaluating $E_R$ by using the $K_\alpha$ lines from different elements. Each element has a uniqu atomic number $Z$, given by the amount of protons in the nucleus. The root of the messured enegy is been plotted against the atomic number $Z$ for each element. This can be found in figure \ref{fig:plots/Alpha_Line}. Using equation \ref{eq:simplified_energy}, a regression can be fitted to the messurment data. The regression and its parameters can be found in the same plot (\ref{fig:plots/Alpha_Line}) respectively.
+\img[1]{plots/Alpha_Line}{Square roots of the mussured energies against the atomic number, also containing the (linear) Regression for the $K_\alpha$-lines.}
 
-\section{Aufgabe 2: }
+For the regression $n$ and $m$ were set to $n=1$ and $m =2$. To get now the energy $E_R$ for Moseley's Law the fit parameter $\sqrt{E_R} = (3.719 \pm 0.023)\mathrm{\sqrt{eV}}$ will be squared:
+\eq{sduf}{
+    E_R = \sqrt{E_R}^2 \, , \qquad \Delta E_R = 2 \left(\Delta\sqrt{E_R}\right) \sqrt{E_R} \, .
+}
+the uncertaintie was eximated by using the \hyperref[eq:gauss_error_prop]{Gaussian error propagation (\ref*{eq:gauss_error_prop})}. Having all the data the energy can hence be solved to be
+\res{E_R}{13.83}{0.17}{eV}
+The literature value for the energy of Moseley's Law is $E_R = 13.606 \mathrm{eV}$, hence the \hyperref[eq:standard_deviation]{standard deviation (\ref*{eq:standard_deviation})} is $1.3\sigma$ and therefore statistically not significant.
+
+The second fit parameter is 
+\eq{secondFIt}{
+    \sigma_{12} = (1.05 \pm 0.23)
+}
+and often is be approximated to be equal to one. The \hyperref[eq:standard_deviation]{standard deviation (\ref*{eq:standard_deviation})} form the estimated value to one is just $0.21\sigma$ and hence statistically not significant, thu sthe approximation is reasonable.
+
+\section{Evaluation of the beta lines}
 \label{sec:A2}
+The same analysis as in the section before will be done here, but instead analyzing the $K_\beta$-lines. The messurment data is plotted in figure \ref{fig:plots/Beta_Line}. 
+\img[1]{plots/Beta_Line}{Square roots of the mussured energies against the atomic number, also containing the (linear) Regression for the $K_\beta$-lines. Ti was removed, since the value for this element cound not be messured.}
 
-\section{Aufgabe 3: }
+For the regression $n$ and $m$ were set to $n=1$ and $m=3$. Since the energy line for Ti could not be resolved, this values was removed from the analysis. The regression parameters as well as the plotted regression can again be found in the same figure respectively. Using equaiton \ref{eq:sduf} the enegy $E_R$ can be calculated to be
+\res{E_R}{13.51}{0.24}{eV}
+This value has a \hyperref[eq:standard_deviation]{standard deviation (\ref*{eq:standard_deviation})} from the literature value of $0.39 \sigma$.
+
+The other fit parameter has been evaluated to be
+\eq{secondFItzushdgb}{
+    \sigma_{13} = (1.7 \pm 0.3) \, ,
+}
+having a standard deviation to one of $2.07 \sigma$. Beign still statistically not significant the approximation is not as good anymore and should be avoided, or only be used for rough approximations.
+
+
+
+\section{Evaluation of elements contained in each alloy}
 \label{sec:A3}
 
-\section{Aufgabe 4: }
-\label{sec:A4}
+Compositional analysis of the unknown alloys documented in the measurement log is evaluated in this section. Measured fluorescence spectra are presented in the accompanying figures alongside the expected characteristic lines of elements hypothesized to constitute each alloy. Identification was performed by manually overlaying the expected spectral lines of various candidate elements and selecting the combination that provided the best match to the measured spectrum.
 
-\section{Aufgabe 5: }
-\label{sec:A5}
+This empirical approach carries notable limitations. Time constraints of the experiment precluded systematic comparison of all plausible elemental combinations, rendering the identification process inherently subjective. Consequently, the assignment of specific spectral features to particular elements relies on visual judgment rather than automated fitting procedures. 
+
+However, some alloys could be figured out quite precisley, namly, alloys one and two.
+The third alloy has a lot of noise on the lower energy side, that could not be explained. For alloy four is was the same for high energy, as wlel as the most right peak, there was no (non-toxic) element, that fitted this peak.
+
+Also in alloy 5, pleanty of elements fit the peaks, but are considerd toxic and thus unlikly to be used in an university experiment (hopefully).
+
+\img[0.9]{leg1}{Messured spectrum for alloy 1.}
+\img[0.9]{leg2}{Messured spectrum for alloy 2.}
+\img[0.9]{leg3}{Messured spectrum for alloy 3.}
+\img[0.9]{leg4}{Messured spectrum for alloy 4. This was the magnet.}
+\img[0.9]{leg5}{Messured spectrum for alloy 5.}
+

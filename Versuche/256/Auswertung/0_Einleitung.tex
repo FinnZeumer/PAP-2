@@ -1,13 +1,27 @@
-\chapter{Einleitung} \label{ch:Einleitung}
+\chapter{Introduction} \label{ch:Introduction}
 
-\section{Aufgabe und Motivation}
-\label{sec:AuM}
+\section{Task and Motivation} \label{sec:TaskAndMotivation}
+Radioactive decay represents one of the fundamental phenomena in nuclear physics, demonstrating the stochastic nature of quantum mechanical processes. The primary objective of this experiment is to investigate the statistical properties of radioactive decay by measuring count rates over time and analyzing their distribution characteristics. Understanding the statistical behavior of radioactive emissions is essential not only for theoretical physics but also for practical applications in radiation protection, medical diagnostics, and nuclear instrumentation. The motivation behind this investigation stems from the need to verify the Poissonian nature of decay events and to develop proficiency in handling measurement uncertainties inherent in counting experiments. Additionally, this experiment provides insight into background radiation contributions and methods for their proper subtraction when determining the activity of radioactive samples. By systematically varying measurement parameters such as counting time and distance from the source, we aim to establish the relationships governing radioactive decay statistics and validate the theoretical predictions derived from first principles.
 
+\section{Physical Basics} \label{sec:PhysicalBasics}
 
-\section{Physikalische Grundlage}
-\label{sec:PhyBasics}
+\subsection{Moseley's Law for Fluorescence} \label{subsec:moseleys_law}
+X-ray fluorescence occurs when incident photons, particularly X-rays, excite atoms in a material, causing electrons to be promoted to higher energy levels. When these excited atoms return to their ground state, they emit photons whose energy corresponds to the difference between the relevant energy levels. To predict the energy of the resulting photons, an expression for the energy differences between atomic states is required. The Bohr atomic model provides a framework for approximating the energy $E$ between states with principal quantum numbers $n$ and $m$:
 
+\eq{bohr_energy_difference}{E = E_R\left(\frac{(Z - \sigma_n)^2}{n^2} - \frac{(Z - \sigma_m)^2}{m^2}\right),}
+where $Z$ represents the atomic number and $E_R$ denotes the Rydberg energy with a literature value of approximately $E_R \approx 13{,}6~\text{eV}$. The screening constants $\sigma_i$ account for the shielding of the nuclear charge by surrounding electrons. For practical purposes in this experiment, the screening constants are combined into a mean value $\sigma_{nm}$, yielding the simplified expression
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+\eq{simplified_energy}{E = E_R(Z - \sigma_{nm})^2\left(\frac{1}{n^2} - \frac{1}{m^2}\right).}
+Rearranging this equation leads to Moseley's law in its standard form:
 
+\eq{moseleys_law}{\sqrt{\frac{E}{E_R}} = (Z - \sigma_{nm})\sqrt{\frac{1}{n^2} - \frac{1}{m^2}}.}
+For this experiment, transitions from $n=2$ and $n=3$ to the ground state ($m=1$) are of primary interest, corresponding to the $K_\alpha$ and $K_\beta$ spectral lines respectively. For $K_\alpha$ radiation (transition $2 \rightarrow 1$) and not too heavy nuclei with $Z \approx 30$, the screening constant can be estimated as $\sigma_{12} \approx 1$, giving
+
+\eq{k_alpha_energy}{\sqrt{\frac{E}{E_R}} = (Z - 1)\sqrt{\frac{3}{4}}.}
+By plotting $\sqrt{E}$ as a function of the atomic number $Z$ and fitting Moseley's law to the measured data, both the Rydberg energy $E_R$ and the screening constant $\sigma_{nm}$ can be determined experimentally and compared to established literature values. This verification demonstrates the validity of the hydrogen-like approximation for inner-shell electron transitions in multi-electron atoms.
+
+\subsection{Semiconductor Detector} \label{subsec:semiconductor_detector}
+To detect the photons produced by X-ray fluorescence, semiconductor detectors are employed. These devices operate based on a pn-junction where an external voltage is applied. When n-type and p-type semiconductors are brought into contact, free charge carriers at the junction annihilate, creating a region devoid of free charges known as the depletion region. This depletion region can be expanded by applying a reverse bias voltage across the pn-junction, which pulls free charge carriers toward the exterior and widens the zone where charge carriers are scarce.
+The depletion region constitutes the sensitive volume of the detector. When an X-ray photon traverses this region, it can be absorbed through the photoelectric effect, ionizing atoms within the depletion zone. Due to the applied voltage across the pn-junction, the created charge carriers are accelerated, producing a measurable current pulse at the edges of the depletion region. Crucially, the number of free charge carriers produced is proportional to the energy of the incident photon, meaning the amplitude of the resulting pulse allows reconstruction of the photon energy.
+\img{sidufh}{Schematic depiction of a semiconductor detector showing the pn-junction, depletion region, and charge carrier movement upon X-ray photon absorption}
+The relationship between deposited energy and signal amplitude requires a highly sensitive detector system for accurate measurement. An integrator circuit is typically used to accumulate the charge generated by each detection event, producing a voltage pulse proportional to the incident photon energy. This linear relationship enables the construction of energy spectra through multichannel analysis, where detected events are sorted into channels according to their pulse heights. The resolution of such detectors depends on factors including the semiconductor bandgap, temperature, and electronic noise characteristics, all of which must be controlled to achieve precise energy measurements suitable for elemental identification via characteristic X-ray line analysis.
