@@ -9,6 +9,13 @@ Ich muss eine neue Einleitung aus den beiden Vorlagen erstellen. Es geht um die 
 \section{Physikalische Grundlage}
 \label{sec:PhyBasics}
 
+\subsection{Paarbildung}
+
+\subsection{Comptonstreuung}
+
+\subsection{Photoeffekt}
+
+
 
 Alles muss im Fließtext geschrieben werden. Nutze für Gleichungen:
 \newcommand{\eq}[2]{

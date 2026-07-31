@@ -2,12 +2,40 @@
 
 \section{Aufgabe und Motivation}
 \label{sec:AuM}
-
+Die Untersuchung von radioaktiven Strahlungsarten und deren Wechselwirkungen mit Materie stellt ein grundlegendes Experiment in der Experimentalphysik dar. Ziel dieses Versuches ist es, die Charakteristika von $\alpha$-, $\beta$- und $\gamma$-Strahlung zu analysieren sowie deren Absorption beim Durchdringen verschiedener Materialien zu quantifizieren. Da radioaktive Zerfälle statistischen Prozessen unterliegen und Strahlung beim Durchgang durch Materie Energie verliert, lassen sich hierüber wichtige Rückschlüsse auf die Kernstruktur, die Reichweiten und die Schwächungskoeffizienten der jeweiligen Strahlungsarten ziehen. Im Rahmen der Auswertung werden hierfür unter anderem die Zerfallsgesetze, Absorptionsgesetze sowie geometrische Korrekturen zur Bestimmung von Aktivitäten und Teilchenenergien herangezogen.
 
 \section{Physikalische Grundlage}
 \label{sec:PhyBasics}
+Radioaktivität beschreibt die Eigenschaft instabiler Atomkerne, sich spontan unter Aussendung von Teilchen oder elektromagnetischer Strahlung in andere Kerne umzuwandeln. Für die quantitative Beschreibung des radioaktiven Zerfalls gilt das fundamentale Zerfallsgesetz, welches die zeitliche Abnahme der Anzahl $N(t)$ radioaktiver Kerne beschreibt:
+\eq{zerfallsgesetz}{
+  N(t) = N_0 \cdot e^{-\lambda t}
+}
+Dabei bezeichnet $N_0$ die Anfangszahl der Kerne zur Zeit $t = 0$ und $\lambda$ die für den jeweiligen Kern charakteristische Zerfallskonstante. Aus der Aktivität $A(t)$, die der Anzahl der Zerfälle pro Zeitspanne entspricht, folgt über den Zusammenhang $A(t) = -\frac{dN}{dt} = \lambda N(t)$ die fundamentale Beziehung für die gemessene Zählrate unter Berücksichtigung des Nulleffekts:
+\eq{aktivitaet_zeit}{
+  A(t) = \lambda N_0 e^{-\lambda t}
+}
+Beim Durchgang von ionisierender Strahlung durch Materie kommt es zu Energieverlusten und Wechselwirkungsprozessen, die je nach Strahlungsart stark variieren. Während $\alpha$-Strahlung und $\beta$-Strahlung als geladene Teilchen kontinuierlich durch Stoßprozesse mit den Elektronen der Hülle abgebremst werden, handelt es sich bei $\gamma$-Strahlung um hochenergetische Photonen, deren Schwächung in Materie durch das Lambert-Beersche Gesetz beschrieben wird:
+\eq{lambert_beer}{
+  n(x) = n_0 \cdot e^{-\mu x}
+}
+Hierbei repräsentiert $n(x)$ die Zählrate nach Durchquerung der Schichtdicke $x$ und $\mu$ den linearen Schwächungskoeffizienten. Für die Auswertung der $\beta$-Strahlung wird zudem die Flächendichte verwendet, um die maximale Reichweite und Energie der $\beta$-Teilchen zu ermitteln. Bei der Bestimmung der Aktivität von $\gamma$-Strahlern müssen zudem geometrische Effekte wie der Raumwinkel und Korrekturen für ausgedehnte Quellen berücksichtigt werden, was zu Gleichungen der Form:
+\eq{aktivitaet_korr}{
+  A_{\text{korr}} = \frac{4 \cdot n_g \cdot \left(d_g + \frac{l}{2}\right)^2}{\varepsilon \cdot r^2}
+}
+führt, wobei $d_g$ den Abstand, $l$ die Quellenlänge, $r$ den Radius des Zählrohrs und $\varepsilon$ die Ansprechwahrscheinlichkeit bezeichnet.
 
+\subsection{Paarbildung}
+Ab einer Schwellenenergie der einfallenden Photonen von $1,022\,\text{MeV}$ kann bei der Wechselwirkung eines Photons im elektrischen Feld eines Atomkerns eine Paarbildung stattfinden, bei der das Photon vollständig absorbiert und in ein Elektron-Positron-Paar umgewandelt wird. Die über die Schwelle hinausgehende Energie wird dabei als kinetische Energie an die beiden erzeugten Teilchen übertragen. Für hohe Energien ist die Paarbildung der dominierende Beitrag zum linearen Schwächungskoeffizienten von $\gamma$-Strahlung in Materie.
 
-\subsubsection*{Skizze des Versuchsaufbaus}
-\label{sec:Skizze}
+\img{effekte}{Visualisierung der Paarbildung, der Comptonstreuung und des Photoeffektes.}
 
+\subsection{Comptonstreuung}
+Die Comptonstreuung beschreibt den inelastischen Stoß eines Photons mit einem schwach gebundenen Elektron der Atomhülle. Hierbei gibt das Photon einen Teil seiner Energie an das Elektron ab, wodurch dieses aus dem Atom herausgeschlagen wird, während das gestreute Photon mit einer verringerten Energie und einem geänderten Ablenkungswinkel weiterläuft. Dieser Prozess trägt maßgeblich zur Schwächung von mittelschnellen Photonen bei. Die Energie des gestreuten Photons hängt dabei vom Streuwinkel und der ursprünglichen Energie ab:
+\eq{compton_energie}{
+  \hbar\omega' = \frac{\hbar\omega}{1 + \frac{\hbar\omega}{m_e c^2} (1 - \cos\theta)}
+}
+
+\subsection{Photoeffekt}
+Beim Photoeffekt stößt ein Photon auf ein inneres Schalenelektron eines Atoms und überträgt dabei seine gesamte Energie auf dieses Elektron, wodurch das Photon vollständig vernichtet und das Elektron als Photoelektron aus der Atomhülle herausgeschlagen wird. Die kinetische Energie des freigesetzten Elektrons ergibt sich aus der Differenz zwischen der Photonenenergie und der Bindungsenergie des Elektrons. Dieser Prozess dominiert insbesondere bei niedrigen Photonenenergien und nimmt mit wachsender Energie stark ab.
+
+\img{effekte_plot}{Beiträge der genannten Effekte zum Schwächungskoeffizient.}

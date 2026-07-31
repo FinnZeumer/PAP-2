@@ -17,17 +17,48 @@ Für die statistische Auswertung von $n$ Messwerten $x_i$ werden folgende Größ
 
 \newpage
 
-\section{Beta-Strahlung: Absorbiert im Aluminum}
+\section{Absorbiert von Beta--Strahlung in Aluminum}
 \label{sec:A1}
+Zunächst soll die Absorption von $\beta$--Strahlung durch Aluminum betrachtet werden. Dazu wurde bei verschiedenen Dicken der Aluminumschicht die Zählrate bestimmt. Die Messwerte sind der Tabelle M.3.1 im \hyperref[ch:Protokoll]{Messprotokoll} zu entnemen. Der nullefekt wurde ist in Aufgabe 2 des \hyperref[ch:Protokoll]{Messprotokolles} bestimmt und leigt bei $n_0^\beta = (0.28 \pm 0.03) \mathrm{s^{-1}}$
+Die Unegnauigkeit der Zählrate wird nach der Possion--Statistik nach
+\eq{possion_err_counts}{
+    \Delta n = \frac{\sqrt{n}}{\sqrt{N}}
+}
+bestimmt. Dabei bezeichnet $N$ die Anzahl der Anzahl der Ereignisse.
+Die Messergebnisse sind der \cabb{plots/Absorption_beta_Aluminum} zu entnehmen.
+Darüberhinaus wurde eine Regression nach \ceq{zerfallsgesetz} der Form
+\eq{reg_expo_decay}{
+    N(d) = N_0 \cdot \exp(\mu \cdot d) - n_0^\beta
+}
+an die Messdaten gefittet. Die Fitparameter sind der Legende der Abbildung zu netnehmen. 
+Es wurde eine Fehlerabschätzung der Regression hinzuefügt. Diese wurde über die in Python bestimmte Ungenauigkeit des Absorptionskoeffizientenes $\mu$ bestimmt, in dem die Regression einmal mit addierten, einmal mit subdrahierten Fehler durhcgeführt wurde. Der entstandene Fehlerschlauch ist in dem Plot rot dargestellt. 
 
-\section{Gamma-Strahlung: Absorption durch Blei}
+\img[1]{plots/Absorption_beta_Aluminum}{Messdaten der Absorptionsmessung von Beta--Strahlung in Aluminum und Regressionsfunktion.}
+
+Mit den Ergebnissen der Regression können die erwartete maximale Reichweite der $\beta$--Strahlung in Aluminum und die Flächendichte bestimmt werden. 
+Die maximale Reichweite ist gerade der Wert, wo die Regression null wird, bzw. sich der Null belibig nah nährt. Hier wurde bestimmt, bei welcher Dicke der Aluminumschicht die Ereignisse pro Sekunde unter $10^{-14}$ geganden sind. Dies ist gerade ungefähr die Genauigkeit von Single--Precision--Floats. Für die Ungenauigkeit wurde das Prozedere für die beiden Fehlerabschätzungsgraphen wiederholt und die mittlere Abweichung nach dem \hyperref[eq:arithmetisches_mittel]{arithmetischen Mittel (\ref*{eq:arithmetisches_mittel})} bestimmt. Es ergibt sich 
+\res[-3]{x_\text{max}^\beta}{2.841}{0.017}{m}
+
+Über die maximale Riechweite, der Dichte von Aluminum $\rho_\text{Al} = 2.7 \mathrm{g/cm^3}$ und der Flächendichte $R_\text{ES} = 0.13 \mathrm{g/cm^2}$ kann via
+\eq{idszf}{
+    R_\beta = \rho_\text{Al} x_\text{max} + R_\text{ES}, \qquad 
+    \Delta R_\beta = \rho_\text{Al} Delta x_\text{max}
+}
+bestimmt werden. Dabei wurde die Ungenauigkeit via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt.  Einsetzen der bekannten Werte liefert
+
+\res{R_\beta}{8.97}{0.05}{\frac{kg}{m^2}}
+
+Über die \cabb{plt1_a} kann die maximale Energie bestimmt werden. Somit liegt die Energie bei
+\res{E_\text{exp}^\beta}{2.00}{0.20}{MeV}
+
+Die Ungenauigkeit wurde mit 10\% Unsicherheit geschätzt. Der Literaturwert liegt bei $E_\text{lit}^\beta = 2.274$MeV \cite{skriptPAP22}. Die \hyperref[eq:standardabweichung]{Standardabweichung (\ref*{eq:standardabweichung})} beträgt somit $1.37\sigma$ und ist somit statistisch nicht signifikant.
+
+
+\section{Absorption von Gamma--Strahlung durch Blei}
 \label{sec:A2}
 
-\section{Aktivität der Gamma-Strahlung}
+\section{Aktivität der Gamma--Strahlung}
 \label{sec:A3}
 
-\section{Absorption der Alpha-Strahlung in Luft}
+\section{Absorption der Alpha--Strahlung in Luft}
 \label{sec:A4}
-
-\section{Aufgabe 5: }
-\label{sec:A5}
