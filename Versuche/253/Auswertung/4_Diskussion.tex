@@ -1,11 +1,42 @@
-\chapter{Diskussion}
 \label{ch:Diskussion}
 
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
+Das übergeordnete Ziel dieses Versuchs bestand darin, die Absorptions- und Schwächungseigenschaften ionisierender Strahlung bei ihrer Wechselwirkung mit Materie experimentell zu untersuchen. Dazu wurden $\beta$-Strahlung in Aluminum, $\gamma$-Strahlung in Blei und $\alpha$-Strahlung in Luft behandelt. Weiterhin wurde die Aktivität eines Kobalt-$\gamma$-Strahlers bei variierenden Abständen bestimmt. Die Versuche basierten auf dem Lambert-Beerschen Gesetz für exponentielle Schwächung sowie auf geometrischen Überlegungen zum Raumwinkel und Detektoreffektivitäten. Insgesamt konnte das Versuchsanliegen erfolgreich realisiert werden: Alle Strahlungsarten zeigten das erwartete Abschwächungsverhalten, und die daraus bestimmten physikalischen Größen stimmen im Rahmen ihrer Unsicherheiten mit den theoretischen Erwartungen überein. Keine der beobachteten Abweichungen war statistisch signifikant, was die grundlegende Validität der Messmethoden untermauert.
 
 \section{Analyse der Messwerte}
 \label{sec:Analyse}
+Bei der Absorption von $\beta$-Strahlung in Aluminum wurde eine maximale Reichweite von 
+\res[-3]{x_\text{max}^\beta}{2.841}{0.017}{m}
+bestimmt. Daraus ergab sich eine Flächendichte von 
+\res{R_\beta}{8.97}{0.05}{\frac{kg}{m^2}}
+und eine maximale Energie von 
+\res{E_\text{exp}^\beta}{1.95}{0.20}{MeV}
+Der Literaturwert liegt bei 2.274 MeV, was einer Abweichung von $1.66\sigma$ entspricht. Da diese im statistischen Sinne nicht signifikant ist, kann die Messung als bestätigt gelten. Allerdings deutet die systematische Unterschätzung auf mögliche unerfaszte Verlustmechanismen hin, etwa Streuverluste oder eine unvollständige Erfassung der Teilchenspektren durch das Zählrohr.
+
+Für die $\gamma$-Strahlung in Blei wurde der Schwächungskoeffizient von 
+\imp[-3]{\zeta}{4.79}{0.08}{\frac{m^2}{kg}}
+ermittelt. Daraus resultiert eine Photonenenergie von 
+\res{E_\text{exp}^\gamma}{1.55}{0.16}{MeV}
+Da $^{60}\mathrm{Co}$ zwei relevante $\gamma$-Übergänge bei 1.173 MeV und 1.333 MeV aufweist, zeigt der gemessene Wert eine Abweichung von $2.43\sigma$ und $1.4\sigma$ gegenüber den Einzelwerten sowie von $1.92\sigma$ gegenüber dem arithmetischen Mittel. Auch hier ist keine Signifikanz gegeben, doch fällt auf, dass der Wert näher am höheren Übergang liegt. Dies könnte darauf hindeuten, dass die Detektoreffizienz energieabhängig.
+
+Die Bestimmung der Aktivität des $\gamma$-Strahlers ergab für den theoretischen Wert 
+\imp[5]{A_\text{theo}}{4.34192}{0}{Bq}
+Wie in \ctab{Erg_A3} gezeigt, stimmen alle korrigierten Messwerte innerhalb ihrer $\sigma$-Abweichungen mit diesem Wert überein. Auffällig ist jedoch der Trend, dass jede zusätzliche Korrektur zu einer größeren Abweichung führt. Während die unkorrigierten Werte leicht unter dem Erwartungswert liegen, überschätzen die korrigierten Werte tendenziell. Dies legt nahe, dass mindestens eine der vorgenommenen Korrekturen (Länge des Zählrohrs oder Absorption in der Kapsel) überkompensiert wird. Mögliche Ursachen sind die vereinfachte Annahme eines mittleren Raumwinkels in der Zählrohrlänge, der die tatsächliche $r^2$-Skalierung der Kugeloberfläche nicht korrekt abbildet, oder Unsicherheiten beim Massenschwächungskoeffizienten.
+
+Die $\alpha$-Strahlung in Luft zeigte eine Reichweite von 
+\imp[-2]{s}{3.65}{0.06}{m}
+und eine Energie von 
+\res{E_\text{exp}^\alpha}{5.2}{0.5}{MeV}
+Mit einer Abweichung von nur $0.44\sigma$ vom Literaturwert von 5.48 MeV stellt dies die beste Übereinstimmung aller Messreihen dar. Die hohe Genauigkeit ist vermutlich auf die lineare Regression im Druckbereich zurückzuführen, die weniger anfällig für nichtlineare Effekte ist als die exponentiellen Fits bei $\beta$- und $\gamma$-Strahlung.
+
+Zusammenfassend decken alle Ergebnisse die theoretischen Erwartungen ab, doch zeigen die systematischen Trends bei den Korrekturen der Aktivitätsbestimmung, dass noch Potenzial für eine präzisere Modellierung besteht. Insbesondere die große relative Unsicherheit vieler Einzelmesswerte und die Abnahme der Unsicherheit mit zunehmendem Abstand deuten auf Grenzen hin, die in der Näherung des Raumwinkels begründet sind.
 
 \section{Kritik}
 \label{sec:Kritik}
+Der Versuchsaufbau bot zwar eine solide Basis für die Untersuchung der Strahlungsabsorption, weist jedoch einige Optimierungspotenziale auf, die die Ergebnisqualität verbessern könnten. Ein erster Ansatzpunkt betrifft die Geometrie der Messungen: Die verwendete Näherung, dass der Abstand zwischen Zählrohr und Probe wesentlich größer sein soll als der Zählrohrradius, ist insbesondere bei kleinen Abständen ($d = 5$ cm) nur bedingt erfüllt. Hier wäre entweder ein größerer Mindestabstand sinnvoll oder eine detailliertere Berechnung des Raumwinkels, die die vollständige Integration über das Volumen des Zählrohrs berücksichtigt anstatt einen einzigen Mittelpunktswert zu verwenden.
+
+Die Detektoreffizienz wurde mit einem konstanten Wert von $\epsilon = 0.04$ angenommen, obwohl diese energieabhängig sein dürfte. Eine Kalibration des Zählrohres mit Quellen bekannter Energie und Aktivität würde die Genauigkeit der Aktivitätsbestimmung deutlich steigern.
+
+Für die $\beta$-Absorptionsmessung wären weitere Aluminium-Dicken im Bereich des Exponentialtails empfehlenswert, um den Fit stabilizer zu machen. Aktuell liegt die Bestimmung der maximalen Reichweite nahe der numerischen Grenze von $10^{-14}$ Events/Sekunde, was die Zuverlässigkeit beeinflusst. Eine längere Messzeit bei hohen Absorberdicken würde die Statistik der wenigen verbleibenden Ereignisse verbessern.
+Schließlich sollte die zeitliche Stabilität der Zählraten während längerer Messreihen überprüft werden. Temperaturschwankungen oder Alterungseffekte des Zählrohres könnten zu Drifts beitragen, die nicht erfasst sind.

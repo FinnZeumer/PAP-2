@@ -69,7 +69,7 @@ benötigt. Über diesen kann der Massenschwähungskoeffizient $\zeta = \mu/\rho$
     \Delta \zeta = \frac{\Delta \mu}{\rho} \, .
 }
 Mit der Dichte von Blei $\rho_\mathrm{Pb} = 11.34  g/cm^3$ ergibt sich ein Massenschwähungskoeffizient von
-\imp[-3]{\zeta}{4.79}{0.08}{\frac{m^2}{kg}}
+\imp[-3]{\zeta}{4.79}{0.08}{\frac{m^2}{kg}} \label{eq:masskof}
 Über diesen Wert kann aus \cabb{plt1_b} die Energie der Photonen zu
 \res{E_\text{exp}^\gamma}{1.55}{0.16}{MeV}
 bestimmt werden.
@@ -79,6 +79,66 @@ Vom \hyperref[eq:arithmetisches_mittel]{arithmetischen Mittel (\ref*{eq:arithmet
 
 \section{Aktivität der Gamma--Strahlung}
 \label{sec:A3}
+In dieser Sektion wird die Aktivität des Gammastrahlers betrachtet. Dazu werden die Werte der Aufgabe 5 des \hyperref[ch:Protokoll]{Messprotokolls} betrachtet. 
+Zunächst soll die Aktivität des Präperates bestimmt werden. 
+Die Aktivität wird nach \ceq{aktivitaet_korr} die Aktivität berechnet, wobei hier zunächst keine Korrekturen vorgenommen, werden;
+\eq{A0}{
+    A_0 = \frac{2 d^{2} n}{\epsilon r^{2}} \, , \qquad
+    \Delta A_0 = A_0 \cdot 
+            \sqrt{\frac{\Delta n^{2}}{n^{2}} + \frac{4 \Delta d^{2}}{d^{2}}} \, .
+}
+Dabei beschreibt $d$ den Abstand, $n$ die Zählrate, $\epsilon = 0.04$ ist der konstante Detektoreffizienz nach Praktikumsskript und $r = 0.7$cm den Radius des Zählrohres.
+Um den Zerfall in zwei Photonen zu berücksichtigen wurde ebenfalls ein Faktor $1/2$ hinzugefügt. 
+Diese, sowie alle weiteren Ergebnisse dieser Aufgabe sind in \ctab{Erg_A3} eingetragen.
+Die endliche Länge des Zählrohrs bedingt, dass die Detektoreffizienz auf Teilchen bezogen ist, welche die volle Zählrohrlänge durchlaufen. Ohne entsprechende Korrektur resultiert daraus eine Überschätzung des abgedeckten Raumwinkels und folglich eine zu geringe Bestimmung der Präparataktivität.
+Innerhalb der Messdaten zeigt sich ferner, dass die Abweichungen von den Erwartungswerten bei kleineren Abständen ausgeprägter sind. Dies erklärt sich aus der getroffenen Näherung, wonach der Abstand zwischen Zählrohr und Probe wesentlich größer sein soll als der Zählrohrradius -- eine Annahme, deren Gültigkeit mit wachsendem Abstand zunimmt.
+
+Die erste Korrektur berücksichtigt die Länge des Zählrohres $l = 4$cm:
+\eq{A1}{
+    A_1 = \frac{n \left(2 d + l\right)^{2}}{2 \epsilon r^{2}} \, , \qquad
+    \Delta A_1 = A_1 \cdot
+            \sqrt{\frac{16 \Delta d^{2}}{\left(2 d + l\right)^{2}} + \frac{\Delta n^{2}}{n^{2}}} \, .
+}
+Zusätzlich soll der der Korrekturfaktor via 
+\eq{korrf}{
+    k = \frac{A_1}{A_0} \, , \qquad \Delta k = k \sqrt{\left(\frac{\Delta A_1}{A_1}\right)^2 + \left(\frac{\Delta A_0}{A_0}\right)^2}
+}
+für alle Messreihen bestimmt werden. 
+Aus den Korrekturfaktoren geht hervor, dass die Korrektur der Zählrohrlänge signifikant vom Abstand zwischen Zählrohr und Präparat beeinflusst wird. Dieser Befund stellt einen zweiten Effekt dar, der zur beobachteten Abstandsabhängigkeit der unkorrigierten Aktivitäten beiträgt.
+
+Die zweite Korrektur berücksichtigt weiter die Dichte des Präperates $\rho = 7.9 \mathrm{g/cm^3}$ und die Dicke $b = 0.14\mathrm{cm}$ um die Absorption in der Präperatskapesel zu berücksichtigen. Zudem wird der Massenschwähungskoeffizient nach \ceq{masskof} genutzt. Die Formel lautet somit
+\eq{A2}{
+    A_2 = \frac{n \left(2 d + l\right)^{2}}{2 \epsilon r^{2}} e^{\zeta \rho b} \, , \qquad
+    \Delta A_2 = A_2 \cdot
+            \sqrt{\rho^{2} b^{2} \Delta \zeta^{2} + \frac{16 \Delta d^{2}}{\left(2 d + l\right)^{2}} + \frac{\Delta n^{2}}{n^{2}}} \, .
+}
+Auffällig ist, dass die Absorptionskorrektur die Abweichung der Resultate vom Erwartungswert erhöht. Dies könnte darauf hindeuten, dass die vorangegangene Längenkorrektur bereits zu groß dimensioniert war. Plausibel wird dies durch die Wahl des mittleren Raumwinkels, der auf der Position in der Zählrohramitte beruht, ohne die quadratische Skalierung der Kugeloberfläche mit dem Abstand zu berücksichtigen.
+
+Die theoretische Aktivität berechnet sich via
+\eq{A_theo}{
+    A_\text{theo} = A_\text{start} \cdot 2^{-T / t_{1/2}} \,.
+}
+Dabei beschreibt $A_\text{start} = 3700$ kBq die Aktivität bei Herstellung (Präperat SN 372), $T = 5950$ d die Tage zwischen Herstellung des Präperates (02.03.2010) und Versuchsdurchführung (16.06.2026). $t_{1/2} = 1925$ d die Halbwärtszeit von $^{60}$Co.
+Somit leigt die erwartete Aktivität bei
+\imp[5]{A_\text{theo}}{4.34192}{0}{Bq}
+Es wird keine züsätzliche Ungenauigkeit angegeben.
+
+\begin{table}[h!]
+    \centering
+    \caption{Ergebnisse zur Aufgabe: Aktivität der $\gamma$--Strahlung. $A_\text{theo} = 4.3 \cdot 10^5$ Bq. Abweichungen in $\sigma$.}
+    \label{tab:Erg_A3}
+    \begin{tabular}{C | C C C | C C C | C C}
+        d \; [\mathrm{cm}] & n \; [\mathrm{s^{-1}}] & A_0 \; [\mathrm{10^5 \; Bq}] & \text{Abw. } & A_1 \; [\mathrm{10^5 \; Bq}] & k & \text{Abw. } & A_2 \; [\mathrm{10^5 \; Bq}] & \text{Abw. }\\
+        \toprule
+         5 & 140.5 \pm 1.6 & 3.6 \pm 1.4 & 0.53 & 7.0 \pm 2.0 & 2.0  \pm 1.0  & 1.33 & 7.4 \pm 2.1 & 1.45 \\
+        10 &  40.9 \pm 1.0 & 4.2 \pm 0.8 & 0.2  & 6.0 \pm 1.0 & 1.4  \pm 0.4  & 1.65 & 6.3 \pm 1.1 & 1.87 \\
+        20 &  10.0 \pm 0.7 & 4.1 \pm 0.5 & 0.51 & 4.9 \pm 0.6 & 1.21 \pm 0.20 & 1.09 & 5.2 \pm 0.6 & 1.49 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Es zeigt sich, dass keine der Abweichung statistisch signifikant von dem theoretischen Wert abweichen. 
+Interesanterweise jedoch, läss sich der Trend beobachten, dass jede Korrektur zu einer größeren Abweichung führt. Während die unkorrigierten Werte leicht unter dem Erwartungswert liegen, führt jede Korrektur zu einer größeren Überschätzung des Wertes. 
+Darüberhinaus scheint es, als würden größere Distanzen zu genuaeren Werten führen, nur die unkorrigierte Aktivität weis hier eine kleine Anomalie auf, hier ist der Wert bei mittlerer Distanz der Akurateste.
 
 \section{Absorption der Alpha--Strahlung in Luft}
 \label{sec:A4}
