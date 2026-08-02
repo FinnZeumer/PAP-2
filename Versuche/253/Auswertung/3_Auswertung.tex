@@ -28,7 +28,7 @@ bestimmt. Dabei bezeichnet $N$ die Anzahl der Anzahl der Ereignisse.
 Die Messergebnisse sind der \cabb{plots/Absorption_beta_Aluminum} zu entnehmen.
 Darüberhinaus wurde eine Regression nach \ceq{zerfallsgesetz} der Form
 \eq{reg_expo_decay}{
-    N(d) = N_0 \cdot \exp(\mu \cdot d) - n_0^\beta
+    N(d) = N_0 \cdot \exp(- \mu \cdot d) - n_0^\beta
 }
 an die Messdaten gefittet. Die Fitparameter sind der Legende der Abbildung zu netnehmen. 
 Es wurde eine Fehlerabschätzung der Regression hinzuefügt. Diese wurde über die in Python bestimmte Ungenauigkeit des Absorptionskoeffizientenes $\mu$ bestimmt, in dem die Regression einmal mit addierten, einmal mit subdrahierten Fehler durhcgeführt wurde. Der entstandene Fehlerschlauch ist in dem Plot rot dargestellt. 
@@ -56,9 +56,70 @@ Die Ungenauigkeit wurde mit 10\% Unsicherheit geschätzt. Der Literaturwert lieg
 
 \section{Absorption von Gamma--Strahlung durch Blei}
 \label{sec:A2}
+In dieser Sektion wird die Absorption von $\gamma$--Strahlung durch Blei betrachtet. Analgo zu \csec{A1} werden die Ergebnissen in Abhänigkeit der Dicke der Absorptionsschicht betrachtet. Die Messdaten werden geplottet und mit einer Regression nach \ceq{reg_expo_decay} versehen.
+Regression, Fitparameter und Messdaten sind der \cabb{plots/Absorption_gamma_Blei} zu entnehmen.
+\img[1]{plots/Absorption_gamma_Blei}{Messdaten zur Gamma--Apsorption und Regressionsverlauf.}
+
+In dieser Sektion ist aus der Regression der Parameter
+\eq{mu_param}{
+    \mu = (0.544 \pm 0.009) \mathrm{cm^{-1}}
+}
+benötigt. Über diesen kann der Massenschwähungskoeffizient $\zeta = \mu/\rho$. Dessen Ungenauigkeit wird via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt:
+\eq{err_zeta}{
+    \Delta \zeta = \frac{\Delta \mu}{\rho} \, .
+}
+Mit der Dichte von Blei $\rho_\mathrm{Pb} = 11.34  g/cm^3$ ergibt sich ein Massenschwähungskoeffizient von
+\imp[-3]{\zeta}{4.79}{0.08}{\frac{m^2}{kg}}
+Über diesen Wert kann aus \cabb{plt1_b} die Energie der Photonen zu
+\res{E_\text{exp}^\gamma}{1.55}{0.16}{MeV}
+bestimmt werden.
+Es gibt für $^{60}\mathrm{Co}$ zwei relevante $\gamma$--Übergänge. Es werden hier beide getrennt und einmal kombineirt betrachtet.
+Dieser weicht vom Literaturwert $E_\text{lit,1}^\gamma = 1.173$MeV um $2.43\sigma$ ab und vom $E_\text{lit,2}^\gamma = 1.333$MeV um $1.4\sigma$ ab. 
+Vom \hyperref[eq:arithmetisches_mittel]{arithmetischen Mittel (\ref*{eq:arithmetisches_mittel})} der beiden Energien um $1.92\sigma$ und somit ist die Abweichung in keinem Fall signifikant. 
 
 \section{Aktivität der Gamma--Strahlung}
 \label{sec:A3}
 
 \section{Absorption der Alpha--Strahlung in Luft}
 \label{sec:A4}
+In der letzten Sektion wird die Absorbiert von Alpha--Strahlung in Luft betrachtet. Dafür wird der Luftdruck variiert und jeweils die Ereignisse pro 60 Sekunden gemessen. 
+Die \cabb{plots/Absorption_alpha_Luft} zeigt die Messergebnisse. Desweiteren wurde eine lineare Regression nummerisch bestimmt. Die Regressionswerte und Fitparameter sind ebenfalls in der Abbildung zu finden. 
+Zuletzt wurde die maximale Zählrate bestimmt und über diese die halbe Zählrate. 
+
+Die lineare Regression hat die Form
+\eq{lin_reg}{
+    N(p) = mp+b  \,,
+}
+wobei $p$ der Druck ist, $m$ die Steigung und $b$ der Abzissen--Abschnitt. Die Fitparameter wurden nummerisch bestimmt. In dieser Aufgabe wird lediglich die Steigung 
+\eq{val_steig}{
+    m = (- 0.82120 \pm 0.00008) \mathrm{hPa \, s} \, 
+}
+benötig.
+
+\img[1]{plots/Absorption_alpha_Luft}{Messdaten zur Absorption von Alpha--Strahlung in Luft mit Fitparametern und linearer Regression.}
+
+Zudem wird der Druck bei halber Zählrate benötigt. Dieser wird via
+\eq{ipsdhjbfg}{
+    p_{1/2} = \frac{N_\text{max}/2 - b}{m}\, , \qquad 
+    \Delta p_{1/2} = \sqrt{\frac{1}{m^{4}} \left(m^{2} \left(\Delta N_\text{{max}}^{2} + \Delta b^{2}\right) + \Delta m^{2} \left(N_\text{{max}} - b\right)^{2}\right)}
+}
+berechnet werden, wobei die Ungenauigkeit via \hyperref[eq:gauss_fehlfortpflanzung]{Gauß'scher Fehlerfortpflanzung (\ref*{eq:gauss_fehlfortpflanzung})} bestimmt wurde. Es ergibtsich
+\imp[4]{p_{1/2}}{3.03}{0.14}{Pa}
+
+Für die Reichweite der Alpha--Strahlung in Luft ist die Formel
+\eq{alpha_reichweit}{
+    s_1 = \frac{p \cdot s_{0}}{p_{0}} \, , \qquad
+    \Delta s_1 = s_1 \cdot \sqrt{\frac{\Delta s_{0}^{2}}{s_{0}^{2}} + \frac{\Delta p^{2}}{p^{2}}}
+}
+gegeben. Hier beschreibt $p_0 = 1013$hPa den Normaldruck und $s_0 = (4.45 \pm 0.05)$cm die Distanz zwischen Präperat und Zählrohr.
+Es ergibt sich eine Reichweite von 
+\imp[-2]{s_1}{1.33}{0.06}{m}
+Es werden zwei Korrekturen unternommen:
+\eq{korrektur_strecken}{
+    s_2 = \frac{\rho_g}{1.43 \;[\mathrm{mg/cm^2}]} \cdot 1 \; [\mathrm{cm}]\, , \quad s_3 = 0.68 \; [\mathrm{cm}] \,.
+}
+Dabei ist $\rho_g = 2.35 [\mathrm{mg/cm^2}]$ im \hyperref[ch:Protokoll]{Messprotokoll} vermerkt. Die beiden Korrekturen werden als genau angenommen. Die finale Reichweite ist die Summe aller drei strecken $s_i$:
+\res[-2]{s}{3.65}{0.06}{m}
+Es wird die Energie nach \cabb{plt1_a} für dei Alpha--Strahlung abgelesen und ergibt sich zu 
+\res{E_\text{exp}^\alpha}{5.2}{0.5}{MeV}
+Zum Literaturwert von $E_\text{lit}^\alpha = 5.48$MeV weicht dieser mit $0.44\sigma$ nicht signifikant ab. 
